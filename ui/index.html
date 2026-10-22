@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instinct: Balatro agent</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='7' height='10' rx='1.5' fill='%233987e5'/%3E%3Crect x='8' y='3' width='7' height='10' rx='1.5' fill='%23e66767'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Pixelify+Sans:wght@500;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-name">instinct</span>
+      <span id="conn" class="conn off">connecting</span>
+    </div>
+    <div class="who">
+      <span id="game"></span>
+      <span id="backend"></span>
+    </div>
+    <div class="controls">
+      <button id="btn-run" class="primary" aria-pressed="false">Run</button>
+      <button id="btn-step" title="Keyboard: s">Step</button>
+      <div id="model-wrap" class="field" role="radiogroup" aria-labelledby="model-label" hidden>
+        <span id="model-label">Model</span>
+        <span id="model-switch" class="seg"></span>
+      </div>
+      <label id="live-wrap" class="switch">
+        <input id="live" type="checkbox" role="switch">
+        <span class="switch-track" aria-hidden="true"></span>
+        <span id="live-label">Dry run: nothing is sent</span>
+      </label>
+      <label class="field">When gates fail
+        <select id="review">
+          <option value="fallback">use the heuristic pick</option>
+          <option value="model">trust the model</option>
+          <option value="pause">ask me</option>
+        </select>
+      </label>
+      <label class="field">Delay
+        <input id="delay" type="range" min="0" max="3000" step="100">
+        <span id="delay-value" class="num"></span>
+      </label>
+    </div>
+    <form id="start" class="start" hidden>
+      <label class="field">Deck
+        <select name="deck">
+          <option>RED</option><option>BLUE</option><option>YELLOW</option><option>GREEN</option><option>BLACK</option>
+          <option>MAGIC</option><option>NEBULA</option><option>GHOST</option><option>ABANDONED</option><option>CHECKERED</option>
+          <option>ZODIAC</option><option>PAINTED</option><option>ANAGLYPH</option><option>PLASMA</option><option>ERRATIC</option>
+        </select>
+      </label>
+      <label class="field">Stake
+        <select name="stake">
+          <option>WHITE</option><option>RED</option><option>GREEN</option><option>BLACK</option>
+          <option>BLUE</option><option>PURPLE</option><option>ORANGE</option><option>GOLD</option>
+        </select>
+      </label>
+      <label class="field">Seed <input name="seed" placeholder="random" size="9"></label>
+      <button class="primary" type="submit">Start run</button>
+    </form>
+    <p id="message" class="message" role="status" hidden></p>
+  </header>
+
+  <main class="layout">
+    <section class="center" aria-label="Game">
+      <div class="center-bar">
+        <button id="embed" type="button" class="primary">Embed Balatro window</button>
+        <span id="screen-source" class="screen-source"></span>
+      </div>
+      <div id="frame" class="frame">
+        <video id="live-video" autoplay muted playsinline hidden></video>
+        <div id="frame-empty" class="frame-empty">
+          <h2 id="frame-empty-title">No game window yet</h2>
+          <p id="frame-empty-text"></p>
+        </div>
+      </div>
+      <p id="caption" class="caption" aria-live="polite"></p>
+    </section>
+
+    <aside class="side" aria-label="Decision">
+      <section class="panel" id="values">
+        <h2>Values</h2>
+        <div id="values-body"></div>
+      </section>
+      <section class="panel" id="calls">
+        <h2>Calls</h2>
+        <div id="calls-body"></div>
+      </section>
+      <section class="panel reply" id="reply">
+        <h2>Reply probabilities</h2>
+        <div id="verdict" class="verdict"></div>
+        <div id="reply-bars"></div>
+        <div id="gates" class="gates"></div>
+        <p class="legend"><span class="ghost-key" aria-hidden="true"></span>Heuristic estimate for the same option</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="loop" aria-label="Agent loop">
+    <div id="pipeline" class="pipeline"></div>
+    <div class="timeline-wrap">
+      <div class="timeline-head">
+        <h2>Ticks</h2>
+        <button id="follow" type="button" hidden>Follow live</button>
+        <ul class="status-key" aria-label="Status key">
+          <li><span class="tick status-act" aria-hidden="true">✓</span>acted</li>
+          <li><span class="tick status-review" aria-hidden="true">?</span>review</li>
+          <li><span class="tick status-abstain" aria-hidden="true">∅</span>abstain</li>
+          <li><span class="tick status-auto" aria-hidden="true">•</span>automatic</li>
+          <li><span class="tick status-error" aria-hidden="true">!</span>error</li>
+        </ul>
+      </div>
+      <div id="timeline" class="timeline"></div>
+    </div>
+  </footer>
+
+  <script type="module" src="/app.ts"></script>
+</body>
+</html>

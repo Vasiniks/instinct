@@ -1,0 +1,20 @@
+{
+  "name": "instinct",
+  "private": true,
+  "type": "module",
+  "description": "Balatro agent: BlindDeck state -> System One judgments -> gated actions, with a live visualizer.",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.ts",
+    "sim": "node --disable-warning=ExperimentalWarning src/server.ts --sim",
+    "mock": "node --disable-warning=ExperimentalWarning src/server.ts --sim --mock-model",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/*.test.ts\"",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

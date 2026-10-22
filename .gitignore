@@ -1,0 +1,15 @@
+node_modules/
+runs/
+models/
+__pycache__/
+.env
+.DS_Store
+
+# Upstream StartLux clone (its own git repo, ~5 GB); reference only.
+StartLux-Decision/
+
+# Tool state
+.playwright-mcp/
+.impeccable/
+.claude/.cc-writes/
+.claude/settings.local.json
