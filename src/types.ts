@@ -127,6 +127,8 @@ export interface GameState {
   won?: boolean;
   victory_overlay?: boolean;
   used_vouchers?: Record<string, string>;
+  /** Bosses drawn this run, key -> times (patched mod; an empty table may arrive as []). */
+  bosses_used?: Record<string, number> | unknown[];
   hands?: Record<string, HandInfo>;
   round?: Round;
   blinds?: { small?: Blind; big?: Blind; boss?: Blind };
@@ -134,6 +136,8 @@ export interface GameState {
   consumables?: Area;
   hand?: Area;
   cards?: Area;
+  /** The whole deck, wherever its cards are, sorted (patched mod). */
+  full_deck?: Area;
   pack?: Area;
   shop?: Area;
   vouchers?: Area;

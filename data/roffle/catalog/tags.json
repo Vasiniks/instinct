@@ -1,0 +1,146 @@
+[
+ {
+  "key": "tag_uncommon",
+  "name": "Uncommon Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_uncommon.png"
+ },
+ {
+  "key": "tag_rare",
+  "name": "Rare Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_rare.png"
+ },
+ {
+  "key": "tag_negative",
+  "name": "Negative Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_negative.png"
+ },
+ {
+  "key": "tag_foil",
+  "name": "Foil Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_foil.png"
+ },
+ {
+  "key": "tag_holo",
+  "name": "Holographic Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_holo.png"
+ },
+ {
+  "key": "tag_polychrome",
+  "name": "Polychrome Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_polychrome.png"
+ },
+ {
+  "key": "tag_investment",
+  "name": "Investment Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_investment.png"
+ },
+ {
+  "key": "tag_voucher",
+  "name": "Voucher Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_voucher.png"
+ },
+ {
+  "key": "tag_boss",
+  "name": "Boss Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_boss.png"
+ },
+ {
+  "key": "tag_standard",
+  "name": "Standard Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_standard.png"
+ },
+ {
+  "key": "tag_charm",
+  "name": "Charm Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_charm.png"
+ },
+ {
+  "key": "tag_meteor",
+  "name": "Meteor Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_meteor.png"
+ },
+ {
+  "key": "tag_buffoon",
+  "name": "Buffoon Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_buffoon.png"
+ },
+ {
+  "key": "tag_handy",
+  "name": "Handy Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_handy.png"
+ },
+ {
+  "key": "tag_garbage",
+  "name": "Garbage Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_garbage.png"
+ },
+ {
+  "key": "tag_ethereal",
+  "name": "Ethereal Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_ethereal.png"
+ },
+ {
+  "key": "tag_coupon",
+  "name": "Coupon Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_coupon.png"
+ },
+ {
+  "key": "tag_double",
+  "name": "Double Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_double.png"
+ },
+ {
+  "key": "tag_juggle",
+  "name": "Juggle Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_juggle.png"
+ },
+ {
+  "key": "tag_d_six",
+  "name": "D6 Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_d_six.png"
+ },
+ {
+  "key": "tag_top_up",
+  "name": "Top-up Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_top_up.png"
+ },
+ {
+  "key": "tag_skip",
+  "name": "Skip Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_skip.png"
+ },
+ {
+  "key": "tag_orbital",
+  "name": "Orbital Tag",
+  "min_ante": 2,
+  "sprite": "sprites/tags/tag_orbital.png"
+ },
+ {
+  "key": "tag_economy",
+  "name": "Economy Tag",
+  "min_ante": null,
+  "sprite": "sprites/tags/tag_economy.png"
+ }
+]

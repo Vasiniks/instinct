@@ -1,0 +1,10125 @@
+{
+ "video_id": "SkwRy_N5D9A",
+ "title": "Loyalty Card was ACTUALLY GOOD???",
+ "step_seconds": 2.0,
+ "analysed": [
+  0,
+  2220
+ ],
+ "joker_lineups": [
+  {
+   "t": 0.0,
+   "jokers": []
+  },
+  {
+   "t": 40.0,
+   "jokers": [
+    {
+     "key": "j_gros_michel",
+     "name": "Gros Michel",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 78.0,
+   "jokers": [
+    {
+     "key": "j_gros_michel",
+     "name": "Gros Michel",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    }
+   ]
+  },
+  {
+   "t": 156.0,
+   "jokers": [
+    {
+     "key": "j_gros_michel",
+     "name": "Gros Michel",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    }
+   ]
+  },
+  {
+   "t": 220.0,
+   "jokers": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    }
+   ]
+  },
+  {
+   "t": 234.0,
+   "jokers": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_blackboard",
+     "name": "Blackboard",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 404.0,
+   "jokers": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_blackboard",
+     "name": "Blackboard",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 410.0,
+   "jokers": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_blackboard",
+     "name": "Blackboard",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 454.0,
+   "jokers": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_blackboard",
+     "name": "Blackboard",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    }
+   ]
+  },
+  {
+   "t": 462.0,
+   "jokers": [
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_blackboard",
+     "name": "Blackboard",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 470.0,
+   "jokers": [
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Polychrome"
+    },
+    {
+     "key": "j_blackboard",
+     "name": "Blackboard",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 510.0,
+   "jokers": [
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 538.0,
+   "jokers": [
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_to_the_moon",
+     "name": "To the Moon"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 690.0,
+   "jokers": [
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_chaos",
+     "name": "Chaos the Clown"
+    }
+   ]
+  },
+  {
+   "t": 710.0,
+   "jokers": [
+    {
+     "key": "j_tribe",
+     "name": "The Tribe",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_chaos",
+     "name": "Chaos the Clown"
+    }
+   ]
+  },
+  {
+   "t": 722.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 842.0,
+   "jokers": [
+    {
+     "key": "j_todo_list",
+     "name": "To Do List",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 864.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 894.0,
+   "jokers": [
+    {
+     "key": "j_space",
+     "name": "Space Joker"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 954.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1198.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_juggler",
+     "name": "Juggler"
+    }
+   ]
+  },
+  {
+   "t": 1232.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1646.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_misprint",
+     "name": "Misprint",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_mail",
+     "name": "Mail-In Rebate"
+    }
+   ]
+  },
+  {
+   "t": 1652.0,
+   "jokers": [
+    {
+     "key": "j_mail",
+     "name": "Mail-In Rebate"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_misprint",
+     "name": "Misprint",
+     "stickers": [
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1664.0,
+   "jokers": [
+    {
+     "key": "j_mail",
+     "name": "Mail-In Rebate"
+    },
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1686.0,
+   "jokers": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Foil"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1690.0,
+   "jokers": [
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1736.0,
+   "jokers": [
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_sixth_sense",
+     "name": "Sixth Sense"
+    }
+   ]
+  },
+  {
+   "t": 1744.0,
+   "jokers": [
+    {
+     "key": "j_sixth_sense",
+     "name": "Sixth Sense"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1890.0,
+   "jokers": [
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_sixth_sense",
+     "name": "Sixth Sense"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1978.0,
+   "jokers": [
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2138.0,
+   "jokers": [
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_space",
+     "name": "Space Joker"
+    },
+    {
+     "key": "j_reserved_parking",
+     "name": "Reserved Parking"
+    }
+   ]
+  },
+  {
+   "t": 2150.0,
+   "jokers": [
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  }
+ ],
+ "consumable_lineups": [
+  {
+   "t": 0.0,
+   "consumables": []
+  },
+  {
+   "t": 8.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 156.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 160.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 180.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 296.0,
+   "consumables": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    }
+   ]
+  },
+  {
+   "t": 314.0,
+   "consumables": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "c_ceres",
+     "name": "Ceres"
+    }
+   ]
+  },
+  {
+   "t": 326.0,
+   "consumables": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    }
+   ]
+  },
+  {
+   "t": 334.0,
+   "consumables": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    }
+   ]
+  },
+  {
+   "t": 394.0,
+   "consumables": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    }
+   ]
+  },
+  {
+   "t": 648.0,
+   "consumables": []
+  },
+  {
+   "t": 668.0,
+   "consumables": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    }
+   ]
+  },
+  {
+   "t": 728.0,
+   "consumables": [
+    {
+     "key": "c_medium",
+     "name": "Medium",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    }
+   ]
+  },
+  {
+   "t": 734.0,
+   "consumables": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    }
+   ]
+  },
+  {
+   "t": 738.0,
+   "consumables": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    }
+   ]
+  },
+  {
+   "t": 756.0,
+   "consumables": [
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    }
+   ]
+  },
+  {
+   "t": 772.0,
+   "consumables": []
+  },
+  {
+   "t": 812.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 868.0,
+   "consumables": []
+  },
+  {
+   "t": 874.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 882.0,
+   "consumables": []
+  },
+  {
+   "t": 928.0,
+   "consumables": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    }
+   ]
+  },
+  {
+   "t": 944.0,
+   "consumables": []
+  },
+  {
+   "t": 960.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 968.0,
+   "consumables": []
+  },
+  {
+   "t": 1002.0,
+   "consumables": [
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
+  },
+  {
+   "t": 1052.0,
+   "consumables": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    }
+   ]
+  },
+  {
+   "t": 1056.0,
+   "consumables": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    }
+   ]
+  },
+  {
+   "t": 1102.0,
+   "consumables": [
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    }
+   ]
+  },
+  {
+   "t": 1116.0,
+   "consumables": []
+  },
+  {
+   "t": 1298.0,
+   "consumables": [
+    {
+     "key": "c_trance",
+     "name": "Trance"
+    }
+   ]
+  },
+  {
+   "t": 1314.0,
+   "consumables": []
+  },
+  {
+   "t": 1396.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 1404.0,
+   "consumables": []
+  },
+  {
+   "t": 1416.0,
+   "consumables": [
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 1446.0,
+   "consumables": []
+  },
+  {
+   "t": 1516.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 1524.0,
+   "consumables": []
+  },
+  {
+   "t": 1544.0,
+   "consumables": [
+    {
+     "key": "c_trance",
+     "name": "Trance"
+    }
+   ]
+  },
+  {
+   "t": 1566.0,
+   "consumables": []
+  },
+  {
+   "t": 1600.0,
+   "consumables": [
+    {
+     "key": "c_cryptid",
+     "name": "Cryptid"
+    }
+   ]
+  },
+  {
+   "t": 1608.0,
+   "consumables": []
+  },
+  {
+   "t": 1634.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1646.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_deja_vu",
+     "name": "Deja Vu",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1658.0,
+   "consumables": [
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_cryptid",
+     "name": "Cryptid"
+    }
+   ]
+  },
+  {
+   "t": 1690.0,
+   "consumables": [
+    {
+     "key": "c_cryptid",
+     "name": "Cryptid",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1742.0,
+   "consumables": [
+    {
+     "key": "c_cryptid",
+     "name": "Cryptid",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    }
+   ]
+  },
+  {
+   "t": 1754.0,
+   "consumables": []
+  },
+  {
+   "t": 1782.0,
+   "consumables": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    }
+   ]
+  },
+  {
+   "t": 1796.0,
+   "consumables": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    }
+   ]
+  },
+  {
+   "t": 1808.0,
+   "consumables": [
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    }
+   ]
+  },
+  {
+   "t": 1816.0,
+   "consumables": []
+  },
+  {
+   "t": 1822.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 1830.0,
+   "consumables": []
+  },
+  {
+   "t": 1834.0,
+   "consumables": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 1870.0,
+   "consumables": []
+  },
+  {
+   "t": 1898.0,
+   "consumables": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 1908.0,
+   "consumables": []
+  },
+  {
+   "t": 2028.0,
+   "consumables": [
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 2062.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 2070.0,
+   "consumables": []
+  },
+  {
+   "t": 2114.0,
+   "consumables": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 2126.0,
+   "consumables": []
+  }
+ ],
+ "screens": [
+  {
+   "t": 0.0,
+   "screen": "other"
+  },
+  {
+   "t": 8.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 10.0,
+   "screen": "hand"
+  },
+  {
+   "t": 32.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 34.0,
+   "screen": "shop"
+  },
+  {
+   "t": 38.0,
+   "screen": "pack"
+  },
+  {
+   "t": 40.0,
+   "screen": "shop"
+  },
+  {
+   "t": 42.0,
+   "screen": "other"
+  },
+  {
+   "t": 44.0,
+   "screen": "hand"
+  },
+  {
+   "t": 60.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 62.0,
+   "screen": "other"
+  },
+  {
+   "t": 64.0,
+   "screen": "shop"
+  },
+  {
+   "t": 66.0,
+   "screen": "pack"
+  },
+  {
+   "t": 74.0,
+   "screen": "shop"
+  },
+  {
+   "t": 82.0,
+   "screen": "pack"
+  },
+  {
+   "t": 84.0,
+   "screen": "other"
+  },
+  {
+   "t": 86.0,
+   "screen": "hand"
+  },
+  {
+   "t": 100.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 102.0,
+   "screen": "shop"
+  },
+  {
+   "t": 106.0,
+   "screen": "pack"
+  },
+  {
+   "t": 114.0,
+   "screen": "shop"
+  },
+  {
+   "t": 120.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 122.0,
+   "screen": "hand"
+  },
+  {
+   "t": 134.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 136.0,
+   "screen": "other"
+  },
+  {
+   "t": 138.0,
+   "screen": "shop"
+  },
+  {
+   "t": 140.0,
+   "screen": "pack"
+  },
+  {
+   "t": 144.0,
+   "screen": "shop"
+  },
+  {
+   "t": 146.0,
+   "screen": "pack"
+  },
+  {
+   "t": 150.0,
+   "screen": "shop"
+  },
+  {
+   "t": 158.0,
+   "screen": "other"
+  },
+  {
+   "t": 160.0,
+   "screen": "hand"
+  },
+  {
+   "t": 188.0,
+   "screen": "other"
+  },
+  {
+   "t": 192.0,
+   "screen": "shop"
+  },
+  {
+   "t": 194.0,
+   "screen": "pack"
+  },
+  {
+   "t": 200.0,
+   "screen": "shop"
+  },
+  {
+   "t": 202.0,
+   "screen": "pack"
+  },
+  {
+   "t": 204.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 206.0,
+   "screen": "hand"
+  },
+  {
+   "t": 220.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 224.0,
+   "screen": "shop"
+  },
+  {
+   "t": 226.0,
+   "screen": "pack"
+  },
+  {
+   "t": 232.0,
+   "screen": "shop"
+  },
+  {
+   "t": 236.0,
+   "screen": "other"
+  },
+  {
+   "t": 238.0,
+   "screen": "hand"
+  },
+  {
+   "t": 254.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 258.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 260.0,
+   "screen": "other"
+  },
+  {
+   "t": 262.0,
+   "screen": "shop"
+  },
+  {
+   "t": 264.0,
+   "screen": "pack"
+  },
+  {
+   "t": 268.0,
+   "screen": "shop"
+  },
+  {
+   "t": 270.0,
+   "screen": "pack"
+  },
+  {
+   "t": 274.0,
+   "screen": "shop"
+  },
+  {
+   "t": 276.0,
+   "screen": "other"
+  },
+  {
+   "t": 278.0,
+   "screen": "shop"
+  },
+  {
+   "t": 286.0,
+   "screen": "hand"
+  },
+  {
+   "t": 314.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 318.0,
+   "screen": "shop"
+  },
+  {
+   "t": 320.0,
+   "screen": "pack"
+  },
+  {
+   "t": 324.0,
+   "screen": "shop"
+  },
+  {
+   "t": 326.0,
+   "screen": "pack"
+  },
+  {
+   "t": 330.0,
+   "screen": "shop"
+  },
+  {
+   "t": 334.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 336.0,
+   "screen": "hand"
+  },
+  {
+   "t": 350.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 352.0,
+   "screen": "hand"
+  },
+  {
+   "t": 374.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 378.0,
+   "screen": "pack"
+  },
+  {
+   "t": 382.0,
+   "screen": "shop"
+  },
+  {
+   "t": 384.0,
+   "screen": "pack"
+  },
+  {
+   "t": 394.0,
+   "screen": "shop"
+  },
+  {
+   "t": 398.0,
+   "screen": "pack"
+  },
+  {
+   "t": 402.0,
+   "screen": "shop"
+  },
+  {
+   "t": 406.0,
+   "screen": "other"
+  },
+  {
+   "t": 408.0,
+   "screen": "hand"
+  },
+  {
+   "t": 440.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 444.0,
+   "screen": "shop"
+  },
+  {
+   "t": 446.0,
+   "screen": "pack"
+  },
+  {
+   "t": 450.0,
+   "screen": "shop"
+  },
+  {
+   "t": 452.0,
+   "screen": "pack"
+  },
+  {
+   "t": 454.0,
+   "screen": "other"
+  },
+  {
+   "t": 456.0,
+   "screen": "shop"
+  },
+  {
+   "t": 458.0,
+   "screen": "other"
+  },
+  {
+   "t": 460.0,
+   "screen": "shop"
+  },
+  {
+   "t": 472.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 474.0,
+   "screen": "hand"
+  },
+  {
+   "t": 504.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 506.0,
+   "screen": "shop"
+  },
+  {
+   "t": 508.0,
+   "screen": "other"
+  },
+  {
+   "t": 510.0,
+   "screen": "shop"
+  },
+  {
+   "t": 516.0,
+   "screen": "pack"
+  },
+  {
+   "t": 520.0,
+   "screen": "shop"
+  },
+  {
+   "t": 522.0,
+   "screen": "pack"
+  },
+  {
+   "t": 530.0,
+   "screen": "shop"
+  },
+  {
+   "t": 534.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 536.0,
+   "screen": "hand"
+  },
+  {
+   "t": 566.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 568.0,
+   "screen": "other"
+  },
+  {
+   "t": 570.0,
+   "screen": "shop"
+  },
+  {
+   "t": 572.0,
+   "screen": "pack"
+  },
+  {
+   "t": 576.0,
+   "screen": "shop"
+  },
+  {
+   "t": 578.0,
+   "screen": "pack"
+  },
+  {
+   "t": 580.0,
+   "screen": "shop"
+  },
+  {
+   "t": 594.0,
+   "screen": "hand"
+  },
+  {
+   "t": 660.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 664.0,
+   "screen": "other"
+  },
+  {
+   "t": 666.0,
+   "screen": "shop"
+  },
+  {
+   "t": 668.0,
+   "screen": "pack"
+  },
+  {
+   "t": 672.0,
+   "screen": "shop"
+  },
+  {
+   "t": 674.0,
+   "screen": "pack"
+  },
+  {
+   "t": 678.0,
+   "screen": "shop"
+  },
+  {
+   "t": 690.0,
+   "screen": "other"
+  },
+  {
+   "t": 692.0,
+   "screen": "shop"
+  },
+  {
+   "t": 706.0,
+   "screen": "pack"
+  },
+  {
+   "t": 708.0,
+   "screen": "shop"
+  },
+  {
+   "t": 728.0,
+   "screen": "other"
+  },
+  {
+   "t": 730.0,
+   "screen": "hand"
+  },
+  {
+   "t": 806.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 808.0,
+   "screen": "shop"
+  },
+  {
+   "t": 820.0,
+   "screen": "other"
+  },
+  {
+   "t": 822.0,
+   "screen": "hand"
+  },
+  {
+   "t": 856.0,
+   "screen": "other"
+  },
+  {
+   "t": 858.0,
+   "screen": "hand"
+  },
+  {
+   "t": 878.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 880.0,
+   "screen": "other"
+  },
+  {
+   "t": 884.0,
+   "screen": "shop"
+  },
+  {
+   "t": 904.0,
+   "screen": "pack"
+  },
+  {
+   "t": 906.0,
+   "screen": "other"
+  },
+  {
+   "t": 908.0,
+   "screen": "hand"
+  },
+  {
+   "t": 962.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 966.0,
+   "screen": "other"
+  },
+  {
+   "t": 970.0,
+   "screen": "shop"
+  },
+  {
+   "t": 972.0,
+   "screen": "pack"
+  },
+  {
+   "t": 978.0,
+   "screen": "shop"
+  },
+  {
+   "t": 984.0,
+   "screen": "pack"
+  },
+  {
+   "t": 986.0,
+   "screen": "other"
+  },
+  {
+   "t": 992.0,
+   "screen": "pack"
+  },
+  {
+   "t": 994.0,
+   "screen": "other"
+  },
+  {
+   "t": 998.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1002.0,
+   "screen": "other"
+  },
+  {
+   "t": 1004.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1006.0,
+   "screen": "other"
+  },
+  {
+   "t": 1008.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1014.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1028.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1030.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1074.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1076.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1080.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1084.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1090.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1096.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1098.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1124.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1126.0,
+   "screen": "other"
+  },
+  {
+   "t": 1128.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1130.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1132.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1136.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1138.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1140.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1142.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1144.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1188.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1190.0,
+   "screen": "other"
+  },
+  {
+   "t": 1194.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1196.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1198.0,
+   "screen": "other"
+  },
+  {
+   "t": 1202.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1204.0,
+   "screen": "other"
+  },
+  {
+   "t": 1208.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1212.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1216.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1218.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1242.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1244.0,
+   "screen": "other"
+  },
+  {
+   "t": 1248.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1250.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1254.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1256.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1260.0,
+   "screen": "other"
+  },
+  {
+   "t": 1262.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1292.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1294.0,
+   "screen": "other"
+  },
+  {
+   "t": 1298.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1300.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1304.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1308.0,
+   "screen": "other"
+  },
+  {
+   "t": 1310.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1346.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1348.0,
+   "screen": "other"
+  },
+  {
+   "t": 1352.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1354.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1358.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1360.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1364.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1366.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1368.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1400.0,
+   "screen": "other"
+  },
+  {
+   "t": 1402.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1404.0,
+   "screen": "other"
+  },
+  {
+   "t": 1406.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1408.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1410.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1442.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1444.0,
+   "screen": "other"
+  },
+  {
+   "t": 1448.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1456.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1464.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1466.0,
+   "screen": "other"
+  },
+  {
+   "t": 1468.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1488.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1492.0,
+   "screen": "other"
+  },
+  {
+   "t": 1494.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1496.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1500.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1502.0,
+   "screen": "other"
+  },
+  {
+   "t": 1504.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1506.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1520.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1522.0,
+   "screen": "other"
+  },
+  {
+   "t": 1526.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1530.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1536.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1544.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1574.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1576.0,
+   "screen": "other"
+  },
+  {
+   "t": 1580.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1582.0,
+   "screen": "other"
+  },
+  {
+   "t": 1584.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1590.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1602.0,
+   "screen": "other"
+  },
+  {
+   "t": 1604.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1624.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1626.0,
+   "screen": "other"
+  },
+  {
+   "t": 1632.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1636.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1638.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1648.0,
+   "screen": "other"
+  },
+  {
+   "t": 1650.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1660.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1662.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1708.0,
+   "screen": "other"
+  },
+  {
+   "t": 1710.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1714.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1718.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1730.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1734.0,
+   "screen": "other"
+  },
+  {
+   "t": 1736.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1744.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1746.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1748.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1750.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1772.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1782.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1784.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1790.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1794.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1796.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1800.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1802.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1822.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1834.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1836.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1850.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1856.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1858.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1876.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1886.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1892.0,
+   "screen": "other"
+  },
+  {
+   "t": 1894.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1900.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1908.0,
+   "screen": "other"
+  },
+  {
+   "t": 1914.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1918.0,
+   "screen": "other"
+  },
+  {
+   "t": 1922.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1924.0,
+   "screen": "pack"
+  },
+  {
+   "t": 1928.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 1930.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1952.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1954.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1956.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1968.0,
+   "screen": "shop"
+  },
+  {
+   "t": 1970.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 1972.0,
+   "screen": "hand"
+  },
+  {
+   "t": 1990.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 2000.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2002.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2020.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2022.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2026.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2028.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 2030.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 2032.0,
+   "screen": "hand"
+  },
+  {
+   "t": 2054.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 2056.0,
+   "screen": "hand"
+  },
+  {
+   "t": 2058.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 2060.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2062.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2064.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2070.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2072.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 2074.0,
+   "screen": "hand"
+  },
+  {
+   "t": 2080.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 2082.0,
+   "screen": "hand"
+  },
+  {
+   "t": 2114.0,
+   "screen": "cash_out"
+  },
+  {
+   "t": 2118.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2122.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2124.0,
+   "screen": "shop"
+  },
+  {
+   "t": 2126.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2128.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 2132.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2136.0,
+   "screen": "other"
+  },
+  {
+   "t": 2138.0,
+   "screen": "pack"
+  },
+  {
+   "t": 2148.0,
+   "screen": "blind_select"
+  },
+  {
+   "t": 2152.0,
+   "screen": "hand"
+  },
+  {
+   "t": 2200.0,
+   "screen": "other"
+  }
+ ],
+ "hud": [
+  {
+   "t": 8.0,
+   "money": 4,
+   "ante": 1,
+   "round": null
+  },
+  {
+   "t": 12.0,
+   "money": 4,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 16.0,
+   "money": 4,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 20.0,
+   "money": 4,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 24.0,
+   "money": 4,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 28.0,
+   "money": 4,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 32.0,
+   "money": 4,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 36.0,
+   "money": 10,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 40.0,
+   "money": 6,
+   "ante": 1,
+   "round": 1
+  },
+  {
+   "t": 44.0,
+   "money": 6,
+   "ante": 1,
+   "round": 2
+  },
+  {
+   "t": 48.0,
+   "money": 6,
+   "ante": 1,
+   "round": 2
+  },
+  {
+   "t": 52.0,
+   "money": 6,
+   "ante": 1,
+   "round": 2
+  },
+  {
+   "t": 56.0,
+   "money": 6,
+   "ante": 1,
+   "round": 2
+  },
+  {
+   "t": 60.0,
+   "money": 6,
+   "ante": 2,
+   "round": 2
+  },
+  {
+   "t": 64.0,
+   "money": 40,
+   "ante": 2,
+   "round": 2
+  },
+  {
+   "t": 74.0,
+   "money": 36,
+   "ante": 2,
+   "round": 2
+  },
+  {
+   "t": 78.0,
+   "money": 33,
+   "ante": 2,
+   "round": 2
+  },
+  {
+   "t": 86.0,
+   "money": 29,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 90.0,
+   "money": 29,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 94.0,
+   "money": 29,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 98.0,
+   "money": 29,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 102.0,
+   "money": 37,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 114.0,
+   "money": 31,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 118.0,
+   "money": 31,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 122.0,
+   "money": 31,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 126.0,
+   "money": 31,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 130.0,
+   "money": 34,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 134.0,
+   "money": 34,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 138.0,
+   "money": 46,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 144.0,
+   "money": 362,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 150.0,
+   "money": 58,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 154.0,
+   "money": 43,
+   "ante": 2,
+   "round": null
+  },
+  {
+   "t": 160.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 164.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 168.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 172.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 176.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 180.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 184.0,
+   "money": 31,
+   "ante": 2,
+   "round": 5
+  },
+  {
+   "t": 192.0,
+   "money": null,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 200.0,
+   "money": null,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 204.0,
+   "money": 34,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 208.0,
+   "money": 34,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 212.0,
+   "money": 37,
+   "ante": 3,
+   "round": 6
+  },
+  {
+   "t": 216.0,
+   "money": 37,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 220.0,
+   "money": 37,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 224.0,
+   "money": 45,
+   "ante": 3,
+   "round": 6
+  },
+  {
+   "t": 232.0,
+   "money": null,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 238.0,
+   "money": 30,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 242.0,
+   "money": 30,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 246.0,
+   "money": 30,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 250.0,
+   "money": 30,
+   "ante": 3,
+   "round": 7
+  },
+  {
+   "t": 254.0,
+   "money": 30,
+   "ante": 3,
+   "round": 7
+  },
+  {
+   "t": 258.0,
+   "money": 33,
+   "ante": 3,
+   "round": 7
+  },
+  {
+   "t": 262.0,
+   "money": 45,
+   "ante": 3,
+   "round": 7
+  },
+  {
+   "t": 268.0,
+   "money": 49,
+   "ante": 3,
+   "round": 7
+  },
+  {
+   "t": 274.0,
+   "money": 33,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 278.0,
+   "money": 26,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 282.0,
+   "money": 26,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 286.0,
+   "money": 26,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 290.0,
+   "money": 26,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 294.0,
+   "money": 30,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 298.0,
+   "money": 30,
+   "ante": 3,
+   "round": 5
+  },
+  {
+   "t": 302.0,
+   "money": 30,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 306.0,
+   "money": 30,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 310.0,
+   "money": 30,
+   "ante": 3,
+   "round": null
+  },
+  {
+   "t": 314.0,
+   "money": 30,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 318.0,
+   "money": 44,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 324.0,
+   "money": 60,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 330.0,
+   "money": 54,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 334.0,
+   "money": null,
+   "ante": null,
+   "round": 5
+  },
+  {
+   "t": 338.0,
+   "money": 45,
+   "ante": null,
+   "round": 8
+  },
+  {
+   "t": 342.0,
+   "money": 45,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 346.0,
+   "money": 45,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 350.0,
+   "money": 45,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 354.0,
+   "money": 45,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 358.0,
+   "money": 45,
+   "ante": null,
+   "round": 5
+  },
+  {
+   "t": 362.0,
+   "money": 45,
+   "ante": null,
+   "round": 5
+  },
+  {
+   "t": 366.0,
+   "money": 46,
+   "ante": null,
+   "round": 8
+  },
+  {
+   "t": 370.0,
+   "money": 48,
+   "ante": null,
+   "round": 8
+  },
+  {
+   "t": 374.0,
+   "money": 51,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 382.0,
+   "money": 63,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 394.0,
+   "money": 60,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 402.0,
+   "money": 63,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 408.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 412.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 416.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 420.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 424.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 428.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 432.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 436.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 440.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 444.0,
+   "money": 1,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 450.0,
+   "money": 65,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 456.0,
+   "money": 54,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 460.0,
+   "money": 48,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 464.0,
+   "money": 48,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 468.0,
+   "money": 46,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 472.0,
+   "money": 41,
+   "ante": null,
+   "round": 10
+  },
+  {
+   "t": 476.0,
+   "money": 41,
+   "ante": null,
+   "round": 11
+  },
+  {
+   "t": 480.0,
+   "money": 41,
+   "ante": null,
+   "round": 11
+  },
+  {
+   "t": 484.0,
+   "money": 41,
+   "ante": null,
+   "round": 11
+  },
+  {
+   "t": 488.0,
+   "money": 44,
+   "ante": null,
+   "round": 1
+  },
+  {
+   "t": 492.0,
+   "money": 44,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 496.0,
+   "money": 44,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 500.0,
+   "money": 44,
+   "ante": null,
+   "round": 11
+  },
+  {
+   "t": 504.0,
+   "money": 44,
+   "ante": null,
+   "round": 11
+  },
+  {
+   "t": 510.0,
+   "money": null,
+   "ante": 5,
+   "round": 11
+  },
+  {
+   "t": 514.0,
+   "money": 53,
+   "ante": 5,
+   "round": 11
+  },
+  {
+   "t": 520.0,
+   "money": 43,
+   "ante": 5,
+   "round": 11
+  },
+  {
+   "t": 530.0,
+   "money": 43,
+   "ante": 5,
+   "round": 11
+  },
+  {
+   "t": 534.0,
+   "money": 36,
+   "ante": 5,
+   "round": 11
+  },
+  {
+   "t": 538.0,
+   "money": 36,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 542.0,
+   "money": 56,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 546.0,
+   "money": 59,
+   "ante": null,
+   "round": 12
+  },
+  {
+   "t": 550.0,
+   "money": 59,
+   "ante": null,
+   "round": 12
+  },
+  {
+   "t": 554.0,
+   "money": 59,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 558.0,
+   "money": 59,
+   "ante": null,
+   "round": 12
+  },
+  {
+   "t": 562.0,
+   "money": 59,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 566.0,
+   "money": 59,
+   "ante": null,
+   "round": 12
+  },
+  {
+   "t": 570.0,
+   "money": 82,
+   "ante": null,
+   "round": 12
+  },
+  {
+   "t": 576.0,
+   "money": null,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 580.0,
+   "money": 74,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 584.0,
+   "money": 520,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 588.0,
+   "money": null,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 592.0,
+   "money": 43,
+   "ante": 5,
+   "round": 12
+  },
+  {
+   "t": 596.0,
+   "money": 43,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 600.0,
+   "money": 69,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 604.0,
+   "money": 69,
+   "ante": null,
+   "round": 13
+  },
+  {
+   "t": 608.0,
+   "money": 63,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 612.0,
+   "money": 63,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 616.0,
+   "money": 2,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 620.0,
+   "money": 2,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 624.0,
+   "money": 2,
+   "ante": null,
+   "round": 13
+  },
+  {
+   "t": 628.0,
+   "money": 2,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 632.0,
+   "money": 2,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 636.0,
+   "money": 2,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 640.0,
+   "money": 2,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 644.0,
+   "money": 2,
+   "ante": null,
+   "round": 13
+  },
+  {
+   "t": 648.0,
+   "money": 73,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 652.0,
+   "money": 73,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 656.0,
+   "money": 73,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 660.0,
+   "money": 73,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 666.0,
+   "money": 37,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 672.0,
+   "money": 106,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 678.0,
+   "money": null,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 682.0,
+   "money": 111,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 686.0,
+   "money": 111,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 692.0,
+   "money": null,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 696.0,
+   "money": 101,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 700.0,
+   "money": 86,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 704.0,
+   "money": null,
+   "ante": null,
+   "round": 13
+  },
+  {
+   "t": 708.0,
+   "money": 86,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 712.0,
+   "money": 89,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 716.0,
+   "money": null,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 720.0,
+   "money": 69,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 724.0,
+   "money": null,
+   "ante": 5,
+   "round": 13
+  },
+  {
+   "t": 730.0,
+   "money": 37,
+   "ante": null,
+   "round": 4
+  },
+  {
+   "t": 734.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 738.0,
+   "money": 37,
+   "ante": null,
+   "round": 1
+  },
+  {
+   "t": 742.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 746.0,
+   "money": 37,
+   "ante": null,
+   "round": 1
+  },
+  {
+   "t": 750.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 754.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 758.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 762.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 766.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 770.0,
+   "money": 37,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 774.0,
+   "money": 37,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 778.0,
+   "money": 40,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 782.0,
+   "money": 40,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 786.0,
+   "money": 40,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 790.0,
+   "money": 40,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 794.0,
+   "money": 40,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 798.0,
+   "money": 40,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 802.0,
+   "money": 53,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 806.0,
+   "money": 43,
+   "ante": null,
+   "round": 14
+  },
+  {
+   "t": 810.0,
+   "money": 56,
+   "ante": null,
+   "round": 14
+  },
+  {
+   "t": 814.0,
+   "money": -33,
+   "ante": 6,
+   "round": 14
+  },
+  {
+   "t": 818.0,
+   "money": 30,
+   "ante": 6,
+   "round": 14
+  },
+  {
+   "t": 822.0,
+   "money": 30,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 826.0,
+   "money": 34,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 830.0,
+   "money": null,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 834.0,
+   "money": 42,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 838.0,
+   "money": 42,
+   "ante": 5,
+   "round": 15
+  },
+  {
+   "t": 842.0,
+   "money": 46,
+   "ante": 5,
+   "round": 15
+  },
+  {
+   "t": 846.0,
+   "money": 46,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 850.0,
+   "money": 50,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 854.0,
+   "money": 250,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 858.0,
+   "money": 59,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 862.0,
+   "money": 53,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 866.0,
+   "money": 60,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 870.0,
+   "money": 62,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 874.0,
+   "money": 62,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 878.0,
+   "money": 62,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 884.0,
+   "money": 2,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 888.0,
+   "money": 2,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 892.0,
+   "money": 67,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 896.0,
+   "money": 56,
+   "ante": 6,
+   "round": 15
+  },
+  {
+   "t": 900.0,
+   "money": 58,
+   "ante": null,
+   "round": 15
+  },
+  {
+   "t": 908.0,
+   "money": 49,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 912.0,
+   "money": 43,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 916.0,
+   "money": 49,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 920.0,
+   "money": 49,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 924.0,
+   "money": 49,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 928.0,
+   "money": 43,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 932.0,
+   "money": 49,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 936.0,
+   "money": 49,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 940.0,
+   "money": 43,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 944.0,
+   "money": 50,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 948.0,
+   "money": 50,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 952.0,
+   "money": 53,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 956.0,
+   "money": 55,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 960.0,
+   "money": 256,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 964.0,
+   "money": 58,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 970.0,
+   "money": 2,
+   "ante": 5,
+   "round": 16
+  },
+  {
+   "t": 978.0,
+   "money": 69,
+   "ante": 5,
+   "round": 16
+  },
+  {
+   "t": 982.0,
+   "money": 69,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 1014.0,
+   "money": 69,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1018.0,
+   "money": 54,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1022.0,
+   "money": 33,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1026.0,
+   "money": 24,
+   "ante": 6,
+   "round": 16
+  },
+  {
+   "t": 1030.0,
+   "money": 14,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1034.0,
+   "money": 14,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1038.0,
+   "money": 14,
+   "ante": 6,
+   "round": 17
+  },
+  {
+   "t": 1042.0,
+   "money": 14,
+   "ante": 6,
+   "round": 17
+  },
+  {
+   "t": 1046.0,
+   "money": 3,
+   "ante": 5,
+   "round": 17
+  },
+  {
+   "t": 1050.0,
+   "money": 17,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1054.0,
+   "money": 13,
+   "ante": 6,
+   "round": 17
+  },
+  {
+   "t": 1058.0,
+   "money": 16,
+   "ante": 6,
+   "round": 17
+  },
+  {
+   "t": 1062.0,
+   "money": 18,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1066.0,
+   "money": 13,
+   "ante": 6,
+   "round": 17
+  },
+  {
+   "t": 1070.0,
+   "money": 13,
+   "ante": 6,
+   "round": 17
+  },
+  {
+   "t": 1074.0,
+   "money": 18,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1078.0,
+   "money": 2,
+   "ante": 7,
+   "round": 17
+  },
+  {
+   "t": 1084.0,
+   "money": 23,
+   "ante": 7,
+   "round": 17
+  },
+  {
+   "t": 1088.0,
+   "money": 24,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1096.0,
+   "money": 16,
+   "ante": null,
+   "round": 17
+  },
+  {
+   "t": 1100.0,
+   "money": 16,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1104.0,
+   "money": 16,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1108.0,
+   "money": 16,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1112.0,
+   "money": 16,
+   "ante": null,
+   "round": 18
+  },
+  {
+   "t": 1116.0,
+   "money": 916,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1120.0,
+   "money": 19,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1124.0,
+   "money": 15,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1128.0,
+   "money": 19,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1136.0,
+   "money": null,
+   "ante": null,
+   "round": 16
+  },
+  {
+   "t": 1140.0,
+   "money": 17,
+   "ante": null,
+   "round": 18
+  },
+  {
+   "t": 1144.0,
+   "money": 19,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1148.0,
+   "money": 19,
+   "ante": 7,
+   "round": 19
+  },
+  {
+   "t": 1152.0,
+   "money": 15,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1156.0,
+   "money": 19,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1160.0,
+   "money": 19,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1164.0,
+   "money": 15,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1168.0,
+   "money": 19,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1172.0,
+   "money": 15,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1176.0,
+   "money": 15,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1180.0,
+   "money": 19,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1184.0,
+   "money": 15,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1188.0,
+   "money": 19,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1194.0,
+   "money": 26,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1212.0,
+   "money": 20,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1216.0,
+   "money": 10,
+   "ante": null,
+   "round": 19
+  },
+  {
+   "t": 1220.0,
+   "money": 10,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1224.0,
+   "money": 10,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1228.0,
+   "money": 10,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1232.0,
+   "money": 12,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1236.0,
+   "money": 12,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1240.0,
+   "money": 12,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1248.0,
+   "money": 922,
+   "ante": 7,
+   "round": 20
+  },
+  {
+   "t": 1254.0,
+   "money": 13,
+   "ante": null,
+   "round": 20
+  },
+  {
+   "t": 1262.0,
+   "money": 12,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1266.0,
+   "money": 12,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1270.0,
+   "money": 15,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1274.0,
+   "money": 15,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1278.0,
+   "money": 15,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1282.0,
+   "money": 15,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1286.0,
+   "money": 15,
+   "ante": 7,
+   "round": 21
+  },
+  {
+   "t": 1290.0,
+   "money": 15,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1298.0,
+   "money": null,
+   "ante": null,
+   "round": 21
+  },
+  {
+   "t": 1304.0,
+   "money": 12,
+   "ante": 7,
+   "round": 21
+  },
+  {
+   "t": 1310.0,
+   "money": 12,
+   "ante": 7,
+   "round": 2
+  },
+  {
+   "t": 1314.0,
+   "money": 12,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1318.0,
+   "money": 13,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1322.0,
+   "money": 13,
+   "ante": 7,
+   "round": 2
+  },
+  {
+   "t": 1326.0,
+   "money": 13,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1330.0,
+   "money": 13,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1334.0,
+   "money": 13,
+   "ante": 7,
+   "round": 2
+  },
+  {
+   "t": 1338.0,
+   "money": 16,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1342.0,
+   "money": 16,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1346.0,
+   "money": 19,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1352.0,
+   "money": 26,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1358.0,
+   "money": 24,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1364.0,
+   "money": 10,
+   "ante": 6,
+   "round": 2
+  },
+  {
+   "t": 1368.0,
+   "money": 10,
+   "ante": 6,
+   "round": null
+  },
+  {
+   "t": 1372.0,
+   "money": 10,
+   "ante": 6,
+   "round": null
+  },
+  {
+   "t": 1376.0,
+   "money": 10,
+   "ante": 5,
+   "round": null
+  },
+  {
+   "t": 1380.0,
+   "money": 10,
+   "ante": 6,
+   "round": null
+  },
+  {
+   "t": 1384.0,
+   "money": 10,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 1388.0,
+   "money": null,
+   "ante": 6,
+   "round": null
+  },
+  {
+   "t": 1392.0,
+   "money": 10,
+   "ante": 6,
+   "round": null
+  },
+  {
+   "t": 1396.0,
+   "money": 10,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 1402.0,
+   "money": 10,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1406.0,
+   "money": 19,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1410.0,
+   "money": 19,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1414.0,
+   "money": 19,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1418.0,
+   "money": 19,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1422.0,
+   "money": 19,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1426.0,
+   "money": 19,
+   "ante": 7,
+   "round": 24
+  },
+  {
+   "t": 1430.0,
+   "money": 19,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1434.0,
+   "money": 19,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1438.0,
+   "money": 19,
+   "ante": 7,
+   "round": 24
+  },
+  {
+   "t": 1442.0,
+   "money": 22,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1448.0,
+   "money": 48,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1452.0,
+   "money": null,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1464.0,
+   "money": null,
+   "ante": null,
+   "round": 24
+  },
+  {
+   "t": 1468.0,
+   "money": 27,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1472.0,
+   "money": 27,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1476.0,
+   "money": 2,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1480.0,
+   "money": 30,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1484.0,
+   "money": 30,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1488.0,
+   "money": 33,
+   "ante": 7,
+   "round": 25
+  },
+  {
+   "t": 1494.0,
+   "money": 46,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1500.0,
+   "money": 43,
+   "ante": null,
+   "round": 25
+  },
+  {
+   "t": 1504.0,
+   "money": 43,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1508.0,
+   "money": 46,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1512.0,
+   "money": 46,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1516.0,
+   "money": 49,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1520.0,
+   "money": 49,
+   "ante": 5,
+   "round": 26
+  },
+  {
+   "t": 1526.0,
+   "money": 566,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1536.0,
+   "money": 62,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1540.0,
+   "money": 55,
+   "ante": null,
+   "round": 26
+  },
+  {
+   "t": 1544.0,
+   "money": 47,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1548.0,
+   "money": 47,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 1552.0,
+   "money": 47,
+   "ante": null,
+   "round": 27
+  },
+  {
+   "t": 1556.0,
+   "money": 47,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1560.0,
+   "money": 47,
+   "ante": null,
+   "round": 7
+  },
+  {
+   "t": 1564.0,
+   "money": 47,
+   "ante": null,
+   "round": 7
+  },
+  {
+   "t": 1568.0,
+   "money": 47,
+   "ante": null,
+   "round": 27
+  },
+  {
+   "t": 1572.0,
+   "money": 47,
+   "ante": null,
+   "round": 27
+  },
+  {
+   "t": 1580.0,
+   "money": 58,
+   "ante": null,
+   "round": 27
+  },
+  {
+   "t": 1590.0,
+   "money": 53,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1594.0,
+   "money": 53,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1598.0,
+   "money": 53,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1604.0,
+   "money": 45,
+   "ante": 1,
+   "round": 2
+  },
+  {
+   "t": 1608.0,
+   "money": 45,
+   "ante": 1,
+   "round": 20
+  },
+  {
+   "t": 1612.0,
+   "money": 45,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1616.0,
+   "money": 65,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1620.0,
+   "money": 65,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1624.0,
+   "money": 65,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1632.0,
+   "money": 83,
+   "ante": 5,
+   "round": 2
+  },
+  {
+   "t": 1638.0,
+   "money": null,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1642.0,
+   "money": -37,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1646.0,
+   "money": null,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1650.0,
+   "money": 42,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1654.0,
+   "money": 33,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1658.0,
+   "money": null,
+   "ante": null,
+   "round": 2
+  },
+  {
+   "t": 1662.0,
+   "money": 49,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1666.0,
+   "money": 50,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1670.0,
+   "money": 50,
+   "ante": null,
+   "round": 29
+  },
+  {
+   "t": 1674.0,
+   "money": 53,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1678.0,
+   "money": 53,
+   "ante": null,
+   "round": 5
+  },
+  {
+   "t": 1682.0,
+   "money": 63,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1686.0,
+   "money": 64,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1690.0,
+   "money": 67,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 1694.0,
+   "money": 67,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 1698.0,
+   "money": 67,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1702.0,
+   "money": 67,
+   "ante": null,
+   "round": 23
+  },
+  {
+   "t": 1706.0,
+   "money": 67,
+   "ante": null,
+   "round": 5
+  },
+  {
+   "t": 1710.0,
+   "money": 67,
+   "ante": null,
+   "round": 29
+  },
+  {
+   "t": 1714.0,
+   "money": 7,
+   "ante": null,
+   "round": 29
+  },
+  {
+   "t": 1730.0,
+   "money": null,
+   "ante": null,
+   "round": 29
+  },
+  {
+   "t": 1736.0,
+   "money": null,
+   "ante": null,
+   "round": 29
+  },
+  {
+   "t": 1740.0,
+   "money": 64,
+   "ante": null,
+   "round": 29
+  },
+  {
+   "t": 1744.0,
+   "money": 32,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1748.0,
+   "money": 32,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1752.0,
+   "money": 32,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1756.0,
+   "money": 52,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1760.0,
+   "money": 253,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1764.0,
+   "money": 53,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1768.0,
+   "money": 54,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1772.0,
+   "money": 54,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1776.0,
+   "money": 54,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1780.0,
+   "money": null,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1790.0,
+   "money": 62,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1796.0,
+   "money": 54,
+   "ante": null,
+   "round": 30
+  },
+  {
+   "t": 1800.0,
+   "money": 47,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1804.0,
+   "money": 47,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1808.0,
+   "money": 47,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1812.0,
+   "money": 4,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1816.0,
+   "money": 47,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1820.0,
+   "money": 51,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1824.0,
+   "money": 54,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1828.0,
+   "money": 54,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1832.0,
+   "money": null,
+   "ante": null,
+   "round": 31
+  },
+  {
+   "t": 1850.0,
+   "money": 58,
+   "ante": null,
+   "round": null
+  },
+  {
+   "t": 1854.0,
+   "money": 43,
+   "ante": null,
+   "round": 1
+  },
+  {
+   "t": 1858.0,
+   "money": 43,
+   "ante": null,
+   "round": 32
+  },
+  {
+   "t": 1862.0,
+   "money": 43,
+   "ante": null,
+   "round": 32
+  },
+  {
+   "t": 1866.0,
+   "money": 43,
+   "ante": null,
+   "round": 32
+  },
+  {
+   "t": 1870.0,
+   "money": 43,
+   "ante": null,
+   "round": 32
+  },
+  {
+   "t": 1874.0,
+   "money": 43,
+   "ante": null,
+   "round": 32
+  },
+  {
+   "t": 1878.0,
+   "money": 43,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1882.0,
+   "money": 43,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1886.0,
+   "money": 60,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1890.0,
+   "money": 48,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1894.0,
+   "money": 51,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1898.0,
+   "money": 19,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1922.0,
+   "money": 14,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1928.0,
+   "money": 6,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1932.0,
+   "money": 6,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1936.0,
+   "money": 6,
+   "ante": 10,
+   "round": 3
+  },
+  {
+   "t": 1940.0,
+   "money": 6,
+   "ante": 10,
+   "round": 3
+  },
+  {
+   "t": 1944.0,
+   "money": 6,
+   "ante": 10,
+   "round": 33
+  },
+  {
+   "t": 1948.0,
+   "money": 6,
+   "ante": 10,
+   "round": 33
+  },
+  {
+   "t": 1952.0,
+   "money": 6,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1956.0,
+   "money": null,
+   "ante": 10,
+   "round": null
+  },
+  {
+   "t": 1960.0,
+   "money": 6,
+   "ante": 10,
+   "round": 3
+  },
+  {
+   "t": 1964.0,
+   "money": 6,
+   "ante": 10,
+   "round": 3
+  },
+  {
+   "t": 1968.0,
+   "money": 12,
+   "ante": 10,
+   "round": 3
+  },
+  {
+   "t": 1972.0,
+   "money": 12,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 1976.0,
+   "money": null,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 1980.0,
+   "money": 15,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 1984.0,
+   "money": 16,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 1988.0,
+   "money": 15,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 1992.0,
+   "money": 19,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 1996.0,
+   "money": 15,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 2000.0,
+   "money": 29,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 2020.0,
+   "money": 25,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 2026.0,
+   "money": 17,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 2030.0,
+   "money": 15,
+   "ante": 10,
+   "round": 34
+  },
+  {
+   "t": 2034.0,
+   "money": 15,
+   "ante": 10,
+   "round": 35
+  },
+  {
+   "t": 2038.0,
+   "money": 15,
+   "ante": 10,
+   "round": 35
+  },
+  {
+   "t": 2042.0,
+   "money": 15,
+   "ante": 10,
+   "round": 35
+  },
+  {
+   "t": 2046.0,
+   "money": 0,
+   "ante": 10,
+   "round": 35
+  },
+  {
+   "t": 2050.0,
+   "money": null,
+   "ante": 10,
+   "round": 35
+  },
+  {
+   "t": 2054.0,
+   "money": 3,
+   "ante": null,
+   "round": 35
+  },
+  {
+   "t": 2058.0,
+   "money": 3,
+   "ante": 11,
+   "round": 35
+  },
+  {
+   "t": 2064.0,
+   "money": 15,
+   "ante": 11,
+   "round": 35
+  },
+  {
+   "t": 2068.0,
+   "money": 2,
+   "ante": 11,
+   "round": 35
+  },
+  {
+   "t": 2072.0,
+   "money": 2,
+   "ante": 11,
+   "round": 35
+  },
+  {
+   "t": 2076.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2080.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2084.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2088.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2092.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2096.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2100.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2104.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2108.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2112.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2116.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2120.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2124.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2128.0,
+   "money": 2,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2148.0,
+   "money": null,
+   "ante": 11,
+   "round": 36
+  },
+  {
+   "t": 2152.0,
+   "money": 12,
+   "ante": 11,
+   "round": null
+  },
+  {
+   "t": 2156.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2160.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2164.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2168.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2172.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2176.0,
+   "money": 12,
+   "ante": 11,
+   "round": null
+  },
+  {
+   "t": 2180.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2184.0,
+   "money": 12,
+   "ante": 11,
+   "round": 3
+  },
+  {
+   "t": 2188.0,
+   "money": 12,
+   "ante": 11,
+   "round": null
+  },
+  {
+   "t": 2192.0,
+   "money": 12,
+   "ante": 11,
+   "round": null
+  },
+  {
+   "t": 2196.0,
+   "money": 12,
+   "ante": 11,
+   "round": 37
+  }
+ ],
+ "packs": [
+  {
+   "t": 38.0,
+   "pack": "Buffoon"
+  },
+  {
+   "t": 82.0,
+   "pack": "Standard"
+  },
+  {
+   "t": 106.0,
+   "pack": "Spectral"
+  },
+  {
+   "t": 146.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 202.0,
+   "pack": "Standard"
+  },
+  {
+   "t": 270.0,
+   "pack": "Standard"
+  },
+  {
+   "t": 326.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 446.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 524.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 578.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 974.0,
+   "pack": "Arcana"
+  },
+  {
+   "t": 998.0,
+   "pack": "Arcana"
+  },
+  {
+   "t": 1090.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1132.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1196.0,
+   "pack": "Arcana"
+  },
+  {
+   "t": 1250.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1360.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1456.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1530.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1636.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1786.0,
+   "pack": "Arcana"
+  },
+  {
+   "t": 1836.0,
+   "pack": "Celestial"
+  },
+  {
+   "t": 1902.0,
+   "pack": "Spectral"
+  },
+  {
+   "t": 1924.0,
+   "pack": "Standard"
+  },
+  {
+   "t": 2010.0,
+   "pack": "Arcana"
+  },
+  {
+   "t": 2132.0,
+   "pack": "Buffoon"
+  }
+ ],
+ "offers": [
+  {
+   "t": 34.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_smeared",
+     "name": "Smeared Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 38.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_zany",
+     "name": "Zany Joker"
+    },
+    {
+     "key": "j_gros_michel",
+     "name": "Gros Michel",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 40.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_smeared",
+     "name": "Smeared Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 64.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_greedy_joker",
+     "name": "Greedy Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 68.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    }
+   ]
+  },
+  {
+   "t": 70.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    }
+   ]
+  },
+  {
+   "t": 74.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker"
+    },
+    {
+     "key": "j_greedy_joker",
+     "name": "Greedy Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 78.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_greedy_joker",
+     "name": "Greedy Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 82.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_hallucination",
+     "name": "Hallucination"
+    }
+   ]
+  },
+  {
+   "t": 102.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker"
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 104.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker"
+    }
+   ]
+  },
+  {
+   "t": 108.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_talisman",
+     "name": "Talisman",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_aura",
+     "name": "Aura",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_sigil",
+     "name": "Sigil",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 110.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_aura",
+     "name": "Aura",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_sigil",
+     "name": "Sigil",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 114.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker"
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 138.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_faceless",
+     "name": "Faceless Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 142.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 144.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_faceless",
+     "name": "Faceless Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "v_grabber",
+     "name": "Grabber"
+    }
+   ]
+  },
+  {
+   "t": 150.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_faceless",
+     "name": "Faceless Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 154.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    }
+   ]
+  },
+  {
+   "t": 194.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 196.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    }
+   ]
+  },
+  {
+   "t": 202.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_riff_raff",
+     "name": "Riff-Raff"
+    }
+   ]
+  },
+  {
+   "t": 224.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "v_seed_money",
+     "name": "Seed Money"
+    }
+   ]
+  },
+  {
+   "t": 228.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 232.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "v_seed_money",
+     "name": "Seed Money"
+    }
+   ]
+  },
+  {
+   "t": 234.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hallucination",
+     "name": "Hallucination",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "v_seed_money",
+     "name": "Seed Money"
+    }
+   ]
+  },
+  {
+   "t": 262.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hack",
+     "name": "Hack",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_red_card",
+     "name": "Red Card",
+     "edition": "Foil",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_seed_money",
+     "name": "Seed Money"
+    }
+   ]
+  },
+  {
+   "t": 266.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    }
+   ]
+  },
+  {
+   "t": 268.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hack",
+     "name": "Hack",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_red_card",
+     "name": "Red Card",
+     "edition": "Foil",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_seed_money",
+     "name": "Seed Money"
+    }
+   ]
+  },
+  {
+   "t": 278.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_baron",
+     "name": "Baron",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    }
+   ]
+  },
+  {
+   "t": 318.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_todo_list",
+     "name": "To Do List"
+    },
+    {
+     "key": "j_four_fingers",
+     "name": "Four Fingers",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "v_nacho_tong",
+     "name": "Nacho Tong"
+    }
+   ]
+  },
+  {
+   "t": 324.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_todo_list",
+     "name": "To Do List",
+     "edition": "Negative"
+    },
+    {
+     "key": "j_half",
+     "name": "Half Joker",
+     "edition": "Polychrome"
+    },
+    {
+     "key": "v_nacho_tong",
+     "name": "Nacho Tong"
+    }
+   ]
+  },
+  {
+   "t": 326.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 330.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_todo_list",
+     "name": "To Do List"
+    },
+    {
+     "key": "j_four_fingers",
+     "name": "Four Fingers",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "v_nacho_tong",
+     "name": "Nacho Tong"
+    }
+   ]
+  },
+  {
+   "t": 382.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_vampire",
+     "name": "Vampire",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_hanging_chad",
+     "name": "Hanging Chad",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 386.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    }
+   ]
+  },
+  {
+   "t": 388.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    }
+   ]
+  },
+  {
+   "t": 390.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    }
+   ]
+  },
+  {
+   "t": 396.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_vampire",
+     "name": "Vampire",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_hanging_chad",
+     "name": "Hanging Chad",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 398.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    }
+   ]
+  },
+  {
+   "t": 402.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_card_sharp",
+     "name": "Card Sharp",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "c_ouija",
+     "name": "Ouija",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 404.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_world",
+     "name": "The World"
+    },
+    {
+     "key": "j_marble",
+     "name": "Marble Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 444.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_lusty_joker",
+     "name": "Lusty Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_credit_card",
+     "name": "Credit Card"
+    }
+   ]
+  },
+  {
+   "t": 452.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_erosion",
+     "name": "Erosion",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_half",
+     "name": "Half Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 456.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_scholar",
+     "name": "Scholar",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_gluttenous_joker",
+     "name": "Gluttonous Joker",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 460.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_drunkard",
+     "name": "Drunkard",
+     "edition": "Foil"
+    }
+   ]
+  },
+  {
+   "t": 466.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_drunkard",
+     "name": "Drunkard",
+     "edition": "Holo"
+    }
+   ]
+  },
+  {
+   "t": 468.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_loyalty_card",
+     "name": "Loyalty Card",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_drunkard",
+     "name": "Drunkard",
+     "edition": "Holo"
+    }
+   ]
+  },
+  {
+   "t": 470.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_drunkard",
+     "name": "Drunkard",
+     "edition": "Holo"
+    }
+   ]
+  },
+  {
+   "t": 506.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_crazy",
+     "name": "Crazy Joker"
+    },
+    {
+     "key": "j_chaos",
+     "name": "Chaos the Clown",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_telescope",
+     "name": "Telescope"
+    }
+   ]
+  },
+  {
+   "t": 510.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_to_the_moon",
+     "name": "To the Moon"
+    },
+    {
+     "key": "j_abstract",
+     "name": "Abstract Joker"
+    },
+    {
+     "key": "v_telescope",
+     "name": "Telescope"
+    }
+   ]
+  },
+  {
+   "t": 512.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_to_the_moon",
+     "name": "To the Moon"
+    },
+    {
+     "key": "j_abstract",
+     "name": "Abstract Joker"
+    }
+   ]
+  },
+  {
+   "t": 518.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_world",
+     "name": "The World"
+    }
+   ]
+  },
+  {
+   "t": 520.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_to_the_moon",
+     "name": "To the Moon"
+    },
+    {
+     "key": "j_abstract",
+     "name": "Abstract Joker"
+    }
+   ]
+  },
+  {
+   "t": 524.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    }
+   ]
+  },
+  {
+   "t": 528.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    }
+   ]
+  },
+  {
+   "t": 532.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_abstract",
+     "name": "Abstract Joker"
+    }
+   ]
+  },
+  {
+   "t": 570.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_dusk",
+     "name": "Dusk",
+     "edition": "Holo",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_cartomancer",
+     "name": "Cartomancer",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 574.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 578.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    }
+   ]
+  },
+  {
+   "t": 580.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_dusk",
+     "name": "Dusk",
+     "edition": "Holo",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_cartomancer",
+     "name": "Cartomancer",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 582.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_grim",
+     "name": "Grim",
+     "edition": "Negative"
+    },
+    {
+     "key": "j_vampire",
+     "name": "Vampire",
+     "stickers": [
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 586.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 590.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 592.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_clever",
+     "name": "Clever Joker"
+    },
+    {
+     "key": "j_madness",
+     "name": "Madness"
+    }
+   ]
+  },
+  {
+   "t": 666.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_delayed_grat",
+     "name": "Delayed Gratification",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    }
+   ]
+  },
+  {
+   "t": 670.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 672.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_delayed_grat",
+     "name": "Delayed Gratification",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 678.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    },
+    {
+     "key": "j_riff_raff",
+     "name": "Riff-Raff"
+    },
+    {
+     "key": "j_riff_raff",
+     "name": "Riff-Raff"
+    }
+   ]
+  },
+  {
+   "t": 680.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_chaos",
+     "name": "Chaos the Clown"
+    },
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat",
+     "stickers": [
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 688.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_chaos",
+     "name": "Chaos the Clown"
+    }
+   ]
+  },
+  {
+   "t": 692.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hiker",
+     "name": "Hiker",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 696.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "j_rough_gem",
+     "name": "Rough Gem",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 698.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 718.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    }
+   ]
+  },
+  {
+   "t": 720.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    },
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    }
+   ]
+  },
+  {
+   "t": 722.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    },
+    {
+     "key": "c_medium",
+     "name": "Medium",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 724.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    }
+   ]
+  },
+  {
+   "t": 808.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_red_card",
+     "name": "Red Card",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "c_wraith",
+     "name": "Wraith"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 812.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_mystic_summit",
+     "name": "Mystic Summit",
+     "edition": "Foil",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 816.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 818.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hiker",
+     "name": "Hiker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 884.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hack",
+     "name": "Hack",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_bull",
+     "name": "Bull",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 888.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hack",
+     "name": "Hack",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_bull",
+     "name": "Bull",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 890.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_hack",
+     "name": "Hack",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_bull",
+     "name": "Bull",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 892.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_space",
+     "name": "Space Joker"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 894.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 896.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 900.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_marble",
+     "name": "Marble Joker",
+     "edition": "Holo",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 902.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_selzer",
+     "name": "Seltzer"
+    },
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 970.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 974.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 978.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 984.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 992.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_sock_and_buskin",
+     "name": "Sock and Buskin",
+     "edition": "Negative"
+    },
+    {
+     "key": "j_seance",
+     "name": "Séance"
+    },
+    {
+     "key": "v_observatory",
+     "name": "Observatory"
+    },
+    {
+     "key": "j_sock_and_buskin",
+     "name": "Sock and Buskin"
+    },
+    {
+     "key": "j_sock_and_buskin",
+     "name": "Sock and Buskin"
+    },
+    {
+     "key": "j_misprint",
+     "name": "Misprint"
+    },
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil"
+    }
+   ]
+  },
+  {
+   "t": 998.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1000.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1004.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1014.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "j_photograph",
+     "name": "Photograph",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 1016.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_half",
+     "name": "Half Joker",
+     "edition": "Polychrome"
+    }
+   ]
+  },
+  {
+   "t": 1018.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_sigil",
+     "name": "Sigil",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1020.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_egg",
+     "name": "Egg",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 1022.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_banner",
+     "name": "Banner",
+     "edition": "Polychrome",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    }
+   ]
+  },
+  {
+   "t": 1026.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_wily",
+     "name": "Wily Joker",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    }
+   ]
+  },
+  {
+   "t": 1076.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller"
+    },
+    {
+     "key": "v_hieroglyph",
+     "name": "Hieroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1080.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_world",
+     "name": "The World"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    }
+   ]
+  },
+  {
+   "t": 1082.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_world",
+     "name": "The World"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    }
+   ]
+  },
+  {
+   "t": 1084.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller"
+    },
+    {
+     "key": "v_hieroglyph",
+     "name": "Hieroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1096.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "j_mime",
+     "name": "Mime"
+    },
+    {
+     "key": "v_hieroglyph",
+     "name": "Hieroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1130.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_dusk",
+     "name": "Dusk",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_delayed_grat",
+     "name": "Delayed Gratification"
+    },
+    {
+     "key": "v_hieroglyph",
+     "name": "Hieroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1138.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_greedy_joker",
+     "name": "Greedy Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_blue_joker",
+     "name": "Blue Joker",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1140.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_dusk",
+     "name": "Dusk",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_delayed_grat",
+     "name": "Delayed Gratification"
+    },
+    {
+     "key": "v_hieroglyph",
+     "name": "Hieroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1196.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_wheel_of_fortune",
+     "name": "The Wheel of Fortune"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    }
+   ]
+  },
+  {
+   "t": 1202.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 1208.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1212.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_mystic_summit",
+     "name": "Mystic Summit"
+    },
+    {
+     "key": "j_marble",
+     "name": "Marble Joker"
+    },
+    {
+     "key": "v_hieroglyph",
+     "name": "Hieroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1248.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_mime",
+     "name": "Mime",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_seeing_double",
+     "name": "Seeing Double",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_petroglyph",
+     "name": "Petroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1252.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 1254.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_mime",
+     "name": "Mime",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_seeing_double",
+     "name": "Seeing Double",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_petroglyph",
+     "name": "Petroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1298.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_wily",
+     "name": "Wily Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_petroglyph",
+     "name": "Petroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1302.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1304.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_wily",
+     "name": "Wily Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_petroglyph",
+     "name": "Petroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1356.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 1358.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "v_petroglyph",
+     "name": "Petroglyph"
+    }
+   ]
+  },
+  {
+   "t": 1360.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1406.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_drunkard",
+     "name": "Drunkard",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "v_clearance_sale",
+     "name": "Clearance Sale"
+    }
+   ]
+  },
+  {
+   "t": 1448.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_madness",
+     "name": "Madness"
+    },
+    {
+     "key": "j_banner",
+     "name": "Banner",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_clearance_sale",
+     "name": "Clearance Sale"
+    }
+   ]
+  },
+  {
+   "t": 1454.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_madness",
+     "name": "Madness"
+    },
+    {
+     "key": "j_banner",
+     "name": "Banner",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1494.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_swashbuckler",
+     "name": "Swashbuckler",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_odd_todd",
+     "name": "Odd Todd",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1526.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "v_overstock_norm",
+     "name": "Overstock"
+    }
+   ]
+  },
+  {
+   "t": 1532.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mercury",
+     "name": "Mercury"
+    }
+   ]
+  },
+  {
+   "t": 1536.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
+  },
+  {
+   "t": 1540.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller"
+    }
+   ]
+  },
+  {
+   "t": 1542.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_trance",
+     "name": "Trance"
+    },
+    {
+     "key": "j_odd_todd",
+     "name": "Odd Todd",
+     "edition": "Foil",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_pareidolia",
+     "name": "Pareidolia",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1580.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_diet_cola",
+     "name": "Diet Cola"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1584.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    }
+   ]
+  },
+  {
+   "t": 1586.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1590.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1600.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_astronomer",
+     "name": "Astronomer"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 1632.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_8_ball",
+     "name": "8 Ball",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_midas_mask",
+     "name": "Midas Mask",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "c_hex",
+     "name": "Hex",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1636.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1638.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_burglar",
+     "name": "Burglar"
+    }
+   ]
+  },
+  {
+   "t": 1640.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_odd_todd",
+     "name": "Odd Todd",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "j_sly",
+     "name": "Sly Joker"
+    }
+   ]
+  },
+  {
+   "t": 1642.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_mail",
+     "name": "Mail-In Rebate"
+    },
+    {
+     "key": "j_misprint",
+     "name": "Misprint",
+     "stickers": [
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1644.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_misprint",
+     "name": "Misprint",
+     "stickers": [
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1646.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1650.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_stuntman",
+     "name": "Stuntman",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1652.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_mime",
+     "name": "Mime",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_stuntman",
+     "name": "Stuntman",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1654.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_cryptid",
+     "name": "Cryptid"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 1656.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_cryptid",
+     "name": "Cryptid"
+    },
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    }
+   ]
+  },
+  {
+   "t": 1658.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    }
+   ]
+  },
+  {
+   "t": 1714.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "edition": "Holo"
+    },
+    {
+     "key": "j_crazy",
+     "name": "Crazy Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_reserved_parking",
+     "name": "Reserved Parking",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_antimatter",
+     "name": "Antimatter"
+    }
+   ]
+  },
+  {
+   "t": 1722.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    }
+   ]
+  },
+  {
+   "t": 1724.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "v_tarot_merchant",
+     "name": "Tarot Merchant"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    }
+   ]
+  },
+  {
+   "t": 1730.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "c_ouija",
+     "name": "Ouija",
+     "edition": "Negative"
+    },
+    {
+     "key": "j_midas_mask",
+     "name": "Midas Mask",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1732.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat"
+    },
+    {
+     "key": "j_sixth_sense",
+     "name": "Sixth Sense"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 1736.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_acrobat",
+     "name": "Acrobat"
+    }
+   ]
+  },
+  {
+   "t": 1738.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_mime",
+     "name": "Mime",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_half",
+     "name": "Half Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_ticket",
+     "name": "Golden Ticket",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1740.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "j_raised_fist",
+     "name": "Raised Fist"
+    }
+   ]
+  },
+  {
+   "t": 1742.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_splash",
+     "name": "Splash",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_walkie_talkie",
+     "name": "Walkie Talkie",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_hiker",
+     "name": "Hiker",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1782.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    }
+   ]
+  },
+  {
+   "t": 1786.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1790.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    }
+   ]
+  },
+  {
+   "t": 1792.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    }
+   ]
+  },
+  {
+   "t": 1796.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_devious",
+     "name": "Devious Joker",
+     "edition": "Negative",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_trading",
+     "name": "Trading Card",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1798.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_8_ball",
+     "name": "8 Ball"
+    },
+    {
+     "key": "j_greedy_joker",
+     "name": "Greedy Joker",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1834.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_wily",
+     "name": "Wily Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
+  },
+  {
+   "t": 1842.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1846.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_sly",
+     "name": "Sly Joker"
+    }
+   ]
+  },
+  {
+   "t": 1850.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_family",
+     "name": "The Family",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_certificate",
+     "name": "Certificate",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_photograph",
+     "name": "Photograph"
+    }
+   ]
+  },
+  {
+   "t": 1852.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_banner",
+     "name": "Banner",
+     "stickers": [
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1854.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_droll",
+     "name": "Droll Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_square",
+     "name": "Square Joker"
+    },
+    {
+     "key": "j_sly",
+     "name": "Sly Joker",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1886.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_drunkard",
+     "name": "Drunkard",
+     "edition": "Foil",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_gluttenous_joker",
+     "name": "Gluttonous Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1888.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "j_zany",
+     "name": "Zany Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1890.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "j_droll",
+     "name": "Droll Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1894.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_golden",
+     "name": "Golden Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_hiker",
+     "name": "Hiker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_troubadour",
+     "name": "Troubadour",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1896.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_faceless",
+     "name": "Faceless Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1898.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1906.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_grim",
+     "name": "Grim"
+    }
+   ]
+  },
+  {
+   "t": 1922.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 1926.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_riff_raff",
+     "name": "Riff-Raff"
+    }
+   ]
+  },
+  {
+   "t": 1968.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_runner",
+     "name": "Runner"
+    },
+    {
+     "key": "j_mystic_summit",
+     "name": "Mystic Summit",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 2000.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_zany",
+     "name": "Zany Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_mystic_summit",
+     "name": "Mystic Summit",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_riff_raff",
+     "name": "Riff-Raff",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 2004.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 2006.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 2012.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 2016.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 2020.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_zany",
+     "name": "Zany Joker",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_mystic_summit",
+     "name": "Mystic Summit",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_riff_raff",
+     "name": "Riff-Raff",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 2022.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 2026.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_fortune_teller",
+     "name": "Fortune Teller"
+    },
+    {
+     "key": "j_sock_and_buskin",
+     "name": "Sock and Buskin"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "v_hone",
+     "name": "Hone"
+    }
+   ]
+  },
+  {
+   "t": 2060.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "v_money_tree",
+     "name": "Money Tree"
+    }
+   ]
+  },
+  {
+   "t": 2064.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "c_incantation",
+     "name": "Incantation",
+     "edition": "Negative"
+    },
+    {
+     "key": "j_even_steven",
+     "name": "Even Steven",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "c_grim",
+     "name": "Grim",
+     "edition": "Negative"
+    },
+    {
+     "key": "v_money_tree",
+     "name": "Money Tree"
+    }
+   ]
+  },
+  {
+   "t": 2066.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_ice_cream",
+     "name": "Ice Cream"
+    },
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "j_flash",
+     "name": "Flash Card",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_money_tree",
+     "name": "Money Tree"
+    }
+   ]
+  },
+  {
+   "t": 2068.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_superposition",
+     "name": "Superposition",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_mystic_summit",
+     "name": "Mystic Summit",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "v_money_tree",
+     "name": "Money Tree"
+    }
+   ]
+  },
+  {
+   "t": 2118.0,
+   "where": "shop",
+   "items": [
+    {
+     "key": "j_wee",
+     "name": "Wee Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_idol",
+     "name": "The Idol",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker"
+    },
+    {
+     "key": "v_money_tree",
+     "name": "Money Tree"
+    }
+   ]
+  },
+  {
+   "t": 2134.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_greedy_joker",
+     "name": "Greedy Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_reserved_parking",
+     "name": "Reserved Parking"
+    },
+    {
+     "key": "j_8_ball",
+     "name": "8 Ball",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2138.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_diet_cola",
+     "name": "Diet Cola"
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_odd_todd",
+     "name": "Odd Todd",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_clever",
+     "name": "Clever Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2140.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_odd_todd",
+     "name": "Odd Todd",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_clever",
+     "name": "Clever Joker",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2144.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_dusk",
+     "name": "Dusk",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_juggler",
+     "name": "Juggler",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_astronomer",
+     "name": "Astronomer",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_banner",
+     "name": "Banner",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2146.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_dusk",
+     "name": "Dusk",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_juggler",
+     "name": "Juggler",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_astronomer",
+     "name": "Astronomer",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  }
+ ],
+ "runs": [
+  {
+   "start_t": 8.0,
+   "end_t": 2196.0,
+   "ante_reached": 13,
+   "round_reached": 37,
+   "money": 12,
+   "jokers": [
+    {
+     "key": "j_stencil",
+     "name": "Joker Stencil",
+     "edition": "Polychrome",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ],
+   "source": "blinds"
+  }
+ ],
+ "blinds": [
+  {
+   "start_t": 10.0,
+   "end_t": 30.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 1,
+   "round": 1,
+   "boss": false,
+   "score_target": 450
+  },
+  {
+   "start_t": 44.0,
+   "end_t": 58.0,
+   "key": "bl_manacle",
+   "name": "The Manacle",
+   "ante": 1,
+   "round": 2,
+   "boss": true,
+   "score_target": 600
+  },
+  {
+   "start_t": 86.0,
+   "end_t": 98.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 2,
+   "round": 3,
+   "boss": false,
+   "score_target": 1000
+  },
+  {
+   "start_t": 122.0,
+   "end_t": 132.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 2,
+   "round": 4,
+   "boss": false,
+   "score_target": 1500
+  },
+  {
+   "start_t": 160.0,
+   "end_t": 186.0,
+   "key": "bl_flint",
+   "name": "The Flint",
+   "ante": 2,
+   "round": 5,
+   "boss": true,
+   "score_target": 2000
+  },
+  {
+   "start_t": 206.0,
+   "end_t": 218.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 3,
+   "round": 6,
+   "boss": false,
+   "score_target": 3200
+  },
+  {
+   "start_t": 238.0,
+   "end_t": 252.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 3,
+   "round": 7,
+   "boss": false,
+   "score_target": null
+  },
+  {
+   "start_t": 286.0,
+   "end_t": 312.0,
+   "key": "bl_mark",
+   "name": "The Mark",
+   "ante": 3,
+   "round": 8,
+   "boss": true,
+   "score_target": 400
+  },
+  {
+   "start_t": 336.0,
+   "end_t": 372.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 4,
+   "round": 9,
+   "boss": false,
+   "score_target": 9000
+  },
+  {
+   "start_t": 408.0,
+   "end_t": 438.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 4,
+   "round": 10,
+   "boss": false,
+   "score_target": 13500
+  },
+  {
+   "start_t": 476.0,
+   "end_t": 500.0,
+   "key": "bl_goad",
+   "name": "The Goad",
+   "ante": 4,
+   "round": 11,
+   "boss": true,
+   "score_target": 18000
+  },
+  {
+   "start_t": 536.0,
+   "end_t": 564.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 5,
+   "round": 12,
+   "boss": false,
+   "score_target": 25000
+  },
+  {
+   "start_t": 594.0,
+   "end_t": 660.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 5,
+   "round": 13,
+   "boss": false,
+   "score_target": 37500
+  },
+  {
+   "start_t": 730.0,
+   "end_t": 804.0,
+   "key": "bl_window",
+   "name": "The Window",
+   "ante": 5,
+   "round": 14,
+   "boss": true,
+   "score_target": 50000
+  },
+  {
+   "start_t": 820.0,
+   "end_t": 876.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 6,
+   "round": 15,
+   "boss": false,
+   "score_target": null
+  },
+  {
+   "start_t": 908.0,
+   "end_t": 962.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 6,
+   "round": 16,
+   "boss": false,
+   "score_target": null
+  },
+  {
+   "start_t": 1030.0,
+   "end_t": 1072.0,
+   "key": "bl_hook",
+   "name": "The Hook",
+   "ante": 6,
+   "round": 17,
+   "boss": true,
+   "score_target": 20006
+  },
+  {
+   "start_t": 1098.0,
+   "end_t": 1122.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 7,
+   "round": 18,
+   "boss": false,
+   "score_target": 10000
+  },
+  {
+   "start_t": 1144.0,
+   "end_t": 1186.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 7,
+   "round": 19,
+   "boss": false,
+   "score_target": 65000
+  },
+  {
+   "start_t": 1218.0,
+   "end_t": 1240.0,
+   "key": "bl_wall",
+   "name": "The Wall",
+   "ante": 7,
+   "round": 20,
+   "boss": true,
+   "score_target": 240000
+  },
+  {
+   "start_t": 1262.0,
+   "end_t": 1290.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 8,
+   "round": 21,
+   "boss": false,
+   "score_target": 10000
+  },
+  {
+   "start_t": 1310.0,
+   "end_t": 1344.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 8,
+   "round": 22,
+   "boss": false,
+   "score_target": 165000
+  },
+  {
+   "start_t": 1368.0,
+   "end_t": 1396.0,
+   "key": "bl_mouth",
+   "name": "The Mouth",
+   "ante": 8,
+   "round": 23,
+   "boss": true,
+   "score_target": 20000
+  },
+  {
+   "start_t": 1410.0,
+   "end_t": 1440.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 9,
+   "round": 24,
+   "boss": false,
+   "score_target": 10000
+  },
+  {
+   "start_t": 1468.0,
+   "end_t": 1488.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 9,
+   "round": 25,
+   "boss": false,
+   "score_target": 65000
+  },
+  {
+   "start_t": 1506.0,
+   "end_t": 1516.0,
+   "key": "bl_serpent",
+   "name": "The Serpent",
+   "ante": 9,
+   "round": 26,
+   "boss": true,
+   "score_target": 220000
+  },
+  {
+   "start_t": 1544.0,
+   "end_t": 1572.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 10,
+   "round": 27,
+   "boss": false,
+   "score_target": 200000
+  },
+  {
+   "start_t": 1604.0,
+   "end_t": 1622.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 10,
+   "round": 28,
+   "boss": false,
+   "score_target": 300000
+  },
+  {
+   "start_t": 1662.0,
+   "end_t": 1706.0,
+   "key": "bl_final_leaf",
+   "name": "Verdant Leaf",
+   "ante": 10,
+   "round": 29,
+   "boss": true,
+   "score_target": 100000
+  },
+  {
+   "start_t": 1744.0,
+   "end_t": 1772.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 11,
+   "round": 30,
+   "boss": false,
+   "score_target": 160000
+  },
+  {
+   "start_t": 1800.0,
+   "end_t": 1824.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 11,
+   "round": 31,
+   "boss": false,
+   "score_target": 590000
+  },
+  {
+   "start_t": 1858.0,
+   "end_t": 1876.0,
+   "key": "bl_plant",
+   "name": "The Plant",
+   "ante": 11,
+   "round": 32,
+   "boss": true,
+   "score_target": 920000
+  },
+  {
+   "start_t": 1930.0,
+   "end_t": 1958.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 12,
+   "round": 33,
+   "boss": false,
+   "score_target": 200000
+  },
+  {
+   "start_t": 1970.0,
+   "end_t": 1990.0,
+   "key": "bl_big",
+   "name": "Big Blind",
+   "ante": 12,
+   "round": 34,
+   "boss": false,
+   "score_target": 300000
+  },
+  {
+   "start_t": 2032.0,
+   "end_t": 2054.0,
+   "key": "bl_ox",
+   "name": "The Ox",
+   "ante": 12,
+   "round": 35,
+   "boss": true,
+   "score_target": 1400000
+  },
+  {
+   "start_t": 2074.0,
+   "end_t": 2114.0,
+   "key": "bl_small",
+   "name": "Small Blind",
+   "ante": 13,
+   "round": 36,
+   "boss": false,
+   "score_target": 9000000
+  },
+  {
+   "start_t": 2154.0,
+   "end_t": 2198.0,
+   "key": "bl_arm",
+   "name": "The Arm",
+   "ante": 13,
+   "round": 37,
+   "boss": true,
+   "score_target": 16000600
+  }
+ ],
+ "skips": [
+  {
+   "blind": "bl_small",
+   "before": 10.0,
+   "ante": 1,
+   "blind_name": "Small Blind"
+  },
+  {
+   "blind": "bl_big",
+   "before": 2154.0,
+   "ante": 13,
+   "blind_name": "Big Blind"
+  }
+ ],
+ "shops": [
+  {
+   "start_t": 34.0,
+   "end_t": 40.0,
+   "ante": 1,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 63.0,
+   "end_t": 83.0,
+   "ante": 2,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": [
+    "j_jolly"
+   ]
+  },
+  {
+   "start_t": 102.0,
+   "end_t": 119.0,
+   "ante": 2,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 137.0,
+   "end_t": 157.0,
+   "ante": 2,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "v_grabber",
+    "j_ride_the_bus",
+    "c_hanged_man"
+   ]
+  },
+  {
+   "start_t": 191.0,
+   "end_t": 203.0,
+   "ante": 3,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 223.0,
+   "end_t": 235.0,
+   "ante": 3,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": []
+  },
+  {
+   "start_t": 261.0,
+   "end_t": 284.0,
+   "ante": 3,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "v_seed_money"
+   ]
+  },
+  {
+   "start_t": 317.0,
+   "end_t": 332.0,
+   "ante": 4,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 377.0,
+   "end_t": 405.0,
+   "ante": 4,
+   "rerolls": 2,
+   "reroll_spent": 11,
+   "bought": [
+    "j_card_sharp"
+   ]
+  },
+  {
+   "start_t": 444.0,
+   "end_t": 471.0,
+   "ante": 4,
+   "rerolls": 2,
+   "reroll_spent": 11,
+   "bought": [
+    "j_loyalty_card"
+   ]
+  },
+  {
+   "start_t": 506.0,
+   "end_t": 533.0,
+   "ante": 5,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": [
+    "j_to_the_moon"
+   ]
+  },
+  {
+   "start_t": 569.0,
+   "end_t": 592.0,
+   "ante": 5,
+   "rerolls": 5,
+   "reroll_spent": 35,
+   "bought": []
+  },
+  {
+   "start_t": 666.0,
+   "end_t": 726.0,
+   "ante": 5,
+   "rerolls": 10,
+   "reroll_spent": 95,
+   "bought": [
+    "c_chariot",
+    "j_acrobat",
+    "j_chaos",
+    "j_stencil",
+    "c_medium",
+    "c_emperor"
+   ]
+  },
+  {
+   "start_t": 808.0,
+   "end_t": 818.0,
+   "ante": 6,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "c_hex"
+   ]
+  },
+  {
+   "start_t": 884.0,
+   "end_t": 903.0,
+   "ante": 6,
+   "rerolls": 5,
+   "reroll_spent": 35,
+   "bought": [
+    "j_space"
+   ]
+  },
+  {
+   "start_t": 969.0,
+   "end_t": 1027.0,
+   "ante": 6,
+   "rerolls": 5,
+   "reroll_spent": 35,
+   "bought": [
+    "v_blank"
+   ]
+  },
+  {
+   "start_t": 1076.0,
+   "end_t": 1096.0,
+   "ante": 7,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1129.0,
+   "end_t": 1141.0,
+   "ante": 7,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1193.0,
+   "end_t": 1214.0,
+   "ante": 7,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1247.0,
+   "end_t": 1259.0,
+   "ante": 8,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1297.0,
+   "end_t": 1306.0,
+   "ante": 8,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1352.0,
+   "end_t": 1365.0,
+   "ante": 8,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1405.0,
+   "end_t": 1407.0,
+   "ante": 9,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1448.0,
+   "end_t": 1464.0,
+   "ante": 9,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": [
+    "v_clearance_sale"
+   ]
+  },
+  {
+   "start_t": 1494.0,
+   "end_t": 1501.0,
+   "ante": 9,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 1526.0,
+   "end_t": 1542.0,
+   "ante": 10,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "v_overstock_norm",
+    "c_trance"
+   ]
+  },
+  {
+   "start_t": 1579.0,
+   "end_t": 1601.0,
+   "ante": 10,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "c_cryptid"
+   ]
+  },
+  {
+   "start_t": 1631.0,
+   "end_t": 1658.0,
+   "ante": 10,
+   "rerolls": 5,
+   "reroll_spent": 35,
+   "bought": [
+    "c_hex",
+    "j_misprint",
+    "j_mail",
+    "c_cryptid"
+   ]
+  },
+  {
+   "start_t": 1713.0,
+   "end_t": 1742.0,
+   "ante": 11,
+   "rerolls": 5,
+   "reroll_spent": 35,
+   "bought": [
+    "j_sixth_sense"
+   ]
+  },
+  {
+   "start_t": 1781.0,
+   "end_t": 1798.0,
+   "ante": 11,
+   "rerolls": 2,
+   "reroll_spent": 11,
+   "bought": [
+    "c_emperor"
+   ]
+  },
+  {
+   "start_t": 1833.0,
+   "end_t": 1854.0,
+   "ante": 11,
+   "rerolls": 2,
+   "reroll_spent": 11,
+   "bought": []
+  },
+  {
+   "start_t": 1885.0,
+   "end_t": 1890.0,
+   "ante": 12,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "j_turtle_bean"
+   ]
+  },
+  {
+   "start_t": 1893.0,
+   "end_t": 1922.0,
+   "ante": 12,
+   "rerolls": 6,
+   "reroll_spent": 51,
+   "bought": [
+    "c_hanged_man"
+   ]
+  },
+  {
+   "start_t": 1967.0,
+   "end_t": 1968.0,
+   "ante": 12,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  },
+  {
+   "start_t": 2000.0,
+   "end_t": 2027.0,
+   "ante": 12,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": [
+    "c_hermit"
+   ]
+  },
+  {
+   "start_t": 2059.0,
+   "end_t": 2068.0,
+   "ante": 13,
+   "rerolls": 1,
+   "reroll_spent": 5,
+   "bought": []
+  },
+  {
+   "start_t": 2118.0,
+   "end_t": 2124.0,
+   "ante": 13,
+   "rerolls": 0,
+   "reroll_spent": 0,
+   "bought": []
+  }
+ ],
+ "ante_check": {
+  "offset": 0,
+  "ocr_readings": 229,
+  "agree": 138
+ },
+ "cursor_seen": 0.45,
+ "recognizer_calls": 2669,
+ "card_model_calls": 568,
+ "seconds_to_analyse": 718.2
+}

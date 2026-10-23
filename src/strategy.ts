@@ -1,35 +1,45 @@
-// General Balatro strategy plus the per-phase questions sent to System One.
-// One request per tick: the action Choice the policy acts on, and speculative value questions
-// (run strength, phase risk) that feed the visualizer and later composite scoring.
+// The rules of Balatro the model is told, plus the per-phase questions sent to System One. These are
+// facts about the game, not advice: how to play is in the options' values (code, tuned on expert
+// data), so the model weighs each option's consequences without a rule of thumb to overapply.
+// One request per tick: the action Choice the policy acts on, speculative value questions (run
+// strength, phase risk) for the visualizer, and at shops and joker packs the `build` Choice that
+// lets the model keep the plan or pivot. The state carries the plan, so every decision sees the
+// long-term picture: the committed build, its synergy, pivot options, economy and deck fixing.
 
+import { assessmentView } from "./assess.ts";
+import type { BuildProfile } from "./build.ts";
 import type { CandidateSet } from "./candidates.ts";
 import { modelState, type Snapshot } from "./extract.ts";
+import { buildQuestion, planView, type BuildOption, type Plan } from "./plan.ts";
 import type { Hints, Question, SystemOneRequest } from "./systemone.ts";
 
 export const STRATEGY_GENERAL = [
-  "Score is chips times mult, summed over the hands of a round; reach the blind's chip target before hands run out or the run ends.",
-  "Commit to one or two poker hands, level them with the matching Planet cards, and favor jokers that pay out for those hands.",
-  "Early antes: +Mult and +Chips jokers are enough. From ante 3 on, blind targets grow fast and the build needs xMult jokers to keep up.",
-  "Money earns $1 interest per $5 held at round end (normally capped at $5). Holding $25 compounds, but never starve the build to save.",
-  "Boss blinds bend the rules; read the boss effect before spending hands or skipping the blind before it.",
+  "A hand scores chips times mult; a round's hands add up, and the blind is beaten when the total reaches its chip target. Losing a blind ends the run; beating the ante 8 boss wins it.",
+  "Blind targets grow every ante. +Mult and +Chips jokers add to the score; xMult jokers multiply it.",
+  "`plan` is the build the agent is tracking: its main poker hand, the jokers backing it, and the deck's make-up.",
+  "Planet cards level one poker hand: more chips and mult for that hand for the rest of the run.",
+  "Money earns $1 interest per $5 held at the end of a round, up to a cap ($5 normally).",
+  "Tarot and Spectral cards change playing cards (suit, rank, enhancement, seal, edition), add or destroy cards, or make jokers or money.",
+  "Boss blinds have a rule that changes the round; `blind.effect` says what it is.",
 ];
 
 export const STRATEGY_BY_PHASE: Record<string, string[]> = {
   SELECTING_HAND: [
-    "Play a hand that clears the blind whenever one exists.",
-    "Otherwise chips accumulate across hands: play strong hands, and use discards to dig for a better hand while hands remain.",
-    "Discards cost no hand and unused discards are lost when the round ends: while the best play is below the per-hand pace, discard first.",
-    "Never spend the last hand on a play that cannot reach the target if a discard could still improve it.",
+    "Each play uses one hand; a discard uses no hand. Unused discards are lost when the round ends.",
+    "Played cards that don't score still leave the hand; every card played or discarded is replaced by a draw.",
+    "Steel and Gold cards pay while held in hand, not when played.",
+    "Using a Tarot or Planet costs no hand.",
   ],
   SHOP: [
-    "Fill joker slots early; replace weak jokers once slots are full rather than hoarding.",
-    "Buy Planet cards for the hand the build plays most; vouchers that add hands, discards or slots pay off over the whole run.",
-    "Leave the shop with money for interest unless a purchase clearly strengthens the build.",
+    "Selling a joker returns its sell value, about half its price.",
+    "A reroll replaces the shop's cards; its price rises $1 with each reroll in the same shop.",
+    "Vouchers are permanent upgrades. Packs open at once: take the shown number of cards or skip.",
+    "Jokers apply left to right: an xMult joker multiplies what the jokers before it added; a copy joker copies its neighbour.",
   ],
   BLIND_SELECT: [
-    "Skipping a small or big blind gives a tag but loses its cash and the chance to level up through shopping; skip only when the build is ahead and the tag is strong.",
+    "Skipping a small or big blind gives its tag, but no cash reward, no shop after it, and no interest that round.",
   ],
-  SMODS_BOOSTER_OPENED: ["Take the card that best fits the build's main hand; skip when nothing helps."],
+  SMODS_BOOSTER_OPENED: ["Cards taken from a pack are free; skipping the pack takes nothing."],
 };
 
 const ACTION_INSTRUCTIONS: Record<string, string> = {
@@ -77,7 +87,14 @@ export interface BuiltRequest {
   hints: Hints;
 }
 
-export function buildRequest(s: Snapshot, set: CandidateSet, model: string): BuiltRequest {
+export interface RequestContext {
+  plan?: Plan;
+  profile?: BuildProfile;
+  /** Keep or pivot options; the `build` question is asked when there is a real choice. */
+  buildOptions?: BuildOption[];
+}
+
+export function buildRequest(s: Snapshot, set: CandidateSet, model: string, ctx: RequestContext = {}): BuiltRequest {
   const questions: Record<string, Question> = {
     action: {
       type: "choice",
@@ -91,8 +108,23 @@ export function buildRequest(s: Snapshot, set: CandidateSet, model: string): Bui
     },
   };
   if (RISK_QUESTION[s.phase]) questions.risk = RISK_QUESTION[s.phase];
+  const options = ctx.buildOptions ?? [];
+  if (options.length > 1) questions.build = buildQuestion(options);
 
-  const state = { ...modelState(s), strategy: [...STRATEGY_GENERAL, ...(STRATEGY_BY_PHASE[s.phase] ?? [])] };
+  const state: Record<string, unknown> = { ...modelState(s) };
+  if (ctx.plan && ctx.profile) state.plan = planView(ctx.plan, ctx.profile, s);
+  // The assess stage's reading of the situation, as facts the code worked out. When it simulated
+  // each joker's worth, that replaces the plan's typical-hand reading of who is dead weight.
+  if (set.assessment) {
+    state.assessment = assessmentView(set.assessment);
+    const syn = set.assessment.synergy;
+    if (syn.lift && state.plan) {
+      const loss = new Map(syn.lift.perJoker.map((x) => [x.label, x.loss]));
+      const said = (label: string) => `${label}: ${Math.round((loss.get(label) ?? 0) * 100)} points of simulated boss rounds without it`;
+      state.plan = { ...(state.plan as object), current_synergy: [...syn.carrying, ...syn.supporting].map(said), dead_weight: syn.idle.map(said) };
+    }
+  }
+  state.strategy = [...STRATEGY_GENERAL, ...(STRATEGY_BY_PHASE[s.phase] ?? [])];
 
   const best = Math.max(0, ...set.candidates.map((c) => c.estimate?.score ?? 0));
   const reach = s.remaining > 0 ? Math.min(2, (best * Math.max(1, s.handsLeft)) / s.remaining) : 1.5;
@@ -100,6 +132,7 @@ export function buildRequest(s: Snapshot, set: CandidateSet, model: string): Bui
     action: Object.fromEntries(set.candidates.map((c) => [c.id, c.prior])),
     position: Math.min(3, Math.max(0, reach * 1.4)),
     risk: s.phase === "SELECTING_HAND" ? Math.max(0, 1 - reach) : s.phase === "SHOP" ? (s.money >= 20 ? 0.6 : 0.35) : 0.3,
+    ...(options.length > 1 ? { build: Object.fromEntries(options.map((o, i) => [o.id, i === 0 ? 0.6 : 0.4 / (options.length - 1)])) } : {}),
   };
   return { request: { model, state, questions }, hints };
 }

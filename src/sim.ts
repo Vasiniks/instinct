@@ -4,6 +4,7 @@
 
 import { RpcError, type Game } from "./blinddeck.ts";
 import { RANKS, SUITS, SUIT_NAME, toPCard } from "./cards.ts";
+import { blindBase, stakeAtLeast } from "./knowledge.ts";
 import { BASE_HANDS, HAND_NAMES, estimateScore, rulesFromJokers, type HandName, type Joker } from "./poker.ts";
 import { mulberry32 } from "./systemone.ts";
 import type { Area, Blind, GameState, RawCard } from "./types.ts";
@@ -24,6 +25,8 @@ interface Offer {
   rarity?: string;
   stats?: Record<string, number>;
   hand?: HandName;
+  /** Gold stake: costs $3 every round. */
+  rental?: boolean;
 }
 
 const JOKERS: Omit<Offer, "id" | "set">[] = [
@@ -67,7 +70,6 @@ const TAGS = [
   { key: "tag_handy", name: "Handy Tag", effect: "Gives $5 now" },
 ];
 
-const ANTE_BASE = [300, 800, 2000, 5000, 11000, 20000, 35000, 50000];
 const RANK_NAME: Record<string, string> = { T: "10", J: "Jack", Q: "Queen", K: "King", A: "Ace" };
 
 function hashSeed(s: string): number {
@@ -88,6 +90,8 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
   let boss = BOSSES[0];
   let tags = [TAGS[0], TAGS[1]];
   let money = 4;
+  let stake = "WHITE";
+  let deckName = "RED";
   let deck: SimCard[] = [];
   let draw: SimCard[] = [];
   let hand: SimCard[] = [];
@@ -120,7 +124,7 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
     if (!phases.includes(phase)) fail("INVALID_STATE", `requires ${phases.join("/")}, game is in ${phase}`);
   };
   const target = (idx = blindIdx) => {
-    const base = ANTE_BASE[Math.min(ante, 8) - 1] * [1, 1.5, 2][idx];
+    const base = blindBase(Math.min(ante, 8), stake, deckName) * [1, 1.5, 2][idx];
     return idx === 2 && boss.name === "The Wall" ? base * 2 : base;
   };
   const interest = () => Math.min(5, Math.floor(money / 5));
@@ -145,7 +149,7 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
     set: o.set,
     label: o.label,
     value: { effect: o.effect, ...(o.stats ? { stats: o.stats } : {}), ...(o.rarity ? { rarity: o.rarity } : {}) },
-    modifier: {},
+    modifier: o.rental ? { rental: true, rental_cost: 3 } : {},
     state: {},
     cost: { sell: Math.max(1, Math.floor(o.cost / 2)), buy: owned ? 0 : o.cost },
   });
@@ -164,7 +168,11 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
 
   const newShop = () => {
     shop = [0, 1].map(() => {
-      if (rand() < 0.7) return { ...pick(JOKERS), id: nextId++, set: "JOKER" as const };
+      if (rand() < 0.7) {
+        const j = { ...pick(JOKERS), id: nextId++, set: "JOKER" as const };
+        // Gold stake: some shop jokers are Rentals, $1 up front and $3 every round.
+        return stakeAtLeast(stake, "GOLD") && rand() < 0.3 ? { ...j, rental: true, cost: 1 } : j;
+      }
       const p = pick(PLANETS);
       const b = BASE_HANDS[p.hand];
       return { id: nextId++, key: p.key, label: p.label, set: "PLANET" as const, effect: `Level up ${p.hand}: +${b.lmult} Mult and +${b.lchips} Chips`, cost: 3, hand: p.hand };
@@ -201,8 +209,8 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
       ante_num: ante,
       money,
       bankrupt_at: 0,
-      deck: "RED",
-      stake: "WHITE",
+      deck: deckName,
+      stake,
       seed,
       won,
       hands: Object.fromEntries(HAND_NAMES.map((h, i) => [h, { order: i + 1, ...levels[h] }])),
@@ -254,6 +262,8 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
     },
     start: (p) => {
       need("MENU");
+      stake = typeof p?.stake === "string" ? p.stake : "WHITE";
+      deckName = typeof p?.deck === "string" ? p.deck : "RED";
       reset(String(p?.seed ?? `SIM${Math.floor(rand() * 1e6)}`));
       phase = "BLIND_SELECT";
       return state();
@@ -289,7 +299,7 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
       const pcards = played.map((c, i) => ({ ...toPCard(rawCard(c), i) }));
       const held = hand.map((c, i) => toPCard(rawCard(c), i));
       const js = asJokers();
-      const est = estimateScore(pcards, { levels, jokers: js, held, rules: rulesFromJokers(js), handsLeft, discardsLeft });
+      const est = estimateScore(pcards, { levels, jokers: js, held, rules: rulesFromJokers(js), handsLeft, discardsLeft, balanced: deckName === "PLASMA" });
       const score = boss.name === "The Psychic" && blindIdx === 2 && played.length < 5 ? 0 : est.score;
       chips += score;
       levels[est.hand].played++;
@@ -304,7 +314,8 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
           phase = "GAME_OVER";
           return state();
         }
-        cashout = [3, 4, 5][blindIdx] + handsLeft + interest();
+        const reward = blindIdx === 0 && stakeAtLeast(stake, "RED") ? 0 : [3, 4, 5][blindIdx];
+        cashout = reward + handsLeft + interest() - 3 * jokers.filter((j) => j.rental).length;
         phase = "ROUND_EVAL";
       } else if (handsLeft <= 0) {
         result = `Lost to ${blindRaw(blindIdx).name}`;
@@ -363,6 +374,14 @@ export function simGame(initialSeed = "SIM1"): Game & { state(): GameState } {
       if (!list[i]) fail("BAD_REQUEST", "nothing to sell there");
       money += Math.max(1, Math.floor(list[i].cost / 2));
       list.splice(i, 1);
+      return state();
+    },
+    rearrange: (p) => {
+      const order = p?.jokers;
+      if (!Array.isArray(order) || order.length !== jokers.length || new Set(order).size !== jokers.length || order.some((i) => !jokers[Number(i)])) {
+        return fail("BAD_REQUEST", "jokers must be a permutation of the current joker indices");
+      }
+      jokers = order.map((i) => jokers[Number(i)]);
       return state();
     },
     reroll: () => {

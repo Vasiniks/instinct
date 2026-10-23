@@ -30,6 +30,10 @@ export interface Config {
   screenPath: string;
   autoStart?: { deck: string; stake: string; seed?: string };
   endless: boolean;
+  /** Use the expert priors from data/roffle/priors.json when present. */
+  expert: boolean;
+  /** After a run ends, start the next one instead of pausing (needs autoStart). */
+  continuous?: boolean;
   logDir: string;
 }
 
@@ -48,7 +52,7 @@ export function loadConfig(argv = process.argv.slice(2), env = process.env): Con
   const key = env.TYPESAFE_API_KEY?.trim() ?? "";
   // `||`, not `??`: an exported-but-empty variable means unset.
   const envModel = env.DECISION_MODEL || env.TYPESAFE_DEFAULT_MODEL;
-  const reviewMode = (flag(argv, "review") ?? env.REVIEW_MODE ?? "fallback") as ReviewMode;
+  const reviewMode = (flag(argv, "review") ?? env.REVIEW_MODE ?? "blend") as ReviewMode;
   const backendFlag = flag(argv, "backend");
   const deck = flag(argv, "deck") ?? env.BALATRO_DECK;
   const seed = flag(argv, "seed") ?? env.BALATRO_SEED;
@@ -77,14 +81,16 @@ export function loadConfig(argv = process.argv.slice(2), env = process.env): Con
       noneThreshold: Number(env.NONE_THRESHOLD ?? 0.2),
       minConfidence: Number(env.MIN_CONFIDENCE ?? 0.55),
     },
-    reviewMode: ["fallback", "model", "pause"].includes(reviewMode) ? reviewMode : "fallback",
+    reviewMode: ["blend", "fallback", "model", "pause"].includes(reviewMode) ? reviewMode : "blend",
     live: sim || flag(argv, "live") !== undefined,
     tickDelayMs: Number(flag(argv, "delay") ?? env.TICK_DELAY_MS ?? 600),
     screenshots: !sim && flag(argv, "no-screen") === undefined,
-    screenIntervalMs: Number(env.SCREEN_INTERVAL_MS ?? 700),
+    screenIntervalMs: Number(env.SCREEN_INTERVAL_MS ?? 2000),
     screenPath: resolve(root, "runs", "screen.png"),
     autoStart: sim || deck ? { deck: deck ?? "RED", stake: flag(argv, "stake") ?? env.BALATRO_STAKE ?? "WHITE", ...(seed ? { seed } : {}) } : undefined,
     endless: flag(argv, "endless") !== undefined,
+    expert: flag(argv, "no-expert") === undefined,
+    continuous: flag(argv, "continuous") !== undefined,
     logDir: resolve(root, "runs"),
   };
 }

@@ -40,6 +40,9 @@ export const pct = (p: number | undefined, digits = 0) => (p === undefined || Nu
 export const ms = (n: number | undefined) => (n === undefined ? "–" : n < 1 ? "<1 ms" : n < 1000 ? `${Math.round(n)} ms` : `${(n / 1000).toFixed(1)} s`);
 export const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/** The page's CSS zoom (the whole UI is drawn at 90%): screen pixels per CSS pixel. */
+export const pageZoom = () => Number.parseFloat(getComputedStyle(document.body).zoom) || 1;
+
 // One shared tooltip for every chart.
 let tip: HTMLDivElement | undefined;
 export function showTip(e: MouseEvent, content: Node | string) {
@@ -47,10 +50,12 @@ export function showTip(e: MouseEvent, content: Node | string) {
   tip.replaceChildren(typeof content === "string" ? document.createTextNode(content) : content);
   tip.hidden = false;
   const pad = 14;
+  const z = pageZoom();
   const { innerWidth: w, innerHeight: hgt } = window;
   const r = tip.getBoundingClientRect();
-  tip.style.left = `${Math.min(e.clientX + pad, w - r.width - 8)}px`;
-  tip.style.top = `${Math.min(e.clientY + pad, hgt - r.height - 8)}px`;
+  // Mouse and box positions are in screen pixels; the tip's left and top are zoomed CSS pixels.
+  tip.style.left = `${Math.min(e.clientX + pad, w - r.width - 8) / z}px`;
+  tip.style.top = `${Math.min(e.clientY + pad, hgt - r.height - 8) / z}px`;
 }
 export function hideTip() {
   if (tip) tip.hidden = true;

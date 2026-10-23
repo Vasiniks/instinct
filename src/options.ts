@@ -5,6 +5,7 @@
 
 import { RANKS, SUITS, SUIT_NAME, cardWorth, pAtLeast, rankValue, type PCard } from "./cards.ts";
 import type { Snapshot } from "./extract.ts";
+import { FEATURES } from "./features.ts";
 import { estimateScore, evaluateHand, suitsOf, type Estimate, type HandName, type ScoreContext } from "./poker.ts";
 
 export interface PlayOption {
@@ -37,6 +38,7 @@ export function scoreContext(s: Snapshot, played: PCard[]): ScoreContext {
     rules: s.rules,
     handsLeft: s.handsLeft,
     discardsLeft: s.discardsLeft,
+    balanced: s.deck === "PLASMA",
   };
 }
 
@@ -60,8 +62,51 @@ function flushNeed(s: Snapshot) {
   return s.rules.fourFingers ? 4 : 5;
 }
 
+/** Hands that leave free slots in a play: kickers there score nothing but go to the discard pile. */
+const PADDABLE = new Set<HandName>(["High Card", "Pair", "Two Pair", "Three of a Kind", "Four of a Kind"]);
+
+/**
+ * Fills a small hand's spare slots with junk, so the junk cycles out like a free discard. Roffle
+ * played his Pairs, Two Pairs, Trips and High Cards with five cards 74% of the time in antes 1-3
+ * and 59% in antes 4-8, and almost never bare (3-4%); he used no discard at all in half his blinds.
+ * Only plain cards go: never Steel, Gold or other enhanced, sealed or edition cards, never cards
+ * that pair up in hand, never the suit a Flush build is collecting, never cards Baron or Shoot the
+ * Moon want held, and nothing that changes the hand played. Off under The Tooth ($1 a card) and
+ * with Half Joker (3 cards or fewer) or Square Joker (exactly 4).
+ */
+export function padWithJunk(s: Snapshot, set: PCard[], prefer?: ReadonlySet<string>): PCard[] {
+  const limit = Math.max(1, s.playLimit);
+  if (set.length >= limit) return set;
+  const hand = evaluateHand(set, s.rules).hand;
+  if (!PADDABLE.has(hand)) return set;
+  const keys = new Set(s.jokers.map((j) => j.key));
+  if (keys.has("j_half") || keys.has("j_square")) return set;
+  if (/the tooth/i.test(s.blind?.name ?? "") || /lose \$1 per card/i.test(s.blind?.effect ?? "")) return set;
+  const visible = s.hand.filter((c) => !c.hidden);
+  const rankCount = groupByRank(visible);
+  let flushSuit: string | undefined;
+  if (prefer?.has("Flush")) {
+    const bySuit = SUITS.map((x) => ({ x, n: visible.filter((c) => suitsOf(c, s.rules).includes(x)).length })).sort((a, b) => b.n - a.n)[0];
+    if (bySuit && bySuit.n >= 3) flushSuit = bySuit.x;
+  }
+  const junk = visible
+    .filter((c) => !set.includes(c) && !c.forced && c.rank)
+    .filter((c) => !c.enhancement && !c.edition && !c.seal)
+    .filter((c) => (rankCount.get(c.rank!)?.length ?? 0) < 2)
+    .filter((c) => !(keys.has("j_baron") && c.rank === "K") && !(keys.has("j_shoot_the_moon") && c.rank === "Q"))
+    .filter((c) => !flushSuit || !suitsOf(c, s.rules).includes(flushSuit))
+    .sort(byWorthAsc);
+  const out = [...set];
+  for (const c of junk) {
+    if (out.length >= limit) break;
+    if (evaluateHand([...out, c], s.rules).hand !== hand) continue;
+    out.push(c);
+  }
+  return out;
+}
+
 /** Candidate card sets, one family at a time. */
-function playSets(s: Snapshot): PCard[][] {
+function playSets(s: Snapshot, prefer?: ReadonlySet<string>): PCard[][] {
   const limit = Math.max(1, s.playLimit);
   const pool = s.hand.filter((c) => !c.hidden);
   const ranked = pool.filter((c) => c.rank);
@@ -123,13 +168,16 @@ function playSets(s: Snapshot): PCard[][] {
       if (out.length >= limit) out = [...out].sort(byWorthDesc).slice(0, limit - 1);
       out.push(f);
     }
-    if (mustPlayFive) for (const junk of [...s.hand].sort(byWorthAsc)) if (out.length < Math.min(5, limit) && !out.includes(junk)) out.push(junk);
+    if (mustPlayFive) {
+      for (const junk of [...s.hand].sort(byWorthAsc)) if (out.length < Math.min(5, limit) && !out.includes(junk)) out.push(junk);
+    } else if (FEATURES.padding) out = padWithJunk(s, out, prefer);
     return inHandOrder(out);
   });
 }
 
-export function playOptions(s: Snapshot, max = 5): PlayOption[] {
-  let sets = playSets(s);
+/** The best plays by estimated score, at most two per hand type, always including the best play of each `prefer` hand. */
+export function playOptions(s: Snapshot, max = 5, prefer?: ReadonlySet<string>): PlayOption[] {
+  let sets = playSets(s, prefer);
   if (!sets.length && s.hand.length) sets = [inHandOrder(s.hand.slice(0, Math.max(1, s.playLimit)))];
   const seen = new Set<string>();
   const scored: PlayOption[] = [];
@@ -148,6 +196,12 @@ export function playOptions(s: Snapshot, max = 5): PlayOption[] {
     perHand.set(o.estimate.hand, n + 1);
     out.push(o);
     if (out.length >= max) break;
+  }
+  // The build's own hand stays on the list even when other hands score more right now.
+  for (const hand of prefer ?? []) {
+    if (out.some((o) => o.estimate.hand === hand)) continue;
+    const pick = scored.find((o) => o.estimate.hand === hand);
+    if (pick) out.push(pick);
   }
   return out;
 }

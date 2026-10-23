@@ -1,24 +1,21 @@
-// Visualizer: the real Balatro window in the middle, values / calls / reply probabilities on the
-// right, the observe -> extract -> ask -> gate -> act loop and the tick timeline along the bottom.
+// Visualizer ("Instrument"): the real Balatro window and the current decision on top; the loop as
+// a flow chart and the run as a trace along the bottom. Recorded runs can be viewed again, or
+// replayed on the game from their seed.
 
 import type { AgentStatus, Stage, TickRecord } from "../src/loop.ts";
+import type { RunMeta } from "../src/runs.ts";
 import type { ChoiceAnswer, NoulAnswer, ScoreAnswer } from "../src/systemone.ts";
-import { DecisionBars, levels, meter, sparkline, type BarRow } from "./charts.ts";
-import { h, mount, ms, pct, withTip } from "./dom.ts";
-
-const STAGES: { id: Stage; name: string; does: string }[] = [
-  { id: "observe", name: "Observe", does: "BlindDeck gamestate" },
-  { id: "extract", name: "Extract", does: "snapshot + legal options" },
-  { id: "ask", name: "Ask", does: "System One judgments" },
-  { id: "gate", name: "Gate", does: "confidence + none-of-above" },
-  { id: "act", name: "Act", does: "BlindDeck call" },
-];
+import { DecisionBars, meter, type BarRow } from "./charts.ts";
+import { h, mount, pct } from "./dom.ts";
+import { FlowChart, shortModel } from "./flow.ts";
+import { renderTrace } from "./trace.ts";
 
 const STATUS_ICON: Record<string, string> = { ACT: "✓", REVIEW: "?", ABSTAIN: "∅", AUTO: "•", IDLE: "–", ERROR: "!" };
-const STATUS_TEXT: Record<string, string> = { ACT: "Acted on the model", REVIEW: "Review", ABSTAIN: "Abstained", AUTO: "Automatic", IDLE: "Idle", ERROR: "Error" };
-const SOURCE_TEXT: Record<string, string> = { model: "the model's pick", fallback: "the heuristic fallback", auto: "a forced step", human: "your pick", none: "nothing" };
-const RISK_LABEL: Record<string, string> = { SELECTING_HAND: "Blind looks out of reach", SHOP: "Should save money", BLIND_SELECT: "Safe to skip this blind" };
+const STATUS_TEXT: Record<string, string> = { ACT: "Acted on the model", REVIEW: "Review", ABSTAIN: "Abstained", AUTO: "Forced step", IDLE: "Idle", ERROR: "Error" };
+const SOURCE_TEXT: Record<string, string> = { model: "the model's pick", blend: "the model's and the code's values combined", fallback: "the heuristic pick", auto: "a forced step", human: "your pick", none: "nothing" };
+const RISK_LABEL: Record<string, string> = { SELECTING_HAND: "Blind out of reach", SHOP: "Should save money", BLIND_SELECT: "Safe to skip" };
 const POSITION_SHORT = ["Losing", "Fragile", "On pace", "Dominant"];
+const BACKEND_SHORT: Record<string, string> = { cloud: "Jev", local: "Local" };
 
 const app = {
   status: undefined as AgentStatus | undefined,
@@ -29,13 +26,24 @@ const app = {
   /** Live capture of the Balatro window (browser screen-share), when the user embedded it. */
   stream: null as MediaStream | null,
   connected: false,
+  /** A recorded run opened for viewing; live ticks keep arriving underneath. */
+  view: null as { meta: RunMeta; ticks: TickRecord[] } | null,
 };
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const bars = new DecisionBars((id) => void control({ cmd: "override", id }));
 $("reply-bars").replaceWith(bars.el);
+const flow = new FlowChart();
+$("flow").replaceWith(flow.el);
 
-const current = (): TickRecord | undefined => (app.pinned !== null ? app.ticks.find((t) => t.n === app.pinned) : app.ticks[app.ticks.length - 1]);
+const shown = (): TickRecord[] => app.view?.ticks ?? app.ticks;
+const current = (): TickRecord | undefined => {
+  const ts = shown();
+  return app.pinned !== null ? ts.find((t) => t.n === app.pinned) : ts[ts.length - 1];
+};
+const phaseName = (phase: string) => phase.replace(/_/g, " ").toLowerCase();
+const cap = (s: string) => s.charAt(0) + s.slice(1).toLowerCase();
+const chosenOf = (t: TickRecord) => (t.verdict.chosen ? (t.auto?.id === t.verdict.chosen ? t.auto : t.candidates.find((c) => c.id === t.verdict.chosen)) : undefined);
 
 async function control(body: Record<string, unknown>) {
   try {
@@ -62,27 +70,47 @@ function renderTop() {
   const s = app.status;
   const last = app.ticks[app.ticks.length - 1];
   const served = [...app.ticks].reverse().find((t) => t.response)?.response?.model;
-  $("conn").className = `conn ${app.connected ? "on" : "off"}`;
-  $("conn").textContent = app.connected ? "connected" : "reconnecting";
+  const conn = $("conn");
+  conn.className = `conn ${app.connected ? "on" : "off"}`;
+  conn.title = app.connected ? "Connected" : "Reconnecting";
+  conn.setAttribute("aria-label", conn.title);
+
+  const snap = (app.view ? app.view.ticks[app.view.ticks.length - 1] : last)?.snapshot;
+  $("run-meta").textContent = snap
+    ? [snap.deck && `${cap(snap.deck)} deck`, snap.stake && `${snap.stake.toLowerCase()} stake`, `ante ${snap.ante}`, `round ${snap.round}`, `$${snap.money}`, snap.seed && `seed ${snap.seed}`].filter(Boolean).join(", ")
+    : "";
   const label = s?.backends.find((b) => b.name === s.backend)?.label ?? s?.backend;
-  $("backend").textContent = s ? `${label} · ${served ? `last answer from ${served}` : `asks ${s.model}`}` : "";
+  $("backend").textContent = s ? `${label}, ${served ? `last answer from ${served}` : `asks for ${s.model}`}` : "";
   $("game").textContent = s?.game ?? "";
-  renderModelSwitch(s);
+
+  const replaying = Boolean(s?.replay);
   const run = $<HTMLButtonElement>("btn-run");
   run.textContent = s?.running ? "Pause" : "Run";
   run.setAttribute("aria-pressed", String(Boolean(s?.running)));
-  $<HTMLButtonElement>("btn-step").disabled = Boolean(s?.running);
+  run.disabled = replaying;
+  $<HTMLButtonElement>("btn-step").disabled = Boolean(s?.running) || replaying;
   $<HTMLInputElement>("live").checked = Boolean(s?.live);
-  $("live-label").textContent = s?.live ? "Live: sending actions" : "Dry run: nothing is sent";
+  $("live-label").textContent = s?.live ? "Live" : "Dry run";
   $("live-wrap").classList.toggle("is-live", Boolean(s?.live));
   if (s) $<HTMLSelectElement>("review").value = s.reviewMode;
   if (s && document.activeElement !== $("delay")) $<HTMLInputElement>("delay").value = String(s.tickDelayMs);
   $("delay-value").textContent = `${s?.tickDelayMs ?? 0} ms`;
-  const atMenu = last?.phase === "MENU" || last?.phase === "GAME_OVER";
-  $("start").hidden = !atMenu;
-  const msg = s?.awaitingHuman ? "Gates failed. Pick an action in Reply probabilities, or change “When gates fail”." : s?.message;
+  $("start").hidden = replaying || !(last?.phase === "MENU" || last?.phase === "GAME_OVER");
+  const msg = s?.awaitingHuman ? "Gates failed. Click a move under the decision to send it, or change “When gates fail” in Settings." : s?.message;
   $("message").hidden = !msg;
   $("message").textContent = msg ?? "";
+
+  const banner = $("banner");
+  if (s?.replay) {
+    banner.hidden = false;
+    $("banner-text").textContent = `Replaying seed ${s.replay.seed} on the game: action ${s.replay.step} of ${s.replay.total}.`;
+    $("banner-btn").textContent = "Stop replay";
+  } else if (app.view) {
+    banner.hidden = false;
+    $("banner-text").textContent = `Viewing a recorded run: ${runTitle(app.view.meta)}, ${app.view.meta.result}. The game picture is still live.`;
+    $("banner-btn").textContent = "Back to live";
+  } else banner.hidden = true;
+  renderModelSwitch(s);
 }
 
 /** Cloud Jev / local StartLux. Takes effect on the next decision; the run keeps going. */
@@ -99,9 +127,9 @@ function renderModelSwitch(s: AgentStatus | undefined) {
       list.map((b) =>
         h(
           "label",
-          { title: b.url },
-          h("input", { type: "radio", name: "backend", value: b.name, onchange: () => control({ cmd: "set", backend: b.name }) }),
-          h("span", null, b.label[0].toUpperCase() + b.label.slice(1)),
+          { title: `${b.label[0].toUpperCase() + b.label.slice(1)}, ${b.url}` },
+          h("input", { type: "radio", name: "backend", value: b.name, "aria-label": b.label, onchange: () => control({ cmd: "set", backend: b.name }) }),
+          h("span", { "aria-hidden": "true" }, BACKEND_SHORT[b.name] ?? b.label),
         ),
       ),
     );
@@ -110,19 +138,10 @@ function renderModelSwitch(s: AgentStatus | undefined) {
 }
 
 // ---------------------------------------------------------------------------------------------
-// Center: the real game window, scaled into the frame. Two sources:
-//   1. "Embed Balatro window": the browser captures the window itself (live, full frame rate).
-//   2. Otherwise BlindDeck screenshots of the game, refreshed after every action and on a timer.
+// The game: the real window, scaled into the frame. Two sources:
+//   1. "Embed window": the browser captures the window itself (live, full frame rate).
+//   2. Otherwise BlindDeck screenshots, refreshed after every action and on a timer.
 // ---------------------------------------------------------------------------------------------
-
-function caption(t: TickRecord | undefined): string {
-  if (!t) return "";
-  const id = t.verdict.chosen;
-  const c = id ? (t.auto?.id === id ? t.auto : t.candidates.find((x) => x.id === id)) : undefined;
-  const prefix = app.pinned !== null ? `Tick ${t.n}. ` : "";
-  if (!c) return prefix + (t.note ?? t.verdict.reason);
-  return `${prefix}${t.result?.dryRun ? "Would send" : "Sent"}: ${c.label}`;
-}
 
 function renderCenter() {
   const live = Boolean(app.stream);
@@ -132,17 +151,23 @@ function renderCenter() {
   const img = document.getElementById("screen-img");
   if (img) img.hidden = !shot;
   $("frame-empty").hidden = live || shot;
-  $("embed").textContent = live ? "Stop embedding" : "Embed Balatro window";
-  $("screen-source").textContent = live
-    ? "Live capture of the Balatro window"
-    : shot
-      ? `BlindDeck screenshots, updated ${new Date(app.screenAt).toLocaleTimeString()}`
-      : "";
+  // Screenshots stall the game, so the server stops taking them while the agent plays.
+  $("frame-hint").hidden = live || sim || Boolean(app.status?.screenLive) || !(app.status?.running || app.status?.replay);
+  $("embed").textContent = live ? "Stop embedding" : "Embed window";
+  $("embed").title = live ? "" : "Show the Balatro window live instead of screenshots";
+  $("screen-source").textContent = live ? "Live" : shot ? `Screenshot ${new Date(app.screenAt).toLocaleTimeString()}` : "";
   $("frame-empty-title").textContent = sim ? "The simulator has no game window" : "No game window yet";
   $("frame-empty-text").textContent = sim
-    ? "This run plays the built-in simulator. Start without --sim to drive the real game."
-    : "Launch Balatro through Balala so BlindDeck loads. Screenshots from the game appear here on their own once it answers; for a live picture, press Embed Balatro window and pick the Balatro window.";
-  $("caption").textContent = caption(current());
+    ? "Start without --sim to drive the real game."
+    : "Launch Balatro through Balala. Screenshots appear once BlindDeck answers, or embed the window for a live picture.";
+
+  const t = current();
+  const c = t && chosenOf(t);
+  const who = !t ? "" : t.replayOf ? `Replayed tick ${t.replayOf.n}` : app.view ? `Recorded tick ${t.n}` : `Tick ${t.n}`;
+  mount(
+    $("caption"),
+    !t ? "" : c ? [`${who} ${t.result?.dryRun ? "would send" : "sent"} `, h("strong", null, c.label)] : `${who}: ${t.note ?? t.verdict.reason}`,
+  );
 }
 
 function refreshScreen() {
@@ -185,69 +210,14 @@ function stopEmbed() {
 }
 
 // ---------------------------------------------------------------------------------------------
-// Right column
+// The decision
 // ---------------------------------------------------------------------------------------------
-
-function renderValues(t: TickRecord | undefined) {
-  const pos = t?.response?.answers.position as ScoreAnswer | undefined;
-  const risk = t?.response?.answers.risk as NoulAnswer | undefined;
-  const points = app.ticks
-    .filter((x) => x.response?.answers.position && (app.pinned === null || x.n <= app.pinned))
-    .slice(-60)
-    .map((x) => {
-      const a = x.response!.answers.position as ScoreAnswer;
-      return { n: x.n, v: a.score, label: POSITION_SHORT[Math.round(a.score)] ?? "" };
-    });
-  const probs = pos ? POSITION_SHORT.map((_, i) => pos.probabilities[String(i)] ?? 0) : undefined;
-  mount(
-    $("values-body"),
-    h("div", { class: "value-block" }, h("h3", null, "Run strength"), probs ? levels(POSITION_SHORT, probs, pos!.score) : h("p", { class: "empty" }, "Asked each time the model is consulted."), sparkline(points, 3)),
-    risk && t ? h("div", { class: "value-block" }, meter(risk.noul, { label: RISK_LABEL[t.phase] ?? "Risk", note: "Probability the statement is true." })) : null,
-  );
-}
-
-function json(value: unknown): HTMLElement {
-  return h("pre", { class: "json" }, JSON.stringify(value, null, 2));
-}
-
-function renderCalls(t: TickRecord | undefined) {
-  const r = t?.response;
-  const q = t?.request ? Object.keys(t.request.questions).length : 0;
-  const result = t?.result;
-  mount(
-    $("calls-body"),
-    h(
-      "div",
-      { class: "call" },
-      h("div", { class: "call-head" }, h("span", { class: "call-target" }, "System One"), h("span", { class: "call-meta" }, r ? `${ms(r.latencyMs)}` : t?.request ? "no answer" : "not asked")),
-      t?.request
-        ? h("p", { class: "call-line" }, `${q} questions · ${r?.usage?.input_tokens?.toLocaleString() ?? "?"} tokens in · served by `, h("strong", null, r?.model ?? "–"))
-        : h("p", { class: "call-line muted" }, t?.auto ? "Forced step; no judgment needed." : t?.note ?? "Waiting for a decision."),
-      t?.request ? h("details", null, h("summary", null, "Request: state and questions"), json(t.request)) : null,
-      r ? h("details", null, h("summary", null, "Response"), json({ model: r.model, answers: r.answers, usage: r.usage })) : null,
-    ),
-    h(
-      "div",
-      { class: "call" },
-      h(
-        "div",
-        { class: "call-head" },
-        h("span", { class: "call-target" }, "BlindDeck"),
-        h("span", { class: `call-meta ${result ? (result.ok ? (result.dryRun ? "dry" : "ok") : "bad") : ""}` }, result ? (result.dryRun ? "dry run" : result.ok ? `ok · ${ms(result.ms)}` : "failed") : "–"),
-      ),
-      t?.call ? h("p", { class: "call-line" }, h("code", null, `${t.call.method}${t.call.params ? ` ${JSON.stringify(t.call.params)}` : ""}`)) : h("p", { class: "call-line muted" }, "No action this tick."),
-      result?.error ? h("p", { class: "call-error" }, result.error) : null,
-      t?.error && !result?.error ? h("p", { class: "call-error" }, t.error) : null,
-    ),
-  );
-}
 
 function replyRows(t: TickRecord): BarRow[] {
   const ans = t.response?.answers.action as ChoiceAnswer | undefined;
-  if (t.auto) return [{ id: t.auto.id, kind: "auto", label: t.auto.label, detail: "A forced step; the model is not asked.", p: 1, chosen: true, pick: false }];
+  if (t.auto) return [{ id: t.auto.id, label: t.auto.label, detail: "A forced step; the model is not asked.", p: 1, chosen: true, pick: false }];
   return t.candidates.map((c) => ({
     id: c.id,
-    kind: c.kind.replace("_", " "),
     label: c.label,
     detail: c.description,
     p: ans ? (ans.probabilities[c.id] ?? 0) : c.prior,
@@ -257,110 +227,226 @@ function replyRows(t: TickRecord): BarRow[] {
   }));
 }
 
-function renderReply(t: TickRecord | undefined) {
-  const verdict = $("verdict");
-  const gates = $("gates");
+function renderDecision(t: TickRecord | undefined) {
+  $("follow").hidden = app.pinned === null;
+  const raw = $<HTMLDetailsElement>("raw");
   if (!t) {
+    $("decision-title").textContent = app.view ? "This recording has no ticks" : "No decision yet";
+    mount($("decision-status"));
+    $("decision-reason").textContent = "";
     bars.update([], "none", false);
-    mount(verdict, h("p", { class: "empty" }, "No decision yet."));
-    mount(gates);
+    mount($("gates"));
+    mount($("values"));
+    mount($("plan"));
+    raw.hidden = true;
     return;
   }
-  const ans = t.response?.answers.action as ChoiceAnswer | undefined;
-  const isLatest = t === app.ticks[app.ticks.length - 1];
-  const interactive = isLatest && !app.status?.running && t.candidates.length > 0;
-  bars.update(replyRows(t), `tick-${t.n}`, interactive);
   const v = t.verdict;
-  mount(
-    verdict,
-    h("span", { class: `status status-${v.status.toLowerCase()}` }, h("span", { "aria-hidden": "true" }, STATUS_ICON[v.status] ?? "·"), STATUS_TEXT[v.status] ?? v.status),
-    h("p", { class: "verdict-reason" }, `${v.reason}. Executes ${SOURCE_TEXT[v.source]}.`),
-    !ans && t.candidates.length > 1 ? h("p", { class: "verdict-note" }, "Bars show the heuristic only: the model did not answer.") : null,
-    interactive ? h("p", { class: "verdict-note" }, "Paused: click any option to send it.") : null,
-  );
+  const ans = t.response?.answers.action as ChoiceAnswer | undefined;
+  $("decision-title").textContent = `Tick ${t.replayOf?.n ?? t.n}, ${phaseName(t.phase)}`;
+  mount($("decision-status"), h("span", { class: `status status-${v.status.toLowerCase()}` }, h("span", { "aria-hidden": "true" }, STATUS_ICON[v.status] ?? "·"), STATUS_TEXT[v.status] ?? v.status));
+  const isLatest = t === app.ticks[app.ticks.length - 1];
+  const interactive = !app.view && !t.replayOf && isLatest && !app.status?.running && !app.status?.replay && t.candidates.length > 0;
+  const notes = [
+    `${cap(v.reason)}.`,
+    /using|trusting|waiting/.test(v.reason) ? "" : `Executes ${SOURCE_TEXT[v.source]}.`,
+    !ans && t.candidates.length > 1 ? "The model did not answer, so the bars show the heuristic." : "",
+    interactive ? "Paused: click a move to send it." : "",
+  ];
+  $("decision-reason").textContent = notes.filter(Boolean).join(" ");
+  bars.update(replyRows(t), `tick-${app.view ? "view-" : ""}${t.n}`, interactive);
+
   const g = app.status?.gates;
   mount(
-    gates,
+    $("gates"),
     ans && g
       ? [
-          meter(ans.confidence, { label: `Confidence (gate ${g.minConfidence})`, threshold: g.minConfidence }),
+          meter(ans.confidence, { label: "Confidence", threshold: g.minConfidence, passAbove: true, note: `Reviews below ${pct(g.minConfidence)}` }),
           ans.none_probability !== undefined
-            ? meter(ans.none_probability, { label: `None of the above (gate ${g.noneThreshold})`, threshold: g.noneThreshold })
-            : h("p", { class: "meter-note" }, "No none-of-the-above score from this backend."),
+            ? meter(ans.none_probability, { label: "None fits", threshold: g.noneThreshold, passAbove: false, note: `Abstains at ${pct(g.noneThreshold)}` })
+            : h("p", { class: "meter-note" }, "This backend gives no none-fits score."),
         ]
       : null,
   );
-  gates.classList.toggle("conf-pass", Boolean(ans && g && ans.confidence >= g.minConfidence));
+  renderValues(t);
+  renderPlan(t);
+
+  raw.hidden = !t.request;
+  if (raw.open) fillRaw();
 }
 
-// ---------------------------------------------------------------------------------------------
-// Bottom: the loop and the timeline
-// ---------------------------------------------------------------------------------------------
-
-function renderPipeline() {
-  const t = current();
-  const following = app.pinned === null;
-  const active = following && app.status?.running !== undefined ? app.live.stage : "idle";
-  const timing: Record<string, number | undefined> = t ? { observe: t.timings.observe, extract: t.timings.extract, ask: t.timings.ask, gate: undefined, act: t.timings.act } : {};
+/** The build plan the run is committed to: what it is, how it stands, and what it could become. */
+function renderPlan(t: TickRecord) {
+  const p = t.plan;
+  if (!p) {
+    mount($("plan"));
+    return;
+  }
+  const list = (title: string, items: string[]) =>
+    items.length ? h("div", { class: "plan-list" }, h("span", { class: "plan-label" }, title), h("ul", null, items.map((x) => h("li", null, x)))) : null;
   mount(
-    $("pipeline"),
-    STAGES.flatMap((st, i) => [
-      h(
-        "div",
-        { class: `stage${active === st.id ? " active" : ""}${st.id === "ask" && !t?.request ? " skipped" : ""}`, "aria-current": active === st.id ? "step" : undefined },
-        h("span", { class: "stage-name" }, st.name),
-        h("span", { class: "stage-does" }, st.does),
-        h("span", { class: "stage-time" }, st.id === "gate" ? (t ? t.verdict.status.toLowerCase() : "–") : ms(timing[st.id])),
-      ),
-      i < STAGES.length - 1 ? h("span", { class: "stage-arrow", "aria-hidden": "true" }, "→") : null,
-    ]),
-    h("span", { class: "stage-loop", "aria-hidden": "true" }, "↺"),
-    h("div", { class: "tick-id" }, h("span", null, t ? `Tick ${t.n}` : "No ticks"), h("span", { class: "muted" }, t ? `${t.phase.replace(/_/g, " ").toLowerCase()} · ${ms(t.timings.total)}` : "")),
+    $("plan"),
+    h(
+      "div",
+      { class: "plan-head" },
+      h("span", { class: "plan-label" }, "Build"),
+      h("strong", null, p.build),
+      h("span", { class: "plan-since" }, `since ${p.since}`),
+      t.pivot ? h("span", { class: "status status-review", title: t.pivot.why }, `Pivot: ${t.pivot.from} to ${t.pivot.to}`) : null,
+    ),
+    h("p", { class: "plan-line" }, p.strength),
+    p.needs.length ? h("p", { class: "plan-line" }, h("span", { class: "plan-label" }, "Needs "), p.needs.join(", ")) : null,
+    p.commitment ? h("p", { class: "plan-line" }, h("span", { class: "plan-label" }, "Commitment "), p.commitment) : null,
+    h(
+      "details",
+      { class: "plan-more" },
+      h("summary", null, "Synergy, pivots, economy and deck fixing"),
+      list("Current synergy", p.current_synergy),
+      list("Dead weight", p.dead_weight),
+      list("Pivot options", p.pivot_options),
+      list("Economy", [p.economy]),
+      list("Deck fixing", [p.deck_fixing]),
+      list("Deck and stake", p.deck_and_stake),
+      p.last_pivot ? list("Last pivot", [p.last_pivot]) : null,
+    ),
   );
 }
 
-function renderTimeline() {
-  const el = $("timeline");
-  const ticks = app.ticks.slice(-160);
-  const nodes: HTMLElement[] = [];
-  let round: number | undefined;
-  for (const t of ticks) {
-    if (round !== undefined && t.snapshot.round !== round) nodes.push(h("span", { class: "round-break", "aria-hidden": "true" }));
-    round = t.snapshot.round;
-    const chosen = t.verdict.chosen ? (t.auto?.id === t.verdict.chosen ? t.auto : t.candidates.find((c) => c.id === t.verdict.chosen)) : undefined;
-    const conf = (t.response?.answers.action as ChoiceAnswer | undefined)?.confidence;
-    nodes.push(
-      withTip(
-        h(
-          "button",
-          {
-            class: `tick status-${t.verdict.status.toLowerCase()}${current() === t ? " selected" : ""}${t.result && !t.result.ok ? " failed" : ""}`,
-            "aria-label": `Tick ${t.n}, ${t.phase}, ${t.verdict.status}`,
-            onclick: () => {
-              app.pinned = app.pinned === t.n ? null : t.n;
-              renderAll();
-            },
-          },
-          STATUS_ICON[t.verdict.status] ?? "·",
-        ),
-        () => `Tick ${t.n} · ${t.phase.replace(/_/g, " ").toLowerCase()} · ${chosen?.label ?? t.note ?? "no action"} · ${t.verdict.status}${conf !== undefined ? ` ${pct(conf)}` : ""}`,
-      ),
-    );
-  }
-  mount(el, nodes.length ? nodes : h("p", { class: "empty" }, "Ticks appear here as the agent decides."));
-  if (app.pinned === null) el.scrollLeft = el.scrollWidth;
-  $("follow").hidden = app.pinned === null;
+function fillRaw() {
+  const t = current();
+  $("raw-json").textContent = t?.request ? JSON.stringify({ request: t.request, response: t.response ?? null }, null, 2) : "";
+}
+
+function renderValues(t: TickRecord) {
+  const pos = t.response?.answers.position as ScoreAnswer | undefined;
+  const risk = t.response?.answers.risk as NoulAnswer | undefined;
+  const probs = POSITION_SHORT.map((_, i) => pos?.probabilities[String(i)] ?? 0);
+  const top = probs.indexOf(Math.max(...probs));
+  mount(
+    $("values"),
+    pos
+      ? h(
+          "div",
+          { class: "meter", title: POSITION_SHORT.map((n, i) => `${n} ${pct(probs[i])}`).join(", ") },
+          h("div", { class: "meter-head" }, h("span", null, "Run strength"), h("span", { class: "meter-value" }, `${POSITION_SHORT[top]} ${pct(probs[top])}`)),
+          // Ordered levels as one bar, light (losing) to dark (dominant).
+          h("div", { class: "strength-bar" }, probs.map((p, i) => h("span", { class: `strength-seg s${i}`, style: { flexGrow: String(p) } }))),
+          h("p", { class: "meter-note" }, "Losing to dominant"),
+        )
+      : null,
+    risk ? meter(risk.noul, { label: RISK_LABEL[t.phase] ?? "Risk", note: "The model's yes probability" }) : null,
+  );
+}
+
+// ---------------------------------------------------------------------------------------------
+// Bottom: the loop as a flow chart, the run as a trace
+// ---------------------------------------------------------------------------------------------
+
+function renderFlow() {
+  const following = app.pinned === null && !app.view;
+  flow.update(current(), { active: following && app.live.stage !== "idle" ? app.live.stage : undefined, gates: app.status?.gates, reviewMode: app.status?.reviewMode });
+}
+
+function describe(t: TickRecord): string {
+  const conf = (t.response?.answers.action as ChoiceAnswer | undefined)?.confidence;
+  const c = chosenOf(t);
+  return `Tick ${t.replayOf?.n ?? t.n}, ${phaseName(t.phase)}: ${c?.label ?? t.note ?? "no action"}. ${STATUS_TEXT[t.verdict.status] ?? t.verdict.status}${conf !== undefined ? `, confidence ${pct(conf)}` : ""}.`;
+}
+
+function renderTraceAll() {
+  const ts = shown();
+  const count = (s: string) => ts.filter((t) => t.verdict.status === s).length;
+  const asked = ts.filter((t) => t.request).length;
+  $("trace-note").textContent = ts.length
+    ? `${ts.length} ticks. Of ${asked} model calls, ${count("ACT")} acted, ${count("REVIEW")} went to review, ${count("ABSTAIN")} abstained.`
+    : "";
+  renderTrace($("trace"), ts, {
+    selected: current()?.n,
+    following: app.pinned === null,
+    gates: app.status?.gates,
+    describe,
+    onPick: (n) => {
+      app.pinned = app.pinned === n ? null : n;
+      renderAll();
+    },
+  });
 }
 
 function renderAll() {
   const t = current();
   renderTop();
   renderCenter();
-  renderValues(t);
-  renderCalls(t);
-  renderReply(t);
-  renderPipeline();
-  renderTimeline();
+  renderDecision(t);
+  renderFlow();
+  renderTraceAll();
+}
+
+// ---------------------------------------------------------------------------------------------
+// Recorded runs
+// ---------------------------------------------------------------------------------------------
+
+function runTitle(m: RunMeta) {
+  return `${cap(m.deck)} deck, ${m.stake.toLowerCase()} stake, seed ${m.seed}`;
+}
+
+async function loadRuns() {
+  const list = $("runs-list");
+  let runs: RunMeta[];
+  try {
+    runs = await (await fetch("/api/runs")).json();
+  } catch (e) {
+    mount(list, h("li", { class: "runs-empty" }, `Could not list runs: ${(e as Error).message}`));
+    return;
+  }
+  const here = app.status?.game === "simulator" ? "simulator" : "blinddeck";
+  const busy = Boolean(app.status?.running || app.status?.replay);
+  mount(
+    list,
+    runs.length
+      ? runs.map((m) =>
+          h(
+            "li",
+            { class: "run-row" },
+            h("span", { class: "run-title" }, runTitle(m)),
+            h(
+              "span",
+              { class: "run-sub" },
+              [m.result, `${m.actions} actions`, m.model ? shortModel(m.model) : "", new Date(m.startedAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }), m.game === "simulator" ? "simulator" : ""].filter(Boolean).join(", "),
+            ),
+            h("button", { type: "button", onclick: () => void viewRun(m.id) }, "View"),
+            h(
+              "button",
+              {
+                type: "button",
+                disabled: m.game !== here || busy || m.actions === 0,
+                title: m.game !== here ? `Recorded on the ${m.game}` : busy ? "Pause the agent first" : "Start this seed on the game and send the recorded actions",
+                onclick: () => {
+                  app.view = null;
+                  app.pinned = null;
+                  ($("runs") as HTMLDetailsElement).open = false;
+                  void control({ cmd: "replay", id: m.id });
+                  renderAll();
+                },
+              },
+              "Replay",
+            ),
+          ),
+        )
+      : h("li", { class: "runs-empty" }, "No runs recorded yet."),
+  );
+}
+
+async function viewRun(id: string) {
+  try {
+    const res = await fetch(`/api/runs/${encodeURIComponent(id)}`);
+    if (!res.ok) throw new Error((await res.json()).error ?? res.statusText);
+    app.view = await res.json();
+    app.pinned = null;
+    ($("runs") as HTMLDetailsElement).open = false;
+    renderAll();
+  } catch (e) {
+    flash(`Could not open the run: ${(e as Error).message}`);
+  }
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -369,6 +455,25 @@ function renderAll() {
 
 $("btn-run").addEventListener("click", () => control({ cmd: app.status?.running ? "pause" : "run" }));
 $("btn-step").addEventListener("click", () => control({ cmd: "step" }));
+
+// Theme: automatic (follows the system), light or dark; remembered in this browser only.
+const THEMES = ["auto", "light", "dark"] as const;
+function applyTheme(t: (typeof THEMES)[number]) {
+  if (t === "auto") delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = t;
+  $("theme").textContent = t === "auto" ? "Auto" : t === "light" ? "Light" : "Dark";
+  try {
+    if (t === "auto") localStorage.removeItem("instinct-theme");
+    else localStorage.setItem("instinct-theme", t);
+  } catch {
+    // Storage blocked: the choice lasts until reload.
+  }
+}
+applyTheme((document.documentElement.dataset.theme as (typeof THEMES)[number] | undefined) ?? "auto");
+$("theme").addEventListener("click", () => {
+  const now = (document.documentElement.dataset.theme as (typeof THEMES)[number] | undefined) ?? "auto";
+  applyTheme(THEMES[(THEMES.indexOf(now) + 1) % THEMES.length]);
+});
 $("live").addEventListener("change", (e) => control({ cmd: "set", live: (e.target as HTMLInputElement).checked }));
 $("review").addEventListener("change", (e) => control({ cmd: "set", reviewMode: (e.target as HTMLSelectElement).value }));
 $("delay").addEventListener("input", (e) => ($("delay-value").textContent = `${(e.target as HTMLInputElement).value} ms`));
@@ -382,7 +487,23 @@ $("follow").addEventListener("click", () => {
   app.pinned = null;
   renderAll();
 });
+$("banner-btn").addEventListener("click", () => {
+  if (app.status?.replay) void control({ cmd: "stop_replay" });
+  else {
+    app.view = null;
+    app.pinned = null;
+    renderAll();
+  }
+});
+$("runs").addEventListener("toggle", () => {
+  if (($("runs") as HTMLDetailsElement).open) void loadRuns();
+});
+$("raw").addEventListener("toggle", fillRaw);
 $("embed").addEventListener("click", () => void toggleEmbed());
+$("embed-hint").addEventListener("click", () => void toggleEmbed());
+document.addEventListener("click", (e) => {
+  for (const d of document.querySelectorAll<HTMLDetailsElement>("details.settings")) if (d.open && !d.contains(e.target as Node)) d.open = false;
+});
 document.addEventListener("keydown", (e) => {
   const tag = (e.target as HTMLElement).tagName;
   if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA" || e.metaKey || e.ctrlKey) return;
@@ -416,17 +537,25 @@ function connect() {
   es.addEventListener("status", (e) => {
     app.status = JSON.parse((e as MessageEvent).data);
     renderTop();
-    renderReply(current());
+    renderCenter();
+    if (!app.view) {
+      renderDecision(current());
+      renderFlow();
+    }
   });
   es.addEventListener("stage", (e) => {
     app.live = JSON.parse((e as MessageEvent).data);
-    renderPipeline();
+    if (!app.view && app.pinned === null) renderFlow();
   });
   es.addEventListener("tick", (e) => {
     app.ticks.push(JSON.parse((e as MessageEvent).data));
     if (app.ticks.length > 400) app.ticks.splice(0, app.ticks.length - 400);
-    if (app.pinned === null) renderAll();
-    else renderTimeline();
+    if (app.view) renderTop();
+    else if (app.pinned === null) renderAll();
+    else {
+      renderTop();
+      renderTraceAll();
+    }
   });
   es.addEventListener("screen", (e) => {
     app.screenAt = JSON.parse((e as MessageEvent).data).at;

@@ -8,8 +8,21 @@ __pycache__/
 # Upstream StartLux clone (its own git repo, ~5 GB); reference only.
 StartLux-Decision/
 
+# Roffle dataset: downloaded videos, scratch frames, game sprites and third-party code stay local.
+data/roffle/videos/
+data/roffle/tmp/
+data/roffle/catalog/sprites/
+tools/roffle/.vendor/
+tools/roffle/vendor/
+
 # Tool state
 .playwright-mcp/
 .impeccable/
 .claude/.cc-writes/
 .claude/settings.local.json
+
+# Headless Balatro instances for batch runs (tools/instances.sh)
+.instances/
+
+# A frozen copy of the code the watched run uses while src/ is being edited
+.live/

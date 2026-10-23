@@ -1,0 +1,302 @@
+[
+ {
+  "key": "bl_small",
+  "name": "Small Blind",
+  "colour": "096ea8",
+  "mult": 1.0,
+  "boss": false,
+  "showdown": false,
+  "min_ante": null,
+  "chip": "sprites/chips/bl_small.png"
+ },
+ {
+  "key": "bl_big",
+  "name": "Big Blind",
+  "colour": "9d6c03",
+  "mult": 1.5,
+  "boss": false,
+  "showdown": false,
+  "min_ante": null,
+  "chip": "sprites/chips/bl_big.png"
+ },
+ {
+  "key": "bl_ox",
+  "name": "The Ox",
+  "colour": "b95b08",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 6,
+  "chip": "sprites/chips/bl_ox.png"
+ },
+ {
+  "key": "bl_hook",
+  "name": "The Hook",
+  "colour": "a84024",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_hook.png"
+ },
+ {
+  "key": "bl_mouth",
+  "name": "The Mouth",
+  "colour": "ae718e",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_mouth.png"
+ },
+ {
+  "key": "bl_fish",
+  "name": "The Fish",
+  "colour": "3e85bd",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_fish.png"
+ },
+ {
+  "key": "bl_club",
+  "name": "The Club",
+  "colour": "b9cb92",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_club.png"
+ },
+ {
+  "key": "bl_manacle",
+  "name": "The Manacle",
+  "colour": "575757",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_manacle.png"
+ },
+ {
+  "key": "bl_tooth",
+  "name": "The Tooth",
+  "colour": "b52d2d",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 3,
+  "chip": "sprites/chips/bl_tooth.png"
+ },
+ {
+  "key": "bl_wall",
+  "name": "The Wall",
+  "colour": "8a59a5",
+  "mult": 4.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_wall.png"
+ },
+ {
+  "key": "bl_house",
+  "name": "The House",
+  "colour": "5186a8",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_house.png"
+ },
+ {
+  "key": "bl_mark",
+  "name": "The Mark",
+  "colour": "6a3847",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_mark.png"
+ },
+ {
+  "key": "bl_final_bell",
+  "name": "Cerulean Bell",
+  "colour": "009cfd",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": true,
+  "min_ante": 10,
+  "chip": "sprites/chips/bl_final_bell.png"
+ },
+ {
+  "key": "bl_wheel",
+  "name": "The Wheel",
+  "colour": "50bf7c",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_wheel.png"
+ },
+ {
+  "key": "bl_arm",
+  "name": "The Arm",
+  "colour": "6865f3",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_arm.png"
+ },
+ {
+  "key": "bl_psychic",
+  "name": "The Psychic",
+  "colour": "efc03c",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_psychic.png"
+ },
+ {
+  "key": "bl_goad",
+  "name": "The Goad",
+  "colour": "b95c96",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_goad.png"
+ },
+ {
+  "key": "bl_water",
+  "name": "The Water",
+  "colour": "c6e0eb",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_water.png"
+ },
+ {
+  "key": "bl_eye",
+  "name": "The Eye",
+  "colour": "4b71e4",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 3,
+  "chip": "sprites/chips/bl_eye.png"
+ },
+ {
+  "key": "bl_plant",
+  "name": "The Plant",
+  "colour": "709284",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 4,
+  "chip": "sprites/chips/bl_plant.png"
+ },
+ {
+  "key": "bl_needle",
+  "name": "The Needle",
+  "colour": "5c6e31",
+  "mult": 1.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_needle.png"
+ },
+ {
+  "key": "bl_head",
+  "name": "The Head",
+  "colour": "ac9db4",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_head.png"
+ },
+ {
+  "key": "bl_final_leaf",
+  "name": "Verdant Leaf",
+  "colour": "56a786",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": true,
+  "min_ante": 10,
+  "chip": "sprites/chips/bl_final_leaf.png"
+ },
+ {
+  "key": "bl_final_vessel",
+  "name": "Violet Vessel",
+  "colour": "8a71e1",
+  "mult": 6.0,
+  "boss": true,
+  "showdown": true,
+  "min_ante": 10,
+  "chip": "sprites/chips/bl_final_vessel.png"
+ },
+ {
+  "key": "bl_window",
+  "name": "The Window",
+  "colour": "a9a295",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_window.png"
+ },
+ {
+  "key": "bl_serpent",
+  "name": "The Serpent",
+  "colour": "439a4f",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 5,
+  "chip": "sprites/chips/bl_serpent.png"
+ },
+ {
+  "key": "bl_pillar",
+  "name": "The Pillar",
+  "colour": "7e6752",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 1,
+  "chip": "sprites/chips/bl_pillar.png"
+ },
+ {
+  "key": "bl_flint",
+  "name": "The Flint",
+  "colour": "e56a2f",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": false,
+  "min_ante": 2,
+  "chip": "sprites/chips/bl_flint.png"
+ },
+ {
+  "key": "bl_final_acorn",
+  "name": "Amber Acorn",
+  "colour": "fda200",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": true,
+  "min_ante": 10,
+  "chip": "sprites/chips/bl_final_acorn.png"
+ },
+ {
+  "key": "bl_final_heart",
+  "name": "Crimson Heart",
+  "colour": "ac3232",
+  "mult": 2.0,
+  "boss": true,
+  "showdown": true,
+  "min_ante": 10,
+  "chip": "sprites/chips/bl_final_heart.png"
+ }
+]

@@ -1,0 +1,2420 @@
+[
+ {
+  "key": "j_joker",
+  "name": "Joker",
+  "order": 1,
+  "rarity": "common",
+  "cost": 2,
+  "pos": {
+   "x": 0,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{mult = 4}",
+  "effect": "+#1# Mult",
+  "sprite": "sprites/j_joker.png"
+ },
+ {
+  "key": "j_greedy_joker",
+  "name": "Greedy Joker",
+  "order": 2,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 6,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {s_mult = 3, suit = 'Diamonds'}",
+  "effect": "Played cards with #2# suit give +#1# Mult when scored",
+  "sprite": "sprites/j_greedy_joker.png"
+ },
+ {
+  "key": "j_lusty_joker",
+  "name": "Lusty Joker",
+  "order": 3,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 7,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {s_mult = 3, suit = 'Hearts'}",
+  "effect": "Played cards with #2# suit give +#1# Mult when scored",
+  "sprite": "sprites/j_lusty_joker.png"
+ },
+ {
+  "key": "j_wrathful_joker",
+  "name": "Wrathful Joker",
+  "order": 4,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 8,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {s_mult = 3, suit = 'Spades'}",
+  "effect": "Played cards with #2# suit give +#1# Mult when scored",
+  "sprite": "sprites/j_wrathful_joker.png"
+ },
+ {
+  "key": "j_gluttenous_joker",
+  "name": "Gluttonous Joker",
+  "order": 5,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 9,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {s_mult = 3, suit = 'Clubs'}",
+  "effect": "Played cards with #2# suit give +#1# Mult when scored",
+  "sprite": "sprites/j_gluttenous_joker.png"
+ },
+ {
+  "key": "j_jolly",
+  "name": "Jolly Joker",
+  "order": 6,
+  "rarity": "common",
+  "cost": 3,
+  "pos": {
+   "x": 2,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_mult = 8, type = 'Pair'}",
+  "effect": "+#1# Mult if played hand contains a #2#",
+  "sprite": "sprites/j_jolly.png"
+ },
+ {
+  "key": "j_zany",
+  "name": "Zany Joker",
+  "order": 7,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 3,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_mult = 12, type = 'Three of a Kind'}",
+  "effect": "+#1# Mult if played hand contains a #2#",
+  "sprite": "sprites/j_zany.png"
+ },
+ {
+  "key": "j_mad",
+  "name": "Mad Joker",
+  "order": 8,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 4,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_mult = 10, type = 'Two Pair'}",
+  "effect": "+#1# Mult if played hand contains a #2#",
+  "sprite": "sprites/j_mad.png"
+ },
+ {
+  "key": "j_crazy",
+  "name": "Crazy Joker",
+  "order": 9,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 5,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_mult = 12, type = 'Straight'}",
+  "effect": "+#1# Mult if played hand contains a #2#",
+  "sprite": "sprites/j_crazy.png"
+ },
+ {
+  "key": "j_droll",
+  "name": "Droll Joker",
+  "order": 10,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 6,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_mult = 10, type = 'Flush'}",
+  "effect": "+#1# Mult if played hand contains a #2#",
+  "sprite": "sprites/j_droll.png"
+ },
+ {
+  "key": "j_sly",
+  "name": "Sly Joker",
+  "order": 11,
+  "rarity": "common",
+  "cost": 3,
+  "pos": {
+   "x": 0,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_chips = 50, type = 'Pair'}, pos = {x=0,y=14}",
+  "effect": "+#1# Chips if played hand contains a #2#",
+  "sprite": "sprites/j_sly.png"
+ },
+ {
+  "key": "j_wily",
+  "name": "Wily Joker",
+  "order": 12,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 1,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_chips = 100, type = 'Three of a Kind'}, pos = {x=1,y=14}",
+  "effect": "+#1# Chips if played hand contains a #2#",
+  "sprite": "sprites/j_wily.png"
+ },
+ {
+  "key": "j_clever",
+  "name": "Clever Joker",
+  "order": 13,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 2,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_chips = 80, type = 'Two Pair'}, pos = {x=2,y=14}",
+  "effect": "+#1# Chips if played hand contains a #2#",
+  "sprite": "sprites/j_clever.png"
+ },
+ {
+  "key": "j_devious",
+  "name": "Devious Joker",
+  "order": 14,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 3,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_chips = 100, type = 'Straight'}, pos = {x=3,y=14}",
+  "effect": "+#1# Chips if played hand contains a #2#",
+  "sprite": "sprites/j_devious.png"
+ },
+ {
+  "key": "j_crafty",
+  "name": "Crafty Joker",
+  "order": 15,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 4,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{t_chips = 80, type = 'Flush'}, pos = {x=4,y=14}",
+  "effect": "+#1# Chips if played hand contains a #2#",
+  "sprite": "sprites/j_crafty.png"
+ },
+ {
+  "key": "j_half",
+  "name": "Half Joker",
+  "order": 16,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 7,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {mult = 20, size = 3}",
+  "effect": "+#1# Mult if played hand contains #2# or fewer cards",
+  "sprite": "sprites/j_half.png"
+ },
+ {
+  "key": "j_stencil",
+  "name": "Joker Stencil",
+  "order": 17,
+  "rarity": "uncommon",
+  "cost": 8,
+  "pos": {
+   "x": 2,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "X1 Mult for each empty Joker slot Joker Stencil included (Currently X#1# )",
+  "sprite": "sprites/j_stencil.png"
+ },
+ {
+  "key": "j_four_fingers",
+  "name": "Four Fingers",
+  "order": 18,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 6,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "All Flushes and Straights can be made with 4 cards",
+  "sprite": "sprites/j_four_fingers.png"
+ },
+ {
+  "key": "j_mime",
+  "name": "Mime",
+  "order": 19,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 4,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Retrigger all card held in hand abilities",
+  "sprite": "sprites/j_mime.png"
+ },
+ {
+  "key": "j_credit_card",
+  "name": "Credit Card",
+  "order": 20,
+  "rarity": "common",
+  "cost": 1,
+  "pos": {
+   "x": 5,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 20}",
+  "effect": "Go up to -$#1# in debt",
+  "sprite": "sprites/j_credit_card.png"
+ },
+ {
+  "key": "j_ceremonial",
+  "name": "Ceremonial Dagger",
+  "order": 21,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 5,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{mult = 0}",
+  "effect": "When Blind is selected, destroy Joker to the right and permanently add double its sell value to this Mult (Currently +#1# Mult)",
+  "sprite": "sprites/j_ceremonial.png"
+ },
+ {
+  "key": "j_banner",
+  "name": "Banner",
+  "order": 22,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 1,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 30}",
+  "effect": "+#1# Chips for each remaining discard",
+  "sprite": "sprites/j_banner.png"
+ },
+ {
+  "key": "j_mystic_summit",
+  "name": "Mystic Summit",
+  "order": 23,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 2,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {mult = 15, d_remaining = 0}",
+  "effect": "+#1# Mult when #2# discards remaining",
+  "sprite": "sprites/j_mystic_summit.png"
+ },
+ {
+  "key": "j_marble",
+  "name": "Marble Joker",
+  "order": 24,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 3,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Adds one Stone card to deck when Blind is selected",
+  "sprite": "sprites/j_marble.png"
+ },
+ {
+  "key": "j_loyalty_card",
+  "name": "Loyalty Card",
+  "order": 25,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 4,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {Xmult = 4, every = 5, remaining = \"5 remaining\"}",
+  "effect": "X#1# Mult every #2# hands played #3#",
+  "sprite": "sprites/j_loyalty_card.png"
+ },
+ {
+  "key": "j_8_ball",
+  "name": "8 Ball",
+  "order": 26,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 0,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra=4}",
+  "effect": "#1# in #2# chance for each played 8 to create a Tarot card when scored (Must have room)",
+  "sprite": "sprites/j_8_ball.png"
+ },
+ {
+  "key": "j_misprint",
+  "name": "Misprint",
+  "order": 27,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 6,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {max = 23, min = 0}",
+  "effect": "+0 to +23 Mult, random each hand",
+  "sprite": "sprites/j_misprint.png"
+ },
+ {
+  "key": "j_dusk",
+  "name": "Dusk",
+  "order": 28,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 4,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Retrigger all played cards in final hand of round",
+  "sprite": "sprites/j_dusk.png"
+ },
+ {
+  "key": "j_raised_fist",
+  "name": "Raised Fist",
+  "order": 29,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 8,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "Adds double the rank of lowest ranked card held in hand to Mult",
+  "sprite": "sprites/j_raised_fist.png"
+ },
+ {
+  "key": "j_chaos",
+  "name": "Chaos the Clown",
+  "order": 30,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 1,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 1}",
+  "effect": "#1# free Reroll per shop",
+  "sprite": "sprites/j_chaos.png"
+ },
+ {
+  "key": "j_fibonacci",
+  "name": "Fibonacci",
+  "order": 31,
+  "rarity": "uncommon",
+  "cost": 8,
+  "pos": {
+   "x": 1,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 8}",
+  "effect": "Each played Ace, 2, 3, 5, or 8 gives +#1# Mult when scored",
+  "sprite": "sprites/j_fibonacci.png"
+ },
+ {
+  "key": "j_steel_joker",
+  "name": "Steel Joker",
+  "order": 32,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 7,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": null,
+  "effect": "Gives X#1# Mult for each Steel Card in your full deck (Currently X#2# Mult)",
+  "sprite": "sprites/j_steel_joker.png"
+ },
+ {
+  "key": "j_scary_face",
+  "name": "Scary Face",
+  "order": 33,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 2,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 30}",
+  "effect": "Played face cards give +#1# Chips when scored",
+  "sprite": "sprites/j_scary_face.png"
+ },
+ {
+  "key": "j_abstract",
+  "name": "Abstract Joker",
+  "order": 34,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 3,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "+#1# Mult for each Joker card (Currently +#2# Mult)",
+  "sprite": "sprites/j_abstract.png"
+ },
+ {
+  "key": "j_delayed_grat",
+  "name": "Delayed Gratification",
+  "order": 35,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 4,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 2}",
+  "effect": "Earn $#1# per discard if no discards are used by end of the round",
+  "sprite": "sprites/j_delayed_grat.png"
+ },
+ {
+  "key": "j_hack",
+  "name": "Hack",
+  "order": 36,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 5,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Retrigger each played 2, 3, 4, or 5",
+  "sprite": "sprites/j_hack.png"
+ },
+ {
+  "key": "j_pareidolia",
+  "name": "Pareidolia",
+  "order": 37,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 6,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "All cards are considered face cards",
+  "sprite": "sprites/j_pareidolia.png"
+ },
+ {
+  "key": "j_gros_michel",
+  "name": "Gros Michel",
+  "order": 38,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 7,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": null,
+  "effect": "+#1# Mult #2# in #3# chance this card is destroyed at end of round",
+  "sprite": "sprites/j_gros_michel.png"
+ },
+ {
+  "key": "j_even_steven",
+  "name": "Even Steven",
+  "order": 39,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 8,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 4}",
+  "effect": "Played cards with even rank give +#1# Mult when scored (10, 8, 6, 4, 2)",
+  "sprite": "sprites/j_even_steven.png"
+ },
+ {
+  "key": "j_odd_todd",
+  "name": "Odd Todd",
+  "order": 40,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 9,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 31}",
+  "effect": "Played cards with odd rank give +#1# Chips when scored (A, 9, 7, 5, 3)",
+  "sprite": "sprites/j_odd_todd.png"
+ },
+ {
+  "key": "j_scholar",
+  "name": "Scholar",
+  "order": 41,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 0,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {mult = 4, chips = 20}",
+  "effect": "Played Aces give +#2# Chips and +#1# Mult when scored",
+  "sprite": "sprites/j_scholar.png"
+ },
+ {
+  "key": "j_business",
+  "name": "Business Card",
+  "order": 42,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 1,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "Played face cards have a #1# in #2# chance to give $2 when scored",
+  "sprite": "sprites/j_business.png"
+ },
+ {
+  "key": "j_supernova",
+  "name": "Supernova",
+  "order": 43,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 2,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Adds the number of times poker hand has been played this run to Mult",
+  "sprite": "sprites/j_supernova.png"
+ },
+ {
+  "key": "j_ride_the_bus",
+  "name": "Ride the Bus",
+  "order": 44,
+  "rarity": "common",
+  "cost": 6,
+  "pos": {
+   "x": 1,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "This Joker gains +#1# Mult per consecutive hand played without a scoring face card (Currently +#2# Mult)",
+  "sprite": "sprites/j_ride_the_bus.png"
+ },
+ {
+  "key": "j_space",
+  "name": "Space Joker",
+  "order": 45,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 3,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 4}",
+  "effect": "#1# in #2# chance to upgrade level of played poker hand",
+  "sprite": "sprites/j_space.png"
+ },
+ {
+  "key": "j_egg",
+  "name": "Egg",
+  "order": 46,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 0,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 3}",
+  "effect": "Gains $#1# of sell value at end of round",
+  "sprite": "sprites/j_egg.png"
+ },
+ {
+  "key": "j_burglar",
+  "name": "Burglar",
+  "order": 47,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 1,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "When Blind is selected, gain +#1# Hands and lose all discards",
+  "sprite": "sprites/j_burglar.png"
+ },
+ {
+  "key": "j_blackboard",
+  "name": "Blackboard",
+  "order": 48,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 2,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "X#1# Mult if all cards held in hand are #2# or #3#",
+  "sprite": "sprites/j_blackboard.png"
+ },
+ {
+  "key": "j_runner",
+  "name": "Runner",
+  "order": 49,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 3,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {chips = 0, chip_mod = 15}",
+  "effect": "Gains +#2# Chips if played hand contains a Straight (Currently +#1# Chips)",
+  "sprite": "sprites/j_runner.png"
+ },
+ {
+  "key": "j_ice_cream",
+  "name": "Ice Cream",
+  "order": 50,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 4,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {chips = 100, chip_mod = 5}",
+  "effect": "+#1# Chips -#2# Chips for every hand played",
+  "sprite": "sprites/j_ice_cream.png"
+ },
+ {
+  "key": "j_dna",
+  "name": "DNA",
+  "order": 51,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 5,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "If first hand of round has only 1 card, add a permanent copy to deck and draw it to hand",
+  "sprite": "sprites/j_dna.png"
+ },
+ {
+  "key": "j_splash",
+  "name": "Splash",
+  "order": 52,
+  "rarity": "common",
+  "cost": 3,
+  "pos": {
+   "x": 6,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "Every played card counts in scoring",
+  "sprite": "sprites/j_splash.png"
+ },
+ {
+  "key": "j_blue_joker",
+  "name": "Blue Joker",
+  "order": 53,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 7,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "+#1# Chips for each remaining card in deck (Currently +#2# Chips)",
+  "sprite": "sprites/j_blue_joker.png"
+ },
+ {
+  "key": "j_sixth_sense",
+  "name": "Sixth Sense",
+  "order": 54,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 8,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "If first hand of round is a single 6, destroy it and create a Spectral card (Must have room)",
+  "sprite": "sprites/j_sixth_sense.png"
+ },
+ {
+  "key": "j_constellation",
+  "name": "Constellation",
+  "order": 55,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 9,
+   "y": 10
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.1, Xmult = 1}",
+  "effect": "This Joker gains X#1# Mult every time a Planet card is used (Currently X#2# Mult)",
+  "sprite": "sprites/j_constellation.png"
+ },
+ {
+  "key": "j_hiker",
+  "name": "Hiker",
+  "order": 56,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 0,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 5}",
+  "effect": "Every played card permanently gains +#1# Chips when scored",
+  "sprite": "sprites/j_hiker.png"
+ },
+ {
+  "key": "j_faceless",
+  "name": "Faceless Joker",
+  "order": 57,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 1,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {dollars = 5, faces = 3}",
+  "effect": "Earn $#1# if #2# or more face cards are discarded at the same time",
+  "sprite": "sprites/j_faceless.png"
+ },
+ {
+  "key": "j_green_joker",
+  "name": "Green Joker",
+  "order": 58,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 2,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {hand_add = 1, discard_sub = 1}",
+  "effect": "+#1# Mult per hand played -#2# Mult per discard (Currently +#3# Mult)",
+  "sprite": "sprites/j_green_joker.png"
+ },
+ {
+  "key": "j_superposition",
+  "name": "Superposition",
+  "order": 59,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 3,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "Create a Tarot card if poker hand contains an Ace and a Straight (Must have room)",
+  "sprite": "sprites/j_superposition.png"
+ },
+ {
+  "key": "j_todo_list",
+  "name": "To Do List",
+  "order": 60,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 4,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {dollars = 4, poker_hand = 'High Card'}",
+  "effect": "Earn $#1# if poker hand is a #2#, poker hand changes at end of round",
+  "sprite": "sprites/j_todo_list.png"
+ },
+ {
+  "key": "j_cavendish",
+  "name": "Cavendish",
+  "order": 61,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 5,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": null,
+  "effect": "X#1# Mult #2# in #3# chance this card is destroyed at end of round",
+  "sprite": "sprites/j_cavendish.png"
+ },
+ {
+  "key": "j_card_sharp",
+  "name": "Card Sharp",
+  "order": 62,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 6,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {Xmult = 3}",
+  "effect": "X#1# Mult if played poker hand has already been played this round",
+  "sprite": "sprites/j_card_sharp.png"
+ },
+ {
+  "key": "j_red_card",
+  "name": "Red Card",
+  "order": 63,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 7,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "This Joker gains +#1# Mult when any Booster Pack is skipped (Currently +#2# Mult)",
+  "sprite": "sprites/j_red_card.png"
+ },
+ {
+  "key": "j_madness",
+  "name": "Madness",
+  "order": 64,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 8,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.5}",
+  "effect": "When Small Blind or Big Blind is selected, gain X#1# Mult and destroy a random Joker (Currently X#2# Mult)",
+  "sprite": "sprites/j_madness.png"
+ },
+ {
+  "key": "j_square",
+  "name": "Square Joker",
+  "order": 65,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 9,
+   "y": 11
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {chips = 0, chip_mod = 4}",
+  "effect": "This Joker gains +#2# Chips if played hand has exactly 4 cards (Currently #1# Chips)",
+  "sprite": "sprites/j_square.png"
+ },
+ {
+  "key": "j_seance",
+  "name": "Séance",
+  "order": 66,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 0,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {poker_hand = 'Straight Flush'}",
+  "effect": "If poker hand is a #1#, create a random Spectral card (Must have room)",
+  "sprite": "sprites/j_seance.png"
+ },
+ {
+  "key": "j_riff_raff",
+  "name": "Riff-Raff",
+  "order": 67,
+  "rarity": "common",
+  "cost": 6,
+  "pos": {
+   "x": 1,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "When Blind is selected, create #1# Common Jokers (Must have room)",
+  "sprite": "sprites/j_riff_raff.png"
+ },
+ {
+  "key": "j_vampire",
+  "name": "Vampire",
+  "order": 68,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 2,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.1, Xmult = 1},  pos = {x=2,y=12}",
+  "effect": "This Joker gains X#1# Mult per scoring Enhanced card played, removes card Enhancement (Currently X#2# Mult)",
+  "sprite": "sprites/j_vampire.png"
+ },
+ {
+  "key": "j_shortcut",
+  "name": "Shortcut",
+  "order": 69,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 3,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{},  pos = {x=3,y=12}",
+  "effect": "Allows Straights to be made with gaps of 1 rank (ex: 10 8 6 5 3)",
+  "sprite": "sprites/j_shortcut.png"
+ },
+ {
+  "key": "j_hologram",
+  "name": "Hologram",
+  "order": 70,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 4,
+   "y": 12
+  },
+  "soul_pos": {
+   "x": 2,
+   "y": 9
+  },
+  "blueprint_compat": true,
+  "config": null,
+  "effect": "This Joker gains X#1# Mult every time a playing card is added to your deck (Currently X#2# Mult)",
+  "sprite": "sprites/j_hologram.png"
+ },
+ {
+  "key": "j_vagabond",
+  "name": "Vagabond",
+  "order": 71,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 5,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 4}, pos = {x=5,y=12}",
+  "effect": "Create a Tarot card if hand is played with $#1# or less",
+  "sprite": "sprites/j_vagabond.png"
+ },
+ {
+  "key": "j_baron",
+  "name": "Baron",
+  "order": 72,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 6,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1.5}, pos = {x=6,y=12}",
+  "effect": "Each King held in hand gives X#1# Mult",
+  "sprite": "sprites/j_baron.png"
+ },
+ {
+  "key": "j_cloud_9",
+  "name": "Cloud 9",
+  "order": 73,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 7,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 1}, pos = {x=7,y=12}",
+  "effect": "Earn $#1# for each 9 in your full deck at end of round (Currently $#2#)",
+  "sprite": "sprites/j_cloud_9.png"
+ },
+ {
+  "key": "j_rocket",
+  "name": "Rocket",
+  "order": 74,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 8,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = {dollars = 1, increase = 2}}, pos = {x=8,y=12}",
+  "effect": "Earn $#1# at end of round Payout increases by $#2# when Boss Blind is defeated",
+  "sprite": "sprites/j_rocket.png"
+ },
+ {
+  "key": "j_obelisk",
+  "name": "Obelisk",
+  "order": 75,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 9,
+   "y": 12
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.2, Xmult = 1}, pos = {x=9,y=12}",
+  "effect": "This Joker gains X#1# Mult per consecutive hand played without playing your most played poker hand (Currently X#2# Mult)",
+  "sprite": "sprites/j_obelisk.png"
+ },
+ {
+  "key": "j_midas_mask",
+  "name": "Midas Mask",
+  "order": 76,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 0,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}, pos = {x=0,y=13}",
+  "effect": "All played face cards become Gold cards when scored",
+  "sprite": "sprites/j_midas_mask.png"
+ },
+ {
+  "key": "j_luchador",
+  "name": "Luchador",
+  "order": 77,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 1,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}, pos = {x=1,y=13}",
+  "effect": "Sell this card to disable the current Boss Blind",
+  "sprite": "sprites/j_luchador.png"
+ },
+ {
+  "key": "j_photograph",
+  "name": "Photograph",
+  "order": 78,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 2,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}, pos = {x=2,y=13}",
+  "effect": "First played face card gives X#1# Mult when scored",
+  "sprite": "sprites/j_photograph.png"
+ },
+ {
+  "key": "j_gift",
+  "name": "Gift Card",
+  "order": 79,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 3,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 1}, pos = {x=3,y=13}",
+  "effect": "Add $#1# of sell value to every Joker and Consumable card at end of round",
+  "sprite": "sprites/j_gift.png"
+ },
+ {
+  "key": "j_turtle_bean",
+  "name": "Turtle Bean",
+  "order": 80,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 4,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = {h_size = 5, h_mod = 1}}, pos = {x=4,y=13}",
+  "effect": "+#1# hand size, reduces by #2# every round",
+  "sprite": "sprites/j_turtle_bean.png"
+ },
+ {
+  "key": "j_erosion",
+  "name": "Erosion",
+  "order": 81,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 5,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 4}, pos = {x=5,y=13}",
+  "effect": "+#1# Mult for each card below #3# in your full deck (Currently +#2# Mult)",
+  "sprite": "sprites/j_erosion.png"
+ },
+ {
+  "key": "j_reserved_parking",
+  "name": "Reserved Parking",
+  "order": 82,
+  "rarity": "common",
+  "cost": 6,
+  "pos": {
+   "x": 6,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {odds = 2, dollars = 1}}, pos = {x=6,y=13}",
+  "effect": "Each face card held in hand has a #2# in #3# chance to give $#1#",
+  "sprite": "sprites/j_reserved_parking.png"
+ },
+ {
+  "key": "j_mail",
+  "name": "Mail-In Rebate",
+  "order": 83,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 7,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 5}, pos = {x=7,y=13}",
+  "effect": "Earn $#1# for each discarded #2#, rank changes every round",
+  "sprite": "sprites/j_mail.png"
+ },
+ {
+  "key": "j_to_the_moon",
+  "name": "To the Moon",
+  "order": 84,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 8,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 1}, pos = {x=8,y=13}",
+  "effect": "Earn an extra $#1# of interest for every $5 you have at end of round",
+  "sprite": "sprites/j_to_the_moon.png"
+ },
+ {
+  "key": "j_hallucination",
+  "name": "Hallucination",
+  "order": 85,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 9,
+   "y": 13
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}, pos = {x=9,y=13}",
+  "effect": "#1# in #2# chance to create a Tarot card when any Booster Pack is opened (Must have room)",
+  "sprite": "sprites/j_hallucination.png"
+ },
+ {
+  "key": "j_fortune_teller",
+  "name": "Fortune Teller",
+  "order": 86,
+  "rarity": "common",
+  "cost": 6,
+  "pos": {
+   "x": 7,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "+#1# Mult per Tarot card used this run (Currently +#2#)",
+  "sprite": "sprites/j_fortune_teller.png"
+ },
+ {
+  "key": "j_juggler",
+  "name": "Juggler",
+  "order": 87,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 0,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{h_size = 1}",
+  "effect": "+#1# hand size",
+  "sprite": "sprites/j_juggler.png"
+ },
+ {
+  "key": "j_drunkard",
+  "name": "Drunkard",
+  "order": 88,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 1,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{d_size = 1}",
+  "effect": "+#1# discard each round",
+  "sprite": "sprites/j_drunkard.png"
+ },
+ {
+  "key": "j_stone",
+  "name": "Stone Joker",
+  "order": 89,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 9,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": null,
+  "effect": "Gives +#1# Chips for each Stone Card in your full deck (Currently +#2# Chips)",
+  "sprite": "sprites/j_stone.png"
+ },
+ {
+  "key": "j_golden",
+  "name": "Golden Joker",
+  "order": 90,
+  "rarity": "common",
+  "cost": 6,
+  "pos": {
+   "x": 9,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 4}",
+  "effect": "Earn $#1# at end of round",
+  "sprite": "sprites/j_golden.png"
+ },
+ {
+  "key": "j_lucky_cat",
+  "name": "Lucky Cat",
+  "order": 91,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 5,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": null,
+  "effect": "This Joker gains X#1# Mult every time a Lucky card successfully triggers (Currently X#2# Mult)",
+  "sprite": "sprites/j_lucky_cat.png"
+ },
+ {
+  "key": "j_baseball",
+  "name": "Baseball Card",
+  "order": 92,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 6,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1.5}, pos = {x=6,y=14}",
+  "effect": "Uncommon Jokers each give X#1# Mult",
+  "sprite": "sprites/j_baseball.png"
+ },
+ {
+  "key": "j_bull",
+  "name": "Bull",
+  "order": 93,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 7,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}, pos = {x=7,y=14}",
+  "effect": "+#1# Chips for each $1 you have (Currently +#2# Chips)",
+  "sprite": "sprites/j_bull.png"
+ },
+ {
+  "key": "j_diet_cola",
+  "name": "Diet Cola",
+  "order": 94,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 8,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}, pos = {x=8,y=14}",
+  "effect": "Sell this card to create a free #1#",
+  "sprite": "sprites/j_diet_cola.png"
+ },
+ {
+  "key": "j_trading",
+  "name": "Trading Card",
+  "order": 95,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 9,
+   "y": 14
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 3}, pos = {x=9,y=14}",
+  "effect": "If first discard of round has only 1 card, destroy it and earn $#1#",
+  "sprite": "sprites/j_trading.png"
+ },
+ {
+  "key": "j_flash",
+  "name": "Flash Card",
+  "order": 96,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 0,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2, mult = 0}, pos = {x=0,y=15}",
+  "effect": "This Joker gains +#1# Mult per reroll in the shop (Currently +#2# Mult)",
+  "sprite": "sprites/j_flash.png"
+ },
+ {
+  "key": "j_popcorn",
+  "name": "Popcorn",
+  "order": 97,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 1,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{mult = 20, extra = 4}, pos = {x=1,y=15}",
+  "effect": "+#1# Mult -#2# Mult per round played",
+  "sprite": "sprites/j_popcorn.png"
+ },
+ {
+  "key": "j_trousers",
+  "name": "Spare Trousers",
+  "order": 98,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 4,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}, pos = {x=4,y=15}",
+  "effect": "This Joker gains +#1# Mult if played hand contains a #2# (Currently +#3# Mult)",
+  "sprite": "sprites/j_trousers.png"
+ },
+ {
+  "key": "j_ancient",
+  "name": "Ancient Joker",
+  "order": 99,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 7,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1.5}, pos = {x=7,y=15}",
+  "effect": "Each played card with #2# suit gives X#1# Mult when scored, suit changes at end of round",
+  "sprite": "sprites/j_ancient.png"
+ },
+ {
+  "key": "j_ramen",
+  "name": "Ramen",
+  "order": 100,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 2,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{Xmult = 2, extra = 0.01}, pos = {x=2,y=15}",
+  "effect": "X#1# Mult, loses X#2# Mult per card discarded",
+  "sprite": "sprites/j_ramen.png"
+ },
+ {
+  "key": "j_walkie_talkie",
+  "name": "Walkie Talkie",
+  "order": 101,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 8,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {chips = 10, mult = 4}}, pos = {x=8,y=15}",
+  "effect": "Each played 10 or 4 gives +#1# Chips and +#2# Mult when scored",
+  "sprite": "sprites/j_walkie_talkie.png"
+ },
+ {
+  "key": "j_selzer",
+  "name": "Seltzer",
+  "order": 102,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 3,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 10}, pos = {x=3,y=15}",
+  "effect": "Retrigger all cards played for the next #1# hands",
+  "sprite": "sprites/j_selzer.png"
+ },
+ {
+  "key": "j_castle",
+  "name": "Castle",
+  "order": 103,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 9,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {chips = 0, chip_mod = 3}}, pos = {x=9,y=15}",
+  "effect": "This Joker gains +#1# Chips per discarded #2# card, suit changes every round (Currently +#3# Chips)",
+  "sprite": "sprites/j_castle.png"
+ },
+ {
+  "key": "j_smiley",
+  "name": "Smiley Face",
+  "order": 104,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 6,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 5}, pos = {x=6,y=15}",
+  "effect": "Played face cards give +#1# Mult when scored",
+  "sprite": "sprites/j_smiley.png"
+ },
+ {
+  "key": "j_campfire",
+  "name": "Campfire",
+  "order": 105,
+  "rarity": "rare",
+  "cost": 9,
+  "pos": {
+   "x": 5,
+   "y": 15
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.25}, pos = {x=5,y=15}",
+  "effect": "This Joker gains X#1# Mult for each card sold, resets when Boss Blind is defeated (Currently X#2# Mult)",
+  "sprite": "sprites/j_campfire.png"
+ },
+ {
+  "key": "j_ticket",
+  "name": "Golden Ticket",
+  "order": 106,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 5,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 4}",
+  "effect": "Played Gold cards earn $#1# when scored Play a 5 card hand that contains only Gold cards",
+  "sprite": "sprites/j_ticket.png"
+ },
+ {
+  "key": "j_mr_bones",
+  "name": "Mr. Bones",
+  "order": 107,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 3,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "Prevents Death if chips scored are at least 25% of required chips self destructs Lose #1# runs (#2#)",
+  "sprite": "sprites/j_mr_bones.png"
+ },
+ {
+  "key": "j_acrobat",
+  "name": "Acrobat",
+  "order": 108,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 2,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "X#1# Mult on final hand of round Play #1# hands (#2#)",
+  "sprite": "sprites/j_acrobat.png"
+ },
+ {
+  "key": "j_sock_and_buskin",
+  "name": "Sock and Buskin",
+  "order": 109,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 3,
+   "y": 1
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Retrigger all played face cards Play a total of #1# face cards (#2#)",
+  "sprite": "sprites/j_sock_and_buskin.png"
+ },
+ {
+  "key": "j_swashbuckler",
+  "name": "Swashbuckler",
+  "order": 110,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 9,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{mult = 1}",
+  "effect": "Adds the sell value of all other owned Jokers to Mult (Currently +#1# Mult) Sell a total of #1# Joker cards (#2#)",
+  "sprite": "sprites/j_swashbuckler.png"
+ },
+ {
+  "key": "j_troubadour",
+  "name": "Troubadour",
+  "order": 111,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 0,
+   "y": 2
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = {h_size = 2, h_plays = -1}}",
+  "effect": "+#1# hand size, -#2# hand each round Win #1# consecutive rounds by playing only 1 hand",
+  "sprite": "sprites/j_troubadour.png"
+ },
+ {
+  "key": "j_certificate",
+  "name": "Certificate",
+  "order": 112,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 8,
+   "y": 8
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "When round begins, add a random playing card with a random seal to your hand Have a Gold playing card with a Gold Seal",
+  "sprite": "sprites/j_certificate.png"
+ },
+ {
+  "key": "j_smeared",
+  "name": "Smeared Joker",
+  "order": 113,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 4,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "Hearts and Diamonds count as the same suit, Spades and Clubs count as the same suit Have at least #1# #2# in your deck",
+  "sprite": "sprites/j_smeared.png"
+ },
+ {
+  "key": "j_throwback",
+  "name": "Throwback",
+  "order": 114,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 5,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.25}",
+  "effect": "X#1# Mult for each Blind skipped this run (Currently X#2# Mult) Continue a saved run from the main menu",
+  "sprite": "sprites/j_throwback.png"
+ },
+ {
+  "key": "j_hanging_chad",
+  "name": "Hanging Chad",
+  "order": 115,
+  "rarity": "common",
+  "cost": 4,
+  "pos": {
+   "x": 9,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "Retrigger first played card used in scoring #1# additional times Beat a Boss Blind with a #1#",
+  "sprite": "sprites/j_hanging_chad.png"
+ },
+ {
+  "key": "j_rough_gem",
+  "name": "Rough Gem",
+  "order": 116,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 9,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "Played cards with Diamond suit earn $#1# when scored Have at least #1# cards with #2# suit in your deck",
+  "sprite": "sprites/j_rough_gem.png"
+ },
+ {
+  "key": "j_bloodstone",
+  "name": "Bloodstone",
+  "order": 117,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 0,
+   "y": 8
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {odds = 2, Xmult = 1.5}}",
+  "effect": "#1# in #2# chance for played cards with Heart suit to give X#3# Mult when scored Have at least #1# cards with #2# suit in your deck",
+  "sprite": "sprites/j_bloodstone.png"
+ },
+ {
+  "key": "j_arrowhead",
+  "name": "Arrowhead",
+  "order": 118,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 1,
+   "y": 8
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 50}",
+  "effect": "Played cards with Spade suit give +#1# Chips when scored Have at least #1# cards with #2# suit in your deck",
+  "sprite": "sprites/j_arrowhead.png"
+ },
+ {
+  "key": "j_onyx_agate",
+  "name": "Onyx Agate",
+  "order": 119,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 2,
+   "y": 8
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 7}",
+  "effect": "Played cards with Club suit give +#1# Mult when scored Have at least #1# cards with #2# suit in your deck",
+  "sprite": "sprites/j_onyx_agate.png"
+ },
+ {
+  "key": "j_glass",
+  "name": "Glass Joker",
+  "order": 120,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 1,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.75, Xmult = 1}",
+  "effect": "This Joker gains X#1# Mult for every Glass Card that is destroyed (Currently X#2# Mult) Have at least #1# #2#s in your deck",
+  "sprite": "sprites/j_glass.png"
+ },
+ {
+  "key": "j_ring_master",
+  "name": "Showman",
+  "order": 121,
+  "rarity": "uncommon",
+  "cost": 5,
+  "pos": {
+   "x": 6,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "Joker, Tarot, Planet, and Spectral cards may appear multiple times Reach Ante level #1#",
+  "sprite": "sprites/j_ring_master.png"
+ },
+ {
+  "key": "j_flower_pot",
+  "name": "Flower Pot",
+  "order": 122,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 0,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "X#1# Mult if poker hand contains a Diamond card, Club card, Heart card, and Spade card Reach Ante level #1#",
+  "sprite": "sprites/j_flower_pot.png"
+ },
+ {
+  "key": "j_blueprint",
+  "name": "Blueprint",
+  "order": 123,
+  "rarity": "rare",
+  "cost": 10,
+  "pos": {
+   "x": 0,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "Copies ability of Joker to the right Win a run",
+  "sprite": "sprites/j_blueprint.png"
+ },
+ {
+  "key": "j_wee",
+  "name": "Wee Joker",
+  "order": 124,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 0,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {chips = 0, chip_mod = 8}}",
+  "effect": "This Joker gains +#2# Chips when each played 2 is scored (Currently +#1# Chips) Win a run in #1# or fewer rounds",
+  "sprite": "sprites/j_wee.png"
+ },
+ {
+  "key": "j_merry_andy",
+  "name": "Merry Andy",
+  "order": 125,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 8,
+   "y": 0
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{d_size = 3, h_size = -1}",
+  "effect": "+#1# discards each round, #2# hand size Win a run in #1# or fewer rounds",
+  "sprite": "sprites/j_merry_andy.png"
+ },
+ {
+  "key": "j_oops",
+  "name": "Oops! All 6s",
+  "order": 126,
+  "rarity": "uncommon",
+  "cost": 4,
+  "pos": {
+   "x": 5,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "Doubles all listed probabilities (ex: 1 in 3 -> 2 in 3) In one hand, earn at least #1# chips",
+  "sprite": "sprites/j_oops.png"
+ },
+ {
+  "key": "j_idol",
+  "name": "The Idol",
+  "order": 127,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 6,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "Each played #2# of #3# gives X#1# Mult when scored Card changes every round In one hand, earn at least #1# chips",
+  "sprite": "sprites/j_idol.png"
+ },
+ {
+  "key": "j_seeing_double",
+  "name": "Seeing Double",
+  "order": 128,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 4,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "X#1# Mult if played hand has a scoring Club card and a scoring card of any other suit Play a hand that contains #1#",
+  "sprite": "sprites/j_seeing_double.png"
+ },
+ {
+  "key": "j_matador",
+  "name": "Matador",
+  "order": 129,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 4,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 8}",
+  "effect": "Earn $#1# if played hand triggers the Boss Blind ability Defeat a Boss Blind in 1 hand without using any discards",
+  "sprite": "sprites/j_matador.png"
+ },
+ {
+  "key": "j_hit_the_road",
+  "name": "Hit the Road",
+  "order": 130,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 8,
+   "y": 5
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 0.5}",
+  "effect": "This Joker gains X#1# Mult for every Jack discarded this round (Currently X#2# Mult) Discard 5 Jacks at the same time",
+  "sprite": "sprites/j_hit_the_road.png"
+ },
+ {
+  "key": "j_duo",
+  "name": "The Duo",
+  "order": 131,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 5,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{Xmult = 2, type = 'Pair'}",
+  "effect": "X#1# Mult if played hand contains a #2# Win a run without playing a #1#",
+  "sprite": "sprites/j_duo.png"
+ },
+ {
+  "key": "j_trio",
+  "name": "The Trio",
+  "order": 132,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 6,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{Xmult = 3, type = 'Three of a Kind'}",
+  "effect": "X#1# Mult if played hand contains a #2# Win a run without playing a #1#",
+  "sprite": "sprites/j_trio.png"
+ },
+ {
+  "key": "j_family",
+  "name": "The Family",
+  "order": 133,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 7,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{Xmult = 4, type = 'Four of a Kind'}",
+  "effect": "X#1# Mult if played hand contains a #2# Win a run without playing a #1#",
+  "sprite": "sprites/j_family.png"
+ },
+ {
+  "key": "j_order",
+  "name": "The Order",
+  "order": 134,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 8,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{Xmult = 3, type = 'Straight'}",
+  "effect": "X#1# Mult if played hand contains a #2# Win a run without playing a #1#",
+  "sprite": "sprites/j_order.png"
+ },
+ {
+  "key": "j_tribe",
+  "name": "The Tribe",
+  "order": 135,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 9,
+   "y": 4
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{Xmult = 2, type = 'Flush'}",
+  "effect": "X#1# Mult if played hand contains a #2# Win a run without playing a #1#",
+  "sprite": "sprites/j_tribe.png"
+ },
+ {
+  "key": "j_stuntman",
+  "name": "Stuntman",
+  "order": 136,
+  "rarity": "rare",
+  "cost": 7,
+  "pos": {
+   "x": 8,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {h_size = 2, chip_mod = 250}}",
+  "effect": "+#1# Chips, -#2# hand size In one hand, earn at least #1# chips",
+  "sprite": "sprites/j_stuntman.png"
+ },
+ {
+  "key": "j_invisible",
+  "name": "Invisible Joker",
+  "order": 137,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 1,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 2}",
+  "effect": "After #1# rounds, sell this card to Duplicate a random Joker (Currently #2#/#1#) Win a run without ever having more than 4 Jokers",
+  "sprite": "sprites/j_invisible.png"
+ },
+ {
+  "key": "j_brainstorm",
+  "name": "Brainstorm",
+  "order": 138,
+  "rarity": "rare",
+  "cost": 10,
+  "pos": {
+   "x": 7,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "Copies the ability of leftmost Joker Discard a Royal Flush",
+  "sprite": "sprites/j_brainstorm.png"
+ },
+ {
+  "key": "j_satellite",
+  "name": "Satellite",
+  "order": 139,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 8,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{extra = 1}",
+  "effect": "Earn $#1# at end of round per unique Planet card used this run (Currently $#2#) Have $#1# or more",
+  "sprite": "sprites/j_satellite.png"
+ },
+ {
+  "key": "j_shoot_the_moon",
+  "name": "Shoot the Moon",
+  "order": 140,
+  "rarity": "common",
+  "cost": 5,
+  "pos": {
+   "x": 2,
+   "y": 6
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 13}",
+  "effect": "Each Queen held in hand gives +#1# Mult Play every Heart in your deck in a single round",
+  "sprite": "sprites/j_shoot_the_moon.png"
+ },
+ {
+  "key": "j_drivers_license",
+  "name": "Driver's License",
+  "order": 141,
+  "rarity": "rare",
+  "cost": 7,
+  "pos": {
+   "x": 0,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = 3}",
+  "effect": "X#1# Mult if you have at least 16 Enhanced cards in your full deck (Currently #2#) Enhance #1# cards in your deck",
+  "sprite": "sprites/j_drivers_license.png"
+ },
+ {
+  "key": "j_cartomancer",
+  "name": "Cartomancer",
+  "order": 142,
+  "rarity": "uncommon",
+  "cost": 6,
+  "pos": {
+   "x": 7,
+   "y": 3
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "Create a Tarot card when Blind is selected (Must have room) Discover every Tarot card",
+  "sprite": "sprites/j_cartomancer.png"
+ },
+ {
+  "key": "j_astronomer",
+  "name": "Astronomer",
+  "order": 143,
+  "rarity": "uncommon",
+  "cost": 8,
+  "pos": {
+   "x": 2,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "All Planet cards and Celestial Packs in the shop are free Discover every Planet card",
+  "sprite": "sprites/j_astronomer.png"
+ },
+ {
+  "key": "j_burnt",
+  "name": "Burnt Joker",
+  "order": 144,
+  "rarity": "rare",
+  "cost": 8,
+  "pos": {
+   "x": 3,
+   "y": 7
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{h_size = 0, extra = 4}",
+  "effect": "Upgrade the level of the first discarded poker hand each round Sell a total of #1# cards (#2#)",
+  "sprite": "sprites/j_burnt.png"
+ },
+ {
+  "key": "j_bootstraps",
+  "name": "Bootstraps",
+  "order": 145,
+  "rarity": "uncommon",
+  "cost": 7,
+  "pos": {
+   "x": 9,
+   "y": 8
+  },
+  "soul_pos": null,
+  "blueprint_compat": true,
+  "config": "{extra = {mult = 2, dollars = 5}}",
+  "effect": "+#1# Mult for every $#2# you have (Currently +#3# Mult) Have at least #1# Polychrome Jokers",
+  "sprite": "sprites/j_bootstraps.png"
+ },
+ {
+  "key": "j_caino",
+  "name": "Canio",
+  "order": 146,
+  "rarity": "legendary",
+  "cost": 20,
+  "pos": {
+   "x": 3,
+   "y": 8
+  },
+  "soul_pos": {
+   "x": 3,
+   "y": 9
+  },
+  "blueprint_compat": true,
+  "config": "{extra = 1}",
+  "effect": "This Joker gains X#1# Mult when a face card is destroyed (Currently X#2# Mult) ?????",
+  "sprite": "sprites/j_caino.png"
+ },
+ {
+  "key": "j_triboulet",
+  "name": "Triboulet",
+  "order": 147,
+  "rarity": "legendary",
+  "cost": 20,
+  "pos": {
+   "x": 4,
+   "y": 8
+  },
+  "soul_pos": {
+   "x": 4,
+   "y": 9
+  },
+  "blueprint_compat": true,
+  "config": "{extra = 2}",
+  "effect": "Played Kings and Queens each give X#1# Mult when scored ?????",
+  "sprite": "sprites/j_triboulet.png"
+ },
+ {
+  "key": "j_yorick",
+  "name": "Yorick",
+  "order": 148,
+  "rarity": "legendary",
+  "cost": 20,
+  "pos": {
+   "x": 5,
+   "y": 8
+  },
+  "soul_pos": {
+   "x": 5,
+   "y": 9
+  },
+  "blueprint_compat": true,
+  "config": "{extra = {xmult = 1, discards = 23}}",
+  "effect": "This Joker gains X#1# Mult every #2# [#3#] cards discarded (Currently X#4# Mult) ?????",
+  "sprite": "sprites/j_yorick.png"
+ },
+ {
+  "key": "j_chicot",
+  "name": "Chicot",
+  "order": 149,
+  "rarity": "legendary",
+  "cost": 20,
+  "pos": {
+   "x": 6,
+   "y": 8
+  },
+  "soul_pos": {
+   "x": 6,
+   "y": 9
+  },
+  "blueprint_compat": false,
+  "config": "{}",
+  "effect": "Disables effect of every Boss Blind ?????",
+  "sprite": "sprites/j_chicot.png"
+ },
+ {
+  "key": "j_perkeo",
+  "name": "Perkeo",
+  "order": 150,
+  "rarity": "legendary",
+  "cost": 20,
+  "pos": {
+   "x": 7,
+   "y": 8
+  },
+  "soul_pos": {
+   "x": 7,
+   "y": 9
+  },
+  "blueprint_compat": true,
+  "config": "{}",
+  "effect": "Creates a Negative copy of 1 random consumable card in your possession at the end of the shop ?????",
+  "sprite": "sprites/j_perkeo.png"
+ }
+]

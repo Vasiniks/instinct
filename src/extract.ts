@@ -1,7 +1,7 @@
 // The extractor: one BlindDeck `gamestate` -> a normalized Snapshot that the rest of the agent
 // (candidates, evaluator, UI, logs) reads, plus a compact view sized for a small System One model.
 
-import { RANKS, SUITS, cardLongLabel, normEdition, toPCard, type PCard } from "./cards.ts";
+import { RANKS, SUITS, cardLabel, cardLongLabel, normEdition, toPCard, type PCard } from "./cards.ts";
 import { HAND_NAMES, rulesFromJokers, type HandLevel, type Joker, type Rules } from "./poker.ts";
 import type { Blind, GameState, HeldTag, RawCard, RunSummary } from "./types.ts";
 
@@ -16,6 +16,10 @@ export interface Item {
   rarity?: string;
   edition?: string;
   eternal: boolean;
+  /** Gold stake: dollars this joker costs every round. */
+  rental?: number;
+  /** Orange stake and up: rounds before this joker is debuffed for good. */
+  perishable?: number;
   targetMin: number;
   targetMax: number;
   requiresJokers: number;
@@ -61,6 +65,12 @@ export interface Snapshot {
   handSize: number;
   playLimit: number;
   deckLeft: PCard[];
+  /**
+   * False when the game masked the draw pile (stock BlindDeck hides every face-down card, the
+   * deck included) and `deckLeft` is the starting deck less the cards in hand: a stand-in, wrong
+   * once Tarots have changed cards. The patched mod shows the pile sorted, as the deck view does.
+   */
+  deckKnown: boolean;
   jokers: Joker[];
   jokerSlots: number;
   consumables: Item[];
@@ -74,10 +84,50 @@ export interface Snapshot {
   tags: HeldTag[];
   rules: Rules;
   usedVouchers: string[];
+  /** Bosses drawn this run (key -> times), when the game reports them; undefined otherwise. */
+  bossesUsed?: Record<string, number>;
   cashout?: number;
   runSummary?: RunSummary;
   /** False while BlindDeck reports a tag stack or pack deal still in flight. */
   settled: boolean;
+}
+
+/** The starting cards for decks that change them; the rest start with the standard 52. */
+function startingCards(deck: string | undefined): { rank: string; suit: string }[] {
+  const suits = deck === "CHECKERED" ? ["S", "H", "S", "H"] : SUITS;
+  const ranks = deck === "ABANDONED" ? RANKS.filter((r) => !["J", "Q", "K"].includes(r)) : RANKS;
+  return ranks.flatMap((rank) => suits.map((suit) => ({ rank, suit })));
+}
+
+const shown = (c: RawCard, i: number) => toPCard(c.value?.suit && c.value?.rank ? { ...c, state: { ...c.state, hidden: false } } : c, i);
+
+function drawPile(gs: GameState): { deckLeft: PCard[]; deckKnown: boolean } {
+  // Between rounds the next round draws from the whole deck, and part of it can still sit in the
+  // discard pile; the patched mod sends the whole deck, so outside a hand that is the pile (less
+  // any cards a pack has dealt into the hand).
+  const full = (gs.full_deck?.cards ?? []).map(shown);
+  if (gs.state !== "SELECTING_HAND" && full.length && full.some((c) => !c.hidden)) {
+    const inHand = new Set((gs.hand?.cards ?? []).map((c) => c.id));
+    return { deckLeft: full.filter((c) => !inHand.has(c.id)).map((c, i) => ({ ...c, index: i })), deckKnown: true };
+  }
+  // The patched mod sends the pile's cards face up in content but still flags them face-down
+  // (they are, in the game); a card with its suit and rank is read as shown.
+  const pile = (gs.cards?.cards ?? []).map(shown);
+  if (!pile.length || pile.some((c) => !c.hidden)) return { deckLeft: pile, deckKnown: true };
+  // Masked: the starting deck, less what is in hand (and played this round, which is gone from
+  // both), trimmed to the pile's size from the end so it stays the same tick to tick.
+  const inHand = (gs.hand?.cards ?? []).map(toPCard).filter((c) => !c.hidden);
+  const left = startingCards(gs.deck);
+  for (const c of inHand) {
+    const i = left.findIndex((x) => x.rank === c.rank && x.suit === c.suit);
+    if (i >= 0) left.splice(i, 1);
+  }
+  const deckLeft = left.slice(0, pile.length).map((c, i) => {
+    const card: PCard = { index: i, id: pile[i].id, rank: c.rank, suit: c.suit, debuff: false, hidden: false, forced: false, label: "" };
+    card.label = cardLabel(card);
+    return card;
+  });
+  return { deckLeft, deckKnown: false };
 }
 
 function toItem(raw: RawCard, index: number): Item {
@@ -92,6 +142,7 @@ function toItem(raw: RawCard, index: number): Item {
     rarity: raw.value?.rarity,
     edition: normEdition(raw.modifier?.edition),
     eternal: Boolean(raw.modifier?.eternal),
+    ...stickers(raw),
     targetMin: raw.value?.target_min ?? 0,
     targetMax: raw.value?.target_max ?? 0,
     requiresJokers: raw.value?.requires_jokers_min ?? 0,
@@ -110,7 +161,17 @@ function toJoker(raw: RawCard, index: number): Joker {
     rarity: raw.value?.rarity,
     debuff: Boolean(raw.state?.debuff),
     eternal: Boolean(raw.modifier?.eternal),
+    ...stickers(raw),
     sell: raw.cost?.sell ?? 0,
+  };
+}
+
+/** Rental and Perishable stickers; the game's rental rate is $3 a round. */
+function stickers(raw: RawCard): { rental?: number; perishable?: number } {
+  const m = raw.modifier ?? {};
+  return {
+    ...(m.rental ? { rental: m.rental_cost && m.rental_cost > 1 ? m.rental_cost : 3 } : {}),
+    ...(m.perishable ? { perishable: m.perishable } : {}),
   };
 }
 
@@ -171,7 +232,7 @@ export function extract(gs: GameState): Snapshot {
     hand: (gs.hand?.cards ?? []).map(toPCard),
     handSize: gs.hand?.limit ?? 8,
     playLimit: gs.hand?.highlighted_limit ?? 5,
-    deckLeft: (gs.cards?.cards ?? []).map(toPCard),
+    ...drawPile(gs),
     jokers,
     jokerSlots: gs.jokers?.limit ?? 5,
     consumables: (gs.consumables?.cards ?? []).map(toItem),
@@ -184,6 +245,7 @@ export function extract(gs: GameState): Snapshot {
     tags: gs.held_tags ?? [],
     rules: rulesFromJokers(jokers),
     usedVouchers: Object.keys(gs.used_vouchers ?? {}),
+    bossesUsed: Array.isArray(gs.bosses_used) ? {} : gs.bosses_used,
     cashout: round.cashout_preview?.total,
     runSummary: gs.run_summary,
     settled,
@@ -248,7 +310,7 @@ export function modelState(s: Snapshot): Record<string, unknown> {
     view.hand_levels = Object.fromEntries(leveled.map((h) => { const l = s.levels[h]!; return [h, `level ${l.level}: ${l.chips} chips x ${l.mult} mult, played ${l.played}`]; }));
   }
   if (s.phase === "SELECTING_HAND" && s.deckLeft.length) {
-    view.deck_remaining = { count: s.deckLeft.length, by_suit: countBy(s.deckLeft, (c) => c.suit, SUITS) };
+    view.deck_remaining = { count: s.deckLeft.length, by_suit: countBy(s.deckLeft, (c) => c.suit, SUITS), ...(s.deckKnown ? {} : { note: "the game hid the deck; this assumes the starting deck" }) };
   }
   if (s.tags.length) view.held_tags = s.tags.map((t) => t.name);
   if (s.usedVouchers.length) view.vouchers = s.usedVouchers;

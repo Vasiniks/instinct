@@ -4,45 +4,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Instinct: Balatro agent</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='7' height='10' rx='1.5' fill='%233987e5'/%3E%3Crect x='8' y='3' width='7' height='10' rx='1.5' fill='%23e66767'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 108'%3E%3Cg transform='rotate(-10 48 54) translate(12 6)'%3E%3Crect x='6' y='6' width='60' height='84' rx='11' fill='%23ffffff' stroke='%2317202c' stroke-width='10'/%3E%3Cline x1='36' y1='38' x2='18' y2='72' stroke='%235f6b7c' stroke-width='9' stroke-linecap='round'/%3E%3Cline x1='36' y1='38' x2='54' y2='72' stroke='%232463c9' stroke-width='11' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='38' r='10' fill='%232463c9'/%3E%3C/g%3E%3C/svg%3E">
+  <script>
+    // The saved theme before first paint, so a dark choice doesn't flash light.
+    try { const t = localStorage.getItem("instinct-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Pixelify+Sans:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
+      <svg class="brand-mark" width="26" height="29" viewBox="0 0 96 108" aria-hidden="true">
+        <g transform="rotate(-10 48 54) translate(12 6)">
+          <rect x="4" y="4" width="64" height="88" rx="9" style="fill: var(--panel); stroke: var(--ink)" stroke-width="6"></rect>
+          <path d="M15 12 L20 19 L15 26 L10 19 Z" style="fill: var(--mult)"></path>
+          <line x1="36" y1="40" x2="20" y2="70" style="stroke: var(--ink-3)" stroke-width="5" stroke-linecap="round"></line>
+          <line x1="36" y1="40" x2="36" y2="70" style="stroke: var(--ink-3)" stroke-width="5" stroke-linecap="round"></line>
+          <line x1="36" y1="40" x2="52" y2="70" style="stroke: var(--chips)" stroke-width="6.5" stroke-linecap="round"></line>
+          <circle cx="36" cy="40" r="7.5" style="fill: var(--chips)"></circle>
+          <circle cx="52" cy="72" r="7.5" style="fill: var(--chips)"></circle>
+        </g>
+      </svg>
       <span class="brand-name">instinct</span>
-      <span id="conn" class="conn off">connecting</span>
+      <span id="conn" class="conn off" role="status" title="Connecting" aria-label="Connecting"></span>
     </div>
-    <div class="who">
-      <span id="game"></span>
-      <span id="backend"></span>
-    </div>
+    <span id="run-meta" class="run-meta"></span>
     <div class="controls">
       <button id="btn-run" class="primary" aria-pressed="false">Run</button>
       <button id="btn-step" title="Keyboard: s">Step</button>
-      <div id="model-wrap" class="field" role="radiogroup" aria-labelledby="model-label" hidden>
-        <span id="model-label">Model</span>
+      <div id="model-wrap" role="radiogroup" aria-label="Model" hidden>
         <span id="model-switch" class="seg"></span>
       </div>
-      <label id="live-wrap" class="switch">
+      <label id="live-wrap" class="switch" title="Live sends each action to the game. Dry run decides and sends nothing.">
         <input id="live" type="checkbox" role="switch">
         <span class="switch-track" aria-hidden="true"></span>
-        <span id="live-label">Dry run: nothing is sent</span>
+        <span id="live-label">Dry run</span>
       </label>
-      <label class="field">When gates fail
-        <select id="review">
-          <option value="fallback">use the heuristic pick</option>
-          <option value="model">trust the model</option>
-          <option value="pause">ask me</option>
-        </select>
-      </label>
-      <label class="field">Delay
-        <input id="delay" type="range" min="0" max="3000" step="100">
-        <span id="delay-value" class="num"></span>
-      </label>
+      <button id="theme" type="button" class="quiet" title="Switch between automatic, light and dark">Auto</button>
+      <details id="runs" class="settings">
+        <summary>Runs</summary>
+        <div class="settings-body runs-body">
+          <p class="runs-intro">Every run is recorded. View one here, or replay it on the game from its seed.</p>
+          <ul id="runs-list" class="runs-list"></ul>
+        </div>
+      </details>
+      <details class="settings">
+        <summary>Settings</summary>
+        <div class="settings-body">
+          <label class="field">When gates fail
+            <select id="review">
+              <option value="blend">combine model and code</option>
+              <option value="fallback">use the heuristic pick</option>
+              <option value="model">trust the model</option>
+              <option value="pause">ask me</option>
+            </select>
+          </label>
+          <label class="field">Delay between ticks
+            <span class="range">
+              <input id="delay" type="range" min="0" max="3000" step="100">
+              <span id="delay-value" class="num"></span>
+            </span>
+          </label>
+          <dl class="settings-meta">
+            <dt>Game</dt><dd id="game"></dd>
+            <dt>Model</dt><dd id="backend"></dd>
+          </dl>
+        </div>
+      </details>
     </div>
     <form id="start" class="start" hidden>
       <label class="field">Deck
@@ -62,59 +93,62 @@
       <button class="primary" type="submit">Start run</button>
     </form>
     <p id="message" class="message" role="status" hidden></p>
+    <div id="banner" class="banner" hidden>
+      <span id="banner-text"></span>
+      <button id="banner-btn" type="button"></button>
+    </div>
   </header>
 
-  <main class="layout">
-    <section class="center" aria-label="Game">
-      <div class="center-bar">
-        <button id="embed" type="button" class="primary">Embed Balatro window</button>
-        <span id="screen-source" class="screen-source"></span>
-      </div>
+  <main class="top">
+    <section class="game" aria-label="Game">
       <div id="frame" class="frame">
         <video id="live-video" autoplay muted playsinline hidden></video>
         <div id="frame-empty" class="frame-empty">
           <h2 id="frame-empty-title">No game window yet</h2>
           <p id="frame-empty-text"></p>
         </div>
+        <div id="frame-hint" class="frame-hint" hidden>
+          <p>This picture is frozen while the agent plays: each screenshot stalls the game. Embed the window for a live, lag-free view.</p>
+          <button id="embed-hint" type="button" class="primary">Embed window</button>
+        </div>
       </div>
-      <p id="caption" class="caption" aria-live="polite"></p>
+      <div class="caption-row">
+        <p id="caption" class="caption" aria-live="polite"></p>
+        <span id="screen-source" class="screen-source"></span>
+        <button id="embed" type="button" class="quiet">Embed window</button>
+      </div>
     </section>
 
-    <aside class="side" aria-label="Decision">
-      <section class="panel" id="values">
-        <h2>Values</h2>
-        <div id="values-body"></div>
-      </section>
-      <section class="panel" id="calls">
-        <h2>Calls</h2>
-        <div id="calls-body"></div>
-      </section>
-      <section class="panel reply" id="reply">
-        <h2>Reply probabilities</h2>
-        <div id="verdict" class="verdict"></div>
-        <div id="reply-bars"></div>
-        <div id="gates" class="gates"></div>
-        <p class="legend"><span class="ghost-key" aria-hidden="true"></span>Heuristic estimate for the same option</p>
-      </section>
-    </aside>
+    <section class="panel decision" aria-label="Decision">
+      <div class="decision-head">
+        <h2 id="decision-title">No decision yet</h2>
+        <span id="decision-status"></span>
+        <button id="follow" type="button" class="quiet" hidden>Follow live</button>
+      </div>
+      <p id="decision-reason" class="decision-reason"></p>
+      <div id="reply-bars"></div>
+      <div id="gates" class="gates"></div>
+      <div id="values" class="values"></div>
+      <div id="plan" class="plan"></div>
+      <details id="raw" class="raw" hidden>
+        <summary>Raw request and response</summary>
+        <pre id="raw-json" class="json"></pre>
+      </details>
+    </section>
   </main>
 
-  <footer class="loop" aria-label="Agent loop">
-    <div id="pipeline" class="pipeline"></div>
-    <div class="timeline-wrap">
-      <div class="timeline-head">
-        <h2>Ticks</h2>
-        <button id="follow" type="button" hidden>Follow live</button>
-        <ul class="status-key" aria-label="Status key">
-          <li><span class="tick status-act" aria-hidden="true">✓</span>acted</li>
-          <li><span class="tick status-review" aria-hidden="true">?</span>review</li>
-          <li><span class="tick status-abstain" aria-hidden="true">∅</span>abstain</li>
-          <li><span class="tick status-auto" aria-hidden="true">•</span>automatic</li>
-          <li><span class="tick status-error" aria-hidden="true">!</span>error</li>
-        </ul>
+  <footer class="bottom">
+    <section class="panel flow-panel" aria-label="Agent loop">
+      <h2>Loop</h2>
+      <div id="flow"></div>
+    </section>
+    <section class="panel trace-panel" aria-label="Run trace">
+      <div class="trace-head">
+        <h2>Trace</h2>
+        <span id="trace-note" class="trace-note"></span>
       </div>
-      <div id="timeline" class="timeline"></div>
-    </div>
+      <div id="trace"></div>
+    </section>
   </footer>
 
   <script type="module" src="/app.ts"></script>

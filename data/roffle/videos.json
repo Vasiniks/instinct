@@ -1,0 +1,1088 @@
+[
+ {
+  "id": "-GUBw5pfwWY",
+  "title": "naneinf on Ante 9",
+  "url": "https://www.youtube.com/watch?v=-GUBw5pfwWY",
+  "channel": "Roffle Lite",
+  "duration_seconds": 1504,
+  "upload_date": "20260812",
+  "kind": "endless",
+  "deck": "Ghost",
+  "stake": "White",
+  "why_chosen": "naneinf by ante 9: negative Business Card from Judgement and an early Baron, a fast endless finish.",
+  "analysed_seconds": [
+   0,
+   1504
+  ],
+  "runs": [
+   {
+    "start_t": 0.0,
+    "end_t": 1426.0,
+    "ante_reached": 9,
+    "round_reached": 25,
+    "money": 236,
+    "jokers": [
+     {
+      "key": "j_baron",
+      "name": "Baron"
+     },
+     {
+      "key": "j_perkeo",
+      "name": "Perkeo",
+      "edition": "Polychrome"
+     },
+     {
+      "key": "j_blueprint",
+      "name": "Blueprint"
+     },
+     {
+      "key": "j_mime",
+      "name": "Mime"
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "skip_blind": 1,
+   "select_blind": 25,
+   "buy_joker": 16,
+   "reorder_jokers": 19,
+   "play_hand": 31,
+   "buy_consumable": 11,
+   "pack_pick_joker": 4,
+   "pack_pick_consumable": 7,
+   "discard": 18,
+   "use_consumable": 17,
+   "sell_joker": 15,
+   "reroll": 91,
+   "sell_consumable": 8,
+   "gain_consumable": 7,
+   "gain_joker": 4,
+   "lose_joker": 3,
+   "buy_voucher": 1
+  },
+  "decisions_by_phase": {
+   "early": 74,
+   "mid": 190,
+   "endless": 14
+  },
+  "ante_from_blinds": 0.996,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 145,
+   "agree": 100
+  },
+  "skips": 1,
+  "rerolls": 91
+ },
+ {
+  "id": "IK2QVkr5fzE",
+  "title": "I naneinf When I Find Baron",
+  "url": "https://www.youtube.com/watch?v=IK2QVkr5fzE",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2285,
+  "upload_date": "20260804",
+  "kind": "endless",
+  "deck": "Ghost",
+  "stake": "White",
+  "why_chosen": "naneinf speedrun built on copied Immolates (an 11-card deck) and a Baron-centred endless build.",
+  "analysed_seconds": [
+   0,
+   2285
+  ],
+  "runs": [
+   {
+    "start_t": 0.0,
+    "end_t": 2256.0,
+    "ante_reached": 11,
+    "round_reached": 35,
+    "money": 331,
+    "jokers": [
+     {
+      "key": "j_baron",
+      "name": "Baron"
+     },
+     {
+      "key": "j_perkeo",
+      "name": "Perkeo",
+      "edition": "Polychrome"
+     },
+     {
+      "key": "j_blueprint",
+      "name": "Blueprint"
+     },
+     {
+      "key": "j_mime",
+      "name": "Mime"
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "skip_blind": 1,
+   "select_blind": 35,
+   "pack_pick_consumable": 8,
+   "pack_pick_joker": 3,
+   "buy_joker": 25,
+   "buy_voucher": 4,
+   "reorder_jokers": 50,
+   "play_hand": 34,
+   "sell_joker": 24,
+   "reroll": 236,
+   "sell_consumable": 16,
+   "buy_consumable": 13,
+   "gain_consumable": 11,
+   "discard": 17,
+   "use_consumable": 16,
+   "gain_joker": 2
+  },
+  "decisions_by_phase": {
+   "early": 55,
+   "mid": 265,
+   "endless": 175
+  },
+  "ante_from_blinds": 0.998,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 330,
+   "agree": 280
+  },
+  "skips": 1,
+  "rerolls": 236
+ },
+ {
+  "id": "LXou4GPdMYY",
+  "title": "A Mime Dual Wielding Bananas",
+  "url": "https://www.youtube.com/watch?v=LXou4GPdMYY",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2886,
+  "upload_date": "20260926",
+  "kind": "early",
+  "deck": "Ghost",
+  "stake": "Gold",
+  "why_chosen": "Long-term plan: a speculative early Mime carried for several antes until Steel cards came online.",
+  "analysed_seconds": [
+   0,
+   2886
+  ],
+  "runs": [
+   {
+    "start_t": 6.0,
+    "end_t": 2864.0,
+    "ante_reached": 13,
+    "round_reached": 37,
+    "money": 39,
+    "jokers": [
+     {
+      "key": "j_drivers_license",
+      "name": "Driver's License"
+     },
+     {
+      "key": "j_cavendish",
+      "name": "Cavendish"
+     },
+     {
+      "key": "j_mime",
+      "name": "Mime"
+     },
+     {
+      "key": "j_cavendish",
+      "name": "Cavendish"
+     },
+     {
+      "key": "j_chaos",
+      "name": "Chaos the Clown",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_red_card",
+      "name": "Red Card",
+      "edition": "Polychrome"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "gain_consumable": 23,
+   "select_blind": 37,
+   "discard": 44,
+   "play_hand": 123,
+   "buy_joker": 25,
+   "sell_consumable": 27,
+   "buy_voucher": 5,
+   "reorder_jokers": 18,
+   "pack_pick_joker": 4,
+   "sell_joker": 21,
+   "buy_consumable": 24,
+   "use_consumable": 29,
+   "reroll": 73,
+   "lose_joker": 2,
+   "pack_pick_consumable": 9
+  },
+  "decisions_by_phase": {
+   "early": 67,
+   "mid": 205,
+   "endless": 192
+  },
+  "ante_from_blinds": 0.998,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 437,
+   "agree": 374
+  },
+  "skips": 0,
+  "rerolls": 73
+ },
+ {
+  "id": "OTn6yl2jxGg",
+  "title": "I Spent 7 Antes in Debt",
+  "url": "https://www.youtube.com/watch?v=OTn6yl2jxGg",
+  "channel": "Roffle Lite",
+  "duration_seconds": 1822,
+  "upload_date": "20260919",
+  "kind": "early",
+  "deck": "Ghost",
+  "stake": "Gold",
+  "why_chosen": "Title points at unusual money play (seven antes in debt).",
+  "analysed_seconds": [
+   0,
+   1822
+  ],
+  "runs": [
+   {
+    "start_t": 8.0,
+    "end_t": 1794.0,
+    "ante_reached": 12,
+    "round_reached": 35,
+    "money": 4,
+    "jokers": [
+     {
+      "key": "j_mime",
+      "name": "Mime",
+      "stickers": [
+       "perishable"
+      ]
+     },
+     {
+      "key": "j_marble",
+      "name": "Marble Joker",
+      "edition": "Foil"
+     },
+     {
+      "key": "j_invisible",
+      "name": "Invisible Joker"
+     },
+     {
+      "key": "j_constellation",
+      "name": "Constellation",
+      "edition": "Holo",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_blueprint",
+      "name": "Blueprint",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_hologram",
+      "name": "Hologram",
+      "edition": "Holo"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "gain_consumable": 22,
+   "select_blind": 35,
+   "discard": 46,
+   "use_consumable": 18,
+   "pack_pick_joker": 5,
+   "play_hand": 61,
+   "buy_consumable": 8,
+   "pack_pick_consumable": 9,
+   "sell_consumable": 21,
+   "reroll": 32,
+   "reorder_jokers": 15,
+   "buy_voucher": 4,
+   "buy_joker": 5,
+   "sell_joker": 4
+  },
+  "decisions_by_phase": {
+   "early": 40,
+   "mid": 85,
+   "endless": 160
+  },
+  "ante_from_blinds": 0.996,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 262,
+   "agree": 231
+  },
+  "skips": 0,
+  "rerolls": 32
+ },
+ {
+  "id": "SkwRy_N5D9A",
+  "title": "Loyalty Card was ACTUALLY GOOD???",
+  "url": "https://www.youtube.com/watch?v=SkwRy_N5D9A",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2220,
+  "upload_date": "20260808",
+  "kind": "early",
+  "deck": "Ghost",
+  "stake": "Gold",
+  "why_chosen": "Title points at an off-meta joker (Loyalty Card) carrying a build.",
+  "analysed_seconds": [
+   0,
+   2220
+  ],
+  "runs": [
+   {
+    "start_t": 8.0,
+    "end_t": 2196.0,
+    "ante_reached": 13,
+    "round_reached": 37,
+    "money": 12,
+    "jokers": [
+     {
+      "key": "j_stencil",
+      "name": "Joker Stencil",
+      "edition": "Polychrome",
+      "stickers": [
+       "eternal"
+      ]
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "skip_blind": 2,
+   "gain_consumable": 14,
+   "select_blind": 37,
+   "play_hand": 114,
+   "pack_pick_joker": 5,
+   "buy_joker": 13,
+   "buy_voucher": 5,
+   "reroll": 58,
+   "buy_consumable": 13,
+   "discard": 28,
+   "use_consumable": 28,
+   "sell_joker": 14,
+   "pack_pick_consumable": 12,
+   "sell_consumable": 11,
+   "reorder_jokers": 4,
+   "gain_joker": 1,
+   "lose_joker": 4
+  },
+  "decisions_by_phase": {
+   "early": 45,
+   "mid": 186,
+   "endless": 132
+  },
+  "ante_from_blinds": 0.994,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 229,
+   "agree": 138
+  },
+  "skips": 2,
+  "rerolls": 58
+ },
+ {
+  "id": "XfLcmbk09tc",
+  "title": "166 LEVELS IN PAIR???",
+  "url": "https://www.youtube.com/watch?v=XfLcmbk09tc",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2424,
+  "upload_date": "20260116",
+  "kind": "early",
+  "deck": "Yellow",
+  "stake": "Gold",
+  "why_chosen": "Pair build: an early Wraith into Burnt Joker carried the early game while he levelled Pair (166 levels).",
+  "analysed_seconds": [
+   0,
+   2424
+  ],
+  "runs": [
+   {
+    "start_t": 8.0,
+    "end_t": 2396.0,
+    "ante_reached": 13,
+    "round_reached": 39,
+    "money": 25,
+    "jokers": [
+     {
+      "key": "j_hanging_chad",
+      "name": "Hanging Chad",
+      "edition": "Polychrome"
+     },
+     {
+      "key": "j_burnt",
+      "name": "Burnt Joker"
+     },
+     {
+      "key": "j_blueprint",
+      "name": "Blueprint",
+      "edition": "Negative",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_photograph",
+      "name": "Photograph",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "select_blind": 39,
+   "discard": 56,
+   "play_hand": 103,
+   "pack_pick_joker": 8,
+   "buy_consumable": 7,
+   "buy_voucher": 4,
+   "gain_consumable": 17,
+   "use_consumable": 19,
+   "buy_joker": 4,
+   "sell_consumable": 12,
+   "sell_joker": 7,
+   "pack_pick_consumable": 7,
+   "reroll": 25,
+   "reorder_jokers": 48,
+   "gain_joker": 1,
+   "lose_joker": 1
+  },
+  "decisions_by_phase": {
+   "early": 54,
+   "mid": 124,
+   "endless": 180
+  },
+  "ante_from_blinds": 1.0,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 332,
+   "agree": 299
+  },
+  "skips": 0,
+  "rerolls": 25
+ },
+ {
+  "id": "bb3UmQWsofM",
+  "title": "My Deck is Small but At Least I'm Rich",
+  "url": "https://www.youtube.com/watch?v=bb3UmQWsofM",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2738,
+  "upload_date": "20261020",
+  "kind": "early",
+  "deck": "Ghost",
+  "stake": "Gold",
+  "why_chosen": "Odd build: early Immolates and Hermits, then Trading Card, thin the deck to seven cards by ante 8.",
+  "analysed_seconds": [
+   0,
+   2738
+  ],
+  "runs": [
+   {
+    "start_t": 6.0,
+    "end_t": 2708.0,
+    "ante_reached": 13,
+    "round_reached": 39,
+    "money": 75,
+    "jokers": [
+     {
+      "key": "j_dusk",
+      "name": "Dusk"
+     },
+     {
+      "key": "j_idol",
+      "name": "The Idol",
+      "edition": "Negative",
+      "stickers": [
+       "rental"
+      ]
+     },
+     {
+      "key": "j_photograph",
+      "name": "Photograph",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_hanging_chad",
+      "name": "Hanging Chad",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_mail",
+      "name": "Mail-In Rebate",
+      "edition": "Polychrome",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_space",
+      "name": "Space Joker"
+     },
+     {
+      "key": "j_loyalty_card",
+      "name": "Loyalty Card"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "gain_consumable": 20,
+   "select_blind": 39,
+   "play_hand": 94,
+   "use_consumable": 44,
+   "buy_joker": 16,
+   "discard": 15,
+   "reorder_jokers": 5,
+   "buy_consumable": 20,
+   "sell_joker": 15,
+   "reroll": 152,
+   "buy_voucher": 2,
+   "pack_pick_joker": 5,
+   "lose_joker": 3,
+   "gain_joker": 4,
+   "sell_consumable": 14,
+   "pack_pick_consumable": 18
+  },
+  "decisions_by_phase": {
+   "early": 85,
+   "mid": 207,
+   "endless": 174
+  },
+  "ante_from_blinds": 1.0,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 385,
+   "agree": 187
+  },
+  "skips": 0,
+  "rerolls": 152
+ },
+ {
+  "id": "brRkg1_VFAU",
+  "title": "Glass Joker Saves the Day",
+  "url": "https://www.youtube.com/watch?v=brRkg1_VFAU",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2773,
+  "upload_date": "20261017",
+  "kind": "early",
+  "deck": "Checkered",
+  "stake": "Gold",
+  "why_chosen": "Comeback: an early double-Brainstorm plan stalled until Glass Joker and Justice tarots saved it.",
+  "analysed_seconds": [
+   0,
+   2773
+  ],
+  "runs": [
+   {
+    "start_t": 6.0,
+    "end_t": 2744.0,
+    "ante_reached": 13,
+    "round_reached": 39,
+    "money": 145,
+    "jokers": [
+     {
+      "key": "j_glass",
+      "name": "Glass Joker",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_hanging_chad",
+      "name": "Hanging Chad",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_even_steven",
+      "name": "Even Steven",
+      "edition": "Negative",
+      "stickers": [
+       "perishable"
+      ]
+     },
+     {
+      "key": "j_drivers_license",
+      "name": "Driver's License",
+      "edition": "Foil"
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm",
+      "stickers": [
+       "eternal",
+       "rental"
+      ]
+     },
+     {
+      "key": "j_brainstorm",
+      "name": "Brainstorm",
+      "stickers": [
+       "eternal",
+       "rental"
+      ]
+     },
+     {
+      "key": "j_bloodstone",
+      "name": "Bloodstone"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "select_blind": 39,
+   "play_hand": 121,
+   "pack_pick_joker": 10,
+   "buy_joker": 14,
+   "discard": 23,
+   "lose_joker": 11,
+   "reorder_jokers": 36,
+   "buy_consumable": 7,
+   "gain_consumable": 20,
+   "use_consumable": 32,
+   "sell_joker": 24,
+   "sell_consumable": 29,
+   "pack_pick_consumable": 34,
+   "reroll": 39,
+   "gain_joker": 18,
+   "buy_voucher": 2
+  },
+  "decisions_by_phase": {
+   "early": 33,
+   "mid": 167,
+   "endless": 259
+  },
+  "ante_from_blinds": 1.0,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 415,
+   "agree": 313
+  },
+  "skips": 0,
+  "rerolls": 39
+ },
+ {
+  "id": "e-xjK3zeAVM",
+  "title": "Is this TOO MUCH SYNERGY???",
+  "url": "https://www.youtube.com/watch?v=e-xjK3zeAVM",
+  "channel": "Roffle Lite",
+  "duration_seconds": 1747,
+  "upload_date": "20260912",
+  "kind": "early",
+  "deck": "Ghost",
+  "stake": "Gold",
+  "why_chosen": "Short full run; title points at a build made of synergies.",
+  "analysed_seconds": [
+   0,
+   1747
+  ],
+  "runs": [
+   {
+    "start_t": 10.0,
+    "end_t": 1718.0,
+    "ante_reached": 12,
+    "round_reached": 34,
+    "money": 2,
+    "jokers": [
+     {
+      "key": "j_astronomer",
+      "name": "Astronomer"
+     },
+     {
+      "key": "j_midas_mask",
+      "name": "Midas Mask",
+      "stickers": [
+       "rental"
+      ]
+     },
+     {
+      "key": "j_baseball",
+      "name": "Baseball Card",
+      "edition": "Negative",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_vampire",
+      "name": "Vampire",
+      "edition": "Polychrome"
+     },
+     {
+      "key": "j_constellation",
+      "name": "Constellation"
+     },
+     {
+      "key": "j_constellation",
+      "name": "Constellation"
+     },
+     {
+      "key": "j_card_sharp",
+      "name": "Card Sharp",
+      "stickers": [
+       "perishable"
+      ]
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "gain_consumable": 4,
+   "select_blind": 34,
+   "play_hand": 68,
+   "pack_pick_joker": 3,
+   "buy_consumable": 10,
+   "use_consumable": 19,
+   "buy_joker": 12,
+   "sell_consumable": 4,
+   "gain_joker": 3,
+   "reorder_jokers": 3,
+   "discard": 14,
+   "pack_pick_consumable": 9,
+   "buy_voucher": 3,
+   "reroll": 37,
+   "sell_joker": 10,
+   "lose_joker": 1
+  },
+  "decisions_by_phase": {
+   "early": 55,
+   "mid": 82,
+   "endless": 97
+  },
+  "ante_from_blinds": 0.996,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 252,
+   "agree": 210
+  },
+  "skips": 0,
+  "rerolls": 37
+ },
+ {
+  "id": "nLdGlAmcWAM",
+  "title": "I Was Judged Worthy of this Blueprint",
+  "url": "https://www.youtube.com/watch?v=nLdGlAmcWAM",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2154,
+  "upload_date": "20260905",
+  "kind": "early",
+  "deck": "Ghost",
+  "stake": "Gold",
+  "why_chosen": "Title points at a run turned around by one Blueprint.",
+  "analysed_seconds": [
+   0,
+   2154
+  ],
+  "runs": [
+   {
+    "start_t": 10.0,
+    "end_t": 2124.0,
+    "ante_reached": 11,
+    "round_reached": 32,
+    "money": 11,
+    "jokers": [
+     {
+      "key": "j_raised_fist",
+      "name": "Raised Fist",
+      "stickers": [
+       "rental"
+      ]
+     },
+     {
+      "key": "j_hallucination",
+      "name": "Hallucination",
+      "edition": "Polychrome"
+     },
+     {
+      "key": "j_mail",
+      "name": "Mail-In Rebate"
+     },
+     {
+      "key": "j_blueprint",
+      "name": "Blueprint",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_square",
+      "name": "Square Joker",
+      "edition": "Foil"
+     },
+     {
+      "key": "j_glass",
+      "name": "Glass Joker"
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "gain_consumable": 7,
+   "select_blind": 32,
+   "discard": 48,
+   "pack_pick_joker": 5,
+   "use_consumable": 28,
+   "buy_joker": 5,
+   "sell_joker": 6,
+   "play_hand": 64,
+   "gain_joker": 3,
+   "pack_pick_consumable": 30,
+   "reorder_jokers": 49,
+   "buy_voucher": 2,
+   "reroll": 58,
+   "sell_consumable": 13,
+   "buy_consumable": 4,
+   "lose_joker": 1
+  },
+  "decisions_by_phase": {
+   "early": 36,
+   "mid": 166,
+   "endless": 153
+  },
+  "ante_from_blinds": 0.997,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 215,
+   "agree": 84
+  },
+  "skips": 0,
+  "rerolls": 58
+ },
+ {
+  "id": "oqiWiv4ygWU",
+  "title": "Riff Raff Can Spawn NEGATIVES???",
+  "url": "https://www.youtube.com/watch?v=oqiWiv4ygWU",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2984,
+  "upload_date": "20260811",
+  "kind": "early",
+  "deck": "Checkered",
+  "stake": "Gold",
+  "why_chosen": "Comeback: a slow ante 1 turned around when Riff-Raff spawned a natural negative Hanging Chad.",
+  "analysed_seconds": [
+   0,
+   2984
+  ],
+  "runs": [
+   {
+    "start_t": 8.0,
+    "end_t": 2802.0,
+    "ante_reached": 12,
+    "round_reached": 36,
+    "money": 24,
+    "jokers": [
+     {
+      "key": "j_idol",
+      "name": "The Idol",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_hanging_chad",
+      "name": "Hanging Chad",
+      "edition": "Negative"
+     },
+     {
+      "key": "j_blueprint",
+      "name": "Blueprint",
+      "edition": "Holo",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_photograph",
+      "name": "Photograph",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_sock_and_buskin",
+      "name": "Sock and Buskin",
+      "stickers": [
+       "eternal"
+      ]
+     },
+     {
+      "key": "j_certificate",
+      "name": "Certificate",
+      "stickers": [
+       "rental"
+      ]
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "select_blind": 36,
+   "play_hand": 91,
+   "reroll": 108,
+   "buy_joker": 16,
+   "gain_joker": 12,
+   "lose_joker": 8,
+   "pack_pick_consumable": 22,
+   "sell_joker": 19,
+   "reorder_jokers": 50,
+   "pack_pick_joker": 5,
+   "use_consumable": 48,
+   "buy_consumable": 12,
+   "sell_consumable": 18,
+   "gain_consumable": 32,
+   "discard": 29,
+   "buy_voucher": 3
+  },
+  "decisions_by_phase": {
+   "early": 56,
+   "mid": 178,
+   "endless": 275
+  },
+  "ante_from_blinds": 1.0,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 353,
+   "agree": 324
+  },
+  "skips": 0,
+  "rerolls": 108
+ },
+ {
+  "id": "yefo5lyt6wU",
+  "title": "I Will NEVER Underestimate this Joker Again",
+  "url": "https://www.youtube.com/watch?v=yefo5lyt6wU",
+  "channel": "Roffle Lite",
+  "duration_seconds": 2153,
+  "upload_date": "20261003",
+  "kind": "early",
+  "deck": "Checkered",
+  "stake": "Gold",
+  "why_chosen": "Title points at re-valuing a joker he used to pass on.",
+  "analysed_seconds": [
+   0,
+   2153
+  ],
+  "runs": [
+   {
+    "start_t": 6.0,
+    "end_t": 2124.0,
+    "ante_reached": 11,
+    "round_reached": 32,
+    "money": 134,
+    "jokers": [
+     {
+      "key": "j_baseball",
+      "name": "Baseball Card"
+     },
+     {
+      "key": "j_dusk",
+      "name": "Dusk"
+     },
+     {
+      "key": "j_oops",
+      "name": "Oops! All 6s",
+      "stickers": [
+       "rental"
+      ]
+     },
+     {
+      "key": "j_sock_and_buskin",
+      "name": "Sock and Buskin",
+      "stickers": [
+       "rental"
+      ]
+     },
+     {
+      "key": "j_sock_and_buskin",
+      "name": "Sock and Buskin",
+      "stickers": [
+       "rental"
+      ]
+     },
+     {
+      "key": "j_lucky_cat",
+      "name": "Lucky Cat",
+      "stickers": [
+       "eternal"
+      ]
+     }
+    ],
+    "source": "blinds"
+   }
+  ],
+  "decisions": {
+   "select_blind": 32,
+   "discard": 29,
+   "play_hand": 106,
+   "pack_pick_joker": 5,
+   "gain_joker": 8,
+   "buy_joker": 15,
+   "sell_joker": 20,
+   "reorder_jokers": 10,
+   "buy_voucher": 4,
+   "reroll": 70,
+   "pack_pick_consumable": 6,
+   "use_consumable": 11,
+   "sell_consumable": 5,
+   "gain_consumable": 5,
+   "buy_consumable": 5,
+   "lose_joker": 2
+  },
+  "decisions_by_phase": {
+   "early": 55,
+   "mid": 162,
+   "endless": 116
+  },
+  "ante_from_blinds": 1.0,
+  "ante_check": {
+   "offset": 0,
+   "ocr_readings": 292,
+   "agree": 256
+  },
+  "skips": 0,
+  "rerolls": 70
+ }
+]

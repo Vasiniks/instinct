@@ -75,3 +75,22 @@ test("cash out is automatic and never asks the model", () => {
   assert.equal(set.auto?.call.method, "cash_out");
   assert.equal(applyPolicy(undefined, set, { noneThreshold: 0.2, minConfidence: 0.55 }, "fallback").status, "AUTO");
 });
+
+test("a Pair is played with junk kickers that cycle out, never with Steel, paired or flush-suit cards", async () => {
+  const { playOptions } = await import("../src/options.ts");
+  // Pair of kings; junk 2C 4D 7C; a Steel 9S and a pair of fives to keep; three hearts for a Flush build.
+  const hand = ["KS", "KH", "2C", "4D", "7C", "9S:STEEL", "5D", "5C"];
+  const pair = (s: ReturnType<typeof extract>, prefer?: Set<string>) => playOptions(s, 6, prefer).find((o) => o.estimate.hand === "Pair" && o.cards.some((c) => c.rank === "K"))!;
+  const s = extract(handState(hand, { remaining: 2000 }));
+  const labels = pair(s).cards.map((c) => c.label).sort();
+  assert.equal(labels.length, 5);
+  assert.ok(!labels.some((l) => l.startsWith("9") || l.startsWith("5")), labels.join(" "));
+  // The candidate says the kickers cycle out.
+  const play = buildCandidates(s, opts).candidates.find((c) => c.kind === "play" && c.estimate?.hand === "Pair" && c.label.includes("K"))!;
+  assert.match(play.description, /3 cards that don't score cycle out/);
+  // Half Joker wants three cards or fewer: no padding.
+  assert.equal(pair(extract(handState(hand, { remaining: 2000, jokers: [joker("j_half", { mult: 20 })] }))).cards.length, 2);
+  // A Flush build keeps its suit: with three hearts in hand, the heart junk stays.
+  const flushy = extract(handState(["KS", "KC", "2H", "4H", "7H", "3D", "8C", "JD"], { remaining: 2000 }));
+  assert.ok(!pair(flushy, new Set(["Flush"])).cards.some((c) => c.suit === "H"));
+});

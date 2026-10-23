@@ -42,6 +42,19 @@ test("model mode trusts the pick through the review gate", () => {
   assert.equal(v.chosen, "a");
 });
 
+test("blend mode multiplies the model's probabilities by the code's priors", () => {
+  const priced: CandidateSet = { phase: "SHOP", candidates: [{ ...cand("leave", 0.5), prior: 0.6 }, { ...cand("pack", 0.42), prior: 0.4 }] };
+  const ask = (pLeave: number, conf: number): ChoiceAnswer => ({ type: "choice", choice: pLeave > 0.5 ? "leave" : "pack", confidence: conf, probabilities: { leave: pLeave, pack: 1 - pLeave } });
+  // The model leans to the pack strongly enough to outweigh the code's lean to leaving.
+  const v = applyPolicy(ask(0.2, 0.8), priced, gates, "blend");
+  assert.deepEqual([v.status, v.chosen, v.source], ["ACT", "pack", "model"]);
+  // A weak lean doesn't: 0.45 x 0.6 beats 0.55 x 0.4.
+  const w = applyPolicy(ask(0.45, 0.3), priced, gates, "blend");
+  assert.deepEqual([w.status, w.chosen, w.source], ["REVIEW", "leave", "blend"]);
+  // An abstention still takes the code's pick.
+  assert.equal(applyPolicy({ ...ask(0.2, 0.9), none_probability: 0.4 }, priced, gates, "blend").chosen, "leave");
+});
+
 test("cloud answers without none_probability still pass the gate", () => {
   const cloud: ChoiceAnswer = { type: "choice", choice: "a", confidence: 0.9, probabilities: { a: 0.95, b: 0.05 } };
   assert.equal(applyPolicy(cloud, set, gates, "fallback").status, "ACT");

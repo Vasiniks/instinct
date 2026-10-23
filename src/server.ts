@@ -14,6 +14,7 @@ import { blindDeck } from "./blinddeck.ts";
 import { loadConfig } from "./config.ts";
 import { Agent, type AgentEvent } from "./loop.ts";
 import type { ReviewMode } from "./policy.ts";
+import { listRuns, loadRun } from "./runs.ts";
 import { simGame } from "./sim.ts";
 import { type Engine, httpEngine, mockEngine } from "./systemone.ts";
 import type { GameState } from "./types.ts";
@@ -98,6 +99,15 @@ async function control(body: Record<string, unknown>) {
     case "override":
       await agent.override(String(body.id));
       break;
+    case "replay": {
+      const run = loadRun(cfg.logDir, String(body.id));
+      // Runs as long as the recording; progress and the result come back over SSE.
+      void agent.replay(run).catch((e) => agent.pause(`Replay failed: ${(e as Error).message}`));
+      break;
+    }
+    case "stop_replay":
+      agent.pause();
+      break;
     case "start_run":
       if ((await game.call<GameState>("gamestate")).state !== "MENU") await game.call("menu");
       await game.call("start", { deck: String(body.deck ?? "RED"), stake: String(body.stake ?? "WHITE"), ...(body.seed ? { seed: String(body.seed) } : {}) });
@@ -124,6 +134,8 @@ const server = createServer(async (req, res) => {
     }
     if (url.pathname === "/api/status") return send(res, 200, agent.status());
     if (url.pathname === "/api/ticks") return send(res, 200, agent.ticks);
+    if (url.pathname === "/api/runs") return send(res, 200, listRuns(cfg.logDir));
+    if (url.pathname.startsWith("/api/runs/")) return send(res, 200, loadRun(cfg.logDir, decodeURIComponent(url.pathname.slice("/api/runs/".length))));
     if (url.pathname === "/screen.png") {
       if (!existsSync(cfg.screenPath)) return send(res, 404, "no screenshot yet");
       res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "no-store" });

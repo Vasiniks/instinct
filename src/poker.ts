@@ -57,6 +57,8 @@ export interface Joker {
   rarity?: string;
   debuff: boolean;
   eternal: boolean;
+  rental?: number;
+  perishable?: number;
   sell: number;
 }
 
@@ -76,6 +78,8 @@ export interface ScoreContext {
   rules: Rules;
   handsLeft: number;
   discardsLeft: number;
+  /** Plasma deck: chips and mult are averaged before they multiply, so the score is ((c+m)/2)^2. */
+  balanced?: boolean;
 }
 
 export interface Evaluation {
@@ -314,7 +318,8 @@ const JOKER_RULES: Record<string, JokerRule> = {
   j_hack: { retrigger: (c) => (c.rank && ["2", "3", "4", "5"].includes(c.rank) ? 1 : 0) },
   j_sock_and_buskin: { retrigger: (c, _i, p) => (isFace(c, p.ctx.rules) ? 1 : 0) },
   j_hanging_chad: { retrigger: (_c, i) => (i === 0 ? 2 : 0) },
-  j_seltzer: { retrigger: () => 1 },
+  // The game's own key is misspelled.
+  j_selzer: { retrigger: () => 1 },
   j_dusk: { retrigger: (_c, _i, p) => (p.ctx.handsLeft <= 1 ? 1 : 0) },
   // Rule-changers handled by `rulesFromJokers`; they add no score themselves.
   j_four_fingers: {},
@@ -337,6 +342,9 @@ function statsRule(j: Joker): JokerRule {
     },
   };
 }
+
+/** Jokers whose effect the estimator scores from their key, without the game's live stats. */
+export const MODELLED_JOKERS = Object.keys(JOKER_RULES);
 
 export function isModelledJoker(key: string): boolean {
   return key in JOKER_RULES;
@@ -412,6 +420,7 @@ export function estimateScore(played: PCard[], ctx: ScoreContext): Estimate {
     if (joker.edition === "POLYCHROME") mult *= 1.5;
   }
 
+  if (ctx.balanced) chips = mult = (chips + mult) / 2;
   const approximate = ctx.jokers.some((j) => !j.debuff && !isModelledJoker(j.key) && j.key !== "j_blueprint" && j.key !== "j_brainstorm");
   return {
     hand: ev.hand,
