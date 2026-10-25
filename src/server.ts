@@ -24,7 +24,7 @@ const cfg = loadConfig();
 // The round simulations on worker threads: same numbers, a few times faster.
 enableParallel();
 const uiDir = resolve(import.meta.dirname, "..", "ui");
-const game = cfg.sim ? simGame() : blindDeck(cfg.balatroUrl);
+const game = cfg.sim ? simGame(undefined, { endless: cfg.endless }) : blindDeck(cfg.balatroUrl);
 // The mock model answers at once: it is code, and waiting out a made-up network delay only slows play.
 const engines: Record<string, Engine> = cfg.mockModel
   ? { mock: mockEngine(7, false) }

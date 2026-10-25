@@ -51,6 +51,10 @@ export interface Hooks {
   packSkipped?(j: Item, w: World): void;
   packOpened?(j: Item, w: World, fx: Fx): void;
   glassBroken?(j: Item, w: World, n: number): void;
+  /** Playing cards destroyed, however (remove_playing_cards). */
+  destroyed?(j: Item, w: World, cards: SimCard[]): void;
+  /** Leaving the shop (ending_shop). */
+  endShop?(j: Item, w: World, fx: Fx): void;
 }
 
 const mult = (j: Item, d: number) => (j.ab.mult = Math.max(0, j.ab.mult + d));
@@ -111,6 +115,19 @@ export const HOOKS: Record<string, Hooks> = {
     endRound: (j) => void (j.ab.x_mult = 1),
   },
   j_castle: { discard: (j, w, _fx, cards) => void grow(j, "chips", 3 * live(w, cards).filter((c) => isSuit(w, c, w.castleSuit)).length) },
+  j_caino: { destroyed: (j, w, cards) => void (j.ab.n.caino_xmult = (j.ab.n.caino_xmult ?? 1) + ex(j) * live(w, cards).filter((c) => isFace(w, c)).length) },
+  // Every discarded card counts, debuffed or thrown by The Hook; the 23rd pays and the count restarts.
+  j_yorick: {
+    discard: (j, _w, _fx, cards) => {
+      for (let i = 0; i < cards.length; i++) {
+        const left = j.ab.n.yorick_discards ?? ex(j, "discards");
+        if (left <= 1) {
+          j.ab.n.yorick_discards = ex(j, "discards");
+          xmult(j, ex(j, "xmult"));
+        } else j.ab.n.yorick_discards = left - 1;
+      }
+    },
+  },
   j_madness: {
     blind: (j, w, fx, boss) => {
       if (boss) return;
@@ -209,6 +226,7 @@ export const HOOKS: Record<string, Hooks> = {
   },
   j_cartomancer: { blind: (_j, _w, fx) => void fx.createConsumable("TAROT") },
   j_hallucination: { packOpened: (_j, w, fx) => void (chance(w, "hallucination", 2) && fx.createConsumable("TAROT")) },
+  j_perkeo: { endShop: (_j, w, fx) => void (w.consumables.length && fx.copyConsumable(pick(w, "perkeo", w.consumables))) },
   j_riff_raff: {
     blind: (_j, _w, fx) => {
       for (let i = 0; i < 2; i++) fx.createJoker({ rarity: "COMMON" });
@@ -304,6 +322,9 @@ export function modStats(j: Item, w: World): Record<string, number> | undefined 
     }
     case "j_loyalty_card":
       Object.assign(s, { loyalty_every: 5, loyalty_remaining: loyaltyRemaining(j, w), loyalty_x_mult: 4 });
+      break;
+    case "j_caino":
+      if ((a.n.caino_xmult ?? 1) > 1) s.caino_xmult = a.n.caino_xmult;
       break;
   }
   return Object.keys(s).length ? s : undefined;

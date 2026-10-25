@@ -7,6 +7,7 @@
 //   node tools/batch.ts --games 6 --urls http://127.0.0.1:12346,http://127.0.0.1:12350
 //   node tools/batch.ts --games 3 --mock --sim           # plumbing check: simulator, no model calls
 //   node tools/batch.ts --games 40 --set simWeight=1.69  # TUNING numbers or switches, as in simbench
+//   node tools/batch.ts --games 40 --endless --endless-to 16  # play on past a win, to ante 16 at most
 //   --backend local uses StartLux on :8090 instead of cloud Jev
 //
 // Seeds come from --prefix (default INST) and the game number, so a rerun replays the same deals.
@@ -42,6 +43,8 @@ const backend = arg("backend", "cloud")!;
 const prefix = (arg("prefix", "INST")!.toUpperCase().replace(/[^A-Z1-9]/g, "") || "INST").slice(0, 4);
 const maxTicks = Number(arg("max-ticks", "2500"));
 const applied = applyOverrides(arg("set") ?? "", FEATURES as Record<string, boolean>);
+const endless = arg("endless") !== undefined;
+const endlessTo = Number(arg("endless-to", "16"));
 
 /** Balatro seeds are up to 8 characters with no 0 (it reads as O): the game number in base 9 on digits 1-9. */
 const seedOf = (n: number) => prefix + [...n.toString(9).padStart(4, "0")].map((d) => String(Number(d) + 1)).join("");
@@ -70,8 +73,8 @@ const queue = Array.from({ length: games }, (_, i) => i);
 const results: Result[] = [];
 
 async function worker(url: string) {
-  const cfg = { ...loadConfig(["--live", "--no-screen", "--delay", "0", "--backend", backend, ...(mock ? ["--mock-model"] : []), ...(sim ? ["--sim"] : [])]), logDir: join(out, `worker-${urls.indexOf(url) + 1}`) };
-  const game = sim ? simGame() : blindDeck(url);
+  const cfg = { ...loadConfig(["--live", "--no-screen", "--delay", "0", "--backend", backend, ...(mock ? ["--mock-model"] : []), ...(sim ? ["--sim"] : []), ...(endless ? ["--endless"] : [])]), logDir: join(out, `worker-${urls.indexOf(url) + 1}`) };
+  const game = sim ? simGame(undefined, { endless }) : blindDeck(url);
   const engines: Record<string, Engine> = mock ? { mock: mockEngine(7, false) } : { cloud: httpEngine(cfg.backends.cloud), local: httpEngine(cfg.backends.local) };
   const agent = new Agent(game, engines, cfg);
   const ticks: TickRecord[] = [];
@@ -92,7 +95,7 @@ async function worker(url: string) {
       for (let i = 0; i < maxTicks; i++) {
         await agent.step();
         last = ticks.at(-1)?.snapshot;
-        if (last && (last.phase === "GAME_OVER" || last.won || last.victoryOverlay)) break;
+        if (last && (last.phase === "GAME_OVER" || (endless ? last.ante >= endlessTo : last.won || last.victoryOverlay))) break;
       }
     } catch (e) {
       error = (e as Error).message;

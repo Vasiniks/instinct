@@ -105,6 +105,8 @@ export interface World {
   round: number;
   money: number;
   won: boolean;
+  /** Endless mode: the win screen over the round eval, until `endless` dismisses it. */
+  victoryOverlay: boolean;
   result: string;
   /** The blind on deck: 0 small, 1 big, 2 boss. */
   blindIdx: number;
@@ -174,6 +176,8 @@ export interface Fx {
   earn(dollars: number): void;
   /** Creates a consumable if there is room; false when there isn't. */
   createConsumable(set: "TAROT" | "PLANET" | "SPECTRAL", key?: string): boolean;
+  /** A Negative copy of a held consumable, which brings its own slot (Perkeo). */
+  copyConsumable(it: Item): void;
   /** Creates a joker if there is room (or `force`: Ankh, Invisible Joker copies). */
   createJoker(opts: { rarity?: string; key?: string; edition?: Edition; from?: Item; force?: boolean }): Item | undefined;
   destroyJoker(j: Item): void;
@@ -267,7 +271,7 @@ export function jokerSlots(w: World): number {
 }
 
 export function consumableSlots(w: World): number {
-  return 2 + (used(w, "v_crystal_ball") ? 1 : 0) - (w.deck === "NEBULA" ? 1 : 0);
+  return 2 + (used(w, "v_crystal_ball") ? 1 : 0) - (w.deck === "NEBULA" ? 1 : 0) + w.consumables.filter((c) => c.edition === "NEGATIVE").length;
 }
 
 export function shopSlots(w: World): number {

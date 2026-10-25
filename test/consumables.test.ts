@@ -72,3 +72,28 @@ test("Temperance is worth the jokers' sell value", () => {
   assert.ok(value(12).utility > value(1).utility + 0.2);
   assert.match(value(12).description, /\+\$24, the jokers' sell value/);
 });
+
+test("Black Hole: taken over the build's own Planet, since it levels that hand and every other", () => {
+  const flush = [named("j_droll", "Droll Joker"), named("j_tribe", "The Tribe", { x_mult: 2 })];
+  const pack = extract(state({ phase: "SMODS_BOOSTER_OPENED", jokers: flush, hand: ["2H", "5H", "9H", "KH", "3S", "7H", "JC", "4D"], pack: [tarot("c_jupiter", "Jupiter", 0, 600, "PLANET"), tarot("c_black_hole", "Black Hole", 0, 601, "SPECTRAL")] }));
+  const list = buildCandidates(pack, opts).candidates;
+  const take = (label: string) => list.find((c) => c.label === `Take ${label}`)!;
+  assert.ok(take("Black Hole").utility > take("Jupiter").utility, list.map((c) => `${c.label} ${c.utility.toFixed(2)}`).join("; "));
+  // Simulated like a Planet for every hand at once.
+  assert.match(take("Black Hole").description, /with every hand one level higher/);
+});
+
+test("The Soul: taken with a free slot; with the row full it sells the weakest joker for it", () => {
+  const soul = [tarot("c_soul", "The Soul", 0, 600, "SPECTRAL"), tarot("c_familiar", "Familiar", 0, 601, "SPECTRAL")];
+  const hand = ["2H", "5H", "9C", "KD", "3S", "7H", "JC", "4D"];
+  const open = buildCandidates(extract(state({ phase: "SMODS_BOOSTER_OPENED", jokers: [named("j_joker", "Joker", { mult: 4 })], hand, pack: soul })), opts).candidates;
+  const take = open.find((c) => c.label === "Take The Soul")!;
+  assert.ok(take.utility > open.find((c) => c.kind === "pack_skip")!.utility, open.map((c) => `${c.label} ${c.utility.toFixed(2)}`).join("; "));
+  assert.equal([...open].sort((a, b) => b.utility - a.utility)[0], take, open.map((c) => `${c.label} ${c.utility.toFixed(2)}`).join("; "));
+  const row = ["Joker", "Egg", "Golden Joker", "Credit Card", "Gros Michel"].map((label, i) => named(["j_joker", "j_egg", "j_golden", "j_credit_card", "j_gros_michel"][i], label, i === 4 ? { mult: 15 } : i === 0 ? { mult: 4 } : {}));
+  const full = buildCandidates(extract(state({ phase: "SMODS_BOOSTER_OPENED", jokers: row, hand, pack: soul })), opts).candidates;
+  const swap = full.find((c) => c.kind === "swap" && c.label.endsWith("take The Soul"));
+  assert.ok(swap, full.map((c) => `${c.label} ${c.utility.toFixed(2)}`).join("; "));
+  assert.equal(swap.calls?.[0].method, "sell");
+  assert.ok(swap.utility > full.find((c) => c.kind === "pack_skip")!.utility);
+});

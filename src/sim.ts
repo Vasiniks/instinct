@@ -2,6 +2,8 @@
 // the visualizer and the benchmark (tools/simbench.ts) run end to end without the game. Scoring
 // reuses the agent's own evaluator on the true cards; everything around it follows the game's
 // rules: the vanilla joker pool with growth and economy jokers, booster packs, Tarots, Planets and
-// Spectrals, vouchers, skip tags, every boss, stakes and decks. The parts live in src/sim/.
+// Spectrals (The Soul and its five Legendaries too), vouchers, skip tags, every boss, stakes and
+// decks, and endless mode past ante 8 with `simGame(seed, { endless: true })`. The parts live in
+// src/sim/.
 
-export { simGame } from "./sim/game.ts";
+export { simGame, type SimOptions } from "./sim/game.ts";

@@ -2,11 +2,11 @@
 // (which the mod checks for `use`; a card picked from a pack is used without them, as in the mod).
 
 import { HAND_NAMES, type HandName } from "../poker.ts";
-import { BLACK_HOLE, PLANET_BY_KEY, SPECTRALS, TAROTS, type ConsumableSpec } from "./data.ts";
+import { BLACK_HOLE, PLANET_BY_KEY, SOUL, SPECTRALS, TAROTS, type ConsumableSpec } from "./data.ts";
 import { HOOKS, nextRank } from "./jokers.ts";
 import { chance, consumableSlots, jokerSlots, pick, sellValue, shuffle, type Edition, type Fx, type Item, type SimCard, type World } from "./world.ts";
 
-export const specOf = (key: string): ConsumableSpec | undefined => TAROTS[key] ?? SPECTRALS[key] ?? (key === "c_black_hole" ? BLACK_HOLE : undefined);
+export const specOf = (key: string): ConsumableSpec | undefined => TAROTS[key] ?? SPECTRALS[key] ?? (key === "c_black_hole" ? BLACK_HOLE : key === "c_soul" ? SOUL : undefined);
 
 const ENHANCE: Record<string, string> = {
   c_magician: "LUCKY",
@@ -41,6 +41,7 @@ export function cannotUse(w: World, it: Item, targets: number): string | undefin
   switch (it.key) {
     case "c_judgement":
     case "c_wraith":
+    case "c_soul":
       return w.jokers.length < jokerSlots(w) ? undefined : "no room for a joker";
     case "c_wheel_of_fortune":
     case "c_hex":
@@ -122,7 +123,8 @@ export function useConsumable(w: World, fx: Fx, it: Item, targets: SimCard[]): v
   } else if (k === "c_wraith") {
     fx.createJoker({ rarity: "RARE" });
     w.money = 0;
-  } else if (k === "c_ankh") {
+  } else if (k === "c_soul") fx.createJoker({ rarity: "LEGENDARY" });
+  else if (k === "c_ankh") {
     const chosen = pick(w, "ankh", w.jokers);
     for (const j of [...w.jokers]) if (j !== chosen && !j.eternal) fx.destroyJoker(j);
     fx.createJoker({ from: chosen, force: true });

@@ -48,7 +48,8 @@ export const loyaltyRemaining = (j: Item, w: World, ahead = 0) => {
 /**
  * Jokers the simulator can deal. The evaluator scores most of them by key; the rest it scores from
  * the live stats the simulator reports, and the simulator itself pays their money and grows them.
- * Hiker (permanent card chips the evaluator doesn't read) and the Legendaries are left out.
+ * Hiker (permanent card chips the evaluator doesn't read) is left out; the Legendaries come only
+ * from The Soul.
  */
 export const JOKERS: Record<string, JokerSpec> = {
   j_joker: { cfg: { mult: 4 }, text: "+4 Mult" },
@@ -201,6 +202,12 @@ export const JOKERS: Record<string, JokerSpec> = {
   j_astronomer: { text: "All Planet cards and Celestial Packs in the shop are free" },
   j_burnt: { cfg: { extra: 4 }, text: "Upgrade the level of the first discarded poker hand each round" },
   j_bootstraps: { cfg: { extra: { mult: 2, dollars: 5 } }, text: (_j, w) => `+2 Mult for every $5 you have (Currently +${2 * Math.floor(Math.max(0, w.money) / 5)} Mult)` },
+  // Legendaries, from The Soul alone. `n` holds the game's caino_xmult (Canio's X Mult) and yorick_discards (Yorick's count).
+  j_caino: { cfg: { extra: 1 }, text: (j) => `This Joker gains X1 Mult when a face card is destroyed (Currently X${cur(j.ab.n.caino_xmult ?? 1)} Mult)`, noPerish: true },
+  j_triboulet: { cfg: { extra: 2 }, text: "Played Kings and Queens each give X2 Mult when scored" },
+  j_yorick: { cfg: { extra: { xmult: 1, discards: 23 } }, text: (j) => `This Joker gains X1 Mult every 23 [${j.ab.n.yorick_discards ?? 23}] cards discarded (Currently X${cur(j.ab.x_mult)} Mult)`, noPerish: true },
+  j_chicot: { text: "Disables effect of every Boss Blind" },
+  j_perkeo: { text: "Creates a Negative copy of 1 random consumable card in your possession at the end of the shop" },
 };
 
 /** The text a joker shows now. */
@@ -300,11 +307,12 @@ export const SPECTRALS: Record<string, ConsumableSpec> = {
   c_medium: { label: "Medium", text: "Add a Purple Seal to 1 selected card in your hand Creates a Tarot cardwhen discarded(Must have room)", max: 1 },
   c_cryptid: { label: "Cryptid", text: "Create 2 copies of 1 selected card in your hand", max: 1 },
 };
-/** Black Hole only turns up in a pack's rare 0.3% roll. */
+/** Black Hole and The Soul only turn up in a pack's rare 0.3% roll. */
 export const BLACK_HOLE: ConsumableSpec = { label: "Black Hole", text: "Upgrade every poker hand by 1 level" };
+export const SOUL: ConsumableSpec = { label: "The Soul", text: "Creates a Legendary Joker (Must have room)" };
 
 export function labelOf(key: string): string {
-  return PLANET_BY_KEY.get(key)?.label ?? TAROTS[key]?.label ?? SPECTRALS[key]?.label ?? (key === "c_black_hole" ? BLACK_HOLE.label : key);
+  return PLANET_BY_KEY.get(key)?.label ?? TAROTS[key]?.label ?? SPECTRALS[key]?.label ?? (key === "c_black_hole" ? BLACK_HOLE.label : key === "c_soul" ? SOUL.label : key);
 }
 
 // ---------------------------------------------------------------------------------------------

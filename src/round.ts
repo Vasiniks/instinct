@@ -184,6 +184,11 @@ export function levelUp(levels: Snapshot["levels"], hand: HandName): Snapshot["l
   return { ...levels, [hand]: { ...now, level: now.level + 1, chips: now.chips + b.lchips, mult: now.mult + b.lmult } };
 }
 
+/** Black Hole: every poker hand one level higher. */
+export function levelUpAll(levels: Snapshot["levels"]): Snapshot["levels"] {
+  return (Object.keys(BASE_HANDS) as HandName[]).reduce((l, h) => levelUp(l, h), levels);
+}
+
 /** Shuffles `cards` in place with `rand`. */
 function shuffle<T>(cards: T[], rand: () => number): T[] {
   for (let i = cards.length - 1; i > 0; i--) {

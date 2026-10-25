@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { extract } from "../src/extract.ts";
+import { blindBase } from "../src/knowledge.ts";
 import { simGame } from "../src/sim.ts";
 import type { SimGame } from "../src/sim/game.ts";
 import type { GameState, RawCard } from "../src/types.ts";
@@ -575,4 +576,219 @@ test("shop jokers come at the game's rarity odds and prices, and sell for half",
   // Joker 20, Tarot 4, Planet 4: five cards in seven are jokers; rarities 70/25/5.
   assert.ok(Math.abs(jokers / cards - 20 / 28) < 0.05, `${jokers}/${cards}`);
   assert.ok(Math.abs(rarity.COMMON / jokers - 0.7) < 0.06 && Math.abs(rarity.RARE / jokers - 0.05) < 0.03, JSON.stringify(rarity));
+});
+
+const LEGENDARY_KEYS = ["j_caino", "j_triboulet", "j_yorick", "j_chicot", "j_perkeo"];
+
+test("The Soul: a 0.3% roll in Arcana and Spectral packs, none in shop slots, that makes a Legendary", async () => {
+  const g = await start("SOUL");
+  await toShop(g);
+  const w = g.world();
+  const rng = w.rng;
+  const force = (names: string[]) => (w.rng = (s) => (names.includes(s) ? 0.999 : rng(s)));
+  force(["soul"]);
+  w.shopPacks = [];
+  await call(g, "set", { money: 100 });
+  await call(g, "add", { key: "p_arcana_normal_1" });
+  let s = await call(g, "buy", { pack: 0 });
+  assert.deepEqual(
+    raw(s, "pack").map((c) => [c.key, c.set, c.label, c.value.effect]),
+    Array(3).fill(["c_soul", "SPECTRAL", "The Soul", "Creates a Legendary Joker (Must have room)"]),
+  );
+  s = await call(g, "pack", { card: 0 });
+  const legend = raw(s, "jokers")[0];
+  assert.ok(LEGENDARY_KEYS.includes(legend.key), legend.key);
+  assert.equal(legend.value.rarity, "LEGENDARY");
+  assert.equal(legend.cost.sell, Math.floor(legend.cost.buy / 2));
+  if (!legend.modifier.edition) assert.equal(legend.cost.buy, 20);
+  // Celestial packs roll for Black Hole only; in a Spectral pack Black Hole wins when both hit.
+  await call(g, "add", { key: "p_celestial_normal_1" });
+  s = await call(g, "buy", { pack: 0 });
+  assert.ok(raw(s, "pack").every((c) => c.set === "PLANET"));
+  await call(g, "pack", { skip: true });
+  force(["soul", "black_hole"]);
+  await call(g, "add", { key: "p_spectral_normal_1" });
+  s = await call(g, "buy", { pack: 0 });
+  assert.deepEqual(raw(s, "pack").map((c) => c.key), ["c_black_hole", "c_black_hole"]);
+  // The Ghost deck's shop Spectrals never roll for it.
+  const h = await start("SOULSHOP", "GHOST");
+  await toShop(h);
+  const v = h.world();
+  const vrng = v.rng;
+  v.rng = (st) => (st === "soul" ? 0.999 : vrng(st));
+  await call(h, "set", { money: 100000 });
+  const spectrals: string[] = [];
+  for (let i = 0; i < 60; i++) spectrals.push(...raw(await call(h, "reroll"), "shop").filter((c) => c.set === "SPECTRAL").map((c) => c.key));
+  assert.ok(spectrals.length > 0);
+  assert.ok(!spectrals.includes("c_soul"));
+});
+
+test("The Soul needs a free joker slot and makes a Legendary not held, any of the five with Showman", async () => {
+  const g = await start("SOUL2", "BLACK");
+  await call(g, "select");
+  for (const k of LEGENDARY_KEYS.filter((k) => k !== "j_chicot")) await call(g, "add", { key: k });
+  const soul = async () => {
+    await call(g, "add", { key: "c_soul" });
+    return call(g, "use", { consumable: 0 });
+  };
+  let s = await soul();
+  assert.equal(raw(s, "jokers").at(-1)?.key, "j_chicot");
+  // All five held: the pool is empty and the game falls back to a Joker.
+  s = await soul();
+  assert.equal(raw(s, "jokers").at(-1)?.key, "j_joker");
+  // A full row refuses it, as it refuses Judgement and Wraith.
+  await assert.rejects(soul(), /cannot be used at this time: no room for a joker/);
+  g.world().consumables = [];
+  await call(g, "sell", { joker: 5 });
+  await call(g, "add", { key: "j_ring_master" });
+  await call(g, "set", { grant_voucher: "v_antimatter" });
+  s = await soul();
+  assert.ok(LEGENDARY_KEYS.includes(raw(s, "jokers").at(-1)!.key));
+});
+
+test("Canio, Triboulet and Yorick grow and score as the game's do, reporting what the mod reports", async () => {
+  const g = await start("CANIO");
+  await call(g, "set", { ante: 8 });
+  await call(g, "select");
+  await call(g, "add", { key: "j_caino" });
+  const w = g.world();
+  const hanged = (cards: number[]) => call(g, "add", { key: "c_hanged_man" }).then(() => call(g, "use", { consumable: w.consumables.length - 1, cards }));
+  setHand(g, ["KH", "QS", "5D", "5C", "9S", "8H", "7D", "2C"]);
+  let s = g.state();
+  assert.equal(jokerStats(s, "j_caino"), undefined);
+  // Each face card destroyed adds X1; others don't.
+  s = await hanged([0, 1]);
+  assert.deepEqual(jokerStats(s, "j_caino"), { caino_xmult: 3 });
+  assert.equal(raw(s, "jokers")[0].value.effect, "This Joker gains X1 Mult when a face card is destroyed (Currently X3 Mult)");
+  s = await hanged([5]);
+  assert.deepEqual(jokerStats(s, "j_caino"), { caino_xmult: 3 });
+  // Pair of 5s: (10 + 5 + 5) x 2 x 3.
+  s = await call(g, "play", { cards: [0, 1] });
+  assert.equal(s.round?.chips, 120);
+  // Triboulet: X2 for each King or Queen scored, by key (no stats).
+  const t = await start("TRIBOULET");
+  await call(t, "set", { ante: 8 });
+  await call(t, "select");
+  await call(t, "add", { key: "j_triboulet" });
+  assert.equal(jokerStats(t.state(), "j_triboulet"), undefined);
+  setHand(t, ["KH", "KD", "2C"]);
+  s = await call(t, "play", { cards: [0, 1] });
+  assert.equal(s.round?.chips, (10 + 10 + 10) * 2 * 2 * 2);
+  // Yorick: X1 more every 23 cards discarded, the count in brackets.
+  const y = await start("YORICK");
+  await call(y, "set", { ante: 8 });
+  await call(y, "select");
+  await call(y, "add", { key: "j_yorick" });
+  await call(y, "set", { discards: 10 });
+  s = await call(y, "discard", { cards: [0, 1, 2, 3, 4] });
+  assert.equal(raw(s, "jokers")[0].value.effect, "This Joker gains X1 Mult every 23 [18] cards discarded (Currently X1 Mult)");
+  assert.equal(jokerStats(s, "j_yorick"), undefined);
+  for (let i = 0; i < 4; i++) s = await call(y, "discard", { cards: [0, 1, 2, 3, 4] });
+  assert.deepEqual(jokerStats(s, "j_yorick"), { x_mult: 2 });
+  assert.equal(raw(s, "jokers")[0].value.effect, "This Joker gains X1 Mult every 23 [21] cards discarded (Currently X2 Mult)");
+});
+
+test("Perkeo leaves each shop with a Negative copy of a held consumable, its own slot included", async () => {
+  const g = await start("PERKEO");
+  await toShop(g);
+  await call(g, "add", { key: "j_perkeo" });
+  let s = await call(g, "next_round");
+  assert.equal(raw(s, "consumables").length, 0);
+  await call(g, "select");
+  await win(g);
+  await call(g, "cash_out");
+  await call(g, "add", { key: "c_strength" });
+  s = await call(g, "next_round");
+  assert.deepEqual(raw(s, "consumables").map((c) => [c.key, c.modifier.edition, c.cost.sell]), [["c_strength", undefined, 1], ["c_strength", "NEGATIVE", 4]]);
+  assert.equal(s.consumables?.limit, 3);
+  // Blueprint copies it: two more.
+  await call(g, "select");
+  await win(g);
+  await call(g, "cash_out");
+  await call(g, "add", { key: "j_blueprint" });
+  await call(g, "rearrange", { jokers: [1, 0] });
+  s = await call(g, "next_round");
+  assert.equal(raw(s, "consumables").length, 4);
+  assert.equal(s.consumables?.limit, 5);
+});
+
+test("Chicot disables every boss, one already in play when it joins included", async () => {
+  /** The boss on deck after the first shop, Chicot bought there or not. */
+  const boss = async (key: string, chicot: boolean) => {
+    const g = await start("CHICOT");
+    await toShop(g);
+    if (chicot) await call(g, "add", { key: "j_chicot" });
+    Object.assign(g.world(), { boss: key, status: ["DEFEATED", "DEFEATED", "UPCOMING"], blindIdx: 1 });
+    await call(g, "next_round");
+    return g;
+  };
+  let s = await call(await boss("bl_water", false), "select");
+  assert.equal(s.round?.discards_left, 0);
+  s = await call(await boss("bl_water", true), "select");
+  assert.equal(s.round?.discards_left, 4);
+  s = await call(await boss("bl_needle", true), "select");
+  assert.equal(s.round?.hands_left, 4);
+  s = await call(await boss("bl_manacle", true), "select");
+  assert.equal(s.hand?.limit, 8);
+  s = await call(await boss("bl_house", true), "select");
+  assert.ok(raw(s, "hand").every((c) => c.key !== "" && !c.state.hidden));
+  s = await call(await boss("bl_club", true), "select");
+  assert.ok(raw(s, "hand").every((c) => !c.state.debuff));
+  // The Wall's 1200 is halved: 700 chips clear it only with Chicot.
+  for (const [chicot, phase] of [[false, "SELECTING_HAND"], [true, "ROUND_EVAL"]] as const) {
+    const g = await boss("bl_wall", chicot);
+    await call(g, "select");
+    await call(g, "set", { chips: 700 });
+    s = await call(g, "play", { cards: [0] });
+    assert.equal(s.state, phase);
+  }
+  // Made mid-blind by The Soul (the other four held), it lifts The Water at once.
+  const g = await boss("bl_water", false);
+  await call(g, "select");
+  for (const k of ["j_caino", "j_triboulet", "j_yorick", "j_perkeo", "c_soul"]) await call(g, "add", { key: k });
+  s = await call(g, "use", { consumable: 0 });
+  assert.equal(raw(s, "jokers").at(-1)?.key, "j_chicot");
+  assert.equal(s.round?.discards_left, 4);
+});
+
+/** The ante 8 boss on deck. */
+async function finalBoss(g: G, seed: string) {
+  await call(g, "start", { deck: "RED", stake: "WHITE", seed });
+  Object.assign(g.world(), { ante: 8, boss: "bl_club", status: ["DEFEATED", "DEFEATED", "SELECT"], blindIdx: 2 });
+  await call(g, "select");
+  return win(g);
+}
+
+test("without endless, the ante 8 win ends the run", async () => {
+  const g = simGame("WON");
+  const s = await finalBoss(g, "WON");
+  assert.deepEqual([s.state, s.won, s.victory_overlay, s.run_summary?.result], ["GAME_OVER", true, undefined, "Victory"]);
+  await assert.rejects(call(g, "endless"), /requires ROUND_EVAL/);
+});
+
+test("endless: the ante 8 win shows the victory overlay, and `endless` plays on until a loss", async () => {
+  const g = simGame("ENDLESS", { endless: true });
+  let s = await finalBoss(g, "ENDLESS");
+  assert.deepEqual([s.state, s.won, s.victory_overlay, s.ante_num, s.run_summary?.result], ["ROUND_EVAL", true, true, 9, "Victory"]);
+  assert.equal(extract(s).victoryOverlay, true);
+  await assert.rejects(call(g, "cash_out"), /Victory overlay is showing/);
+  s = await call(g, "endless");
+  assert.deepEqual([s.state, s.victory_overlay], ["ROUND_EVAL", undefined]);
+  await assert.rejects(call(g, "endless"), /Victory overlay is not showing/);
+  s = await call(g, "cash_out");
+  assert.equal(s.state, "SHOP");
+  s = await call(g, "next_round");
+  assert.deepEqual([s.state, s.ante_num, s.won, s.blinds?.small?.score], ["BLIND_SELECT", 9, true, blindBase(9, "WHITE", "RED")]);
+  // An ante 9 boss is just a boss: no second overlay.
+  Object.assign(g.world(), { status: ["DEFEATED", "DEFEATED", "SELECT"], blindIdx: 2 });
+  await call(g, "select");
+  s = await win(g);
+  assert.deepEqual([s.state, s.victory_overlay, s.ante_num], ["ROUND_EVAL", undefined, 10]);
+  await call(g, "cash_out");
+  await call(g, "next_round");
+  s = await call(g, "select");
+  while (s.state === "SELECTING_HAND") s = await call(g, "play", { cards: [0] });
+  assert.equal(s.state, "GAME_OVER");
+  assert.equal(s.won, true);
+  assert.match(s.run_summary?.result ?? "", /^Lost to /);
 });

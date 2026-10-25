@@ -86,6 +86,42 @@ export type TuningKey = keyof typeof TUNING;
 const DEFAULTS = { ...TUNING };
 export const tuningDefaults = () => ({ ...DEFAULTS });
 
+export type Changes = Partial<Record<TuningKey, number>>;
+export interface Profiles {
+  deck: Record<string, Changes>;
+  stake: Record<string, Changes>;
+}
+
+/**
+ * Per-deck and per-stake changes to the numbers above, as differences: a run plays TUNING plus its
+ * deck's changes plus its stake's. The decks and stakes play differently (Green earns no interest,
+ * Black has a hand less, Gold charges rent), so `tools/autotune.ts --profiles` searches each on its
+ * own: a deck at White stake, a stake on the six-deck mix. White stake is the base and has none.
+ */
+export const PROFILES: Profiles = { deck: {}, stake: {} };
+
+/** `--set` overrides, applied over any profile. */
+const overrides: Changes = {};
+let active: string | undefined;
+
+/** Sets TUNING for a run on `deck` and `stake`: the base numbers, both profiles' changes, then any overrides. */
+export function useProfile(deck = "", stake = ""): void {
+  const key = `${deck}|${stake}`;
+  if (key === active) return;
+  active = key;
+  const d = PROFILES.deck[deck] ?? {};
+  const st = PROFILES.stake[stake] ?? {};
+  for (const k of Object.keys(DEFAULTS) as TuningKey[]) TUNING[k] = DEFAULTS[k] + (d[k] ?? 0) + (st[k] ?? 0);
+  Object.assign(TUNING, overrides);
+}
+
+/** Replaces the profiles, as tools/autotune.ts does for each arm it plays. */
+export function loadProfiles(p: Partial<Profiles>): void {
+  PROFILES.deck = p.deck ?? {};
+  PROFILES.stake = p.stake ?? {};
+  active = undefined;
+}
+
 /** Applies `key=value` overrides: FEATURES switches take true/false, TUNING numbers take numbers. */
 export function applyOverrides(spec: string, features: Record<string, boolean>): string[] {
   const applied: string[] = [];
@@ -95,6 +131,7 @@ export function applyOverrides(spec: string, features: Record<string, boolean>):
       const n = Number(v);
       if (!Number.isFinite(n)) throw new Error(`${k} takes a number, got ${v}`);
       (TUNING as Record<string, number>)[k] = n;
+      overrides[k as TuningKey] = n;
     } else if (k in features) {
       if (v !== "true" && v !== "false") throw new Error(`${k} takes true or false, got ${v}`);
       features[k] = v === "true";

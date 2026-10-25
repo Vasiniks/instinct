@@ -19,7 +19,7 @@ import { roundsTo } from "./growth.ts";
 import type { Plan } from "./plan.ts";
 import { isModelledJoker, type Joker } from "./poker.ts";
 import { applyToDeck, changesDeck, dealtHand, pickTargets } from "./deckfix.ts";
-import { bossEffects, levelUp, mulberry32, roundOdds, roundOutcomes, type Setup } from "./round.ts";
+import { bossEffects, levelUp, levelUpAll, mulberry32, roundOdds, roundOutcomes, type Setup } from "./round.ts";
 
 export { pickTargets };
 
@@ -288,8 +288,10 @@ function consumableBase(item: Item, c: Ctx): { value: number; why: string; use?:
       return { value: (SPECTRAL_VALUE[item.key] ?? 0.45) + fit + grows, why: `adds cards to the deck${grows ? " (Hologram grows with each)" : ""}` };
     }
     if (item.key === "c_sigil") return flush ? { value: 0.85, why: "turns the whole hand into one suit" } : { value: 0.2, why: "suit change the build doesn't need" };
-    if (item.key === "c_soul" && !roomForJoker) return { value: 0.15, why: "no free joker slot for the Legendary" };
-    if (item.key === "c_black_hole") return { value: 0.9 + (c.owned.has("j_constellation") ? 0.1 : 0), why: "levels up every poker hand" };
+    if (item.key === "c_soul") return roomForJoker ? { value: soulFit(c), why: `a random Legendary joker (${soulPicks(c).map((l) => l.label).join(", ")})` } : { value: 0.15, why: "no free joker slot for the Legendary" };
+    // Every hand a level, the build's among them: a build Planet's worth and more. It is a Spectral,
+    // so Constellation and Satellite don't count it.
+    if (item.key === "c_black_hole") return { value: 1 + keeper, why: "levels up every poker hand, the build's hand among them" };
     return { value: SPECTRAL_VALUE[item.key] ?? 0.3, why: "a Spectral" };
   }
   const t = TAROTS[item.key];
@@ -670,6 +672,7 @@ function simulateUses(s: Snapshot, uses: Draft[]): Set<Draft> {
     if (!item) continue;
     let after: Snapshot | undefined;
     if (item.set === "PLANET" && PLANET_HAND[item.key]) after = { ...s, levels: levelUp(s.levels, PLANET_HAND[item.key]) };
+    else if (item.key === "c_black_hole") after = { ...s, levels: levelUpAll(s.levels) };
     else if (changesDeck(item.key)) {
       const targets = (u.cards ?? []).map((i) => s.hand[i]).filter(Boolean);
       const hand = applyToDeck(item, s.hand, targets, rand);
@@ -729,6 +732,22 @@ const VOUCHER_ROUND: Record<string, { bonus: Setup["bonus"]; text: string }> = {
   v_palette: { bonus: { handSize: 1 }, text: "one more card in hand" },
 };
 
+
+/** The Soul makes one of these, at random among those not held (any of them with Showman). */
+const LEGENDARIES: { key: string; label: string; effect: string }[] = [
+  { key: "j_caino", label: "Canio", effect: "This Joker gains X1 Mult when a face card is destroyed (Currently X1 Mult)" },
+  { key: "j_triboulet", label: "Triboulet", effect: "Played Kings and Queens each give X2 Mult when scored" },
+  { key: "j_yorick", label: "Yorick", effect: "This Joker gains X1 Mult every 23 [23] cards discarded (Currently X1 Mult)" },
+  { key: "j_chicot", label: "Chicot", effect: "Disables effect of every Boss Blind" },
+  { key: "j_perkeo", label: "Perkeo", effect: "Creates a Negative copy of 1 random consumable card in your possession at the end of the shop" },
+];
+const soulPicks = (c: Ctx): Item[] =>
+  LEGENDARIES.filter((l) => !c.owned.has(l.key) || c.owned.has("j_ring_master")).map((l) => ({ ...l, index: -1, set: "JOKER", cost: 20, sell: 10, rarity: "LEGENDARY", eternal: false, targetMin: 0, targetMax: 0, requiresJokers: 0, randomJoker: false }));
+/** The Soul's worth to this run: the mean fit of the Legendaries it could make. */
+const soulFit = (c: Ctx): number => {
+  const picks = soulPicks(c);
+  return picks.length ? picks.reduce((a, l) => a + fitWithExpert(c, l).value, 0) / picks.length : 0;
+};
 
 const asJoker = (item: Item, index: number): Joker => ({ index, key: item.key, label: item.label, effect: item.effect, stats: {}, edition: item.edition, rarity: item.rarity, debuff: false, eternal: Boolean(item.eternal), sell: item.sell });
 
@@ -832,6 +851,11 @@ function simulateOffers(c: Ctx, items: Item[], weak: ReturnType<typeof swapVicti
       else if (weak) setups.push({ item, setup: { jokers: [...s.jokers.filter((j) => j.index !== weak.index), asJoker(item, s.jokers.length)], levels: s.levels }, text: `with it in place of ${weak.label}` });
     } else if (item.set === "PLANET" && PLANET_HAND[item.key]) {
       setups.push({ item, setup: { jokers: s.jokers, levels: levelUp(s.levels, PLANET_HAND[item.key]) }, text: `with ${PLANET_HAND[item.key]} one level higher` });
+    } else if (item.key === "c_black_hole") {
+      setups.push({ item, setup: { jokers: s.jokers, levels: levelUpAll(s.levels) }, text: "with every hand one level higher" });
+    } else if (item.key === "c_soul" && (!full || weak)) {
+      const kept = full ? s.jokers.filter((j) => j.index !== weak!.index) : s.jokers;
+      for (const l of soulPicks(c)) setups.push({ item, setup: { jokers: [...kept, asJoker(l, s.jokers.length)], levels: s.levels }, text: full ? `with a random Legendary in place of ${weak!.label}` : "with a random Legendary" });
     } else if (FEATURES.deckFixSim && (item.set === "TAROT" || item.set === "SPECTRAL") && changesDeck(item.key)) {
       const hand = handFor();
       const picks = pickTargets(item, hand, c.p.deckFix.suit);
@@ -847,14 +871,18 @@ function simulateOffers(c: Ctx, items: Item[], weak: ReturnType<typeof swapVicti
   const all = [{ jokers: s.jokers, levels: s.levels }, ...setups.map((x) => x.setup)];
   const perBoss = bossTargets(s, 3).map((target, k) => ({ ante: s.ante + k, target, odds: roundOdds(s, all, target, handsPerRound(s), discardsPerRound(s), 40, undefined, roundsTo(s, k)) }));
   const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
-  setups.forEach((x, i) =>
-    out.set(x.item, {
+  // An item with several setups (The Soul, one per Legendary) counts their mean.
+  const byItem = new Map<Item, number[]>();
+  setups.forEach((x, i) => byItem.set(x.item, [...(byItem.get(x.item) ?? []), i + 1]));
+  for (const [item, cols] of byItem) {
+    const withAt = (b: (typeof perBoss)[number]) => mean(cols.map((k) => b.odds[k]));
+    out.set(item, {
       now: mean(perBoss.map((b) => b.odds[0])),
-      with: mean(perBoss.map((b) => b.odds[i + 1])),
-      bosses: perBoss.map((b) => ({ ante: b.ante, target: b.target, now: b.odds[0], with: b.odds[i + 1] })),
-      text: x.text,
-    }),
-  );
+      with: mean(perBoss.map(withAt)),
+      bosses: perBoss.map((b) => ({ ante: b.ante, target: b.target, now: b.odds[0], with: withAt(b) })),
+      text: setups[cols[0] - 1].text,
+    });
+  }
   const top = [...out].sort((a, b) => b[1].with - b[1].now - (a[1].with - a[1].now))[0];
   c.trace.sim = {
     kind: "bosses",
@@ -1476,6 +1504,29 @@ function packCandidates(c: Ctx): Draft[] {
             { method: "pack", params: { card: item.index } },
           ],
           utility: 0.4 + (fit.value - weak.worth + simGain(item) - dud) * 0.8,
+        });
+      }
+      continue;
+    }
+    if (item.key === "c_soul") {
+      // A random Legendary, valued as the jokers it could be. With the row full it sells the weakest
+      // joker first, whenever the Legendary is expected to beat it: the pack is paid for already
+      // and a Legendary turns up nowhere else.
+      const value = soulFit(c) + simGain(item);
+      const what = `The Soul: ${item.effect || "creates a Legendary Joker"}. For this run: one of ${soulPicks(c).map((l) => l.label).join(", ")} at random.${simText(sims.get(item))}`;
+      if (!jokerFull) out.push({ id: slug("take_the_soul"), kind: "pack", label: "Take The Soul", description: `Take ${what}`, call: { method: "pack", params: { card: item.index } }, utility: value });
+      else if (weak && value > weak.worth) {
+        out.push({
+          id: slug(`swap_${weak.label}_for_the_soul`),
+          kind: "swap",
+          label: `Sell ${weak.label}, take The Soul`,
+          description: `Sell ${weak.label} (+${money(weak.sell)}; ${weakNote(c, weak)}) and take ${what}`,
+          call: { method: "pack", params: { card: item.index } },
+          calls: [
+            { method: "sell", params: { joker: weak.index } },
+            { method: "pack", params: { card: item.index } },
+          ],
+          utility: 0.4 + (value - weak.worth) * 0.8,
         });
       }
       continue;

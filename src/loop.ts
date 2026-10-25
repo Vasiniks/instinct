@@ -17,6 +17,7 @@ import { applyBuildAnswer, buildOptions, isLocked, planView, updatePlan, type Pi
 import { applyPolicy, type ReviewMode, type Verdict } from "./policy.ts";
 import { type RecordedRun, replaySteps, stateDiff } from "./runs.ts";
 import { buildRequest } from "./strategy.ts";
+import { useProfile } from "./tuning.ts";
 import type { ChoiceAnswer, Engine, SystemOneRequest, SystemOneResponse } from "./systemone.ts";
 import type { GameState } from "./types.ts";
 
@@ -497,6 +498,8 @@ export class Agent {
     const t1 = performance.now();
 
     this.#setStage(n, "extract");
+    // The numbers for this deck and stake (src/tuning.ts PROFILES), before anything is valued.
+    useProfile(snap.deck, snap.stake);
     // The plan carries the build across ticks; the profile reads this snapshot against it.
     const planned = PLANNED_PHASES.has(snap.phase);
     let profile = planned ? profileBuild(snap, this.plan?.seed === snap.seed ? this.plan?.build : undefined) : undefined;

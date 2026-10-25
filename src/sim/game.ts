@@ -82,9 +82,11 @@ const SEAL_TEXT: Record<string, string> = {
   PURPLE: "Creates a Tarot cardwhen discarded(Must have room)",
 };
 /** Hooks a Blueprint or Brainstorm copy repeats (the ones that pay or create; growth is not copied). */
-const COPYABLE = new Set(["j_business", "j_rough_gem", "j_ticket", "j_8_ball", "j_reserved_parking", "j_superposition", "j_seance", "j_vagabond", "j_todo_list", "j_cartomancer", "j_riff_raff", "j_marble", "j_burglar", "j_faceless", "j_mail"]);
+const COPYABLE = new Set(["j_business", "j_rough_gem", "j_ticket", "j_8_ball", "j_reserved_parking", "j_superposition", "j_seance", "j_vagabond", "j_todo_list", "j_cartomancer", "j_riff_raff", "j_marble", "j_burglar", "j_faceless", "j_mail", "j_perkeo"]);
 /** Jokers the simulator deals: every vanilla joker it implements, Legendaries excepted. */
 const OFFERED = Object.keys(JOKERS).filter((k) => CATALOG_BY_KEY.has(k) && JOKER_RARITY[k] !== "LEGENDARY");
+/** The five The Soul picks from. */
+const LEGENDARIES = Object.keys(JOKERS).filter((k) => JOKER_RARITY[k] === "LEGENDARY");
 
 function blankWorld(seed: string, stake: string, deck: string): World {
   let next = 1;
@@ -99,6 +101,7 @@ function blankWorld(seed: string, stake: string, deck: string): World {
     round: 0,
     money: 4,
     won: false,
+    victoryOverlay: false,
     result: "",
     blindIdx: 0,
     status: ["SELECT", "UPCOMING", "UPCOMING"],
@@ -154,10 +157,19 @@ export interface SimGame extends Game {
   world(): World;
 }
 
+export interface SimOptions {
+  /**
+   * Endless mode, as the game offers it on the win screen: beating the ante 8 boss sets `won` and
+   * shows `victory_overlay` over the round eval, and the `endless` method dismisses it to play on
+   * until a loss. Off (the default), that win ends the run at GAME_OVER.
+   */
+  endless?: boolean;
+}
+
 /** Jokers the evaluator steps for the hand being played, from their reported value before it. */
 const EVALUATOR_STEPS = new Set(["j_green_joker", "j_ride_the_bus", "j_runner", "j_square", "j_trousers", "j_obelisk", "j_loyalty_card", "j_bootstraps"]);
 
-export function simGame(initialSeed = "SIM1"): SimGame {
+export function simGame(initialSeed = "SIM1", opts: SimOptions = {}): SimGame {
   let w = blankWorld(initialSeed, "WHITE", "RED");
   w.phase = "MENU";
   /** Mods that start a run with no seed draw one; this keeps them repeatable too. */
@@ -195,6 +207,10 @@ export function simGame(initialSeed = "SIM1"): SimGame {
   const rerollCost = () => (w.freeRerolls > 0 ? 0 : Math.max(0, (w.rerollStart ?? rerollBase()) + w.rerollIncrease));
   const handLimit = () => Math.max(1, handSize(w) + w.roundHandSize - (bossIs("bl_manacle") ? 1 : 0));
   const hooksOf = (j: Item): Hooks | undefined => (j.debuff ? undefined : HOOKS[j.key]);
+  /** Chicot disables the boss in play: as the blind is set, or on joining mid-blind (add_to_deck). */
+  const chicot = () => {
+    if (has(w, "j_chicot") && bossLive()) disableBoss();
+  };
 
   /** Each joker's hook, then the hooks Blueprint and Brainstorm copy, in joker order. */
   function eachHook<K extends keyof Hooks>(name: K, run: (h: NonNullable<Hooks[K]>, j: Item) => void) {
@@ -244,7 +260,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
   function jokerPool(rarity: string): string[] {
     const taken = has(w, "j_ring_master") ? new Set<string>() : new Set([...w.jokers, ...w.shop, ...(w.pack?.items ?? [])].map((i) => i.key));
     const held = new Set(w.cards.map((c) => c.enhancement));
-    return OFFERED.filter(
+    return (rarity === "LEGENDARY" ? LEGENDARIES : OFFERED).filter(
       (k) => JOKER_RARITY[k] === rarity && !taken.has(k) && (k !== "j_gros_michel" || !w.grosExtinct) && (k !== "j_cavendish" || w.grosExtinct) && (!ENHANCEMENT_GATE[k] || held.has(ENHANCEMENT_GATE[k])),
     );
   }
@@ -320,6 +336,9 @@ export function simGame(initialSeed = "SIM1"): SimGame {
       w.consumables.push(newConsumable(set, key));
       return true;
     },
+    copyConsumable(it) {
+      w.consumables.push(makeItem(it.key, it.set, it.label, it.base, { edition: "NEGATIVE", extraValue: it.extraValue }));
+    },
     createJoker(opts) {
       if (!opts.force && w.jokers.length >= jokerSlots(w)) return undefined;
       let j: Item;
@@ -329,6 +348,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
         j.ab.n.rounds = 0;
       } else j = newJoker({ rarity: opts.rarity, key: opts.key, edition: opts.edition });
       w.jokers.push(j);
+      if (j.key === "j_chicot") chicot();
       return j;
     },
     destroyJoker(j) {
@@ -347,6 +367,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
       w.draw = w.draw.filter((c) => !gone.has(c));
       const glass = cs.filter((c) => c.enhancement === "GLASS").length;
       if (glass) for (const j of w.jokers) hooksOf(j)?.glassBroken?.(j, w, glass);
+      for (const j of w.jokers) hooksOf(j)?.destroyed?.(j, w, cs);
     },
     levelUp(hand, n) {
       const l = w.levels[hand];
@@ -488,6 +509,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
     }
     refreshDebuffs();
     eachHook("blind", (h, j) => h(j, w, fx, w.blindIdx === 2));
+    chicot();
     w.draw = shuffle(w, "shuffle", w.cards);
     w.hand = [];
     drawCards(false);
@@ -719,11 +741,15 @@ export function simGame(initialSeed = "SIM1"): SimGame {
     w.hand = [];
     w.roundHandSize = 0;
     if (boss) {
-      if (w.ante >= 8) {
+      if (w.ante >= 8 && !w.won) {
         w.won = true;
         w.result = "Victory";
-        w.phase = "GAME_OVER";
-        return;
+        if (!opts.endless) {
+          w.phase = "GAME_OVER";
+          return;
+        }
+        // The win screen covers the round eval; the ante has already moved on underneath it.
+        w.victoryOverlay = true;
       }
       w.ante++;
       newAnte();
@@ -864,6 +890,9 @@ export function simGame(initialSeed = "SIM1"): SimGame {
     for (const it of [...w.shop, ...w.shopVouchers, ...w.shopPacks]) price(w, it);
   };
 
+  /** Black Hole and The Soul: Spectrals outside the pool, only a pack's 0.3% roll deals them. */
+  const hiddenSpectral = (key: string) => makeItem(key, "SPECTRAL", labelOf(key), 4);
+
   function packContents(spec: PackSpec): Item[] {
     const out: Item[] = [];
     const seen = new Set<string>();
@@ -875,12 +904,15 @@ export function simGame(initialSeed = "SIM1"): SimGame {
         // Telescope: the first card is the Planet of the most played hand (the stronger on a tie).
         const top = HAND_NAMES.filter((h) => w.levels[h].visible).reduce<HandName | undefined>((b, h) => (w.levels[h].played > (b ? w.levels[b].played : 0) ? h : b), undefined);
         if (i === 0 && used(w, "v_telescope") && top) it = newConsumable("PLANET", PLANETS.find((p) => p.hand === top)!.key);
-        else if (w.rng("black_hole") > 0.997) it = makeItem("c_black_hole", "SPECTRAL", labelOf("c_black_hole"), 4);
+        else if (w.rng("black_hole") > 0.997) it = hiddenSpectral("c_black_hole");
         else it = newConsumable("PLANET", undefined, seen);
       } else if (spec.kind === "Spectral") {
-        it = w.rng("black_hole") > 0.997 ? makeItem("c_black_hole", "SPECTRAL", labelOf("c_black_hole"), 4) : newConsumable("SPECTRAL", undefined, seen);
+        // create_card rolls for The Soul, then for Black Hole, which wins when both hit.
+        const soul = w.rng("soul") > 0.997;
+        it = w.rng("black_hole") > 0.997 ? hiddenSpectral("c_black_hole") : soul ? hiddenSpectral("c_soul") : newConsumable("SPECTRAL", undefined, seen);
       } else {
-        it = used(w, "v_omen_globe") && w.rng("omen_globe") > 0.8 ? newConsumable("SPECTRAL", undefined, seen) : newConsumable("TAROT", undefined, seen);
+        const omen = used(w, "v_omen_globe") && w.rng("omen_globe") > 0.8;
+        it = w.rng("soul") > 0.997 ? hiddenSpectral("c_soul") : newConsumable(omen ? "SPECTRAL" : "TAROT", undefined, seen);
       }
       seen.add(it.key);
       out.push(it);
@@ -1063,6 +1095,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
       stake: w.stake,
       seed: w.seed,
       won: w.won,
+      ...(w.victoryOverlay ? { victory_overlay: true } : {}),
       used_vouchers: Object.fromEntries(w.vouchers.map((v) => [v, ""])),
       bosses_used: [],
       hands: Object.fromEntries(HAND_NAMES.map((h, i) => [h, { order: i + 1, ...w.levels[h] }])),
@@ -1101,7 +1134,8 @@ export function simGame(initialSeed = "SIM1"): SimGame {
       gs.pack_ready = true;
       gs.pack_hand_ready = true;
     }
-    if (w.phase === "GAME_OVER") gs.run_summary = { result: w.result };
+    // The mod sends the summary at GAME_OVER and all through a won run: "Victory" until endless ends.
+    if (w.phase === "GAME_OVER" || w.won) gs.run_summary = { result: w.result };
     return gs;
   }
 
@@ -1234,6 +1268,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
     },
     cash_out: () => {
       need("ROUND_EVAL");
+      if (w.victoryOverlay) fail("NOT_ALLOWED", "Victory overlay is showing — call endless or menu first");
       w.money += w.cashout.total;
       if (w.blindIdx === 2) w.status = ["UPCOMING", "UPCOMING", "UPCOMING"];
       // The round's counters reset for the shop and the next blind select (the real logs show 4/4 there).
@@ -1242,8 +1277,17 @@ export function simGame(initialSeed = "SIM1"): SimGame {
       openShop();
       return state();
     },
+    endless: () => {
+      need("ROUND_EVAL");
+      if (!w.won) fail("NOT_ALLOWED", "Run has not been won yet");
+      if (!w.victoryOverlay) fail("NOT_ALLOWED", "Victory overlay is not showing");
+      w.victoryOverlay = false;
+      return state();
+    },
     next_round: () => {
       need("SHOP");
+      // Leaving the shop: Perkeo copies a consumable.
+      eachHook("endShop", (h, j) => h(j, w, fx));
       if (w.status.every((s) => s === "UPCOMING")) {
         w.blindIdx = 0;
         w.status = ["SELECT", "UPCOMING", "UPCOMING"];
@@ -1398,6 +1442,7 @@ export function simGame(initialSeed = "SIM1"): SimGame {
         const j = newJoker({ key, edition, plain: true });
         Object.assign(j, { eternal: Boolean(p?.eternal) || undefined, perishable: p?.perishable ? Number(p.perishable) : undefined, rental: Boolean(p?.rental) || undefined });
         w.jokers.push(price(w, j));
+        if (key === "j_chicot") chicot();
       } else if (key.startsWith("c_")) {
         if (!specOf(key) && !PLANET_BY_KEY.has(key)) fail("BAD_REQUEST", `Consumable key not found: ${key}`);
         w.consumables.push(PLANET_BY_KEY.has(key) ? newConsumable("PLANET", key) : key === "c_black_hole" ? makeItem(key, "SPECTRAL", labelOf(key), 4) : newConsumable(TAROTS[key] ? "TAROT" : "SPECTRAL", key));

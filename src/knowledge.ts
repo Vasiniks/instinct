@@ -403,12 +403,23 @@ const BASE_AMOUNTS = [
   [300, 1000, 3200, 9000, 25000, 60000, 110000, 200000],
 ];
 
+/**
+ * The game's get_blind_amount past ante 8 (endless): a(1.6 + (0.75c)^d)^c with c the antes past 8
+ * and d = 1 + 0.2c, cut to two significant digits. 110,000 at ante 9 and 560,000 at ante 10 on
+ * White; past about ante 38 it passes what a double holds and the game shows naneinf.
+ */
+function endlessAmount(a8: number, ante: number): number {
+  const c = ante - 8;
+  const amount = Math.floor(a8 * (1.6 + (0.75 * c) ** (1 + 0.2 * c)) ** c);
+  if (!Number.isFinite(amount)) return amount;
+  return amount - (amount % 10 ** Math.floor(Math.log10(amount) - 1));
+}
+
 /** Base chips for an ante's small blind (big = 1.5x, boss = 2x), by stake scaling. */
 export function blindBase(ante: number, stake?: string, deck?: string): number {
   const row = BASE_AMOUNTS[stakeAtLeast(stake, "PURPLE") ? 2 : stakeAtLeast(stake, "GREEN") ? 1 : 0];
   const a = Math.max(1, ante);
-  // Past ante 8 the base grows roughly 1.6x per ante in the base game; good enough for planning.
-  const amount = a <= 8 ? row[a - 1] : row[7] * 1.6 ** (a - 8);
+  const amount = a <= 8 ? row[a - 1] : endlessAmount(row[7], a);
   return amount * (DECKS[deck ?? ""]?.blindScale ?? 1);
 }
 
