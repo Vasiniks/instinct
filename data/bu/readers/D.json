@@ -1,0 +1,3064 @@
+{
+ "videos": [
+  {
+   "id": "q4YAHDuRUcQ",
+   "title": "Balatro Basics: Skip Tag Tier List (You're doing it wrong)",
+   "why": "Prices every skip tag against the hidden cost of a skip (your best future round plus a lost shop); verdict: almost never skip, with ante 1 Small Blind (and start of ante 2) exceptions. Version 1.0.0n.",
+   "talk_share": "high"
+  },
+  {
+   "id": "Lx2bAMdKwIs",
+   "title": "Updated Skip Tag Tier List (Balatro 101 Patch)",
+   "why": "1.0.1 changes: Investment pays $25 (up a rank), joker tags make the joker free (same skip situations), Top-up up and Negative down at sticker stakes. Current view.",
+   "talk_share": "high"
+  },
+  {
+   "id": "zWNty-x3g_M",
+   "title": "Balatro Basics: All Consumables Tier List",
+   "why": "Live-stream tier list of every Tarot, Planet and Spectral for an 8-ante run, including his poker-hand ranking for Planets (Straight best). Version 1.0.1c.",
+   "talk_share": "high"
+  }
+ ],
+ "claims": [
+  {
+   "id": "skips_tags.skip-costs-best-future-round",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "A skip does not cost the current round's reward: the run has a fixed number of rounds, so a skip removes your last and best future round and shop (the one with most interest, value jokers, gold cards and purple seals). A tag is worth a skip only if it beats that best future round, which at White stake is large.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any (he says the White-stake ceiling is high, so the cost is larger there)",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 250.64,
+     "text": "is the skip worth not just what I'm skipping now but is it worth my theoretical best round in the future",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=250s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 238.079,
+     "text": "I don't get to see that shop because I've skipped not just the current round but the future whatever my best future round is",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=238s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "value of a skip = tag value - value of a late-game round (cash + interest + joker/seal income + one shop); skip only when > 0",
+   "notes": "Roffle states it only for Gold; BU applies it to all stakes."
+  },
+  {
+   "id": "skips_tags.default-ante1-small-blind-only",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Benchmark: nearly every tag is worth a skip only in ante 1, usually only on the Small Blind (Big Blind skip 'maybe'); from ante 2 on, don't skip for them. His closing verdict: never skip, except maybe.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any",
+    "blind": "Small Blind (Big Blind maybe)"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1497.52,
+     "text": "you only take these in anti1 you probably only take these if they're the small blind skip big blind skip maybe",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1497s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1514.76,
+     "text": "that's how bad all of these tags are is you only take it in anti1",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1514s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3756.119,
+     "text": "this is how I feel about Skip tags never skip except maybe",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3756s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "allow skip only when ante == 1 and blind == Small (Big only for the strongest tags); never skip ante >= 2 except the specific ante-2 tags (Top-up/Buffoon) and Orbital-on-main-hand",
+   "notes": "Exceptions he gives elsewhere: Top-up/Buffoon at the start of ante 2, Orbital when it hits your hand, Handy/Economy maybe later."
+  },
+  {
+   "id": "skips_tags.score-jump-makes-skips-deadly",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "A skip makes you face higher blinds with the same jokers; he frames each skipped round as roughly a +50% score requirement the tag would have to cover. With weak scoring (his Gold-stake runs with -1 hand / -1 discard) skipping the Small Blind with no scoring joker loses the Big Blind about 40% of the time. Skip only when the current build already beats the next blind with margin.",
+   "conditions": {
+    "antes": [
+     1,
+     2,
+     3
+    ],
+    "deck": "any",
+    "stake": "mainly high stakes (Gold as of 1.0.0: -1 hand size, -1 discard)",
+    "build_state": "no or weak scoring jokers"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 475.96,
+     "text": "if I take a skip is the skip whatever the reward is is it worth a 50% increase in score",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=475s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 553.64,
+     "text": "I would say maybe 40% of the time 40% of the time you can't beat the big blind",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=553s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 584.04,
+     "text": "skipping too much or skipping at all often is going to end you if you're not able to keep up with the scoring requirements",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=584s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold",
+     "stake.current-sticker-rules"
+    ]
+   },
+   "knob": "skip only if projected best-hand score of current build >= 1.5 x next blind requirement (and boss after it is beatable)",
+   "notes": "The 40% figure is for the old 1.0.0 Gold stake (-1 hand size). In zWNty-x3g_M he notes 1.0.1 Gold no longer has -1 hand size. The '50%' is his rough framing, not an exact blind ratio."
+  },
+  {
+   "id": "shop.each-shop-has-value",
+   "topic": "shop",
+   "decision": "blind skip and tags",
+   "statement": "Every shop has value: two free joker offers plus fresh booster packs. In ante 1 there are two shops before the boss (four joker chances); one skip halves that to two. Many ante 1-2 losses come from seeing too few shops.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "need scoring jokers"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 641.48,
+     "text": "normally you get two shops two shops between you and the boss that gives you four cards four chances to pick up the scoring help that you need",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=641s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 674.56,
+     "text": "maybe you didn't see enough shops is what the issue is",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=674s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "skip penalty term includes one lost shop (2 joker offers + 2 packs) valued at roughly a reroll-plus-packs; heavier when joker count < 2"
+  },
+  {
+   "id": "jokers.joker-count-is-main-score",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Jokers are by far the most efficient way to raise score; going from 2 to 3 jokers is huge and 4 to 5 is still big. Planets/Tarots help but are much less efficient.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 693.56,
+     "text": "the most efficient way to improve your score in the game is with Jokers obviously",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=693s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 700.88,
+     "text": "two and three Jokers is huge the difference between four and five Jokers is still pretty big",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=700s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "shop priority: fill joker slots (scoring) before consumables; marginal value of joker #3 > joker #5 but both high"
+  },
+  {
+   "id": "packs.buy-packs-at-interest-cap",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "Once you are at the $25 interest cap, buy as many booster packs as you can (Arcana and Celestial always; Standard optional). Buying a Celestial or Arcana pack is more efficient than rerolling the shop hoping for Planets or Tarots.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "money >= $25"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 738.48,
+     "text": "when you have $25 or more you know when you have your interest cap then buy as many booster packs as you can",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=738s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 719.76,
+     "text": "it is more efficient to buy a Celestial pack than it is to roll the show roll the shop hoping to find some Planet cards",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=719s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "econ.spend-early-then-hold-cap",
+     "econ.reroll-only-from-surplus"
+    ],
+    "note": "BU: at the cap, buy every Arcana/Celestial pack (he admits in zWNty-x3g_M this sometimes costs interest); Roffle: from ante 3 leave every shop with >= $25."
+   },
+   "knob": "if money >= 25: buy every Arcana/Celestial (and Spectral) pack in the shop; prefer packs over rerolls when the target is a Planet/Tarot",
+   "notes": "Wording is ambiguous on whether he would go below $25 to do it; in zWNty-x3g_M (Hermit) he says you can't afford every pack and lose interest when you try, so the conflict is soft."
+  },
+  {
+   "id": "packs.standard-packs-optional",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "Standard packs are the optional pack: buy them only when you have spare money and the deck can take cards (purple/red seals, gold cards); when you need to save for rerolls for scoring jokers, skip them. Never skip a blind for a Standard pack.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3027.44,
+     "text": "what I need to do is save my money for rerolling for better Jokers scoring jokers in which case Okay sometimes I don't want a standard pack",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3027s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3035.64,
+     "text": "I always want Celestial I always want Arcana I sometimes don't want standard packs",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3035s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3041.799,
+     "text": "never worth it to skip for a standard pack get out of here",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3041s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Standard pack buy only if money - price >= reserve for rerolls (e.g. >= 25 + 5) and scoring jokers are sufficient; Standard Tag skip = never"
+  },
+  {
+   "id": "skips_tags.garbage-and-speed-worthless",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Garbage Tag is useless over 90% of the time (you should be using discards to find hands, gold cards and purple seals); Speed Tag ($5 per skip) is a joke because you should not be skipping. Bottom tier.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1002.04,
+     "text": "more than 90% of the time this is going to be a blank this is going to be useless to you",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1002s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1010.079,
+     "text": "the speed tag here is kind of a joke gives you $5",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1010s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "tag value Garbage ~ $0-5, Speed = $5 x skips; never skip for either"
+  },
+  {
+   "id": "skips_tags.holographic-foil-round1",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Holographic Tag is an all-star only on the ante 1 round 1 (Small Blind) skip: a guaranteed +10 Mult joker in the first shop carries you through ante 2 (first six rounds), so you can bank interest or buy value jokers. Worth at least two rerolls ($10-12). At Gold stake always take it (and Foil) in round 1; at White it is not needed but reasonable if you struggle with early scoring. Foil (+50 chips) is slightly worse than Holographic. Once you have any scoring joker, don't skip for it.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "Gold: always; White: optional",
+    "build_state": "no scoring joker yet (round 1)",
+    "blind": "Small Blind"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1119.52,
+     "text": "if I get a holographic in round one that is enough scoring to carry me through all of anti2",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1119s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1160.32,
+     "text": "I think this skip here is worth at least you know $10 or $12",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1160s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1728.279,
+     "text": "if we're talking about gold Stakes then you always take them in round one if we're talking about white staks I don't think you need it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1728s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ],
+    "note": "BU: at Gold always skip round 1 for Holographic/Foil; Roffle: at Gold play every small and big blind."
+   },
+   "knob": "ante 1 Small Blind: skip if tag in {Holographic, Foil} and joker_count == 0 (Gold always; White: test both); tag value Holo ~ $12, Foil ~ $10",
+   "notes": "1.0.1 (Lx2bAMdKwIs): the edition joker is now also free, so these skips are 'more worth it' in the same situations."
+  },
+  {
+   "id": "scaling.mult-chips-conversion",
+   "topic": "scaling",
+   "decision": "shop joker buy",
+   "statement": "Rule of thumb: 4 Mult ~= 30 chips (Even Steven/Odd Todd, Scary/Smiley Face, Empress/Hierophant), so +10 Mult ~= 75 chips, which is why Foil (+50 chips) is below Holographic. Early on Mult matters most (a +4 Mult Jimbo doubles an 80 x 4 hand), but there are more Mult jokers than chips jokers, so the first chips source gets more valuable as Mult stacks; long term you want Mult because chips come from other sources (Planets).",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1217.44,
+     "text": "the conversion rate is four mol is the same as 30 chips",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1217s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1303.24,
+     "text": "it is easier to find more Mt you can have three or four Mt Jokers finding that first chips Joker could be challenging",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1303s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1345.36,
+     "text": "I think long term longterm you're going to want to have the Mt because you can get chips from other sources",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1345s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "joker scorer baseline: 1 Mult = 7.5 chips; weight +Mult x1.2 early (ante 1-2); add a bonus to the first +Chips joker when owned +Mult jokers >= 3 and +Chips jokers == 0",
+   "notes": "zWNty-x3g_M adds the planet-side corollary: chips per level matter most because Mult comes from jokers."
+  },
+  {
+   "id": "skips_tags.polychrome-tag-not-ante1",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Don't take the Polychrome Tag in ante 1: after skipping you cannot afford the joker (edition raises price; from Red stake no Small Blind reward), and early x1.5 is far weaker than +10 Mult (on a 75 x 4 hand +10 Mult is +250%, x1.5 is +50%). Later you find better xMult anyway and end up selling it.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "early"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1365.2,
+     "text": "if you're in anti-1 you can't take this the reason why you can't take this is because you can't afford it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1365s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1428.84,
+     "text": "the holographic is way bigger early and then later on in the game you can easily find other sources of xol",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1428s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Polychrome Tag: never skip in ante 1 (1.0.0 pricing); in 1.0.1 joker is free, still rank below Holographic early",
+   "notes": "Affordability argument is from 1.0.0; 1.0.1 made tag jokers free (Lx2bAMdKwIs) but he says skip situations do not expand."
+  },
+  {
+   "id": "skips_tags.investment-tag",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Investment Tag: in 1.0.0 ($15 after the boss) not worth a skip and never from ante 2 on, since you skip a shop and have nothing to spend it on. In 1.0.1 it pays $25, a big upgrade that moves it up one rank, still an ante 1 consideration.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1492.279,
+     "text": "if you see this anti-2 or later you don't want this",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1492s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 14.08,
+     "text": "previously giving us $15 after the boss now gives us $25 is a huge upgrade",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=14s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 21.72,
+     "text": "I feel you know fine moving it up a rank",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=21s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "tag value Investment = $25 paid after the boss (1.0.1); consider only ante 1 Small Blind; never ante >= 2",
+   "notes": "Updated video (1.0.1) supersedes the $15 valuation."
+  },
+  {
+   "id": "skips_tags.economy-tag",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Economy Tag has the highest raw value of any tag (doubles money, max +$40) but he usually still doesn't take it: even at $40 a round can earn more than $40 of value, and at high stakes the higher requirements after a skip end the run. Its value peaks once you can hold about $40 (reachable around round 5).",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any (more dangerous at high stakes)",
+    "build_state": "money near $40 and build comfortably ahead"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1578.08,
+     "text": "even at $40 I can make more than $40 worth of value in a round",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1578s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1613.679,
+     "text": "maybe there is some ante where I would take it but most of the time I don't take it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1613s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1803.24,
+     "text": "I think economy tag just uh the raw value of it is just too powerful",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1803s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "Economy Tag skip only if min(money, 40) >= ~$30 and current build beats next blind with >= 1.5x margin; otherwise play the blind",
+   "notes": "The '$40 by round five' remark: 'you could get to $40 double your money in round five'."
+  },
+  {
+   "id": "skips_tags.coupon-tag",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Coupon Tag is top tier: take it in ante 1 (ante 2 is somewhat reasonable). Free jokers and packs fill your joker slots right away, which lets you win with fewer hands and get the economy going sooner.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "empty joker slots"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1749.559,
+     "text": "this is at least you know um anti1 I think also anti2 is somewhat reasonable",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1749s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1779.32,
+     "text": "I take the coupon tag I fill up my Joker slots",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1779s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1799.32,
+     "text": "this is top tier top tier coupon tag maybe not as good as the economy tag",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1799s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "skip for Coupon Tag at ante 1 Small Blind (ante 2 Small if joker_count <= 2); tag value ~ sum of initial shop joker+pack prices"
+  },
+  {
+   "id": "skips_tags.boss-reroll-and-juggle-only-vs-hard-counter",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Boss Tag (reroll) and Juggle Tag (+3 hand size for one round) are short-term boss beaters, not worth a shop. Skip for them only when the upcoming boss hard-counters your build (e.g. debuffs your flush suit or your face cards); if all bosses are weak or all strong, a reroll does nothing. Boss reroll > Juggle. 1.0.1 adds $5 to these (his hypothetical) would make them 'less bad, not good'.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "upcoming boss hard-counters the build"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1863.96,
+     "text": "I think the value of the boss roll depends on how tough the bosses are",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1863s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1896.76,
+     "text": "if you have you know just a few like hard counters to what you're currently working on then I think",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1896s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3199.76,
+     "text": "most of the time it's just if the boss is hard give me plus three hand size makes the boss easier",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3199s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.buy-an-answer-before-the-boss"
+    ]
+   },
+   "knob": "skip for Boss/Juggle Tag only if boss_counter(boss, build) is true (suit debuff on main suit, face debuff on face build, etc.); value otherwise < $15",
+   "notes": "In Lx2bAMdKwIs the '+$5' is posed as a hypothetical rework, not a stated 1.0.1 change."
+  },
+  {
+   "id": "skips_tags.handy-tag",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Handy Tag pays $1 per hand played; winning in 1-2 hands is about 5 hands per ante, so ~$25 by ante 6 and $35+ by ante 8. Not worth a skip even at $25; if ever, only mid-late (ante 4-5+). He contradicts himself on its rank (first above the ante-1 tags, then 'the worst of all of these').",
+   "conditions": {
+    "antes": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "many hands played"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 1975.96,
+     "text": "every antie maybe that's five hands five hands per anti so if you get this in anti six then this is 25 bucks",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=1975s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2003.679,
+     "text": "I think you shouldn't take it I think it's not you know even at 25 bucks is not not worth it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2003s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3562.28,
+     "text": "I think the handy tag is the worst of all of these it just gives you the money but it gives you at a time that you don't need it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3562s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Handy Tag value = hands_played x $1; skip only if value > late-round value (effectively never before ante 6)",
+   "notes": "Self-contradiction within q4YAHDuRUcQ about whether Handy ranks above or below the ante-1 joker tags."
+  },
+  {
+   "id": "skips_tags.uncommon-over-rare",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Uncommon Tag beats Rare Tag: rares are inflexible build-arounds that often don't fit, while uncommons are flexible (an average uncommon gives about 30-40 Mult vs ~15 for a common), similar to an early Holographic. Skip for Uncommon only in ante 1 (scaling uncommons won't help right away); he would not skip for a Rare even in ante 1.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "early, few jokers"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2087.44,
+     "text": "I think a lot of the time with the rare tag you're going to be disappointed",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2087s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3588.64,
+     "text": "only an anti1 would I be willing to skip for an uncommon",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3588s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3662.359,
+     "text": "15 bucks is something that I'd be willing to take in anti1 whereas the rare skip I wouldn't be willing to take in anti1",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3662s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.pass-no-synergy"
+    ]
+   },
+   "knob": "Uncommon Tag: skip allowed only ante 1 Small Blind; Rare Tag: never skip",
+   "notes": "1.0.1: the tag's joker is now free (Lx2bAMdKwIs) but he keeps the same skip situations."
+  },
+  {
+   "id": "skips_tags.negative-tag-bad",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Negative Tag is worse than a Celestial pack: the random negative is usually a common that doesn't fit, and a free joker slot does not lower the bar, the joker still has to help (in the shop too: don't buy a negative just because it takes no space). In 1.0.1 at higher stakes a third of these are Rentals, so he moves it down further.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2295.079,
+     "text": "I think this is worse than a Celestial pack I think a Celestial pack is better than a random negative",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2295s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2352.119,
+     "text": "even though it doesn't take up any space that doesn't the bar for it you know helping you is not zero",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2352s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 229.12,
+     "text": "you have a one and three chance that the negative you get is a rental",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=229s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.pass-no-synergy",
+     "econ.rentals-are-short-hires"
+    ]
+   },
+   "knob": "Negative Tag: never skip; shop: score a negative joker by its scoring/econ contribution with no bonus for the free slot beyond the slot itself",
+   "notes": "1.0.1 Lx2bAMdKwIs: 'I feel even more confident that we can move it down here'."
+  },
+  {
+   "id": "skips_tags.pack-tags-not-worth-skip",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Pack tags are not worth a skip: Mega Arcana is worth more on average than Mega Celestial (more different cards can help), but neither is worth $15; Spectral (Ethereal) Tag is just 'fine'; Standard Tag never. Individual Planets are worth more than individual Tarots, but an Arcana pack beats a Celestial pack on average.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2578.079,
+     "text": "I think Arcana packs are worth you know more on average than the celestial pack I don't think it's worth as much as $15 though",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2578s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2548.8,
+     "text": "individual Planet cards are going to be worth more than tarot cards",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2548s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "tag values: Charm (Mega Arcana) < $15, Meteor (Mega Celestial) < Charm, Ethereal < Charm, Standard ~0; pack EV ordering in shop: Arcana > Celestial"
+  },
+  {
+   "id": "packs.spectral-pack-early",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "Buy a Spectral pack in the first shop or two of the run (Ouija/Sigil to pivot, seals, Grim are strong early). From ante 2 on the cards rarely fit your build and you often take nothing, but it is still worth $4 when you have the money: low cost, small chance of a big hit. Not worth a skip.",
+   "conditions": {
+    "antes": "any (strongest in ante 1)",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2606.4,
+     "text": "in the literal first shop of the game or maybe the first couple shops of the game um I'm going to take a spectr pack",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2606s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2645.0,
+     "text": "any later on you know in anti2 and further the spectral pack is not going to give you the ones that are actually compatible with what you're doing",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2645s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2680.44,
+     "text": "I definitely think that the spectral packs are worth the $4 when you buy them however is it worth a Skip and I think not",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2680s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "shop: buy Spectral pack in ante 1 whenever affordable; ante >= 2 buy if money - 4 >= interest floor; allow 'skip all' pick"
+  },
+  {
+   "id": "skips_tags.ante1-tag-pool",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Game rule he states: in ante 1 the skip tag can't be Top-up, Orbital, Buffoon, Spectral (Ethereal), Negative or Celestial (Meteor); Arcana (Charm) can appear as the first skip (Judgement + Fool can give two jokers).",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2723.52,
+     "text": "in round one or in anti1 you can't get the topup tag",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2723s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2753.2,
+     "text": "you can't get Spectral skip in anti1 either um you can't get a negative skip in anti-1 you can't get a Celestial pack",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2753s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2773.96,
+     "text": "skip as the first Skip and the Arcana skip can give you judgment cards",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2773s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "simulator/tag model: exclude {Top-up, Orbital, Buffoon, Ethereal, Negative, Meteor} from ante-1 tag pool",
+   "notes": "Mechanic, verify against game source (tag min_ante)."
+  },
+  {
+   "id": "skips_tags.topup-buffoon-start-of-ante2",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Top-up Tag (2 commons) and Mega Buffoon Tag are worth it only at the very start of ante 2 (its Small Blind) when joker slots are still open; at high stakes take Top-up then. Buffoon > Top-up (you choose). By ante 3 you likely have 5 jokers, and one reroll shows 4 cards anyway, so almost never later. 1.0.1 at Orange/Gold: Top-up jokers carry no stickers, so it moves above Holographic/Foil.",
+   "conditions": {
+    "antes": [
+     2
+    ],
+    "deck": "any",
+    "stake": "any (Top-up stronger at Orange/Gold in 1.0.1)",
+    "build_state": "open joker slots",
+    "blind": "ante 2 Small Blind"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2929.0,
+     "text": "for you know literally the beginning of anti2 then it's worth it super worth it super powerful just to get the plane off",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2929s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2896.2,
+     "text": "anti3 you probably have five Jokers already if you already have five Jokers what what are you messing around with buffoon pack",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2896s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 274.96,
+     "text": "it gives you non stickered Jokers so you can't get perishables you can't get rentals and so I think topup tag for me then moves up a little bit here",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=274s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "ante 2 Small Blind: skip for Buffoon or Top-up Tag if joker_count <= 3 (implied) and build beats Big Blind; ante >= 3 never",
+   "notes": "'joker_count <= 3' is implied from 'you're probably going to have the empty Joker slots', not stated."
+  },
+  {
+   "id": "skips_tags.orbital-only-on-main-hand",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Orbital Tag (+3 levels to a random hand) is something money can't buy: it matches your hand only ~10% of the time, but then it's worth about $40. Early (ante 2) you can pivot to the upgraded hand, so he takes it about 25% of the time it appears.",
+   "conditions": {
+    "antes": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "upgraded hand == main hand, or ante 2 and hand is pivotable"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 2982.68,
+     "text": "only 10% of the time is this going to be valid but when it is it slaps this is worth 40 bucks",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=2982s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3520.839,
+     "text": "if you get this in anti 2 now you pivot around this",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3520s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3535.359,
+     "text": "I think a quarter of the time when you see the orbital you take it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3535s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "skip for Orbital Tag iff tag_hand == main_hand (value ~$40), or ante == 2 and tag_hand in {Straight, Flush, Two Pair, Three of a Kind} with no committed hand yet"
+  },
+  {
+   "id": "skips_tags.voucher-tag",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Voucher Tag gives something money can't buy (one voucher per ante otherwise); a voucher like +1 hand, +1 discard or Seed Money beats a random negative or rare. He first prices it under $15 (below Investment), then ranks it above Investment, Rare and Polychrome.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3055.0,
+     "text": "money cannot buy you extra vouchers you get one voucher per ante and that's it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3055s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3114.52,
+     "text": "I think it's worth probably less than 15 bucks probably less than the investment tag",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3114s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3672.599,
+     "text": "voucher is better than a rare voucher is more helpful more often than a rare would be",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3672s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "shop.vouchers-early"
+    ]
+   },
+   "knob": "Voucher Tag value ~ $15 (ante 1 only); rank above Investment/Rare/Polychrome tags",
+   "notes": "Self-contradiction within q4YAHDuRUcQ: first 'less than the investment tag', later 'better than the investment'."
+  },
+  {
+   "id": "skips_tags.d6-tag",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "D6 Tag (rerolls start at $0, +$1 each) is underrated: if you'd reroll 3 times anyway it saves $15; late (ante 5-6, when you have reroll money) you can do 7-8 rerolls in one shop; in ante 1, $3 buys three rerolls (six more joker views). Better than Coupon, worse than Economy's $40. Still, you shouldn't skip, but if you skip, consider D6.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3274.16,
+     "text": "that saves you 15 bucks if you reroll if you would have normally been willing to roll three times",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3274s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3330.599,
+     "text": "I think for me D6 is great D6 is uh way better than you think it is also you shouldn't take it",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3330s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3440.96,
+     "text": "maybe how about this uh D6 is better than the coupon",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3440s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "D6 Tag value = savings on planned rerolls next shop (sum of normal costs - 0+1+2...); skip only if planned rerolls >= 3 and value beats round value"
+  },
+  {
+   "id": "skips_tags.double-tag-only-anaglyph",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Double Tag is bad: it only pays if you take another skip later, and you shouldn't. Double + Orbital/Economy is great only on Anaglyph Deck, which stores Double Tags.",
+   "conditions": {
+    "antes": "any",
+    "deck": "Anaglyph is the exception",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3350.52,
+     "text": "all right now double tag double tag sucks you know in theory in theory the double tag is as good as whatever the best tag that you would get is",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3350s"
+    },
+    {
+     "video": "q4YAHDuRUcQ",
+     "t_seconds": 3393.799,
+     "text": "that's not because the double tag is good that's because the anaglyph deck is good",
+     "url": "https://www.youtube.com/watch?v=q4YAHDuRUcQ&t=3393s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Double Tag: never skip (except Anaglyph: value = best expected future tag)"
+  },
+  {
+   "id": "skips_tags.joker-tags-free-in-101",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "1.0.1: Rare/Uncommon/edition/Negative tags now make that shop joker free, and it still sells for its normal amount, so a joker that doesn't fit can be bought for $0 and sold for a few dollars. Skip in the same situations as before (round 1 Holographic/Foil), but this doesn't create new skip situations; most of the time you still don't skip. (White-stake framing.)",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "White (his framing)",
+    "build_state": "same as 1.0.0 skip cases"
+   },
+   "quotes": [
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 33.399,
+     "text": "the rare tag now you're guaranteed uh in the next shop there's going to be a rare that rare is going to be free now",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=33s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 69.72,
+     "text": "you can still pick it up for zero and then sell it for a couple bucks to make up for the loss",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=69s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 147.56,
+     "text": "I think most of the time you still don't skip for them they're still problematic",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=147s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "tag joker price = 0 and fail-case value = sell value (~$1-3); keep skip allowlist unchanged (ante 1 Small: Holo/Foil/Uncommon/Coupon)",
+   "notes": "Current (1.0.1) view; supersedes the affordability point in q4YAHDuRUcQ."
+  },
+  {
+   "id": "stake.stickers-devalue-joker-tags",
+   "topic": "stake",
+   "decision": "blind skip and tags",
+   "statement": "At Orange/Gold stakes (1.0.1) a tag's joker can be Perishable (dies after 5 rounds), Rental ($3/round) or Eternal (can't sell, so free price doesn't help), which lowers joker tags; Top-up's jokers come unstickered.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "Orange, Gold (not White)",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 202.92,
+     "text": "if you take a Skip and you get a perishable polychrome or you get a perishable rare Joker",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=202s"
+    },
+    {
+     "video": "Lx2bAMdKwIs",
+     "t_seconds": 253.36,
+     "text": "you could get Eternal Jokers where you can't sell them",
+     "url": "https://www.youtube.com/watch?v=Lx2bAMdKwIs&t=253s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.perishables-by-rounds-left",
+     "stake.current-sticker-rules"
+    ]
+   },
+   "knob": "at stakes with stickers: discount joker-tag value for P(perishable/rental/eternal); not relevant at White",
+   "notes": "Not relevant to the White-stake target."
+  },
+  {
+   "id": "planets.chips-per-level-saturn-best",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "Value Planets by +chips per level, because your +Mult comes from jokers and chips jokers are scarce. Straight (Saturn, +30 chips) is the best Planet in an 8-ante run: easy enough to assemble and high-scoring, so you play fewer hands. Start leveling Straights early.",
+   "conditions": {
+    "antes": "1-8",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 254.24,
+     "text": "The thing that matters most is the plus chips number because you get all of your plus mult from your jokers anyway",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=254s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 222.28,
+     "text": "Straights are the sort of middle ground between being reasonable enough to assemble the hand, but then also being high enough scoring",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=222s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 287.4,
+     "text": "I think then that means Saturn is the highest of all of the hands here",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=287s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "hands.spam-one-cheap-hand"
+    ],
+    "note": "BU ranks Straight as the best planet/hand to level; Roffle says pick one cheap hand (High Card/Pair) when scoring comes from jokers."
+   },
+   "knob": "planet value = chips_per_level weighted high, mult_per_level low; main-hand preference order starts with Straight; buy Saturn whenever straights are playable",
+   "notes": "Roffle's principle is conditional on joker/held-card scoring, so the conflict is partial."
+  },
+  {
+   "id": "planets.secret-hands-flush-house-not-flush-five",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "In an 8-ante run Flush Five is out of reach unless you have Vagabond or Trading Card, and by then other hands are leveled; don't hold out for it. Flush House can be unlocked early with one suit-changing Tarot (pair + one card), so play it as early as you can; Ceres > Eris.",
+   "conditions": {
+    "antes": "1-8",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "suit changers available"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 401.16,
+     "text": "I think flush fives are out of reach unless you get very specific jokers like Vagabond or Trading Card",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=401s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1129.64,
+     "text": "I'm going to play a flush house as early as I can",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1129s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1140.2,
+     "text": "If you just keep holding, if you just keep waiting, it's just never going to happen",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1140s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "hand planner: never target Flush Five/Five of a Kind in antes 1-8 without deck-shaping jokers; allow Flush House as target once a suit-changer Tarot is available"
+  },
+  {
+   "id": "planets.hand-ranking-for-leveling",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "His hand ordering for Planets (8-ante run): Four of a Kind > Five of a Kind (level 4oak from ante 1-2; 5oak needs unlock and is only ~15% more); Three of a Kind slightly > Full House (much easier, fine with low hand size); Flush > Three of a Kind (consistency); Two Pair (Uranus) is very reasonable, above Flush and Four of a Kind.",
+   "conditions": {
+    "antes": "1-8",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 673.28,
+     "text": "So, definitely four of a kind is above five of a kind",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=673s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 699.96,
+     "text": "getting three of a kind is like way easier than getting full houses",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=699s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 889.959,
+     "text": "I like it higher than flushes. I probably like it higher than four of a kind actually. I think I think two pair is a very reasonable hand to play",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=889s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "planet value table (relative): Saturn > Uranus > Jupiter > Venus > Earth; Mars > Planet X; Ceres > Eris; Mercury > Pluto",
+   "notes": "He wavers on Four of a Kind placement ('Maybe four of a kind goes down here')."
+  },
+  {
+   "id": "planets.pluto-mercury-weak",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "Pluto is terrible and Mercury only slightly better. High Card builds win through jokers giving +Mult and +chips; with those jokers, hand levels don't matter.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 825.48,
+     "text": "Plutonium is terrible. It's just it's just not worth it.",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=825s",
+     "gloss": "Pluto"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 847.16,
+     "text": "if you have those jokers giving you plus 50 mult and plus 200 chips, then it doesn't matter what level your planets are",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=847s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "hands.spam-one-cheap-hand"
+    ],
+    "note": "Roffle: pour every matching Planet into the cheap hand (High Card/Pair); BU: Pluto levels barely matter for High Card builds."
+   },
+   "knob": "planet value Pluto ~ $0-1 (sell/skip), Mercury low; don't open Celestial packs for Pluto"
+  },
+  {
+   "id": "planets.saturn-over-black-hole-fool-copy",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "When you play only one hand, Black Hole is equal to that hand's Planet, not better; Saturn edges it because The Fool can copy Saturn. Take Saturn over Black Hole even without a Fool in the shop. Use The Fool to copy your main Planet rather than for Hermit money.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any (he mentions Magic Deck's Fools)",
+    "stake": "any",
+    "build_state": "one main hand"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 576.04,
+     "text": "if you're only ever playing just the one hand anyway, it's equal rather than strictly better in my opinion",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=576s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2593.0,
+     "text": "do you take Saturn over black hole if there isn't a fool in the shop already? Yes, because there could be a fool in a future shop",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2593s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1468.08,
+     "text": "if I have a fool, I would rather use the fool to copy the planet cards rather than giving me just the money",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1468s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "pack pick: main-hand Planet >= Black Hole when one main hand; Fool: use right after the main-hand Planet so it copies it"
+  },
+  {
+   "id": "planets.diminishing-returns",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "Leveling a hand has diminishing returns once you have many Planets, and with an xMult source (e.g. x2 Glass) you need fewer Planets than you'd think; early, deck manipulation (removal, Death copies) beats extra Planets.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3384.4,
+     "text": "once you have more planet cards, then you get like diminishing returns on leveling up your poker hands",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3384s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4463.72,
+     "text": "if you have a source of X mult, if you have times two from the glass cards, I think you don't need as many planet cards as you might think",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4463s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.blue-seals-early"
+    ]
+   },
+   "knob": "planet value multiplier decays with current hand level (e.g. x0.85 per level above 5, implied) and with owned xMult sources",
+   "notes": "The decay rate is not given; 'implied'."
+  },
+  {
+   "id": "consumables.suit-changers",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Suit-changing Tarots (Star/Moon/Sun/World) are good enablers for flushes, flush house and straight flush: a higher hand needs fewer jokers, freeing slots for money. An early suit changer makes flushes easy (many flush jokers). Planets are still preferred for raw scoring. Rank them by the suit's payoff uncommon: Sun (Hearts/Bloodstone) > Moon (Clubs/Onyx Agate) > World (Spades/Arrowhead) > Star (Diamonds/Rough Gem, the money one, worst).",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1025.8,
+     "text": "Suit changing tarot cards, pretty good. I think I'd rather have the planet cards for the increased scoring rather than the enabling",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1025s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1079.24,
+     "text": "if you get a suit changer early on, then that makes it really easy to make flushes",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1079s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1146.159,
+     "text": "we put uh Sun at the top here, hearts for bloodstone",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1146s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "deck.checkered-suit-by-payoff"
+    ]
+   },
+   "knob": "suit changer target = the build's committed suit; value Sun > Moon > World > Star; take Planet over suit changer unless the build is flush-based and suit count is short"
+  },
+  {
+   "id": "deck_fixing.commit-to-one-suit",
+   "topic": "deck_fixing",
+   "decision": "Tarot/Spectral use",
+   "statement": "He would rather go all in on one suit than straddle suits; that is why Lovers (Wild cards) ranks low for him, and Wild cards are hit by all four suit-debuff bosses.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2306.44,
+     "text": "I'd rather just go all in on one suit rather than like kind of be on the the border here between different suits",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2306s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "pivots.commit-dont-straddle"
+    ]
+   },
+   "knob": "Lovers value low; suit changers convert toward the single majority suit",
+   "notes": "Boss-debuff point raised by chat; he agrees."
+  },
+  {
+   "id": "consumables.hermit-value",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "The Hermit is worth about $20 once you're past the first couple of rounds (little in round 1). Its real value: a burst of money to clear out every pack in the shop without losing interest. Still, he takes Saturn (main-hand Planet) over Hermit every time, and Hanged Man over $20.",
+   "conditions": {
+    "antes": "any (after round 2)",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2258.28,
+     "text": "after you pass two rounds, then Hermit is 20 bucks",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2258s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1446.28,
+     "text": "if you have the Hermit, then you can spend down. Like, you get this big burst of money and you can clear out the shop with that",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1446s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1566.2,
+     "text": "Saturn Saturn over Hermit every time. That's not even Not even joking. Not even a question",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1566s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "consumables.hermit-at-20"
+    ]
+   },
+   "knob": "use Hermit when money >= $20 (implied from 'Hermit is 20 bucks'); pack pick: main-hand Planet > Hanged Man > Hermit"
+  },
+  {
+   "id": "consumables.temperance-value",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Temperance pays $8 to $50 depending on joker sell values; he usually calls it $50 but corrects it to ~$25 most of the time. He ranks it above Hanged Man. Late game it funds the last shop: e.g. six rerolls plus three Tarots.",
+   "conditions": {
+    "antes": "late (sell value of jokers high)",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "jokers with high sell value"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1475.96,
+     "text": "Temperance is either eight bucks or 50 bucks",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1475s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4018.28,
+     "text": "Temperance isn't actually 50 bucks. It's you know, it's more like 25 bucks most of the time",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4018s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1541.4,
+     "text": "in the last shop, you can reroll six times and you can buy three tarot cards",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1541s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Temperance value = min(sum joker sell values, 50); use at end of a round when value is high, keep holding while it grows (implied)",
+   "notes": "Self-correction: '$50' vs '~$25 most of the time'."
+  },
+  {
+   "id": "consumables.hold-justice-death-for-final-boss",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Going into the final encounter, carry useful Tarots: a Justice in the chamber, a Death so you never miss on the boss.",
+   "conditions": {
+    "antes": [
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "final shop before the ante 8 boss"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1550.84,
+     "text": "You could bring a a Justice card that way you got one in the chamber. You could bring a Death card that way you never miss on the boss.",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1550s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "in the last shop before the ante 8 boss keep up to 2 consumable slots for Justice/Death and use them during the boss"
+  },
+  {
+   "id": "deck_fixing.removal-beats-copies",
+   "topic": "deck_fixing",
+   "decision": "deck fixing",
+   "statement": "Card removal beats adding copies: removing cards makes every draw more consistent, and at ~35-38 cards you are guaranteed to hit, while copies only raise the odds. Hanged Man is always good, he always takes it over $20 (Hermit); Death ranks even higher. Cryptid (adds copies) is below Death and Hanged Man.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1399.36,
+     "text": "Hangman is always good. Always the best. I always take Hangman over 20 bucks",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1399s",
+     "gloss": "The Hanged Man"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4081.84,
+     "text": "if I remove cards, not only can I target that one card and get that one card more consistently, I get all of my cards more consistently",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4081s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4107.12,
+     "text": "if you remove cards from your deck and you have you know, only like 35 cards in your deck, 38 cards in your deck, then you're guaranteed to hit",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4107s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "fix.thin-hard-but-not-too-far",
+     "fix.trading-card-thins"
+    ]
+   },
+   "knob": "deck-fix value: Hanged Man/Immolate removals > Cryptid copies; target deck size ~35-38 for a focused build; Hanged Man > Hermit in pack picks"
+  },
+  {
+   "id": "consumables.justice-glass-top",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Justice (Glass) is generally better than every Planet, probably even Saturn; glass gets you out of sticky situations. By ante 5-6 he'd take a Glass card over Trance's Blue Seal.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1616.08,
+     "text": "I think I think Justice cards glass cards are going to be generally better than all of these planets",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1616s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3400.68,
+     "text": "glass can get you out of some seriously sticky situations",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3400s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3413.08,
+     "text": "If it's ante 5, I'd rather have a glass card",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3413s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.need-multiplicative"
+    ]
+   },
+   "knob": "pack pick: Justice > Saturn/main Planet; from ante 5, Justice > Trance"
+  },
+  {
+   "id": "consumables.enhancement-tarots",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Enhancement Tarots: Lucky (Magician) is a 'banger', better than Hermit; Steel (Chariot) is the better scoring enhancement (over Empress/Hierophant and over suit changers) but you want about two Chariots, then stop; Gold (Devil) is at least as good as Wheel and better than Hermit if you get it early (it pays for itself, and Death can copy it); Empress has a slight edge over Hierophant and he doesn't like seeing either; Strength is mid (three Strengths do what one Death does).",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1897.28,
+     "text": "Lucky cards, though, banger. Lucky card's better than Hermit",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1897s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1772.32,
+     "text": "I mean, steel cards you want like two of",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1772s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2214.64,
+     "text": "if you get the Devil early enough, then like the card can pay for itself",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2214s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "tarot value table (see tables.consumable_tiers); Chariot uses cap ~2 (then value drops); Devil value decays with ante",
+   "notes": "Devil vs Hermit wavers: 'I like Devil better than Hermit' but 'most of the time you take the Hermit instead of the Devil'."
+  },
+  {
+   "id": "consumables.tower-high-card",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Tower (Stone, +50 chips) plus any +Mult joker is enough to win with High Card early; one stone carries you while scaling jokers (e.g. Ride the Bus, Green Joker) grow; late, put 2-3 stones into any hand that plays fewer than 5 cards. Better than Mercury/Pluto.",
+   "conditions": {
+    "antes": "early for carry; late for extra stones",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "High Card / Pair / 2-4 card hands"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4348.64,
+     "text": "tower plus any plus mult joker, that's enough",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4348s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4372.44,
+     "text": "if it's early on, then the one tower card the one plus 50 is good enough to carry you so that you can have time to level up your bus",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4372s",
+     "gloss": "Ride the Bus"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.pairs-dont-care-about-the-deck"
+    ]
+   },
+   "knob": "Tower value up when build plays <5-card hands and has a +Mult joker"
+  },
+  {
+   "id": "packs.arcana-pick-order",
+   "topic": "packs",
+   "decision": "pack pick",
+   "statement": "Arcana pack example: with High Priestess, Chariot and Sun, take Chariot (Steel) for guaranteed scoring, then Priestess over the suit changers. High Priestess (two Planets) beats suit changers; holding Planets blocks duplicates from spawning; in the shop, buy her for $3 and sell back if she misses.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2171.96,
+     "text": "I think you're supposed to take the Steel card for the guaranteed scoring help, and I think you take the Priestess over the suit changing enablers",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2171s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2155.56,
+     "text": "you just buy it for three bucks and then you sell it for two bucks",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2155s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2144.96,
+     "text": "if you want to block Planet cards from spawning, if you want to block the duplicate Planet cards, you can just you can buy them and you hold on to them",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2144s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Arcana pick priority: Chariot > High Priestess > suit changers (absent higher-tier cards); shop: buy High Priestess at $3 when planets wanted",
+   "notes": "Sell price he says ($2) is likely off; game sell value is half cost rounded down ($1)."
+  },
+  {
+   "id": "consumables.wheel-and-aura",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Wheel of Fortune is good expected value (he puts the hit rate at 1 in 4) but not better than $20 (Hermit): +10 Mult editions fall off by ante 8. Aura is like Wheel but always hits, so better than $20, Gold, Lucky and most Planets, but below Trance; Polychrome is only ~1/6 of outcomes (Foil ~1/2, Holo ~1/3).",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 1865.0,
+     "text": "Wheel is not better than 20 bucks. As much as I enjoy gambling Wheel's not better than 20 bucks",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=1865s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3477.76,
+     "text": "Aura is like Wheel of Fortune except it always hits",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3477s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3566.28,
+     "text": "polychrome's only one in six. Um it's half of the time you get foiled",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3566s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Wheel value < Hermit; Aura value ~ Saturn; target the main scoring joker / key card"
+  },
+  {
+   "id": "consumables.judgement-early-only",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Judgement (random joker) is exciting very early but falls off fast; he calls it useless even before ante 3-4. He'd rather see Uranus.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "open joker slot"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2055.8,
+     "text": "if you get the Judgment very early on, then it's it's very exciting, but then it falls off very rapidly",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2055s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2078.84,
+     "text": "Judgment useless after ante three or four? I think it's useless earlier than that",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2078s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Judgement value high only ante 1-2 with an empty joker slot; ante >= 3 ~ sell value"
+  },
+  {
+   "id": "consumables.immolate-always",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Immolate: always take it, no need to look. Removing five random cards is still worth it (you only need a few specific cards), plus the money; better than Temperance, Fool and Hanged Man.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2987.88,
+     "text": "We always take emulate though. You don't even need to look. You just you just take it",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2987s",
+     "gloss": "Immolate"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2399.88,
+     "text": "I think just removing any five cards is still worth it",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2399s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2430.0,
+     "text": "emulate better than temperance? Yeah, I think emulate's better than temperance",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2430s",
+     "gloss": "Immolate"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "fix.thin-hard-but-not-too-far",
+     "deck.ghost-spectral-plan"
+    ]
+   },
+   "knob": "Spectral pack pick: Immolate always taken (top 2 with The Soul/Medium); use immediately"
+  },
+  {
+   "id": "consumables.soul-take",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "The Soul: take it in an 8-ante run even risking Chicot or Yorick; if the legendary doesn't fit, sell it for about $10 (or hold it to add to Temperance). He takes Soul over Medium.",
+   "conditions": {
+    "antes": "1-8",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2507.56,
+     "text": "I think even on the chance that you get uh you know, Chico or you get York, I think it's still worth taking",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2507s",
+     "gloss": "Chicot, Yorick"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2564.48,
+     "text": "If you don't get the thing that you want, you just sell it for 10 bucks",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2564s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3284.04,
+     "text": "If I had to choose between the soul and the purple card, I think we got to go with the soul",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3284s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Spectral pick: The Soul first; if legendary is not useful, sell (~$10)"
+  },
+  {
+   "id": "consumables.seal-spectrals",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Seal Spectrals rank high: Medium (Purple Seal) 'graduates', better than any Planet, The Fool or $50; Deja Vu (Red Seal) is better than any single card modification except Purple, below Temperance; Trance (Blue Seal) is worth about four or five Saturns but below Glass by ante 5-6; Talisman (Gold Seal) is better than Hermit because it pays every time.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3266.92,
+     "text": "I think Purple deserves graduation. I think Purple is better than a planet card",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3266s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4043.96,
+     "text": "I think it's better than any card modification. Except for purple, which gives you all the card modifications",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4043s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3561.28,
+     "text": "blue seal is worth like four or five Saturn cards",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3561s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "fix.death-on-seals-early",
+     "hands.blue-seals-early"
+    ]
+   },
+   "knob": "Spectral pick order: Soul > Medium ~ Immolate > Deja Vu > Trance > Talisman > Aura; seal target: a card the build always plays/holds"
+  },
+  {
+   "id": "consumables.ectoplasm-situational",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Ectoplasm is situational: -1 hand size, and each later use costs more, so realistically once. To aim it, sell your other jokers so the key one turns Negative. He'd take it at ante 14 (endless), not at ante 7. Better than Ouija.",
+   "conditions": {
+    "antes": "late/endless (ante 14 yes, ante 7 no)",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "key joker worth doubling"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2979.16,
+     "text": "If if I'm in ante 14, then we take ectoplasm. But if I'm in ante 7, I don't think we take ectoplasm",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2979s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2927.84,
+     "text": "black hole you always take. I think ectoplasm you don't always take",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2927s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2869.359,
+     "text": "You just You just sell all your jokers and you make the specific one negative",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2869s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Ectoplasm: skip in antes 1-8 unless hand-size-insensitive build; use only once"
+  },
+  {
+   "id": "consumables.ouija-four-not-five",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Ouija is tier 4 (of 5): its -1 hand size makes Five of a Kind hard (at hand size 7 you hold 4 and redraw 3); Strength helps 5oak about as much. Use Ouija for Four of a Kind, Three of a Kind or Full House; better if you have extra hand size.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2778.08,
+     "text": "I think Ouija doesn't get expelled, but I think the class is right that it goes in number four",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2778s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 2757.72,
+     "text": "I think five of a kind is a bit of a trap, bit of a bait, let's say. Whereas you could use Ouija to very reasonably play four of a kind",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=2757s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Ouija value low; if used, set main hand to Four of a Kind / Three of a Kind, not Five of a Kind"
+  },
+  {
+   "id": "consumables.ankh-low-except-rich-late",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Ankh ranks low (worse than Strength or a suit changer): you can copy jokers other ways and with Eternals it often copies junk. It's great only late with a big bank, e.g. ante 7 with ~$150, where you sell everything and rebuy in the same shop.",
+   "conditions": {
+    "antes": "late (ante 7)",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "~$150 banked"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3187.76,
+     "text": "Actually, Ankh is probably worse than a strength card",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3187s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3192.2,
+     "text": "There are other ways to get copies of jokers and so you don't need Ankh even with eternals",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3192s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3690.48,
+     "text": "I think Ankh is good in anti-7 if you got 150 bucks in the bank",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3690s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "consumables.ankh-the-key-joker",
+     "pivots.carry-speculative-then-commit"
+    ],
+    "note": "Roffle: use Ankh on the build-around as soon as the run depends on it; BU: Ankh is low value except late with ~$150 to rebuild."
+   },
+   "knob": "Ankh value low (below Strength) unless money >= ~$150 late; then high"
+  },
+  {
+   "id": "consumables.hex-sigil-low",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Hex is only about as good as an Earth; outside Ghost Deck (which starts with it) you basically never use it, though it can work early with few jokers or with Eternals. Sigil (random single suit) is worse than suit-changing Tarots because you're already committed to a suit; better early than late. Order: Strength > Sigil > Ankh.",
+   "conditions": {
+    "antes": "any",
+    "deck": "Ghost Deck is the Hex exception",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3042.48,
+     "text": "Hex is pretty cool. Hex is only slightly better than Earth",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3042s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3142.8,
+     "text": "any other situation where you have a Hex card, you're just never going to use it",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3142s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3653.16,
+     "text": "I'd rather have strength than sigil. But, I'd rather have sigil than Ankh",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3653s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "deck.ghost-spectral-plan"
+    ]
+   },
+   "knob": "Hex/Sigil value low; Sigil only early (ante 1-2) and only if it would pick the target suit"
+  },
+  {
+   "id": "consumables.wraith-never",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Wraith (rare joker, money set to $0): he won't take it even with only $10 in the bank, though it still beats weak Planets like Jupiter.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3435.88,
+     "text": "even if I got only $10 in the bank, I'm not paying $10 for anything. I'm not taking Wraith",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3435s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Wraith: take only if money <= ~$5 (implied) or never",
+   "notes": "Roffle's econ.credit-card-debt (Wraith free while in debt) is a special case, not a conflict."
+  },
+  {
+   "id": "consumables.add-card-spectrals-weak",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Familiar, Grim and Incantation (add enhanced cards) are generally worse than just taking a Planet; face cards > Aces > random numbers, and Incantation's four random number cards are the worst (below Hex and Ouija). Grim's two Aces and Familiar's faces are 'safe' to build around.",
+   "conditions": {
+    "antes": "any",
+    "deck": "any",
+    "stake": "any",
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3724.4,
+     "text": "between the three of these, I think these are generally going to be worse than just picking up planets",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3724s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 3715.44,
+     "text": "definitely I think face card's better than aces, and I think ace is better than just random stuff",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=3715s"
+    },
+    {
+     "video": "zWNty-x3g_M",
+     "t_seconds": 4265.32,
+     "text": "four cards adding four cards is a lot",
+     "url": "https://www.youtube.com/watch?v=zWNty-x3g_M&t=4265s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Spectral pick: Planet/most others over Familiar > Grim > Incantation; Incantation ~ skip",
+   "notes": "In q4YAHDuRUcQ he calls Grim 'good enough early on' from a first-shop Spectral pack."
+  }
+ ],
+ "tables": {
+  "tier_scale": {
+   "note": "Both videos use his 5-row school scale, not letters, and place cards on a visual board, so many rows are inferred from spoken comparisons ('placement' field; 'relative' gives his stated comparisons). He equates row 1 with S tier ('You think Purple Seal is S tier? You think Purple Seal going to graduate with honors?').",
+   "rows": [
+    "1-Graduating with honors (=S)",
+    "2-Solo the group project",
+    "3-We need to talk about your midterm/exam",
+    "4-You don't meet the prereqs",
+    "5-Expelled"
+   ]
+  },
+  "tag_tiers": [
+   {
+    "tag": "Economy Tag",
+    "tier": "1-Graduating with honors (=S)",
+    "list": "original",
+    "conditions": "Best raw value (double money, max $40) but he rarely skips for it; maybe when money ~$40 and build is safe",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1803.24,
+    "phrase": "I think economy tag just uh the raw value of it is just too powerful",
+    "placement": "inferred"
+   },
+   {
+    "tag": "D6 Tag",
+    "tier": "1-Graduating with honors (=S)",
+    "list": "original",
+    "conditions": "If you'd reroll >= 3 times next shop it saves ~$15; late game 7-8 rerolls; ante 1 OK; better than Coupon, below Economy",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3444.28,
+    "phrase": "D6 is better than the coupon",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Coupon Tag",
+    "tier": "1-Graduating with honors (=S)",
+    "list": "original",
+    "conditions": "Ante 1 (ante 2 somewhat): free jokers/packs fill slots and start economy",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1799.32,
+    "phrase": "this is top tier top tier coupon tag",
+    "placement": "explicit"
+   },
+   {
+    "tag": "Orbital Tag",
+    "tier": "1-Graduating with honors (=S) (uncertain, maybe 2)",
+    "list": "original",
+    "conditions": "Only when the random hand is your main hand (~10%, worth ~$40) or ante 2 pivot; takes it ~25% of the time; not in ante 1",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3535.359,
+    "phrase": "I think a quarter of the time when you see the orbital you take it",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Holographic Tag",
+    "tier": "2-Solo the group project",
+    "list": "original",
+    "conditions": "Ante 1 round 1 Small Blind with no joker: all-star, carries through ante 2; ~$10-12; Gold always, White optional",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1045.4,
+    "phrase": "I put it here this is the good enough one",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Foil Tag",
+    "tier": "2-Solo the group project",
+    "list": "original",
+    "conditions": "Same as Holographic but a bit worse (+50 chips < +10 Mult)",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1235.039,
+    "phrase": "this is definitely worth less than this holographic here",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Uncommon Tag",
+    "tier": "2-Solo the group project",
+    "list": "original",
+    "conditions": "Only ante 1; flexible early scoring like Holographic; scaling uncommons don't help right away",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3588.64,
+    "phrase": "only an anti1 would I be willing to skip for an uncommon",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Buffoon Tag",
+    "tier": "2-Solo the group project",
+    "list": "original",
+    "conditions": "Only at the very start of ante 2 with open slots; better than Top-up; by ante 3 a reroll does the same",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3547.599,
+    "phrase": "obviously I think the buffoon Pack's better",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Top-up Tag",
+    "tier": "2-Solo the group project",
+    "list": "original",
+    "conditions": "Start of ante 2 with empty slots, mainly at high stakes; below Holographic/Foil",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 2842.2,
+    "phrase": "I think it's not worth as much as these others here not worth as much as holographic and foil here",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Handy Tag",
+    "tier": "2-Solo the group project (bottom of it)",
+    "list": "original",
+    "conditions": "~$5 per ante of hands played; not worth even at $25; if ever, ante 4-5+; he contradicts himself on its rank",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3562.28,
+    "phrase": "I think the handy tag is the worst of all of these",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Voucher Tag",
+    "tier": "3-We need to talk about your midterm/exam",
+    "list": "original",
+    "conditions": "Extra voucher money can't buy; good if +hand/+discard/Seed Money; first 'under $15', later above Investment/Rare",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3672.599,
+    "phrase": "voucher is better than a rare",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Investment Tag",
+    "tier": "3-We need to talk about your midterm/exam",
+    "list": "original",
+    "conditions": "$15 after boss (1.0.0): nothing to spend it on after skipping a shop; never ante 2+",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1539.559,
+    "phrase": "I think this goes down here with the polych Chrome",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Rare Tag",
+    "tier": "3-We need to talk about your midterm/exam",
+    "list": "original",
+    "conditions": "Rares are inflexible build-arounds; would not skip for it even in ante 1",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 2244.839,
+    "phrase": "rare tag is down here rare tag going to let me down every time",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Polychrome Tag",
+    "tier": "3-We need to talk about your midterm/exam",
+    "list": "original",
+    "conditions": "Not ante 1: can't afford the joker after skipping, and early x1.5 < +10 Mult",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1359.08,
+    "phrase": "polychrome goes down here all right polychrome you're letting me down in a big way",
+    "placement": "explicit (tier description matches 'you let me down in a big way')"
+   },
+   {
+    "tag": "Negative Tag",
+    "tier": "4-You don't meet the prereqs",
+    "list": "original",
+    "conditions": "Random usually-common negative you still pay for; worse than Celestial/Arcana pack tags",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3695.0,
+    "phrase": "down here we've got negative is probably better than these two",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Charm Tag (Mega Arcana)",
+    "tier": "4-You don't meet the prereqs",
+    "list": "original",
+    "conditions": "Better on average than Celestial but not worth $15 / a skip",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 2578.079,
+    "phrase": "I think Arcana packs are worth you know more on average than the celestial pack",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Meteor Tag (Mega Celestial)",
+    "tier": "4-You don't meet the prereqs (maybe 5)",
+    "list": "original",
+    "conditions": "Better than Negative, not worth $15; 'might be the worst of the booster packs'",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 2486.48,
+    "phrase": "I think it still goes down here and I feel that way about these other booster packs",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Ethereal Tag (Spectral pack)",
+    "tier": "4-You don't meet the prereqs (uncertain)",
+    "list": "original",
+    "conditions": "Spectral packs worth $4 in shop but not a skip; 'just fine'",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3748.64,
+    "phrase": "spectral packs are fine they're just fine",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Boss Tag",
+    "tier": "4-You don't meet the prereqs",
+    "list": "original",
+    "conditions": "Only if the boss hard-counters your build; 'not $15 worth of value'",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1926.96,
+    "phrase": "this is not $15 worth of value",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Juggle Tag",
+    "tier": "4-You don't meet the prereqs",
+    "list": "original",
+    "conditions": "Only to beat a hard boss (+3 hand size one round); below Boss reroll",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3707.4,
+    "phrase": "I think reroll is going to be better more of the time than the extra hand size",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Double Tag",
+    "tier": "5-Expelled",
+    "list": "original",
+    "conditions": "Never (no future skip worth doubling), except Anaglyph Deck; 'not the worst'",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3419.68,
+    "phrase": "this is terrible get out of here",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Speed Tag",
+    "tier": "5-Expelled",
+    "list": "original",
+    "conditions": "$5 per skip; you shouldn't be skipping",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 1010.079,
+    "phrase": "the speed tag here is kind of a joke",
+    "placement": "inferred"
+   },
+   {
+    "tag": "Garbage Tag",
+    "tier": "5-Expelled",
+    "list": "original",
+    "conditions": "Useless >90% of the time; 'the worst'",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 922.32,
+    "phrase": "obviously garbage tag is of course garbage",
+    "placement": "explicit"
+   },
+   {
+    "tag": "Standard Tag",
+    "tier": "5-Expelled",
+    "list": "original",
+    "conditions": "Never skip for a Standard pack",
+    "video": "q4YAHDuRUcQ",
+    "t_seconds": 3041.799,
+    "phrase": "never worth it to skip for a standard pack get out of here",
+    "placement": "explicit ('get out of here')"
+   },
+   {
+    "tag": "Investment Tag",
+    "tier": "2-Solo the group project (moved up one rank)",
+    "list": "updated",
+    "conditions": "Now $25 after the boss; 'huge upgrade'; same ante-1 situations",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 21.72,
+    "phrase": "I feel you know fine moving it up a rank",
+    "placement": "explicit (relative move)"
+   },
+   {
+    "tag": "Top-up Tag",
+    "tier": "2-Solo the group project (moved up, above Holographic/Foil)",
+    "list": "updated",
+    "conditions": "At Orange/Gold stakes its jokers carry no stickers, so it beats random edition jokers that may be perishable/rental",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 280.8,
+    "phrase": "topup tag for me then moves up a little bit here",
+    "placement": "explicit (relative move)"
+   },
+   {
+    "tag": "Negative Tag",
+    "tier": "5-Expelled (moved down one rank)",
+    "list": "updated",
+    "conditions": "Joker now free, but at higher stakes 1/3 chance it's a Rental",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 300.32,
+    "phrase": "I feel even more confident that we can move it down here",
+    "placement": "explicit (relative move)"
+   },
+   {
+    "tag": "Holographic Tag",
+    "tier": "2-Solo the group project (unchanged)",
+    "list": "updated",
+    "conditions": "Joker now free; still the round 1 skip for early scoring",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 89.159,
+    "phrase": "in round one you have the round one skip for holographic or foil",
+    "placement": "implied unchanged"
+   },
+   {
+    "tag": "Foil Tag",
+    "tier": "2-Solo the group project (unchanged)",
+    "list": "updated",
+    "conditions": "Joker now free; still the round 1 skip for early scoring",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 89.159,
+    "phrase": "in round one you have the round one skip for holographic or foil",
+    "placement": "implied unchanged"
+   },
+   {
+    "tag": "Uncommon Tag",
+    "tier": "2-Solo the group project (unchanged)",
+    "list": "updated",
+    "conditions": "Joker free and sellable for a few dollars if it misses; still mostly don't skip",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 147.56,
+    "phrase": "I think most of the time you still don't skip for them",
+    "placement": "implied unchanged"
+   },
+   {
+    "tag": "Rare Tag",
+    "tier": "3-We need to talk about your midterm/exam (unchanged)",
+    "list": "updated",
+    "conditions": "Rare is now free; fail case sell it; still mostly don't skip",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 33.399,
+    "phrase": "the rare tag now you're guaranteed uh in the next shop there's going to be a rare that rare is going to be free now",
+    "placement": "implied unchanged"
+   },
+   {
+    "tag": "Polychrome Tag",
+    "tier": "3-We need to talk about your midterm/exam (unchanged)",
+    "list": "updated",
+    "conditions": "Joker free now; perishable risk at Orange/Gold",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 147.56,
+    "phrase": "I think most of the time you still don't skip for them",
+    "placement": "implied unchanged"
+   },
+   {
+    "tag": "Boss Tag",
+    "tier": "4-You don't meet the prereqs (unchanged)",
+    "list": "updated",
+    "conditions": "Even with +$5 (hypothetical) 'less bad, not good'",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 135.4,
+    "phrase": "these things are definitely less bad but less bad doesn't necessarily mean that they're any good",
+    "placement": "implied unchanged"
+   },
+   {
+    "tag": "Juggle Tag",
+    "tier": "4-You don't meet the prereqs (unchanged)",
+    "list": "updated",
+    "conditions": "Even with +$5 (hypothetical) 'less bad, not good'",
+    "video": "Lx2bAMdKwIs",
+    "t_seconds": 135.4,
+    "phrase": "these things are definitely less bad but less bad doesn't necessarily mean that they're any good",
+    "placement": "implied unchanged"
+   }
+  ],
+  "consumable_tiers": [
+   {
+    "card": "Saturn",
+    "set": "Planet",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Best planet for an 8-ante run: level Straights early; copy with The Fool",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 338.0,
+    "phrase": "So, I think Saturn for me Saturn for me is up here",
+    "relative": "> Black Hole, > Hermit ('every time'), > Aura (close); < Temperance, Hanged Man, Justice",
+    "placement": "inferred"
+   },
+   {
+    "card": "Neptune",
+    "set": "Planet",
+    "tier": "2-Solo the group project",
+    "use_rule": "High-scoring (Straight Flush via suit changers); worth about $20",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1425.08,
+    "phrase": "I think Neptune is worth 20 bucks",
+    "relative": ">= Hermit",
+    "placement": "inferred"
+   },
+   {
+    "card": "Uranus",
+    "set": "Planet",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "Two Pair is a very reasonable 4-card hand, OK with low hand size",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 885.16,
+    "phrase": "So, maybe I like Uranus higher than Jupiter",
+    "relative": "> Jupiter, > Mars, > Judgement; < Hierophant",
+    "placement": "inferred"
+   },
+   {
+    "card": "Jupiter",
+    "set": "Planet",
+    "tier": "3-We need to talk about your midterm/exam (or 4)",
+    "use_rule": "Flushes are consistent but the planet is weak",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3452.64,
+    "phrase": "I think Jupiter is bad enough that Wraith is better than Jupiter",
+    "relative": "> Venus, > Lovers; < Wraith, < Judgement, < Uranus",
+    "placement": "inferred"
+   },
+   {
+    "card": "Venus",
+    "set": "Planet",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Three of a Kind is far easier than Full House; leaves room for held Steel/Gold",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 779.68,
+    "phrase": "Three of a kind is up here. Three of a kind is up here",
+    "relative": "> Earth; < Jupiter",
+    "placement": "inferred"
+   },
+   {
+    "card": "Earth",
+    "set": "Planet",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Full House hard to play early (needs Strength etc.)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 704.56,
+    "phrase": "I would put three of a kind a little bit higher",
+    "relative": "< Venus, ~ Hex, < Judgement",
+    "placement": "inferred"
+   },
+   {
+    "card": "Mars",
+    "set": "Planet",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Level Four of a Kind from ante 1-2; backup hand for flush-five builds",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 795.44,
+    "phrase": "Maybe four of a kind goes down here",
+    "relative": "> Planet X; he wavers on 'up here' vs 'down here'",
+    "placement": "inferred"
+   },
+   {
+    "card": "Planet X",
+    "set": "Planet",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "'Budget flush five': only ~15% over 4oak and needs unlock",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 617.4,
+    "phrase": "Five of a kind goes down here",
+    "relative": "< Mars, > Lovers, < Judgement",
+    "placement": "inferred"
+   },
+   {
+    "card": "Ceres",
+    "set": "Planet",
+    "tier": "4-You don't meet the prereqs (uncertain)",
+    "use_rule": "Play Flush House as early as you can via one suit changer",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 467.92,
+    "phrase": "that's going to give flush houses the edge",
+    "relative": "> Eris",
+    "placement": "inferred"
+   },
+   {
+    "card": "Eris",
+    "set": "Planet",
+    "tier": "4-You don't meet the prereqs (uncertain)",
+    "use_rule": "Flush Five out of reach in 8 antes without Vagabond/Trading Card; don't hold for it",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 436.36,
+    "phrase": "So, I think for me flush five is at least down here",
+    "relative": "< Ceres",
+    "placement": "inferred"
+   },
+   {
+    "card": "Mercury",
+    "set": "Planet",
+    "tier": "5-Expelled (moved down at the end)",
+    "use_rule": "Weak; only ~50% more chips than Pluto",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4180.96,
+    "phrase": "Mercury can go down here. It's not that much better than Pluto",
+    "relative": "> Pluto, < Tower",
+    "placement": "inferred"
+   },
+   {
+    "card": "Pluto",
+    "set": "Planet",
+    "tier": "5-Expelled",
+    "use_rule": "Terrible as a card; High Card wins via jokers, not levels",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1630.36,
+    "phrase": "Pluto's out of here. It's only plus 10 chips",
+    "relative": "worst",
+    "placement": "explicit"
+   },
+   {
+    "card": "The Fool",
+    "set": "Tarot",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Versatile; mostly hoping for Temperance; use it to copy your main Planet rather than Hermit",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1600.679,
+    "phrase": "I think the fool for me is better than Hangman because of the versatility",
+    "relative": "> Death > Hanged Man; < Temperance, < Deja Vu, < Medium, < Immolate",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Magician",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Lucky cards are a 'banger', two lucky cards with the new buff",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1899.92,
+    "phrase": "Lucky card's better than Hermit",
+    "relative": "> Hermit; < Aura",
+    "placement": "inferred"
+   },
+   {
+    "card": "The High Priestess",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Two Planets; take over suit changers; buy for $3 in shop, sell back if it misses; held planets block duplicates",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2114.44,
+    "phrase": "I prefer over the suit changers",
+    "relative": "> suit changers; < Chariot (pack pick)",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Empress",
+    "set": "Tarot",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "+Mult enhancement; 'I don't love to see these'",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 976.52,
+    "phrase": "I think Empress just has the slight edge",
+    "relative": "> Hierophant; < Strength, < Saturn",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Emperor",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Two random Tarots; he prefers Hermit's guaranteed $20",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2006.36,
+    "phrase": "maybe I still prefer taking Hermit over Emperor",
+    "relative": "< Hermit",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Hierophant",
+    "set": "Tarot",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "+30 chips on two cards; weak",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 968.0,
+    "phrase": "I think it's better than Uranus here. I think I'll put it just a little bit above",
+    "relative": "> Uranus; < Empress",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Lovers",
+    "set": "Tarot",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Wild cards; prefer committing to one suit; four suit-debuff bosses hurt them",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2313.12,
+    "phrase": "So, I put Lovers down here",
+    "relative": "< Jupiter, < Venus (Three of a Kind), < Planet X",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Chariot",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Steel is the best scoring enhancement; want ~2 Chariots then stop; take first in Arcana packs",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1754.48,
+    "phrase": "steel cards are the better scoring enhancement",
+    "relative": "> suit changers, > Empress/Hierophant; < $20 (Hermit)",
+    "placement": "inferred"
+   },
+   {
+    "card": "Justice",
+    "set": "Tarot",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Glass generally beats every Planet; carry one into the final boss; prefer over Trance from ante 5",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1618.48,
+    "phrase": "Justice cards glass cards are going to be generally better than all of these planets",
+    "relative": "> Saturn (probably), > Trance; < Cryptid ('cryptid is generally better than glass')",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Hermit",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "~$20 after round 2; lets you buy all packs without losing interest",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1422.12,
+    "phrase": "then I think Hermit goes down here for me",
+    "relative": "< Saturn, < Hanged Man, < Lucky, < Devil(?), < Aura; > Emperor, > Wheel, > Chariot",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Wheel of Fortune",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Good EV ('1 in 4'), but not better than $20; +10 Mult falls off",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1798.96,
+    "phrase": "The Wheel is good enough. I'll put it there",
+    "relative": "< Hermit, <= Devil, < Aura",
+    "placement": "inferred"
+   },
+   {
+    "card": "Strength",
+    "set": "Tarot",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "Mid; deck consistency; three Strengths = one Death; helps 5oak about as much as Ouija",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1675.72,
+    "phrase": "Strength is not up here",
+    "relative": "< suit changers; > Empress/Hierophant, > Sigil > Ankh",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Hanged Man",
+    "set": "Tarot",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Always take over $20; removal makes every draw more consistent",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1316.2,
+    "phrase": "Let's say we put Hangman at the top",
+    "relative": "> Hermit, > Cryptid, > Saturn; < Death < Fool < Temperance",
+    "placement": "explicit"
+   },
+   {
+    "card": "Death",
+    "set": "Tarot",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Copy key cards (e.g. a red-seal gold card); carry into final boss so you never miss",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1655.24,
+    "phrase": "Death's got to be better than Hangman",
+    "relative": "> Hanged Man, > Cryptid; < Fool",
+    "placement": "inferred"
+   },
+   {
+    "card": "Temperance",
+    "set": "Tarot",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "$8-$50, ~$25 typically; late it funds rerolls + Tarots in last shop",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1485.28,
+    "phrase": "so, I take Temperance over Hangman",
+    "relative": "> Fool, > Hanged Man, > Deja Vu, > Saturn; < Immolate, < Medium ($50 < purple)",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Devil",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Gold cards pay for themselves if early; Death can copy them",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2207.6,
+    "phrase": "I like go I like Devil better than Hermit",
+    "relative": ">= Wheel, >= Hermit (wavers); < Aura, < Talisman(?)",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Tower",
+    "set": "Tarot",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Stone + any +Mult joker carries High Card early; sneak stones into <5-card hands late",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4214.36,
+    "phrase": "You know what? Tower's better than all of these",
+    "relative": "> Mercury, > Pluto, > Incantation; first said < Ouija, then moved above it",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Star",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Diamonds suit changer: worst of the four (Rough Gem money joker weakest payoff)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1227.64,
+    "phrase": "Star's down here",
+    "relative": "< World < Moon < Sun",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Moon",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Clubs suit changer (Onyx Agate ~ Fibonacci; Seeing Double)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1243.96,
+    "phrase": "So, like, you know, moon and and world here",
+    "relative": "< Sun, > Star",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Sun",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Hearts suit changer: best (Bloodstone xMult)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1146.159,
+    "phrase": "we put uh Sun at the top here",
+    "relative": "best suit changer; < High Priestess, < Chariot",
+    "placement": "inferred"
+   },
+   {
+    "card": "Judgement",
+    "set": "Tarot",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "Random joker: exciting early, falls off fast (useless before ante 3-4)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2048.28,
+    "phrase": "I'll put Judgment here",
+    "relative": "> Earth, > Planet X, > Jupiter, > Wraith; < Uranus",
+    "placement": "inferred"
+   },
+   {
+    "card": "The World",
+    "set": "Tarot",
+    "tier": "2-Solo the group project",
+    "use_rule": "Spades suit changer (Arrowhead chips; Blackboard)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 1243.96,
+    "phrase": "So, like, you know, moon and and world here",
+    "relative": "between Moon and Star",
+    "placement": "inferred"
+   },
+   {
+    "card": "Familiar",
+    "set": "Spectral",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Random enhanced face cards; worse than a Planet; faces are a viable build",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4298.12,
+    "phrase": "Grim Reaper familiar can stay",
+    "relative": "> Grim > Incantation; < Talisman, < planets",
+    "placement": "inferred"
+   },
+   {
+    "card": "Grim",
+    "set": "Spectral",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Two enhanced Aces: safe to build around; worse than a Planet",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4298.12,
+    "phrase": "Grim Reaper familiar can stay",
+    "relative": "< Familiar, > Incantation",
+    "placement": "inferred"
+   },
+   {
+    "card": "Incantation",
+    "set": "Spectral",
+    "tier": "4-You don't meet the prereqs (bottom, maybe 5)",
+    "use_rule": "Adds four random number cards: worst of the add-card spectrals",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4265.32,
+    "phrase": "four cards adding four cards is a lot",
+    "relative": "< Hex, < Ouija",
+    "placement": "inferred"
+   },
+   {
+    "card": "Talisman",
+    "set": "Spectral",
+    "tier": "2-Solo the group project",
+    "use_rule": "Gold Seal replays every round; better than Hermit",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3777.44,
+    "phrase": "Gold seal's definitely better than familiar here",
+    "relative": "> Familiar, > Wraith, > Hermit; ~< Devil (wavers)",
+    "placement": "inferred"
+   },
+   {
+    "card": "Aura",
+    "set": "Spectral",
+    "tier": "2-Solo the group project (maybe moved up next to Saturn)",
+    "use_rule": "Wheel that always hits (poly ~1/6); target the main joker/card",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3516.04,
+    "phrase": "I don't think he gets to graduate",
+    "relative": "> $20, > Gold, > Lucky, > Ectoplasm; <= Saturn (close); < Trance",
+    "placement": "inferred"
+   },
+   {
+    "card": "Wraith",
+    "set": "Spectral",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "He never takes it (money to $0), even with only $10",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3419.04,
+    "phrase": "Wraith goes is better than Hex",
+    "relative": "> Hex, > Jupiter; < Judgement",
+    "placement": "inferred"
+   },
+   {
+    "card": "Sigil",
+    "set": "Spectral",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "Random single suit; worse than suit-changing Tarots; better early than late",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3624.16,
+    "phrase": "I think it's worse than just getting the the suit-changing tarot cards",
+    "relative": "< Strength; > Ankh",
+    "placement": "inferred"
+   },
+   {
+    "card": "Ouija",
+    "set": "Spectral",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "Use for Four/Three of a Kind or Full House, not Five of a Kind (-1 hand size)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2781.32,
+    "phrase": "the class is right that it goes in number four",
+    "relative": "< Ectoplasm; > Incantation; possibly moved below Tower at the end",
+    "placement": "explicit"
+   },
+   {
+    "card": "Ectoplasm",
+    "set": "Spectral",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "Situational: ante 14 yes, ante 7 no; sell other jokers to aim it; only once",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2856.6,
+    "phrase": "definitely better than Ouija",
+    "relative": "> Ouija, > Hex, > Empress/Hierophant; < Aura, < Medium",
+    "placement": "inferred"
+   },
+   {
+    "card": "Immolate",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Always take, don't even need to look",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2432.68,
+    "phrase": "I think emulate's better than temperance",
+    "relative": "> Temperance, > Fool, > Hanged Man",
+    "placement": "inferred"
+   },
+   {
+    "card": "Ankh",
+    "set": "Spectral",
+    "tier": "3-We need to talk about your midterm/exam",
+    "use_rule": "Low unless ~$150 late (ante 7) to sell and rebuy in one shop",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3187.76,
+    "phrase": "Actually, Ankh is probably worse than a strength card",
+    "relative": "> Hex; < Sigil < Strength; < suit changers",
+    "placement": "inferred"
+   },
+   {
+    "card": "Deja Vu",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Red Seal: better than any single modification except Purple; Red Gold/Steel is easy value",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4032.76,
+    "phrase": "seal is I think it's got to be here. It's got to be better than the fool",
+    "relative": "> Fool; < Temperance; > Cryptid",
+    "placement": "inferred"
+   },
+   {
+    "card": "Hex",
+    "set": "Spectral",
+    "tier": "4-You don't meet the prereqs",
+    "use_rule": "~Earth; essentially only on Ghost Deck, or early with few jokers / Eternals",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3044.4,
+    "phrase": "Hex is only slightly better than Earth",
+    "relative": "~> Earth; < Ankh, < Wraith, < Ectoplasm",
+    "placement": "inferred"
+   },
+   {
+    "card": "Trance",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S) (low end, uncertain)",
+    "use_rule": "Blue Seal ~4-5 Saturns, but diminishing returns and less needed with xMult; from ante 5 prefer Glass",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3353.92,
+    "phrase": "We're sending we're sending him to graduation at at the least",
+    "relative": ">= Saturn, > Aura; < Justice (ante 5+)",
+    "placement": "inferred"
+   },
+   {
+    "card": "Medium",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Purple Seal: better than a Planet, The Fool or $50; below The Soul",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 3266.92,
+    "phrase": "I think Purple deserves graduation",
+    "relative": "> Fool, > Temperance($50), > Ectoplasm; < The Soul",
+    "placement": "explicit"
+   },
+   {
+    "card": "Cryptid",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S) (uncertain)",
+    "use_rule": "Adds copies, so worse than removal; better to copy a Red Seal; better than Glass",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 4058.12,
+    "phrase": "cryptid is worse than death. It's a fate worse than death",
+    "relative": "< Death, < Hanged Man; > Justice",
+    "placement": "inferred"
+   },
+   {
+    "card": "The Soul",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Take even risking Chicot/Yorick; sell an unwanted legendary for ~$10",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2489.84,
+    "phrase": "It's definitely up here. It's definitely better",
+    "relative": "> Medium, > Immolate(?), > planets",
+    "placement": "inferred"
+   },
+   {
+    "card": "Black Hole",
+    "set": "Spectral",
+    "tier": "1-Graduating with honors (=S)",
+    "use_rule": "Equal to your one main Planet; take Saturn over it (Fool-copyable)",
+    "video": "zWNty-x3g_M",
+    "t_seconds": 2618.52,
+    "phrase": "we'll put the black hole back up there",
+    "relative": "< Saturn; moved down (Constellation joke) then back up",
+    "placement": "inferred"
+   }
+  ]
+ }
+}

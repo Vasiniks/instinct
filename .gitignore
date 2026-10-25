@@ -18,6 +18,7 @@ tools/roffle/vendor/
 # Tool state
 .playwright-mcp/
 .impeccable/
+.serena/
 .claude/.cc-writes/
 .claude/settings.local.json
 
@@ -26,3 +27,9 @@ tools/roffle/vendor/
 
 # A frozen copy of the code the watched run uses while src/ is being edited
 .live/
+
+# Balatro University captions: raw json3 (~17 MB) stays local; words.tsv and .txt are kept.
+data/bu/captions/*.json3
+
+# Balatro sprites copied from the local game by tools/textures.py; not ours to publish.
+ui/game/

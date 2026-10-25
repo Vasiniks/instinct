@@ -1,7 +1,24 @@
-/* Instinct visualizer, "Bench": the game and the current decision on top, the loop as a branched
-   flow chart and the run as a trace along the bottom. Only blue and red carry color, as in
-   Balatro's chips and mult: blue for probability, the model and the path taken; red for live,
-   none-of-the-above and failures. Verdicts that aren't either are ink. Light and dark modes. */
+/* Instinct visualizer, "Bench": the game (its picture, or the board drawn from the shown tick) and
+   the current decision on top, the loop as a branched flow chart and the run as a trace along the
+   bottom. Blue and red lead, as in Balatro's chips and
+   mult: blue for probability, the model and the path taken; red for live, none-of-the-above and
+   failures. Verdicts that aren't either are ink. The other colors come from the game's own
+   vocabulary and only say what a thing is, never how sure the model is:
+     - gold is money: the purse, moves that spend or earn, the cash-out and shop phases;
+     - each phase has a hue, shared by the trace's timeline, the decision's phase tag and the
+       loop's four lanes: blind orange, hands green, shop gold, pack purple;
+     - a move's swatch is its kind (play blue, discard red, money gold, cards purple, blind
+       orange, pass grey), and a play shows its estimate the way the game does, chips x mult;
+     - a card a move touches gets a dot in its set or rarity color (common blue, uncommon green,
+       rare red, legendary purple; Tarot, Planet, Spectral, Voucher, Pack), and so do the plan's
+       needs the game colors (chips blue, mult red, econ gold) and the direction's goal cards;
+     - on the board, playing cards are ink and red by suit, an enhancement is the card's wash (bonus
+       blue, mult red, gold gold, lucky green, glass cyan, wild purple, steel and stone grey), a
+       seal is a dot in its own color, an edition is a stripe along the top (foil blue, holo red,
+       polychrome all of them, negative ink), and the chosen move outlines what it acts on in its
+       kind's color.
+   Color sits in fills, swatches, dots and washes; text stays ink, at 4.5:1 or more on its ground.
+   Light and dark modes. */
 
 :root {
   color-scheme: light;
@@ -26,14 +43,42 @@
   --abstain: #c93c3c;
   --critical: #c93c3c;
   --neutral: #b4bdca;
-  --strength-0: #dbe6f7;
-  --strength-1: #a9c1ea;
-  --strength-2: #5f8fd9;
-  --strength-3: #1d4f9e;
   --shadow: rgba(23, 32, 44, 0.16);
   --tip-bg: #17202c;
   --tip-ink: #d9dee7;
   --tip-meta: #aab3c1;
+  --on-chips: #ffffff;
+  --on-mult: #ffffff;
+  --group: #f5f7fa;
+  /* Balatro's vocabulary. Money and the phases have a wash for grounds under ink text. */
+  --money: #dc9d22;
+  --money-wash: #fbf0d9;
+  --on-money: #17202c;
+  --blind: #e2711d;
+  --blind-wash: #fde8d7;
+  --hand: #26936a;
+  --hand-wash: #dcf0e6;
+  --pack: #6b57c8;
+  --pack-wash: #ebe7f8;
+  /* Card sets and joker rarities: dots only. */
+  --common: #1d8fe0;
+  --uncommon: #2ea576;
+  --rare: #e0524a;
+  --legendary: #a14fb0;
+  --tarot: #9467cc;
+  --planet: #0f9cba;
+  --spectral: #3d6fe0;
+  --voucher: #e45f26;
+  /* The board's cards and tiles, and the suits printed on them. */
+  --card: #ffffff;
+  --suit-dark: #17202c;
+  --suit-red: #c93c3c;
+  /* Panel sizes; the splitters set them (remembered per browser). */
+  --decision-w: 480px;
+  --loop-w: 62%;
+  --bottom-h: 280px;
+  --rail-w: 300px;
+  --strip-h: 190px;
   --font: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --cond: "Barlow Condensed", "Barlow", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -64,14 +109,33 @@
     --abstain: #e5706d;
     --critical: #e5706d;
     --neutral: #4a5768;
-    --strength-0: #22324b;
-    --strength-1: #34507d;
-    --strength-2: #4f7cc4;
-    --strength-3: #8fb5f1;
     --shadow: rgba(0, 0, 0, 0.45);
     --tip-bg: #e8edf4;
     --tip-ink: #263041;
     --tip-meta: #4a5568;
+    --on-chips: #0e131b;
+    --on-mult: #0e131b;
+    --group: #212b3a;
+    --money: #e8b54d;
+    --money-wash: #3a311f;
+    --on-money: #0e131b;
+    --blind: #f0904a;
+    --blind-wash: #3d2b1d;
+    --hand: #4cbf8f;
+    --hand-wash: #1b3530;
+    --pack: #9b8cf0;
+    --pack-wash: #2a2848;
+    --common: #3aa8ff;
+    --uncommon: #4cbf8f;
+    --rare: #fb6e64;
+    --legendary: #c47ccc;
+    --tarot: #b393dd;
+    --planet: #2ec0de;
+    --spectral: #6b9bfb;
+    --voucher: #fb7a45;
+    --card: #263243;
+    --suit-dark: #e8edf4;
+    --suit-red: #f07a77;
   }
 }
 :root[data-theme="dark"] {
@@ -97,14 +161,33 @@
   --abstain: #e5706d;
   --critical: #e5706d;
   --neutral: #4a5768;
-  --strength-0: #22324b;
-  --strength-1: #34507d;
-  --strength-2: #4f7cc4;
-  --strength-3: #8fb5f1;
   --shadow: rgba(0, 0, 0, 0.45);
   --tip-bg: #e8edf4;
   --tip-ink: #263041;
   --tip-meta: #4a5568;
+  --on-chips: #0e131b;
+  --on-mult: #0e131b;
+  --group: #212b3a;
+  --money: #e8b54d;
+  --money-wash: #3a311f;
+  --on-money: #0e131b;
+  --blind: #f0904a;
+  --blind-wash: #3d2b1d;
+  --hand: #4cbf8f;
+  --hand-wash: #1b3530;
+  --pack: #9b8cf0;
+  --pack-wash: #2a2848;
+  --common: #3aa8ff;
+  --uncommon: #4cbf8f;
+  --rare: #fb6e64;
+  --legendary: #c47ccc;
+  --tarot: #b393dd;
+  --planet: #2ec0de;
+  --spectral: #6b9bfb;
+  --voucher: #fb7a45;
+  --card: #263243;
+  --suit-dark: #e8edf4;
+  --suit-red: #f07a77;
 }
 
 * { box-sizing: border-box; }
@@ -116,7 +199,7 @@ body {
   zoom: 0.9;
   height: calc(100vh / 0.9);
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr);
   /* Without a capped column the trace's width would widen the whole page. */
   grid-template-columns: minmax(0, 1fr);
   gap: 12px;
@@ -151,6 +234,46 @@ button.quiet:hover:not(:disabled) { color: var(--ink); border-color: transparent
 select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--panel); }
 
 .panel { background: var(--panel); border-radius: 8px; }
+
+/* ------------------------------------------------------------------ Balatro's vocabulary */
+
+/* A phase's hue and wash, set by its class and read by the trace's timeline, the decision's phase
+   tag and the loop's lanes. */
+.ph-blind { --ph: var(--blind); --ph-wash: var(--blind-wash); }
+.ph-hand { --ph: var(--hand); --ph-wash: var(--hand-wash); }
+.ph-cashout, .ph-shop { --ph: var(--money); --ph-wash: var(--money-wash); }
+.ph-pack { --ph: var(--pack); --ph-wash: var(--pack-wash); }
+.ph-over { --ph: var(--mult); --ph-wash: var(--mult-wash); }
+.ph-menu { --ph: var(--neutral); --ph-wash: var(--bg); }
+.phase-tag { display: inline-flex; align-items: center; gap: 5px; padding: 1px 8px 1px 6px; border-radius: 4px; background: var(--ph-wash); font-size: 12px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.phase-tag::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--ph); }
+
+/* Money is gold with ink on it, as the game shows the purse. */
+.money { display: inline-block; padding: 0 5px; border-radius: 4px; background: var(--money); color: var(--on-money); font-weight: 600; }
+
+/* A move's kind, and the dot beside a word: a card's set or rarity, or a need the game colors. */
+.k-play { --k: var(--chips); }
+.k-discard { --k: var(--mult); }
+.k-money { --k: var(--money); }
+.k-card { --k: var(--pack); }
+.k-blind { --k: var(--blind); }
+.k-pass { --k: var(--neutral); }
+.c-common { --c: var(--common); }
+.c-uncommon { --c: var(--uncommon); }
+.c-rare { --c: var(--rare); }
+.c-legendary { --c: var(--legendary); }
+.c-tarot { --c: var(--tarot); }
+.c-planet { --c: var(--planet); }
+.c-spectral { --c: var(--spectral); }
+.c-voucher { --c: var(--voucher); }
+.c-pack { --c: var(--pack); }
+.c-chips { --c: var(--chips); }
+.c-mult { --c: var(--mult); }
+.c-money { --c: var(--money); }
+.c-hand { --c: var(--hand); }
+.c-neutral { --c: var(--neutral); }
+.dot-tag { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.dot-tag::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
 
 /* ------------------------------------------------------------------ top bar */
 
@@ -206,6 +329,8 @@ select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid
 .range { display: flex; align-items: center; gap: 10px; }
 .range input { flex: 1; accent-color: var(--chips); }
 .range .num { min-width: 52px; text-align: right; color: var(--ink); }
+.field-group { display: flex; flex-direction: column; gap: 4px; }
+.field-note { font-size: 12px; color: var(--ink-3); }
 .settings-meta { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 12px; }
 .settings-meta dt { color: var(--ink-3); }
 .settings-meta dd { color: var(--ink-2); overflow-wrap: anywhere; }
@@ -228,8 +353,52 @@ select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid
 
 /* ------------------------------------------------------------------ top: game + decision */
 
-.top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(440px, 520px); gap: 12px; min-height: 0; padding: 0 20px; }
-.game { display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+/* One grid holds every panel and the splitters between them.
+   Bench: game and decision on top, the loop and the trace below.
+   Rail: the loop as a tree down the left, the game with the trace as a strip under it, the
+   decision on the right. The loop column in bench never squeezes the trace below the decision's
+   width, so the two splits stay independent. */
+.layout {
+  display: grid;
+  min-height: 0;
+  padding: 0 20px;
+  grid-template-columns: min(var(--loop-w), calc(100% - var(--decision-w) - 24px)) 12px minmax(0, 1fr) 12px var(--decision-w);
+  grid-template-rows: minmax(0, 1fr) 12px var(--bottom-h);
+  grid-template-areas:
+    "game game game sd dec"
+    "sh sh sh sh sh"
+    "loop sl trace trace trace";
+}
+:root[data-layout="rail"] .layout {
+  grid-template-columns: var(--rail-w) 12px minmax(0, 1fr) 12px var(--decision-w);
+  grid-template-rows: minmax(0, 1fr) 12px var(--strip-h);
+  grid-template-areas:
+    "loop sl game sd dec"
+    "loop sl sh sd dec"
+    "loop sl trace sd dec";
+}
+.game { grid-area: game; }
+.decision { grid-area: dec; }
+.flow-panel { grid-area: loop; }
+.trace-panel { grid-area: trace; }
+#split-decision { grid-area: sd; }
+#split-bottom { grid-area: sh; }
+#split-loop { grid-area: sl; }
+
+/* A border to drag: invisible until hovered or focused, then a thin blue line. */
+.splitter { position: relative; z-index: 3; touch-action: none; }
+.splitter.v { cursor: col-resize; }
+.splitter.h { cursor: row-resize; }
+.splitter::after { content: ""; position: absolute; border-radius: 1px; background: var(--chips); opacity: 0; transition: opacity 0.12s; }
+.splitter.v::after { top: 0; bottom: 0; left: 5px; width: 2px; }
+.splitter.h::after { left: 0; right: 0; top: 5px; height: 2px; }
+.splitter:hover::after, .splitter:focus-visible::after, .splitter.dragging::after { opacity: 1; }
+.splitter:focus-visible { outline: none; }
+body.resizing { user-select: none; }
+body.resizing.v, body.resizing.v * { cursor: col-resize !important; }
+body.resizing.h, body.resizing.h * { cursor: row-resize !important; }
+
+.game { display: flex; flex-direction: column; gap: 6px; min-height: 0; min-width: 0; }
 
 /* The real game window, scaled down to fit without cropping. */
 .frame { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; border-radius: 8px; background: var(--frame); overflow: hidden; }
@@ -260,6 +429,145 @@ select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid
 .caption strong { color: var(--ink); font-weight: 600; }
 .screen-source { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
 
+/* ------------------------------------------------------------------ the board */
+
+/* The game drawn from the shown tick's snapshot, in place of the picture: always in the simulator,
+   on request for the real game. A schematic, not the game's art: the run's numbers on top, the
+   jokers and consumables, then what the phase puts on the table. The chosen move outlines what it
+   acts on in its kind's color (.k-*) with a label saying what it does; hand cards it plays,
+   discards or targets rise, as in the game. */
+.frame.on-board { background: var(--panel); }
+.board { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px 16px; overflow: auto; scrollbar-width: thin; }
+
+.bd-top { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.bd-stat { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-width: 64px; padding: 6px 12px; border-radius: 6px; background: var(--group); }
+.bd-k { font-size: 11px; font-weight: 500; color: var(--ink-3); white-space: nowrap; }
+.bd-v { font: 600 22px/1 var(--cond); }
+.bd-v small { margin-left: 1px; font-size: 14px; font-weight: 500; color: var(--ink-3); }
+/* Hands blue and discards red, as the game counts them; money gold. */
+.bd-stat > b, .bd-stat > .money { align-self: flex-start; padding: 1px 8px; border-radius: 4px; font: 600 20px/1.1 var(--cond); }
+.bd-hands > b { background: var(--chips); color: var(--on-chips); }
+.bd-discards > b { background: var(--mult); color: var(--on-mult); }
+.bd-blind { flex: 1 1 300px; min-width: 0; box-shadow: inset 3px 0 0 var(--blind); }
+.bd-blind-name { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.bd-blind-name strong, .bd-blind-title { flex: none; font: 600 15px/1.2 var(--font); }
+.bd-effect { min-width: 0; font-size: 12px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bd-blindcard .bd-effect { white-space: normal; }
+.bd-score { display: flex; align-items: center; gap: 10px; }
+.bd-progress { flex: 1; max-width: 240px; height: 6px; border-radius: 3px; background: var(--track); overflow: hidden; }
+.bd-progress span { display: block; height: 100%; background: var(--chips); }
+.bd-score-text { font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.bd-tags { max-width: 280px; }
+.bd-tag-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.bd-tag { display: inline-block; padding: 0 6px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--card); font-size: 12px; color: var(--ink); }
+
+.bd-mid { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; }
+.bd-jokers { flex: 1 1 auto; }
+.bd-zone { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 8px 10px 10px; border-radius: 8px; background: var(--group); }
+.bd-zone.is-act { box-shadow: inset 0 0 0 2px var(--k); }
+.bd-zone-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 22px; font-size: 12px; color: var(--ink-3); }
+.bd-zone-head strong { font: 600 13px/1.2 var(--font); color: var(--ink); }
+.bd-btns, .bd-move { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-left: auto; }
+.bd-est { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+.bd-row { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
+.bd-groups { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.bd-group { display: flex; flex-direction: column; gap: 2px; }
+.bd-empty { font-size: 13px; color: var(--ink-3); }
+.bd-idle { margin: auto; display: flex; flex-direction: column; gap: 4px; text-align: center; color: var(--ink-2); }
+.bd-idle h2 { font: 600 20px/1.2 var(--cond); color: var(--ink); }
+
+/* Jokers, consumables and offers: a tile with the set's or rarity's dot, live numbers in the game's
+   boxes, stickers and edition in words, and the price in gold. */
+.bd-tile { position: relative; display: flex; flex-direction: column; gap: 4px; width: 120px; min-height: 62px; padding: 8px 8px 6px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--card); font-size: 12px; }
+.bd-name { display: flex; gap: 5px; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.bd-name::before { content: ""; flex: none; width: 7px; height: 7px; margin-top: 4px; border-radius: 50%; background: var(--c, var(--neutral)); }
+.bd-stats { display: flex; flex-wrap: wrap; gap: 3px; font: 600 12px/1 var(--cond); }
+.bd-stats b { padding: 2px 4px; border-radius: 3px; font-weight: 600; }
+.bd-notes { font-size: 11px; line-height: 1.25; color: var(--ink-2); }
+.bd-offer { width: 150px; }
+.bd-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: 11px; line-height: 1.3; color: var(--ink-2); }
+.bd-price { margin-top: auto; }
+.bd-slot { width: 120px; min-height: 62px; border: 1px dashed var(--line-strong); border-radius: 6px; }
+.bd-blindcard { width: 220px; min-height: 112px; gap: 3px; padding-left: 12px; box-shadow: inset 3px 0 0 var(--blind); }
+.bd-blindcard.is-act { box-shadow: inset 3px 0 0 var(--blind), 0 0 0 1px var(--k); }
+.bd-blindcard .bd-notes { margin-top: auto; }
+.is-done { opacity: 0.55; }
+.bd-btn { position: relative; display: inline-flex; align-items: center; gap: 6px; min-height: 28px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--card); font-size: 12px; font-weight: 500; color: var(--ink); }
+
+/* Playing cards: rank and suit in ink or red, an enhancement as the card's wash, a seal as a dot. */
+.bd-hand-zone { flex: 1 0 auto; }
+.bd-hand { flex: 1; display: flex; flex-wrap: wrap; align-items: center; align-content: center; justify-content: center; gap: 10px; padding: 18px 0 6px; }
+.bd-pack-row { padding-top: 14px; }
+.bd-card { position: relative; flex: none; width: 72px; height: 100px; border: 1px solid var(--line-strong); border-radius: 7px; background: var(--card); color: var(--suit, var(--ink)); box-shadow: 0 1px 2px var(--shadow); }
+.bd-card.s-S, .bd-card.s-C { --suit: var(--suit-dark); }
+.bd-card.s-H, .bd-card.s-D { --suit: var(--suit-red); }
+.bd-rank { position: absolute; top: 6px; left: 7px; display: flex; flex-direction: column; align-items: center; font: 700 24px/0.95 var(--cond); }
+.bd-rank small { font: 400 14px/1.15 var(--font); }
+.bd-pip { position: absolute; top: 32px; left: 0; right: 0; text-align: center; font-size: 34px; line-height: 1; }
+.bd-seal { position: absolute; top: 8px; right: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 2px var(--card); }
+.bd-foot { position: absolute; left: 3px; right: 3px; bottom: 4px; text-align: center; font: 600 11px/1.1 var(--cond); color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bd-stone { position: absolute; inset: 0; display: grid; place-items: center; font: 600 14px/1 var(--cond); color: var(--ink-2); }
+.bd-forced { position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); padding: 0 4px; border-radius: 3px; background: var(--ink); color: var(--on-ink); font: 600 10px/14px var(--font); }
+.en-bonus { background: var(--chips-wash); }
+.en-mult { background: var(--mult-wash); }
+.en-gold { background: var(--money-wash); }
+.en-lucky { background: var(--hand-wash); }
+.en-wild { background: var(--pack-wash); }
+.en-glass { background: color-mix(in srgb, var(--planet) 16%, var(--card)); }
+.en-steel { background: color-mix(in srgb, var(--ink-3) 20%, var(--card)); }
+.en-stone { background: color-mix(in srgb, var(--ink-3) 34%, var(--card)); }
+.bd-card.is-down { background: repeating-linear-gradient(135deg, var(--line-strong) 0 5px, var(--card) 5px 11px); }
+
+/* Editions: a stripe along the top. */
+.ed-foil { --ed: var(--chips); }
+.ed-holo { --ed: var(--mult); }
+.ed-polychrome { --ed: linear-gradient(90deg, var(--chips), var(--hand), var(--money), var(--mult), var(--pack)); }
+.ed-negative { --ed: var(--ink); }
+.has-ed::after { content: ""; position: absolute; top: -1px; left: -1px; right: -1px; height: 4px; border-radius: 6px 6px 0 0; background: var(--ed); }
+/* Debuffed: struck through in red and faded. */
+.is-debuff { opacity: 0.55; background-image: linear-gradient(to top right, transparent calc(50% - 1px), var(--mult) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)); }
+
+/* The game's own sprites, when ui/game/ holds them: one atlas pixel per device pixel on a Retina
+   screen (a 71 x 95 cell at 2x, undoing the page's 90% zoom), drawn pixelated. Editions are the
+   game's shaders, so here a sheen masked to the card (foil blue, holo red, polychrome every hue)
+   or, for Negative, the card inverted. */
+.board { --cell-w: calc(71px / 0.9); --cell-h: calc(95px / 0.9); --chip: calc(34px / 0.9); }
+.bd-piece { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: 3px; width: var(--cell-w); }
+.bd-art { position: relative; flex: none; display: block; width: var(--cell-w); height: var(--cell-h); border-radius: 7px; }
+.bd-art.chip { width: var(--chip); height: var(--chip); border-radius: 50%; }
+.bd-layer, .bd-sheen { position: absolute; inset: 0; pointer-events: none; }
+.bd-layer { background-repeat: no-repeat; image-rendering: pixelated; }
+.bd-sheen { mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; mix-blend-mode: screen; }
+.ed-foil .bd-sheen { background: linear-gradient(125deg, transparent 10%, rgba(120, 170, 255, 0.55) 35%, transparent 55%, rgba(120, 170, 255, 0.4) 75%, transparent 92%); }
+.ed-holo .bd-sheen { background: repeating-linear-gradient(115deg, rgba(255, 70, 110, 0.32) 0 5px, rgba(255, 190, 90, 0.16) 5px 10px); }
+.ed-polychrome .bd-sheen { background: linear-gradient(135deg, #ff5f5f, #ffd35f, #5fff8f, #5fd3ff, #a05fff); opacity: 0.55; mix-blend-mode: color; }
+.bd-art.ed-negative .bd-layer:first-child { filter: invert(1) hue-rotate(180deg); }
+.bd-cap { max-width: 100%; font-size: 11px; font-weight: 600; line-height: 1.2; text-align: center; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.bd-piece > .money { font-size: 12px; }
+.bd-slot.art { width: var(--cell-w); min-height: 0; height: var(--cell-h); border-radius: 7px; }
+.bd-piece.is-debuff { opacity: 1; background-image: none; }
+.bd-piece.is-debuff .bd-art { opacity: 0.6; filter: grayscale(0.7); }
+.bd-piece.is-debuff .bd-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 1.5px), var(--mult) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)); }
+.bd-blind { flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; }
+.bd-blind-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.bd-blind-head { display: flex; align-items: center; gap: 8px; }
+.bd-skip { display: inline-flex; align-items: center; gap: 4px; }
+.bd-skip .bd-art.chip { width: calc(var(--chip) * 0.75); height: calc(var(--chip) * 0.75); }
+.bd-tag-list .bd-art.chip { cursor: default; }
+
+/* What the chosen move acts on: outlined in its kind's color, with a label; hand cards rise. */
+.bd-tile.is-act, .bd-btn.is-act { border-color: var(--k); box-shadow: 0 0 0 1px var(--k); }
+.bd-card.is-act { border-color: var(--k); box-shadow: 0 0 0 1px var(--k), 0 8px 16px var(--shadow); transform: translateY(-12px); animation: bd-raise 0.22s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes bd-raise { from { transform: none; } }
+.bd-act { position: absolute; top: -9px; left: 7px; z-index: 2; display: inline-flex; align-items: center; gap: 4px; padding: 0 6px 0 5px; border-radius: 4px; background: var(--panel); box-shadow: inset 0 0 0 1.5px var(--k); font: 600 11px/17px var(--font); color: var(--ink); white-space: nowrap; }
+.bd-act::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--k); }
+.bd-zone-head .bd-act, .bd-move .bd-act { position: static; }
+.bd-card .bd-act { left: 50%; transform: translateX(-50%); }
+.bd-piece .bd-act { left: 50%; transform: translateX(-50%); }
+.bd-piece.is-act .bd-art { box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--k); }
+.bd-card-art.is-act { transform: translateY(-12px); animation: bd-raise 0.22s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.bd-card-art.is-act .bd-art { box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--k), 0 10px 18px var(--shadow); }
+
 .decision { display: flex; flex-direction: column; gap: 14px; min-height: 0; overflow-y: auto; padding: 16px 18px; }
 .decision-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .decision-head #follow { margin-left: auto; }
@@ -276,8 +584,18 @@ select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid
 .bar-row { display: flex; flex-direction: column; gap: 4px; }
 .bars.interactive .bar-row { cursor: pointer; }
 .bars.interactive .bar-row:hover .bar-label { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.bar-head { display: grid; grid-template-columns: 1fr auto auto; align-items: baseline; gap: 8px; }
-.bar-label { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-head { display: flex; align-items: baseline; gap: 8px; }
+/* The kind's swatch leads the row, so plays, discards and spends read apart at a glance. */
+.bar-kind { flex: none; align-self: center; width: 8px; height: 8px; border-radius: 2px; background: var(--k, var(--neutral)); }
+.bar-label { flex: 1; min-width: 0; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-tags { flex: none; display: inline-flex; align-items: center; gap: 8px; }
+.bar-tags:empty, .bar-badges:empty { display: none; }
+.bar-tags .dot-tag { font-size: 12px; color: var(--ink-2); }
+/* A play's estimate in the game's boxes: chips in blue, times mult in red. */
+.score { display: inline-flex; align-items: center; gap: 3px; font: 600 13px/1 var(--cond); color: var(--ink-3); }
+.score b { padding: 2px 5px; border-radius: 3px; font-weight: 600; }
+.score-chips { background: var(--chips); color: var(--on-chips); }
+.score-mult { background: var(--mult); color: var(--on-mult); }
 .bar-row.chosen .bar-label { color: var(--ink); font-weight: 600; }
 .bar-badges { font-size: 12px; color: var(--ink-3); }
 .bar-value { font: 600 17px/1 var(--cond); min-width: 38px; text-align: right; }
@@ -296,17 +614,19 @@ select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid
 .meter-fill { position: absolute; inset: 0 auto 0 0; background: var(--chips); }
 .meter.pass .meter-fill { background: var(--good); }
 .meter.fail .meter-fill { background: var(--review); }
+/* Questions that aren't gates take the hue of what they ask about. */
+.meter.tone-mult .meter-fill { background: var(--mult); }
+.meter.tone-money .meter-fill { background: var(--money); }
+.meter.tone-blind .meter-fill { background: var(--blind); }
 .meter-tick { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--ink); }
 .meter-note { font-size: 12px; color: var(--ink-3); }
 
 .values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .values:empty { display: none; }
-.strength-bar { display: flex; gap: 2px; height: 6px; }
-.strength-seg { min-width: 2px; }
-.strength-seg.s0 { background: var(--strength-0); }
-.strength-seg.s1 { background: var(--strength-1); }
-.strength-seg.s2 { background: var(--strength-2); }
-.strength-seg.s3 { background: var(--strength-3); }
+/* The run's prospect: its level bands cut into the track, the last shop's own reading as a thin mark. */
+.meter-band { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--panel); }
+.meter-latest { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: var(--ink-3); }
+.meter.prospect.is-empty .meter-value { color: var(--ink-3); }
 
 .plan { display: flex; flex-direction: column; gap: 4px; padding-top: 12px; border-top: 1px solid var(--line); }
 .plan:empty { display: none; }
@@ -320,16 +640,20 @@ select, input[name="seed"] { min-height: 32px; padding: 0 8px; border: 1px solid
 .plan-list { margin-top: 8px; }
 .plan-list ul { margin: 2px 0 0; padding-left: 18px; font-size: 13px; color: var(--ink-2); }
 
+/* The direction: Neutral, or the lean and the cards worth looking for, by group. */
+.direction-why { color: var(--ink-3); }
+.goals { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: 5px 12px; margin-top: 4px; }
+.goals dd { display: flex; flex-wrap: wrap; gap: 4px; }
+.goal { padding: 1px 7px 1px 6px; border-radius: 4px; background: var(--bg); font-size: 12px; color: var(--ink); }
+
 details.raw summary { cursor: pointer; font-size: 12px; color: var(--ink-3); }
 details.raw summary:hover { color: var(--ink); }
 .json { margin: 6px 0 0; max-height: 260px; overflow: auto; padding: 8px; border-radius: 6px; background: var(--bg); font: 11px/1.45 var(--mono); color: var(--ink-2); white-space: pre-wrap; overflow-wrap: anywhere; }
 
 /* ------------------------------------------------------------------ bottom: flow chart + trace */
 
-/* The loop and the trace side by side; the trace's lanes share one time axis. */
-.bottom { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 12px; padding: 0 20px; }
-.flow-panel, .trace-panel { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 12px 14px 10px; }
-.flow-panel { overflow-x: auto; scrollbar-width: thin; }
+/* The loop and the trace fill their cells and scroll inside when the cell is small. */
+.flow-panel, .trace-panel { display: flex; flex-direction: column; gap: 8px; min-width: 0; min-height: 0; padding: 12px 14px 10px; overflow: auto; scrollbar-width: thin; }
 
 .flow {
   position: relative;
@@ -340,16 +664,29 @@ details.raw summary:hover { color: var(--ink); }
   min-width: 960px;
   column-gap: 14px;
   row-gap: 10px;
-  /* Room above for the forced-step bypass and below for the loop back to Observe. */
-  padding: 18px 0 24px;
+  /* Room above for the forced-step bypass and the group labels, below for the loop back to Observe. */
+  padding: 34px 6px 24px;
 }
+/* Rail: the same grid transposed, top to bottom; the side gutters carry the bypass and loop lines. */
+:root[data-layout="rail"] .flow {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(15, auto);
+  min-width: 0;
+  column-gap: 6px;
+  row-gap: 16px;
+  padding: 10px 28px;
+}
+:root[data-layout="rail"] .node.main { justify-self: center; width: 58%; }
+.group { fill: var(--group); stroke: var(--line); stroke-width: 1; }
+.group-label { font: 600 11px var(--font); fill: var(--ink-3); paint-order: stroke; stroke: var(--group); stroke-width: 4px; stroke-linejoin: round; }
 .flow-edges { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .edge { fill: none; stroke: var(--line-strong); stroke-width: 1.5; stroke-linejoin: round; }
 .edge.dashed { stroke-dasharray: 4 4; }
 .edge.taken { stroke: var(--chips); stroke-width: 2.5; }
 .arrow { fill: var(--line-strong); }
 .arrow.taken { fill: var(--chips); }
-.edge-label { font: 500 11px var(--font); fill: var(--ink-3); }
+/* A halo in the panel colour, so a label can sit on its line. */
+.edge-label { font: 500 11px var(--font); fill: var(--ink-3); paint-order: stroke; stroke: var(--panel); stroke-width: 5px; stroke-linejoin: round; }
 .node {
   position: relative;
   z-index: 1;
@@ -363,17 +700,26 @@ details.raw summary:hover { color: var(--ink); }
   background: var(--panel);
   cursor: default;
 }
-.node.main { grid-row: 1 / 5; align-self: center; }
-.node.act { grid-column: 15; grid-row: 1 / 5; align-self: center; }
-.node.outcome { grid-column: 13; align-self: center; }
-.node.fork { align-self: center; }
+.node.main, .node.outcome, .node.fork { align-self: center; }
 /* Words never split: a long name wraps between words or, at worst, runs a little over the box. */
 .node-title { font-weight: 600; font-size: 12px; line-height: 1.2; overflow-wrap: normal; word-break: keep-all; }
 /* What the node did is in its hover tip. */
 .node-detail { display: none; }
 .node-metric { font: 600 12px/1.1 var(--cond); color: var(--ink-2); white-space: nowrap; }
 .node:hover, .node:focus-visible { border-color: var(--ink-3); }
-.node.taken { border-color: var(--chips); box-shadow: inset 0 0 0 1px var(--chips); }
+/* States, as on the design board: the chosen lane filled blue, lanes not taken dashed, the model
+   outlined in blue, the gate's outcome in ink, Act dashed when nothing was sent. */
+.node.main.taken { border-color: var(--ink-3); }
+.node.sub.taken { border-color: var(--chips); }
+.node.lane.taken { background: var(--chips); border-color: var(--chips); color: var(--on-chips); }
+.node.lane.taken .node-metric { color: var(--on-chips); }
+.node.lane.untaken { border-style: dashed; color: var(--ink-3); }
+/* A lane's forks carry its phase's hue on the left edge, as on the trace's timeline. */
+.node.lane { box-shadow: inset 3px 0 0 var(--ph); }
+.node.main.model { border: 2px solid var(--chips); padding: 4px 7px; }
+.node.outcome.taken { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.node.outcome.taken .node-metric { color: var(--on-ink); }
+.node.act.held { border-style: dashed; color: var(--ink-2); }
 .node.dim { opacity: 0.45; }
 .node.failed { border-color: var(--critical); box-shadow: inset 0 0 0 1px var(--critical); }
 .node.failed .node-metric { color: var(--critical); }
@@ -384,18 +730,18 @@ details.raw summary:hover { color: var(--ink); }
 .trace-note { font-size: 12px; color: var(--ink-3); }
 .trace { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; }
 .trace-labels { display: flex; flex-direction: column; }
-.trace-labels .lane-label { display: flex; flex-direction: column; justify-content: flex-end; height: 40px; padding-bottom: 2px; }
+.trace-labels .lane-label { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 2px; }
 .lane-name { font-weight: 500; line-height: 1.2; }
 .lane-scale { font-size: 11px; color: var(--ink-3); line-height: 1.2; }
 .trace-scroll { overflow-x: auto; scrollbar-width: thin; }
 .trace-content { position: relative; width: max-content; min-width: 100%; }
 .phase-row { display: flex; gap: 3px; height: 20px; }
-.phase { flex: none; padding: 2px 5px; border-radius: 4px; background: var(--bg); font-size: 11px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.phase { flex: none; padding: 2px 5px; border-radius: 4px; background: var(--ph-wash, var(--bg)); box-shadow: inset 0 -2px 0 var(--ph, transparent); font-size: 11px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cols { display: flex; gap: 3px; }
 .tcol { flex: none; display: flex; flex-direction: column; width: 14px; min-height: 0; padding: 0; border: 0; border-radius: 3px; background: none; cursor: pointer; }
 .tcol:hover { background: var(--bg); }
 .tcol.selected { background: var(--chips-wash); }
-.cell { position: relative; height: 40px; display: flex; align-items: flex-end; border-bottom: 1px solid var(--line); }
+.cell { position: relative; display: flex; align-items: flex-end; border-bottom: 1px solid var(--line); }
 .cell-fill { width: 100%; border-radius: 2px 2px 0 0; }
 .chip { height: 12px; margin-top: 5px; border-radius: 3px; }
 .tcol.selected .chip { outline: 2px solid var(--ink); outline-offset: 1px; }
@@ -439,10 +785,15 @@ details.raw summary:hover { color: var(--ink); }
 
 @media (max-width: 1100px) {
   body { height: auto; min-height: 100vh; overflow: auto; }
-  .top, .bottom { grid-template-columns: minmax(0, 1fr); }
+  .layout, :root[data-layout="rail"] .layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "game" "dec" "loop" "trace";
+    gap: 12px;
+  }
+  .splitter { display: none; }
   .frame { min-height: 56vw; }
   .decision { overflow: visible; }
-  .flow-panel { overflow-x: auto; }
   .flow { min-width: 640px; }
   .controls { margin-left: 0; }
 }

@@ -1,0 +1,6636 @@
+{
+ "source": {
+  "built": "2026-10-23",
+  "videos": [
+   "-GUBw5pfwWY GHOST/WHITE",
+   "0YQg7HqqF40 PLASMA/GOLD",
+   "8cuq_dW2V_g ERRATIC/GOLD",
+   "IK2QVkr5fzE GHOST/WHITE",
+   "LXou4GPdMYY GHOST/GOLD",
+   "OTn6yl2jxGg GHOST/GOLD",
+   "SkwRy_N5D9A GHOST/GOLD",
+   "XfLcmbk09tc YELLOW/GOLD",
+   "bb3UmQWsofM GHOST/GOLD",
+   "brRkg1_VFAU CHECKERED/GOLD",
+   "e-xjK3zeAVM GHOST/GOLD",
+   "hj_BuRY6uRc Red/White@0s, Yellow/Red@1690s",
+   "nLdGlAmcWAM GHOST/GOLD",
+   "o0Dv57c9UhY BLUE/GOLD",
+   "oqiWiv4ygWU CHECKERED/GOLD",
+   "s2qZNADhAY4 GHOST/WHITE",
+   "vA_acBOHMb4 ABANDONED/GOLD",
+   "yefo5lyt6wU CHECKERED/GOLD",
+   "ylLAEKHkm00 BLACK/GOLD",
+   "ywRtrJktO5M GHOST/WHITE"
+  ],
+  "notes": [
+   "Every number carries its n (visits, packs, sales, plays). Antes 9 and up are pooled as 9+.",
+   "Money is HUD OCR; a value counts once a second reading agrees to the dollar. Exit money is read on the blind select screen and the next blind (until its first hand scores, at most 30 s); entry money in the first 10 s of the visit.",
+   "Packs come from tools/roffle/packs.py: one per pack opened, its type and size read off the name panel every second. Picks: jokers reaching the joker row during a Buffoon pack (in Arcana and Spectral packs those are jokers made by The Soul, Judgement or Wraith); leftDisplay is a card that left the display while the pack stayed open (a Mega pack's first pick). Tarots, Planets and Spectrals taken from packs are used at once and are otherwise not seen.",
+   "Skip opportunities: two per ante reached (Small and Big Blind).",
+   "Joker replacement: the next joker acquired within 90 s of the sale, or one bought up to 15 s before it.",
+   "Hand types: plays whose cards were read off the play area, or whose lift had five cards; shorter lifts are often partial (a Pair read as one card) and are left out.",
+   "Consumable 'picked' is the first pass's pack_pick_consumable: a card that reached the slots during a pack. Pack Tarots, Planets and Spectrals are used at once, so these were made by the card picked (The Emperor, The High Priestess, The Fool), by Hallucination or by Perkeo."
+  ]
+ },
+ "GOLD": {
+  "videos": [
+   "0YQg7HqqF40",
+   "8cuq_dW2V_g",
+   "LXou4GPdMYY",
+   "OTn6yl2jxGg",
+   "SkwRy_N5D9A",
+   "XfLcmbk09tc",
+   "bb3UmQWsofM",
+   "brRkg1_VFAU",
+   "e-xjK3zeAVM",
+   "nLdGlAmcWAM",
+   "o0Dv57c9UhY",
+   "oqiWiv4ygWU",
+   "vA_acBOHMb4",
+   "yefo5lyt6wU",
+   "ylLAEKHkm00"
+  ],
+  "decks": {
+   "GHOST": 219,
+   "CHECKERED": 117,
+   "ERRATIC": 42,
+   "YELLOW": 37,
+   "ABANDONED": 35,
+   "BLACK": 32,
+   "BLUE": 31,
+   "PLASMA": 27
+  },
+  "runs": 15,
+  "shopVisits": 540,
+  "moneyLeavingShop": {
+   "all": {
+    "visits": 540,
+    "exit": {
+     "n": 540,
+     "mean": 24.4,
+     "median": 25,
+     "p25": 13,
+     "p75": 32
+    },
+    "entry": {
+     "n": 506,
+     "mean": 53.2,
+     "median": 39.5,
+     "p25": 24,
+     "p75": 55
+    },
+    "exitAtLeast25Pct": 56,
+    "exitUnder5Pct": 13,
+    "exitOnInterestStepPct": 51
+   },
+   "byAnte": {
+    "1": {
+     "visits": 28,
+     "exit": {
+      "n": 28,
+      "mean": 4.2,
+      "median": 3,
+      "p25": 2,
+      "p75": 6.3
+     },
+     "entry": {
+      "n": 27,
+      "mean": 8.3,
+      "median": 7,
+      "p25": 6,
+      "p75": 10
+     },
+     "exitAtLeast25Pct": 0,
+     "exitUnder5Pct": 64,
+     "exitOnInterestStepPct": 60
+    },
+    "2": {
+     "visits": 45,
+     "exit": {
+      "n": 45,
+      "mean": 15.3,
+      "median": 15,
+      "p25": 5,
+      "p75": 26
+     },
+     "entry": {
+      "n": 42,
+      "mean": 29.2,
+      "median": 21.5,
+      "p25": 10.3,
+      "p75": 33.8
+     },
+     "exitAtLeast25Pct": 33,
+     "exitUnder5Pct": 16,
+     "exitOnInterestStepPct": 55
+    },
+    "3": {
+     "visits": 45,
+     "exit": {
+      "n": 45,
+      "mean": 17.9,
+      "median": 23,
+      "p25": 10,
+      "p75": 27
+     },
+     "entry": {
+      "n": 39,
+      "mean": 28.9,
+      "median": 32,
+      "p25": 13,
+      "p75": 40.5
+     },
+     "exitAtLeast25Pct": 44,
+     "exitUnder5Pct": 20,
+     "exitOnInterestStepPct": 50
+    },
+    "4": {
+     "visits": 47,
+     "exit": {
+      "n": 47,
+      "mean": 25.8,
+      "median": 29,
+      "p25": 23,
+      "p75": 32
+     },
+     "entry": {
+      "n": 46,
+      "mean": 62.9,
+      "median": 42,
+      "p25": 25.3,
+      "p75": 56.5
+     },
+     "exitAtLeast25Pct": 72,
+     "exitUnder5Pct": 9,
+     "exitOnInterestStepPct": 58
+    },
+    "5": {
+     "visits": 51,
+     "exit": {
+      "n": 51,
+      "mean": 25.9,
+      "median": 26,
+      "p25": 23,
+      "p75": 32
+     },
+     "entry": {
+      "n": 49,
+      "mean": 41.7,
+      "median": 39,
+      "p25": 34,
+      "p75": 49
+     },
+     "exitAtLeast25Pct": 65,
+     "exitUnder5Pct": 8,
+     "exitOnInterestStepPct": 45
+    },
+    "6": {
+     "visits": 50,
+     "exit": {
+      "n": 50,
+      "mean": 22.6,
+      "median": 23,
+      "p25": 14,
+      "p75": 26
+     },
+     "entry": {
+      "n": 47,
+      "mean": 73.8,
+      "median": 35,
+      "p25": 26,
+      "p75": 48
+     },
+     "exitAtLeast25Pct": 42,
+     "exitUnder5Pct": 10,
+     "exitOnInterestStepPct": 44
+    },
+    "7": {
+     "visits": 53,
+     "exit": {
+      "n": 53,
+      "mean": 27.6,
+      "median": 27,
+      "p25": 23,
+      "p75": 34
+     },
+     "entry": {
+      "n": 51,
+      "mean": 56.4,
+      "median": 39,
+      "p25": 27.5,
+      "p75": 54.5
+     },
+     "exitAtLeast25Pct": 74,
+     "exitUnder5Pct": 8,
+     "exitOnInterestStepPct": 49
+    },
+    "8": {
+     "visits": 48,
+     "exit": {
+      "n": 48,
+      "mean": 30.1,
+      "median": 27.5,
+      "p25": 25,
+      "p75": 34
+     },
+     "entry": {
+      "n": 46,
+      "mean": 81.9,
+      "median": 47.5,
+      "p25": 36.8,
+      "p75": 57.5
+     },
+     "exitAtLeast25Pct": 79,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 60
+    },
+    "9+": {
+     "visits": 173,
+     "exit": {
+      "n": 173,
+      "mean": 28.9,
+      "median": 26,
+      "p25": 16,
+      "p75": 37
+     },
+     "entry": {
+      "n": 159,
+      "mean": 58.5,
+      "median": 49,
+      "p25": 36,
+      "p75": 68
+     },
+     "exitAtLeast25Pct": 58,
+     "exitUnder5Pct": 10,
+     "exitOnInterestStepPct": 49
+    }
+   }
+  },
+  "rerolls": {
+   "all": {
+    "visits": 540,
+    "withRerollPct": 52,
+    "rerollsPerVisit": 1.6,
+    "rerollsWhenRerolling": {
+     "n": 279,
+     "mean": 3.1,
+     "median": 2,
+     "p25": 1,
+     "p75": 4
+    },
+    "spentPerVisit": 9.7,
+    "moneyLeftAfterLastReroll": {
+     "n": 279,
+     "mean": 51.2,
+     "median": 36,
+     "p25": 27,
+     "p75": 50
+    }
+   },
+   "byAnte": {
+    "1": {
+     "visits": 28,
+     "withRerollPct": 0,
+     "rerollsPerVisit": 0,
+     "rerollsWhenRerolling": {
+      "n": 0
+     },
+     "spentPerVisit": 0,
+     "moneyLeftAfterLastReroll": {
+      "n": 0
+     }
+    },
+    "2": {
+     "visits": 45,
+     "withRerollPct": 16,
+     "rerollsPerVisit": 0.2,
+     "rerollsWhenRerolling": {
+      "n": 7,
+      "mean": 1.6,
+      "median": 1,
+      "p25": 1,
+      "p75": 2
+     },
+     "spentPerVisit": 1.2,
+     "moneyLeftAfterLastReroll": {
+      "n": 7,
+      "mean": 26.4,
+      "median": 31,
+      "p25": 19.5,
+      "p75": 36
+     }
+    },
+    "3": {
+     "visits": 45,
+     "withRerollPct": 31,
+     "rerollsPerVisit": 0.6,
+     "rerollsWhenRerolling": {
+      "n": 14,
+      "mean": 1.9,
+      "median": 1,
+      "p25": 1,
+      "p75": 2
+     },
+     "spentPerVisit": 3,
+     "moneyLeftAfterLastReroll": {
+      "n": 14,
+      "mean": 34.1,
+      "median": 36,
+      "p25": 22,
+      "p75": 41.5
+     }
+    },
+    "4": {
+     "visits": 47,
+     "withRerollPct": 49,
+     "rerollsPerVisit": 1.1,
+     "rerollsWhenRerolling": {
+      "n": 23,
+      "mean": 2.3,
+      "median": 2,
+      "p25": 1,
+      "p75": 3
+     },
+     "spentPerVisit": 6.2,
+     "moneyLeftAfterLastReroll": {
+      "n": 23,
+      "mean": 43.2,
+      "median": 41,
+      "p25": 34,
+      "p75": 50.5
+     }
+    },
+    "5": {
+     "visits": 51,
+     "withRerollPct": 53,
+     "rerollsPerVisit": 1.2,
+     "rerollsWhenRerolling": {
+      "n": 27,
+      "mean": 2.3,
+      "median": 1,
+      "p25": 1,
+      "p75": 3.5
+     },
+     "spentPerVisit": 7.6,
+     "moneyLeftAfterLastReroll": {
+      "n": 27,
+      "mean": 52,
+      "median": 34,
+      "p25": 29,
+      "p75": 40
+     }
+    },
+    "6": {
+     "visits": 50,
+     "withRerollPct": 48,
+     "rerollsPerVisit": 1.2,
+     "rerollsWhenRerolling": {
+      "n": 24,
+      "mean": 2.5,
+      "median": 1,
+      "p25": 1,
+      "p75": 3.3
+     },
+     "spentPerVisit": 7.4,
+     "moneyLeftAfterLastReroll": {
+      "n": 24,
+      "mean": 68.2,
+      "median": 31,
+      "p25": 19.8,
+      "p75": 47.5
+     }
+    },
+    "7": {
+     "visits": 53,
+     "withRerollPct": 51,
+     "rerollsPerVisit": 1.4,
+     "rerollsWhenRerolling": {
+      "n": 27,
+      "mean": 2.7,
+      "median": 2,
+      "p25": 1,
+      "p75": 3.5
+     },
+     "spentPerVisit": 7.6,
+     "moneyLeftAfterLastReroll": {
+      "n": 27,
+      "mean": 34.2,
+      "median": 34,
+      "p25": 29,
+      "p75": 38.5
+     }
+    },
+    "8": {
+     "visits": 48,
+     "withRerollPct": 67,
+     "rerollsPerVisit": 1.8,
+     "rerollsWhenRerolling": {
+      "n": 32,
+      "mean": 2.7,
+      "median": 2.5,
+      "p25": 1,
+      "p75": 4
+     },
+     "spentPerVisit": 9.5,
+     "moneyLeftAfterLastReroll": {
+      "n": 32,
+      "mean": 44,
+      "median": 40,
+      "p25": 31,
+      "p75": 48.3
+     }
+    },
+    "9+": {
+     "visits": 173,
+     "withRerollPct": 72,
+     "rerollsPerVisit": 2.8,
+     "rerollsWhenRerolling": {
+      "n": 125,
+      "mean": 3.9,
+      "median": 3,
+      "p25": 1,
+      "p75": 6
+     },
+     "spentPerVisit": 18.1,
+     "moneyLeftAfterLastReroll": {
+      "n": 125,
+      "mean": 58.1,
+      "median": 39,
+      "p25": 22,
+      "p75": 54
+     }
+    }
+   },
+   "byEntryMoney": {
+    "<10": {
+     "visits": 68,
+     "withRerollPct": 18,
+     "rerollsPerVisit": 0.5,
+     "rerollsWhenRerolling": {
+      "n": 12,
+      "mean": 2.9,
+      "median": 2.5,
+      "p25": 1,
+      "p75": 5
+     },
+     "spentPerVisit": 3.1,
+     "moneyLeftAfterLastReroll": {
+      "n": 12,
+      "mean": 17.4,
+      "median": 16,
+      "p25": -5.5,
+      "p75": 49.3
+     }
+    },
+    "10-19": {
+     "visits": 42,
+     "withRerollPct": 7,
+     "rerollsPerVisit": 0.2,
+     "rerollsWhenRerolling": {
+      "n": 3,
+      "mean": 3,
+      "median": 2,
+      "p25": 1.5,
+      "p75": 4
+     },
+     "spentPerVisit": 1.3,
+     "moneyLeftAfterLastReroll": {
+      "n": 3,
+      "mean": 10.3,
+      "median": 7,
+      "p25": 7,
+      "p75": 12
+     }
+    },
+    "20-29": {
+     "visits": 49,
+     "withRerollPct": 27,
+     "rerollsPerVisit": 0.5,
+     "rerollsWhenRerolling": {
+      "n": 13,
+      "mean": 1.8,
+      "median": 1,
+      "p25": 1,
+      "p75": 2
+     },
+     "spentPerVisit": 2.7,
+     "moneyLeftAfterLastReroll": {
+      "n": 13,
+      "mean": 7.7,
+      "median": 13,
+      "p25": 8,
+      "p75": 19
+     }
+    },
+    "30-49": {
+     "visits": 190,
+     "withRerollPct": 56,
+     "rerollsPerVisit": 1.3,
+     "rerollsWhenRerolling": {
+      "n": 107,
+      "mean": 2.3,
+      "median": 1,
+      "p25": 1,
+      "p75": 3
+     },
+     "spentPerVisit": 7.2,
+     "moneyLeftAfterLastReroll": {
+      "n": 107,
+      "mean": 40.2,
+      "median": 32,
+      "p25": 27,
+      "p75": 39
+     }
+    },
+    "50+": {
+     "visits": 157,
+     "withRerollPct": 83,
+     "rerollsPerVisit": 3.3,
+     "rerollsWhenRerolling": {
+      "n": 130,
+      "mean": 4,
+      "median": 3,
+      "p25": 2,
+      "p75": 5
+     },
+     "spentPerVisit": 21.2,
+     "moneyLeftAfterLastReroll": {
+      "n": 130,
+      "mean": 70.5,
+      "median": 47.5,
+      "p25": 34,
+      "p75": 59.5
+     }
+    }
+   },
+   "byAnteAndEntryMoney": {
+    "1": {
+     "<10": {
+      "visits": 19,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "10-19": {
+      "visits": 7,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     }
+    },
+    "2": {
+     "<10": {
+      "visits": 9,
+      "withRerollPct": 11,
+      "rerollsPerVisit": 0.1
+     },
+     "10-19": {
+      "visits": 11,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 7,
+      "withRerollPct": 14,
+      "rerollsPerVisit": 0.1
+     },
+     "30-49": {
+      "visits": 13,
+      "withRerollPct": 23,
+      "rerollsPerVisit": 0.4
+     },
+     "50+": {
+      "visits": 2,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 2
+     }
+    },
+    "3": {
+     "<10": {
+      "visits": 6,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "10-19": {
+      "visits": 9,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 3,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 17,
+      "withRerollPct": 53,
+      "rerollsPerVisit": 0.7
+     },
+     "50+": {
+      "visits": 4,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 3.5
+     }
+    },
+    "4": {
+     "<10": {
+      "visits": 7,
+      "withRerollPct": 14,
+      "rerollsPerVisit": 0.3
+     },
+     "10-19": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 5,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 18,
+      "withRerollPct": 56,
+      "rerollsPerVisit": 1.3
+     },
+     "50+": {
+      "visits": 14,
+      "withRerollPct": 79,
+      "rerollsPerVisit": 1.9
+     }
+    },
+    "5": {
+     "<10": {
+      "visits": 3,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 4,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 0.8
+     },
+     "30-49": {
+      "visits": 30,
+      "withRerollPct": 53,
+      "rerollsPerVisit": 0.9
+     },
+     "50+": {
+      "visits": 12,
+      "withRerollPct": 75,
+      "rerollsPerVisit": 2.7
+     }
+    },
+    "6": {
+     "<10": {
+      "visits": 7,
+      "withRerollPct": 14,
+      "rerollsPerVisit": 0.7
+     },
+     "10-19": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 8,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 1.1
+     },
+     "30-49": {
+      "visits": 19,
+      "withRerollPct": 42,
+      "rerollsPerVisit": 0.7
+     },
+     "50+": {
+      "visits": 12,
+      "withRerollPct": 67,
+      "rerollsPerVisit": 2.4
+     }
+    },
+    "7": {
+     "<10": {
+      "visits": 6,
+      "withRerollPct": 33,
+      "rerollsPerVisit": 1.2
+     },
+     "10-19": {
+      "visits": 5,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 3,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 21,
+      "withRerollPct": 57,
+      "rerollsPerVisit": 1
+     },
+     "50+": {
+      "visits": 16,
+      "withRerollPct": 81,
+      "rerollsPerVisit": 2.9
+     }
+    },
+    "8": {
+     "<10": {
+      "visits": 2,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 3
+     },
+     "10-19": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 4,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 18,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 0.8
+     },
+     "50+": {
+      "visits": 21,
+      "withRerollPct": 95,
+      "rerollsPerVisit": 2.9
+     }
+    },
+    "9+": {
+     "<10": {
+      "visits": 9,
+      "withRerollPct": 67,
+      "rerollsPerVisit": 1.6
+     },
+     "10-19": {
+      "visits": 6,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 1.5
+     },
+     "20-29": {
+      "visits": 14,
+      "withRerollPct": 43,
+      "rerollsPerVisit": 0.7
+     },
+     "30-49": {
+      "visits": 54,
+      "withRerollPct": 74,
+      "rerollsPerVisit": 2.4
+     },
+     "50+": {
+      "visits": 76,
+      "withRerollPct": 83,
+      "rerollsPerVisit": 4.1
+     }
+    }
+   }
+  },
+  "skips": {
+   "1": {
+    "opportunities": 30,
+    "skippedSmall": 2,
+    "skippedBig": 0,
+    "skipPct": 7,
+    "tags": {
+     "unread": 1,
+     "Uncommon Tag": 1
+    }
+   },
+   "2": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "3": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "4": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "5": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "6": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "7": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "8": {
+    "opportunities": 30,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "9+": {
+    "opportunities": 110,
+    "skippedSmall": 0,
+    "skippedBig": 1,
+    "skipPct": 1,
+    "tags": {
+     "Buffoon Tag": 1
+    }
+   }
+  },
+  "packs": {
+   "opened": 741,
+   "boughtInShopByAnte": {
+    "1": {
+     "visits": 28,
+     "packsBought": 28,
+     "perVisit": 1
+    },
+    "2": {
+     "visits": 45,
+     "packsBought": 45,
+     "perVisit": 1
+    },
+    "3": {
+     "visits": 45,
+     "packsBought": 60,
+     "perVisit": 1.3
+    },
+    "4": {
+     "visits": 47,
+     "packsBought": 78,
+     "perVisit": 1.7
+    },
+    "5": {
+     "visits": 51,
+     "packsBought": 74,
+     "perVisit": 1.5
+    },
+    "6": {
+     "visits": 50,
+     "packsBought": 72,
+     "perVisit": 1.4
+    },
+    "7": {
+     "visits": 53,
+     "packsBought": 81,
+     "perVisit": 1.5
+    },
+    "8": {
+     "visits": 48,
+     "packsBought": 83,
+     "perVisit": 1.7
+    },
+    "9+": {
+     "visits": 173,
+     "packsBought": 218,
+     "perVisit": 1.3
+    }
+   },
+   "byAnte": {
+    "1": {
+     "opened": 28,
+     "Buffoon": 18,
+     "Celestial": 4,
+     "Spectral": 4,
+     "Arcana": 2
+    },
+    "2": {
+     "opened": 45,
+     "Arcana": 24,
+     "Buffoon": 8,
+     "Celestial": 6,
+     "Spectral": 4,
+     "Standard": 3
+    },
+    "3": {
+     "opened": 60,
+     "Arcana": 17,
+     "Celestial": 13,
+     "Buffoon": 12,
+     "Standard": 12,
+     "Spectral": 6
+    },
+    "4": {
+     "opened": 78,
+     "Arcana": 32,
+     "Celestial": 25,
+     "Standard": 10,
+     "Buffoon": 6,
+     "Spectral": 5
+    },
+    "5": {
+     "opened": 74,
+     "Arcana": 29,
+     "Celestial": 22,
+     "Standard": 16,
+     "Buffoon": 4,
+     "Spectral": 3
+    },
+    "6": {
+     "opened": 72,
+     "Arcana": 26,
+     "Celestial": 24,
+     "Standard": 9,
+     "Buffoon": 8,
+     "Spectral": 5
+    },
+    "7": {
+     "opened": 81,
+     "Arcana": 35,
+     "Celestial": 23,
+     "Standard": 15,
+     "Buffoon": 5,
+     "Spectral": 3
+    },
+    "8": {
+     "opened": 83,
+     "Celestial": 35,
+     "Arcana": 23,
+     "Standard": 13,
+     "Buffoon": 9,
+     "Spectral": 3
+    },
+    "9+": {
+     "opened": 220,
+     "Arcana": 86,
+     "Celestial": 66,
+     "Standard": 32,
+     "Buffoon": 19,
+     "Spectral": 17
+    }
+   },
+   "byType": {
+    "Arcana": {
+     "opened": 274,
+     "sizes": {
+      "normal/jumbo": 262,
+      "mega": 11,
+      "?": 1
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 7,
+     "byAnte": {
+      "1": 2,
+      "2": 24,
+      "3": 17,
+      "4": 32,
+      "5": 29,
+      "6": 26,
+      "7": 35,
+      "8": 23,
+      "9+": 86
+     },
+     "jokersTaken": {
+      "packsWithOne": 15,
+      "jokers": {
+       "Blueprint": 2,
+       "Luchador": 2,
+       "Acrobat": 1,
+       "Sixth Sense": 1,
+       "Superposition": 1,
+       "Blackboard": 1,
+       "Juggler": 1,
+       "Satellite": 1,
+       "Mail-In Rebate": 1,
+       "Cartomancer": 1,
+       "Gift Card": 1,
+       "Lucky Cat": 1,
+       "Perkeo": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 13,
+      "cards": {
+       "The Star": 2,
+       "The Hermit": 2,
+       "The Fool": 2,
+       "Temperance": 1,
+       "The Lovers": 1,
+       "The Wheel of Fortune": 1,
+       "The Magician": 1,
+       "The Hanged Man": 1,
+       "Judgement": 1,
+       "The Emperor": 1
+      }
+     },
+     "consumablesArriving": {
+      "Strength": 5,
+      "The Fool": 5,
+      "The Devil": 4,
+      "The High Priestess": 4,
+      "The Sun": 4,
+      "The Empress": 4,
+      "The Hanged Man": 4,
+      "Earth": 3,
+      "The Chariot": 3,
+      "The Tower": 3
+     },
+     "offeredMost": {
+      "The Hierophant": 61,
+      "The Hanged Man": 56,
+      "The Hermit": 50,
+      "Judgement": 48,
+      "Justice": 46,
+      "The Devil": 42,
+      "The Lovers": 42,
+      "The Star": 41,
+      "The Emperor": 40,
+      "The Magician": 39,
+      "Temperance": 37,
+      "The Moon": 36
+     }
+    },
+    "Buffoon": {
+     "opened": 89,
+     "sizes": {
+      "normal/jumbo": 81,
+      "mega": 7,
+      "?": 1
+     },
+     "fromTagsPct": 1,
+     "medianAnte": 5,
+     "byAnte": {
+      "1": 18,
+      "2": 8,
+      "3": 12,
+      "4": 6,
+      "5": 4,
+      "6": 8,
+      "7": 5,
+      "8": 9,
+      "9+": 19
+     },
+     "jokersTaken": {
+      "packsWithOne": 47,
+      "jokers": {
+       "Mail-In Rebate": 2,
+       "Constellation": 2,
+       "Hologram": 2,
+       "The Tribe": 2,
+       "Sixth Sense": 2,
+       "Zany Joker": 2,
+       "Joker Stencil": 1,
+       "Walkie Talkie": 1,
+       "Wily Joker": 1,
+       "Riff-Raff": 1,
+       "Egg": 1,
+       "Invisible Joker": 1,
+       "Ice Cream": 1,
+       "Cloud 9": 1,
+       "Mime": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 3,
+      "cards": {
+       "The Idol": 1,
+       "Wee Joker": 1,
+       "Red Card": 1
+      }
+     },
+     "consumablesArriving": {
+      "The Hierophant": 2,
+      "The Star": 2,
+      "Earth": 1,
+      "Justice": 1,
+      "Judgement": 1,
+      "The Tower": 1,
+      "The Empress": 1,
+      "The High Priestess": 1,
+      "The World": 1,
+      "The Magician": 1
+     },
+     "offeredMost": {
+      "Business Card": 11,
+      "Blue Joker": 6,
+      "Misprint": 5,
+      "Crafty Joker": 5,
+      "Greedy Joker": 5,
+      "Jolly Joker": 5,
+      "Banner": 4,
+      "8 Ball": 4,
+      "Even Steven": 4,
+      "Egg": 4,
+      "Juggler": 4,
+      "Scary Face": 4
+     }
+    },
+    "Celestial": {
+     "opened": 218,
+     "sizes": {
+      "normal/jumbo": 195,
+      "mega": 20,
+      "?": 3
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 7,
+     "byAnte": {
+      "1": 4,
+      "2": 6,
+      "3": 13,
+      "4": 25,
+      "5": 22,
+      "6": 24,
+      "7": 23,
+      "8": 35,
+      "9+": 66
+     },
+     "jokersTaken": {
+      "packsWithOne": 10,
+      "jokers": {
+       "Credit Card": 1,
+       "The Tribe": 1,
+       "Burnt Joker": 1,
+       "Turtle Bean": 1,
+       "Hallucination": 1,
+       "Business Card": 1,
+       "Droll Joker": 1,
+       "DNA": 1,
+       "Scary Face": 1,
+       "To Do List": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 3,
+      "cards": {
+       "Neptune": 1,
+       "Mercury": 1,
+       "Mars": 1
+      }
+     },
+     "consumablesArriving": {
+      "The Hanged Man": 4,
+      "Justice": 3,
+      "Judgement": 3,
+      "The Chariot": 2,
+      "The High Priestess": 2,
+      "The Sun": 2,
+      "Uranus": 1,
+      "The Lovers": 1,
+      "Earth": 1,
+      "Pluto": 1
+     },
+     "offeredMost": {
+      "Mercury": 51,
+      "Venus": 48,
+      "Jupiter": 47,
+      "Neptune": 44,
+      "Mars": 42,
+      "Earth": 42,
+      "Uranus": 41,
+      "Saturn": 40,
+      "Pluto": 32,
+      "Eris": 2,
+      "Planet X": 2,
+      "Black Hole": 1
+     }
+    },
+    "Spectral": {
+     "opened": 50,
+     "sizes": {
+      "normal/jumbo": 45,
+      "mega": 5
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 6,
+     "byAnte": {
+      "1": 4,
+      "2": 4,
+      "3": 6,
+      "4": 5,
+      "5": 3,
+      "6": 5,
+      "7": 3,
+      "8": 3,
+      "9+": 17
+     },
+     "jokersTaken": {
+      "packsWithOne": 2,
+      "jokers": {
+       "Photograph": 1,
+       "Chaos the Clown": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 7,
+      "cards": {
+       "Ectoplasm": 2,
+       "Incantation": 1,
+       "Deja Vu": 1,
+       "Aura": 1,
+       "Familiar": 1,
+       "Immolate": 1
+      }
+     },
+     "consumablesArriving": {
+      "Cryptid": 1,
+      "The Devil": 1,
+      "The Emperor": 1
+     },
+     "offeredMost": {
+      "Immolate": 10,
+      "Deja Vu": 8,
+      "Talisman": 6,
+      "Sigil": 6,
+      "Familiar": 6,
+      "Ankh": 5,
+      "Incantation": 5,
+      "Grim": 5,
+      "Trance": 5,
+      "Aura": 5,
+      "Ectoplasm": 4,
+      "Medium": 4
+     }
+    },
+    "Standard": {
+     "opened": 110,
+     "sizes": {
+      "normal/jumbo": 100,
+      "mega": 8,
+      "?": 2
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 7,
+     "byAnte": {
+      "2": 3,
+      "3": 12,
+      "4": 10,
+      "5": 16,
+      "6": 9,
+      "7": 15,
+      "8": 13,
+      "9+": 32
+     },
+     "jokersTaken": {
+      "packsWithOne": 3,
+      "jokers": {
+       "Certificate": 1,
+       "Gros Michel": 1,
+       "The Trio": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 0,
+      "cards": {}
+     },
+     "consumablesArriving": {
+      "The Fool": 6,
+      "The World": 5,
+      "The Lovers": 4,
+      "The Magician": 2,
+      "The Empress": 1,
+      "Strength": 1,
+      "The Star": 1,
+      "Deja Vu": 1,
+      "The Sun": 1,
+      "Death": 1
+     },
+     "offeredMost": {}
+    }
+   }
+  },
+  "vouchers": {
+   "bought": 57,
+   "runsWithVouchers": 15,
+   "sequences": [
+    {
+     "run": "0YQg7HqqF40#0",
+     "vouchers": [
+      "Paint Brush (a1)",
+      "Planet Merchant (a3)",
+      "Director's Cut (a4)",
+      "Wasteful (a5)"
+     ]
+    },
+    {
+     "run": "8cuq_dW2V_g#0",
+     "vouchers": [
+      "Overstock (a4)",
+      "Hieroglyph (a5)",
+      "Wasteful (a5)"
+     ]
+    },
+    {
+     "run": "bb3UmQWsofM#0",
+     "vouchers": [
+      "Reroll Surplus (a2)",
+      "Director's Cut (a3)"
+     ]
+    },
+    {
+     "run": "brRkg1_VFAU#0",
+     "vouchers": [
+      "Blank (a7)",
+      "Antimatter (a11)"
+     ]
+    },
+    {
+     "run": "e-xjK3zeAVM#0",
+     "vouchers": [
+      "Blank (a2)",
+      "Planet Merchant (a3)",
+      "Antimatter (a7)"
+     ]
+    },
+    {
+     "run": "LXou4GPdMYY#0",
+     "vouchers": [
+      "Overstock (a1)",
+      "Hone (a5)",
+      "Grabber (a6)",
+      "Glow Up (a8)",
+      "Overstock Plus (a9)"
+     ]
+    },
+    {
+     "run": "nLdGlAmcWAM#0",
+     "vouchers": [
+      "Grabber (a4)",
+      "Crystal Ball (a9)"
+     ]
+    },
+    {
+     "run": "o0Dv57c9UhY#0",
+     "vouchers": [
+      "Grabber (a2)",
+      "Clearance Sale (a3)",
+      "Paint Brush (a4)",
+      "Director's Cut (a5)",
+      "Hone (a10)"
+     ]
+    },
+    {
+     "run": "oqiWiv4ygWU#0",
+     "vouchers": [
+      "Reroll Surplus (a7)",
+      "Nacho Tong (a10)",
+      "Liquidation (a11)"
+     ]
+    },
+    {
+     "run": "OTn6yl2jxGg#0",
+     "vouchers": [
+      "Crystal Ball (a6)",
+      "Seed Money (a8)",
+      "Reroll Surplus (a10)",
+      "Reroll Glut (a11)"
+     ]
+    },
+    {
+     "run": "SkwRy_N5D9A#0",
+     "vouchers": [
+      "Grabber (a2)",
+      "Seed Money (a3)",
+      "Blank (a6)",
+      "Clearance Sale (a7)",
+      "Overstock (a8)"
+     ]
+    },
+    {
+     "run": "vA_acBOHMb4#0",
+     "vouchers": [
+      "Director's Cut (a2)",
+      "Telescope (a3)",
+      "Reroll Surplus (a6)",
+      "Planet Merchant (a7)",
+      "Hieroglyph (a9)",
+      "Wasteful (a10)"
+     ]
+    },
+    {
+     "run": "XfLcmbk09tc#0",
+     "vouchers": [
+      "Clearance Sale (a1)",
+      "Blank (a4)",
+      "Wasteful (a5)",
+      "Reroll Surplus (a10)"
+     ]
+    },
+    {
+     "run": "yefo5lyt6wU#0",
+     "vouchers": [
+      "Wasteful (a3)",
+      "Reroll Surplus (a6)",
+      "Hone (a8)",
+      "Reroll Glut (a9)"
+     ]
+    },
+    {
+     "run": "ylLAEKHkm00#1",
+     "vouchers": [
+      "Tarot Merchant (a2)",
+      "Wasteful (a6)",
+      "Observatory (a7)",
+      "Overstock Plus (a9)",
+      "Reroll Surplus (a11)"
+     ]
+    }
+   ],
+   "byAnte": {
+    "1": {
+     "n": 3,
+     "Paint Brush": 1,
+     "Overstock": 1,
+     "Clearance Sale": 1
+    },
+    "2": {
+     "n": 6,
+     "Grabber": 2,
+     "Reroll Surplus": 1,
+     "Blank": 1,
+     "Director's Cut": 1,
+     "Tarot Merchant": 1
+    },
+    "3": {
+     "n": 7,
+     "Planet Merchant": 2,
+     "Director's Cut": 1,
+     "Clearance Sale": 1,
+     "Seed Money": 1,
+     "Telescope": 1,
+     "Wasteful": 1
+    },
+    "4": {
+     "n": 5,
+     "Director's Cut": 1,
+     "Overstock": 1,
+     "Grabber": 1,
+     "Paint Brush": 1,
+     "Blank": 1
+    },
+    "5": {
+     "n": 6,
+     "Wasteful": 3,
+     "Hieroglyph": 1,
+     "Hone": 1,
+     "Director's Cut": 1
+    },
+    "6": {
+     "n": 6,
+     "Reroll Surplus": 2,
+     "Grabber": 1,
+     "Crystal Ball": 1,
+     "Blank": 1,
+     "Wasteful": 1
+    },
+    "7": {
+     "n": 6,
+     "Blank": 1,
+     "Antimatter": 1,
+     "Reroll Surplus": 1,
+     "Clearance Sale": 1,
+     "Planet Merchant": 1,
+     "Observatory": 1
+    },
+    "8": {
+     "n": 4,
+     "Glow Up": 1,
+     "Seed Money": 1,
+     "Overstock": 1,
+     "Hone": 1
+    },
+    "9+": {
+     "n": 14,
+     "Reroll Surplus": 3,
+     "Overstock Plus": 2,
+     "Reroll Glut": 2,
+     "Antimatter": 1,
+     "Crystal Ball": 1,
+     "Hone": 1,
+     "Nacho Tong": 1,
+     "Liquidation": 1,
+     "Hieroglyph": 1,
+     "Wasteful": 1
+    }
+   },
+   "shelf": {
+    "offered": 366,
+    "bought": 57,
+    "boughtPct": 16,
+    "entryMoneyWhenBought": {
+     "n": 56,
+     "mean": 76.3,
+     "median": 43,
+     "p25": 35.8,
+     "p75": 59.5
+    },
+    "entryMoneyWhenPassed": {
+     "n": 296,
+     "mean": 43.3,
+     "median": 34,
+     "p25": 12,
+     "p75": 46
+    }
+   },
+   "byVoucher": {
+    "Reroll Surplus": {
+     "bought": 7,
+     "medianAnte": 7,
+     "antes": [
+      2,
+      7,
+      10,
+      6,
+      10,
+      6,
+      11
+     ],
+     "order": [
+      1,
+      1,
+      3,
+      3,
+      4,
+      2,
+      5
+     ],
+     "shelfVisits": 18,
+     "boughtFromShelfPct": 39
+    },
+    "Wasteful": {
+     "bought": 6,
+     "medianAnte": 5,
+     "antes": [
+      5,
+      5,
+      10,
+      5,
+      3,
+      6
+     ],
+     "order": [
+      4,
+      3,
+      6,
+      3,
+      1,
+      2
+     ],
+     "shelfVisits": 25,
+     "boughtFromShelfPct": 24
+    },
+    "Blank": {
+     "bought": 4,
+     "medianAnte": 6,
+     "antes": [
+      7,
+      2,
+      6,
+      4
+     ],
+     "order": [
+      1,
+      1,
+      3,
+      2
+     ],
+     "shelfVisits": 28,
+     "boughtFromShelfPct": 14
+    },
+    "Director's Cut": {
+     "bought": 4,
+     "medianAnte": 4,
+     "antes": [
+      4,
+      3,
+      5,
+      2
+     ],
+     "order": [
+      3,
+      2,
+      4,
+      1
+     ],
+     "shelfVisits": 24,
+     "boughtFromShelfPct": 17
+    },
+    "Grabber": {
+     "bought": 4,
+     "medianAnte": 4,
+     "antes": [
+      6,
+      4,
+      2,
+      2
+     ],
+     "order": [
+      3,
+      1,
+      1,
+      1
+     ],
+     "shelfVisits": 21,
+     "boughtFromShelfPct": 19
+    },
+    "Hone": {
+     "bought": 3,
+     "medianAnte": 8,
+     "antes": [
+      5,
+      10,
+      8
+     ],
+     "order": [
+      2,
+      5,
+      3
+     ],
+     "shelfVisits": 33,
+     "boughtFromShelfPct": 9
+    },
+    "Planet Merchant": {
+     "bought": 3,
+     "medianAnte": 3,
+     "antes": [
+      3,
+      3,
+      7
+     ],
+     "order": [
+      2,
+      2,
+      4
+     ],
+     "shelfVisits": 28,
+     "boughtFromShelfPct": 11
+    },
+    "Clearance Sale": {
+     "bought": 3,
+     "medianAnte": 3,
+     "antes": [
+      3,
+      7,
+      1
+     ],
+     "order": [
+      2,
+      4,
+      1
+     ],
+     "shelfVisits": 12,
+     "boughtFromShelfPct": 25
+    },
+    "Overstock": {
+     "bought": 3,
+     "medianAnte": 4,
+     "antes": [
+      4,
+      1,
+      8
+     ],
+     "order": [
+      1,
+      1,
+      5
+     ],
+     "shelfVisits": 10,
+     "boughtFromShelfPct": 30
+    },
+    "Hieroglyph": {
+     "bought": 2,
+     "medianAnte": 9,
+     "antes": [
+      5,
+      9
+     ],
+     "order": [
+      2,
+      5
+     ],
+     "shelfVisits": 18,
+     "boughtFromShelfPct": 11
+    },
+    "Seed Money": {
+     "bought": 2,
+     "medianAnte": 8,
+     "antes": [
+      8,
+      3
+     ],
+     "order": [
+      2,
+      2
+     ],
+     "shelfVisits": 18,
+     "boughtFromShelfPct": 11
+    },
+    "Crystal Ball": {
+     "bought": 2,
+     "medianAnte": 9,
+     "antes": [
+      9,
+      6
+     ],
+     "order": [
+      2,
+      1
+     ],
+     "shelfVisits": 16,
+     "boughtFromShelfPct": 13
+    },
+    "Paint Brush": {
+     "bought": 2,
+     "medianAnte": 4,
+     "antes": [
+      1,
+      4
+     ],
+     "order": [
+      1,
+      3
+     ],
+     "shelfVisits": 11,
+     "boughtFromShelfPct": 18
+    },
+    "Antimatter": {
+     "bought": 2,
+     "medianAnte": 11,
+     "antes": [
+      11,
+      7
+     ],
+     "order": [
+      2,
+      3
+     ],
+     "shelfVisits": 6,
+     "boughtFromShelfPct": 33
+    },
+    "Overstock Plus": {
+     "bought": 2,
+     "medianAnte": 9,
+     "antes": [
+      9,
+      9
+     ],
+     "order": [
+      5,
+      4
+     ],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 67
+    },
+    "Reroll Glut": {
+     "bought": 2,
+     "medianAnte": 11,
+     "antes": [
+      11,
+      9
+     ],
+     "order": [
+      4,
+      4
+     ],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 100
+    },
+    "Tarot Merchant": {
+     "bought": 1,
+     "medianAnte": 2,
+     "antes": [
+      2
+     ],
+     "order": [
+      1
+     ],
+     "shelfVisits": 22,
+     "boughtFromShelfPct": 5
+    },
+    "Telescope": {
+     "bought": 1,
+     "medianAnte": 3,
+     "antes": [
+      3
+     ],
+     "order": [
+      2
+     ],
+     "shelfVisits": 13,
+     "boughtFromShelfPct": 8
+    },
+    "Glow Up": {
+     "bought": 1,
+     "medianAnte": 8,
+     "antes": [
+      8
+     ],
+     "order": [
+      4
+     ],
+     "shelfVisits": 6,
+     "boughtFromShelfPct": 17
+    },
+    "Nacho Tong": {
+     "bought": 1,
+     "medianAnte": 10,
+     "antes": [
+      10
+     ],
+     "order": [
+      2
+     ],
+     "shelfVisits": 4,
+     "boughtFromShelfPct": 25
+    },
+    "Observatory": {
+     "bought": 1,
+     "medianAnte": 7,
+     "antes": [
+      7
+     ],
+     "order": [
+      3
+     ],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 33
+    },
+    "Liquidation": {
+     "bought": 1,
+     "medianAnte": 11,
+     "antes": [
+      11
+     ],
+     "order": [
+      3
+     ],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 50
+    },
+    "Magic Trick": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 29,
+     "boughtFromShelfPct": 0
+    },
+    "Palette": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 4,
+     "boughtFromShelfPct": 0
+    },
+    "Petroglyph": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 0
+    },
+    "Omen Globe": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 0
+    },
+    "Money Tree": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 0
+    },
+    "Retcon": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    },
+    "Recyclomancy": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    }
+   }
+  },
+  "consumables": {
+   "Tarot": {
+    "actions": {
+     "used": 267,
+     "picked": 166,
+     "sold": 125,
+     "gained": 117,
+     "bought": 109
+    },
+    "byAnte": {
+     "1": {
+      "bought": 3,
+      "picked": 2,
+      "used": 2,
+      "sold": 1
+     },
+     "2": {
+      "used": 11,
+      "bought": 6,
+      "picked": 3,
+      "sold": 1,
+      "gained": 1
+     },
+     "3": {
+      "used": 8,
+      "picked": 5,
+      "bought": 3
+     },
+     "4": {
+      "used": 21,
+      "picked": 13,
+      "bought": 11,
+      "gained": 6,
+      "sold": 5
+     },
+     "5": {
+      "used": 21,
+      "picked": 14,
+      "sold": 12,
+      "bought": 11,
+      "gained": 7
+     },
+     "6": {
+      "used": 19,
+      "gained": 15,
+      "picked": 10,
+      "sold": 10,
+      "bought": 8
+     },
+     "7": {
+      "used": 25,
+      "picked": 17,
+      "sold": 13,
+      "bought": 9,
+      "gained": 9
+     },
+     "8": {
+      "used": 21,
+      "picked": 13,
+      "gained": 10,
+      "sold": 10,
+      "bought": 10
+     },
+     "9+": {
+      "used": 139,
+      "picked": 89,
+      "sold": 73,
+      "gained": 69,
+      "bought": 48
+     }
+    },
+    "usedWhere": {
+     "hand": 192,
+     "shop": 37,
+     "pack": 23,
+     "cash_out": 13,
+     "blind_select": 2
+    },
+    "shelf": {
+     "offered": 441,
+     "bought": 82,
+     "boughtPct": 19
+    },
+    "byCard": {
+     "Strength": {
+      "used": 26,
+      "gained": 17,
+      "sold": 11,
+      "picked": 11,
+      "bought": 9,
+      "total": 74,
+      "medianAnte": 9
+     },
+     "The Fool": {
+      "used": 22,
+      "picked": 19,
+      "sold": 15,
+      "bought": 11,
+      "gained": 7,
+      "total": 74,
+      "medianAnte": 9
+     },
+     "The Hanged Man": {
+      "used": 25,
+      "picked": 16,
+      "bought": 13,
+      "sold": 4,
+      "total": 58,
+      "medianAnte": 6
+     },
+     "The Moon": {
+      "gained": 16,
+      "used": 12,
+      "sold": 11,
+      "picked": 4,
+      "bought": 3,
+      "total": 46,
+      "medianAnte": 10
+     },
+     "The Star": {
+      "used": 14,
+      "gained": 14,
+      "sold": 8,
+      "picked": 6,
+      "bought": 2,
+      "total": 44,
+      "medianAnte": 9
+     },
+     "The Devil": {
+      "used": 17,
+      "picked": 9,
+      "bought": 7,
+      "gained": 5,
+      "sold": 4,
+      "total": 42,
+      "medianAnte": 8
+     },
+     "The Empress": {
+      "used": 15,
+      "picked": 9,
+      "gained": 6,
+      "sold": 5,
+      "bought": 5,
+      "total": 40,
+      "medianAnte": 7
+     },
+     "The Chariot": {
+      "used": 13,
+      "picked": 8,
+      "bought": 8,
+      "sold": 6,
+      "gained": 3,
+      "total": 38,
+      "medianAnte": 8
+     },
+     "The Sun": {
+      "used": 12,
+      "picked": 8,
+      "gained": 6,
+      "sold": 6,
+      "bought": 4,
+      "total": 36,
+      "medianAnte": 9
+     },
+     "The Lovers": {
+      "used": 11,
+      "picked": 10,
+      "sold": 7,
+      "gained": 6,
+      "bought": 2,
+      "total": 36,
+      "medianAnte": 9
+     },
+     "Judgement": {
+      "picked": 11,
+      "sold": 9,
+      "used": 9,
+      "gained": 6,
+      "bought": 1,
+      "total": 36,
+      "medianAnte": 9
+     },
+     "Justice": {
+      "used": 12,
+      "picked": 9,
+      "sold": 5,
+      "bought": 5,
+      "gained": 3,
+      "total": 34,
+      "medianAnte": 9
+     },
+     "Death": {
+      "used": 11,
+      "bought": 10,
+      "picked": 7,
+      "sold": 6,
+      "total": 34,
+      "medianAnte": 9
+     },
+     "The Magician": {
+      "used": 10,
+      "bought": 7,
+      "picked": 7,
+      "sold": 6,
+      "gained": 2,
+      "total": 32,
+      "medianAnte": 8
+     },
+     "The Tower": {
+      "used": 10,
+      "bought": 7,
+      "picked": 6,
+      "sold": 5,
+      "gained": 2,
+      "total": 30,
+      "medianAnte": 6
+     },
+     "The Emperor": {
+      "used": 14,
+      "bought": 7,
+      "picked": 5,
+      "gained": 2,
+      "total": 28,
+      "medianAnte": 9
+     },
+     "The High Priestess": {
+      "used": 9,
+      "picked": 7,
+      "gained": 5,
+      "sold": 4,
+      "bought": 1,
+      "total": 26,
+      "medianAnte": 10
+     },
+     "The World": {
+      "used": 9,
+      "picked": 6,
+      "gained": 5,
+      "sold": 3,
+      "bought": 1,
+      "total": 24,
+      "medianAnte": 7
+     },
+     "The Wheel of Fortune": {
+      "gained": 6,
+      "used": 6,
+      "sold": 3,
+      "picked": 2,
+      "bought": 1,
+      "total": 18,
+      "medianAnte": 9
+     },
+     "The Hierophant": {
+      "used": 7,
+      "picked": 4,
+      "bought": 2,
+      "gained": 1,
+      "total": 14,
+      "medianAnte": 9
+     },
+     "The Hermit": {
+      "sold": 4,
+      "gained": 3,
+      "bought": 2,
+      "used": 2,
+      "picked": 1,
+      "total": 12,
+      "medianAnte": 12
+     },
+     "Temperance": {
+      "sold": 3,
+      "gained": 2,
+      "bought": 1,
+      "picked": 1,
+      "used": 1,
+      "total": 8,
+      "medianAnte": 9
+     }
+    }
+   },
+   "Planet": {
+    "actions": {
+     "gained": 69,
+     "sold": 58,
+     "used": 54,
+     "picked": 27,
+     "bought": 16
+    },
+    "byAnte": {
+     "2": {
+      "picked": 1
+     },
+     "3": {
+      "gained": 3,
+      "picked": 2,
+      "sold": 1,
+      "bought": 1,
+      "used": 1
+     },
+     "4": {
+      "used": 10,
+      "picked": 6,
+      "sold": 3,
+      "gained": 3,
+      "bought": 2
+     },
+     "5": {
+      "sold": 5,
+      "gained": 3,
+      "bought": 1
+     },
+     "6": {
+      "gained": 12,
+      "used": 9,
+      "sold": 4,
+      "picked": 2,
+      "bought": 2
+     },
+     "7": {
+      "gained": 10,
+      "sold": 6,
+      "used": 3
+     },
+     "8": {
+      "sold": 10,
+      "gained": 3,
+      "picked": 3,
+      "bought": 2,
+      "used": 2
+     },
+     "9+": {
+      "gained": 35,
+      "sold": 29,
+      "used": 29,
+      "picked": 13,
+      "bought": 8
+     }
+    },
+    "usedWhere": {
+     "cash_out": 22,
+     "shop": 13,
+     "hand": 11,
+     "pack": 6,
+     "blind_select": 2
+    },
+    "shelf": {
+     "offered": 394,
+     "bought": 3,
+     "boughtPct": 1
+    },
+    "byCard": {
+     "Pluto": {
+      "gained": 22,
+      "sold": 17,
+      "used": 13,
+      "picked": 5,
+      "bought": 3,
+      "total": 60,
+      "medianAnte": 10
+     },
+     "Mercury": {
+      "gained": 20,
+      "sold": 13,
+      "used": 12,
+      "picked": 4,
+      "bought": 1,
+      "total": 50,
+      "medianAnte": 10
+     },
+     "Jupiter": {
+      "used": 14,
+      "gained": 10,
+      "bought": 6,
+      "sold": 6,
+      "picked": 4,
+      "total": 40,
+      "medianAnte": 8
+     },
+     "Saturn": {
+      "gained": 7,
+      "sold": 6,
+      "used": 2,
+      "picked": 1,
+      "total": 16,
+      "medianAnte": 5
+     },
+     "Earth": {
+      "used": 5,
+      "picked": 4,
+      "sold": 2,
+      "bought": 2,
+      "gained": 1,
+      "total": 14,
+      "medianAnte": 4
+     },
+     "Uranus": {
+      "used": 3,
+      "bought": 2,
+      "sold": 2,
+      "picked": 2,
+      "gained": 1,
+      "total": 10,
+      "medianAnte": 4
+     },
+     "Mars": {
+      "gained": 3,
+      "used": 3,
+      "sold": 2,
+      "bought": 1,
+      "picked": 1,
+      "total": 10,
+      "medianAnte": 7
+     },
+     "Venus": {
+      "sold": 3,
+      "gained": 2,
+      "bought": 1,
+      "total": 6,
+      "medianAnte": 8
+     },
+     "Neptune": {
+      "picked": 2,
+      "sold": 2,
+      "used": 1,
+      "gained": 1,
+      "total": 6,
+      "medianAnte": 6
+     },
+     "Eris": {
+      "picked": 2,
+      "sold": 2,
+      "gained": 1,
+      "used": 1,
+      "total": 6,
+      "medianAnte": 11
+     },
+     "Ceres": {
+      "picked": 2,
+      "sold": 2,
+      "total": 4,
+      "medianAnte": 11
+     },
+     "Planet X": {
+      "gained": 1,
+      "sold": 1,
+      "total": 2,
+      "medianAnte": 10
+     }
+    }
+   },
+   "Spectral": {
+    "actions": {
+     "used": 56,
+     "bought": 35,
+     "gained": 29,
+     "sold": 19,
+     "picked": 11
+    },
+    "byAnte": {
+     "1": {
+      "gained": 6,
+      "used": 4,
+      "sold": 1
+     },
+     "2": {
+      "used": 4,
+      "bought": 3,
+      "gained": 2,
+      "sold": 1
+     },
+     "3": {
+      "used": 4,
+      "gained": 2,
+      "bought": 2,
+      "sold": 1
+     },
+     "4": {
+      "used": 5,
+      "bought": 5,
+      "gained": 3,
+      "sold": 2,
+      "picked": 1
+     },
+     "5": {
+      "used": 7,
+      "bought": 4,
+      "gained": 2,
+      "picked": 1,
+      "sold": 1
+     },
+     "6": {
+      "gained": 3,
+      "sold": 3,
+      "bought": 2,
+      "used": 2,
+      "picked": 1
+     },
+     "7": {
+      "used": 5,
+      "gained": 4,
+      "sold": 2,
+      "bought": 1,
+      "picked": 1
+     },
+     "8": {
+      "used": 6,
+      "bought": 5,
+      "gained": 3,
+      "sold": 2,
+      "picked": 1
+     },
+     "9+": {
+      "used": 19,
+      "bought": 13,
+      "sold": 6,
+      "picked": 6,
+      "gained": 4
+     }
+    },
+    "usedWhere": {
+     "hand": 37,
+     "shop": 10,
+     "pack": 4,
+     "cash_out": 3,
+     "blind_select": 2
+    },
+    "shelf": {
+     "offered": 96,
+     "bought": 28,
+     "boughtPct": 29
+    },
+    "byCard": {
+     "Trance": {
+      "used": 12,
+      "bought": 7,
+      "gained": 5,
+      "picked": 2,
+      "sold": 2,
+      "total": 28,
+      "medianAnte": 7
+     },
+     "Hex": {
+      "gained": 12,
+      "used": 9,
+      "sold": 5,
+      "bought": 2,
+      "total": 28,
+      "medianAnte": 4
+     },
+     "Deja Vu": {
+      "used": 10,
+      "picked": 4,
+      "gained": 4,
+      "bought": 3,
+      "sold": 1,
+      "total": 22,
+      "medianAnte": 8
+     },
+     "Cryptid": {
+      "bought": 7,
+      "used": 6,
+      "sold": 3,
+      "gained": 1,
+      "picked": 1,
+      "total": 18,
+      "medianAnte": 9
+     },
+     "Immolate": {
+      "bought": 5,
+      "used": 5,
+      "sold": 1,
+      "picked": 1,
+      "total": 12,
+      "medianAnte": 7
+     },
+     "Familiar": {
+      "used": 4,
+      "bought": 3,
+      "gained": 2,
+      "sold": 1,
+      "total": 10,
+      "medianAnte": 9
+     },
+     "Talisman": {
+      "used": 2,
+      "bought": 2,
+      "sold": 2,
+      "gained": 1,
+      "picked": 1,
+      "total": 8,
+      "medianAnte": 9
+     },
+     "Ankh": {
+      "bought": 2,
+      "used": 2,
+      "gained": 1,
+      "sold": 1,
+      "total": 6,
+      "medianAnte": 9
+     },
+     "Wraith": {
+      "gained": 1,
+      "used": 1,
+      "bought": 1,
+      "sold": 1,
+      "total": 4,
+      "medianAnte": 5
+     },
+     "Medium": {
+      "used": 2,
+      "picked": 1,
+      "bought": 1,
+      "total": 4,
+      "medianAnte": 5
+     },
+     "Ectoplasm": {
+      "bought": 2,
+      "sold": 1,
+      "used": 1,
+      "total": 4,
+      "medianAnte": 11
+     },
+     "Ouija": {
+      "gained": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 10
+     },
+     "Sigil": {
+      "gained": 1,
+      "sold": 1,
+      "total": 2,
+      "medianAnte": 11
+     },
+     "Grim": {
+      "picked": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 9
+     }
+    }
+   }
+  },
+  "jokerSales": {
+   "sold": 192,
+   "replacedPct": 92,
+   "roundsHeld": {
+    "n": 192,
+    "mean": 4.4,
+    "median": 2,
+    "p25": 1,
+    "p75": 5
+   },
+   "where": {
+    "shop": 123,
+    "pack": 31,
+    "cash_out": 17,
+    "hand": 16,
+    "blind_select": 5
+   },
+   "byAnte": {
+    "1": {
+     "sold": 2,
+     "replaced": 1,
+     "jokers": {
+      "Zany Joker": 1,
+      "Mail-In Rebate": 1
+     }
+    },
+    "2": {
+     "sold": 7,
+     "replaced": 7,
+     "jokers": {
+      "Joker Stencil": 1,
+      "Even Steven": 1,
+      "Ice Cream": 1,
+      "Hanging Chad": 1,
+      "Abstract Joker": 1,
+      "Jolly Joker": 1,
+      "Troubadour": 1
+     }
+    },
+    "3": {
+     "sold": 22,
+     "replaced": 22,
+     "jokers": {
+      "Chaos the Clown": 3,
+      "To Do List": 2,
+      "Clever Joker": 1,
+      "Wily Joker": 1,
+      "Gros Michel": 1,
+      "Green Joker": 1,
+      "Photograph": 1,
+      "Shoot the Moon": 1
+     }
+    },
+    "4": {
+     "sold": 24,
+     "replaced": 21,
+     "jokers": {
+      "Business Card": 3,
+      "Superposition": 2,
+      "Gros Michel": 2,
+      "Chaos the Clown": 2,
+      "Acrobat": 1,
+      "Riff-Raff": 1,
+      "Mail-In Rebate": 1,
+      "Matador": 1
+     }
+    },
+    "5": {
+     "sold": 27,
+     "replaced": 27,
+     "jokers": {
+      "Egg": 2,
+      "Card Sharp": 2,
+      "To the Moon": 2,
+      "Chaos the Clown": 2,
+      "Gros Michel": 2,
+      "Droll Joker": 2,
+      "Mime": 1,
+      "Sixth Sense": 1
+     }
+    },
+    "6": {
+     "sold": 16,
+     "replaced": 16,
+     "jokers": {
+      "Astronomer": 2,
+      "Supernova": 1,
+      "To Do List": 1,
+      "Chaos the Clown": 1,
+      "Gift Card": 1,
+      "Space Joker": 1,
+      "Mr. Bones": 1,
+      "Swashbuckler": 1
+     }
+    },
+    "7": {
+     "sold": 22,
+     "replaced": 20,
+     "jokers": {
+      "Abstract Joker": 2,
+      "Lucky Cat": 1,
+      "Arrowhead": 1,
+      "Acrobat": 1,
+      "Sock and Buskin": 1,
+      "Reserved Parking": 1,
+      "Trading Card": 1,
+      "Mime": 1
+     }
+    },
+    "8": {
+     "sold": 16,
+     "replaced": 16,
+     "jokers": {
+      "Burnt Joker": 2,
+      "Mail-In Rebate": 2,
+      "Red Card": 2,
+      "Sixth Sense": 1,
+      "Misprint": 1,
+      "Loyalty Card": 1,
+      "Zany Joker": 1,
+      "Certificate": 1
+     }
+    },
+    "9+": {
+     "sold": 56,
+     "replaced": 47,
+     "jokers": {
+      "Blueprint": 4,
+      "Invisible Joker": 4,
+      "Business Card": 4,
+      "Chaos the Clown": 3,
+      "Scholar": 3,
+      "Luchador": 3,
+      "Seeing Double": 2,
+      "Photograph": 2
+     }
+    }
+   },
+   "mostSold": {
+    "Chaos the Clown": 11,
+    "Mail-In Rebate": 7,
+    "Business Card": 7,
+    "Blueprint": 6,
+    "Sixth Sense": 5,
+    "Gros Michel": 5,
+    "Invisible Joker": 5,
+    "Hallucination": 4,
+    "Burnt Joker": 4,
+    "Reserved Parking": 4,
+    "Jolly Joker": 4,
+    "Abstract Joker": 4,
+    "Acrobat": 3,
+    "Egg": 3,
+    "Riff-Raff": 3,
+    "Certificate": 3,
+    "Photograph": 3,
+    "Scholar": 3,
+    "DNA": 3,
+    "To Do List": 3
+   },
+   "replacements": {
+    "Sixth Sense -> Card Sharp": 2,
+    "Seeing Double -> Bloodstone": 2,
+    "Blueprint -> Bloodstone": 2,
+    "Photograph -> Cavendish": 2,
+    "Chaos the Clown -> Scholar": 2,
+    "Business Card -> Trading Card": 2,
+    "Abstract Joker -> Glass Joker": 2,
+    "Red Card -> Glass Joker": 2,
+    "Joker Stencil -> Misprint": 1,
+    "Acrobat -> Bloodstone": 1,
+    "Mime -> Card Sharp": 1,
+    "Egg -> Hallucination": 1,
+    "Card Sharp -> Sixth Sense": 1,
+    "Hallucination -> Walkie Talkie": 1,
+    "Burnt Joker -> Superposition": 1,
+    "Even Steven -> Photograph": 1,
+    "Clever Joker -> Wily Joker": 1,
+    "Chaos the Clown -> Wily Joker": 1,
+    "Wily Joker -> Blueprint": 1,
+    "Riff-Raff -> Mail-In Rebate": 1,
+    "Superposition -> Mail-In Rebate": 1,
+    "Gros Michel -> Lucky Cat": 1,
+    "Business Card -> Brainstorm": 1,
+    "Mail-In Rebate -> Lucky Cat": 1,
+    "Egg -> Mr. Bones": 1
+   }
+  },
+  "hands": {
+   "plays": 1435,
+   "playsRead": 657,
+   "byAnte": {
+    "1": {
+     "n": 50,
+     "cardsPlayedMean": 4.9,
+     "hands": {
+      "Flush": {
+       "n": 21,
+       "pct": 42
+      },
+      "Pair": {
+       "n": 7,
+       "pct": 14
+      },
+      "Full House": {
+       "n": 6,
+       "pct": 12
+      },
+      "Straight": {
+       "n": 5,
+       "pct": 10
+      },
+      "Two Pair": {
+       "n": 5,
+       "pct": 10
+      },
+      "High Card": {
+       "n": 3,
+       "pct": 6
+      },
+      "Four of a Kind": {
+       "n": 2,
+       "pct": 4
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "2": {
+     "n": 63,
+     "cardsPlayedMean": 4.8,
+     "hands": {
+      "Flush": {
+       "n": 15,
+       "pct": 24
+      },
+      "Pair": {
+       "n": 14,
+       "pct": 22
+      },
+      "Two Pair": {
+       "n": 14,
+       "pct": 22
+      },
+      "Three of a Kind": {
+       "n": 6,
+       "pct": 10
+      },
+      "Full House": {
+       "n": 6,
+       "pct": 10
+      },
+      "High Card": {
+       "n": 4,
+       "pct": 6
+      },
+      "Straight": {
+       "n": 3,
+       "pct": 5
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "3": {
+     "n": 61,
+     "cardsPlayedMean": 4.9,
+     "hands": {
+      "Two Pair": {
+       "n": 17,
+       "pct": 28
+      },
+      "Pair": {
+       "n": 14,
+       "pct": 23
+      },
+      "Flush": {
+       "n": 13,
+       "pct": 21
+      },
+      "High Card": {
+       "n": 9,
+       "pct": 15
+      },
+      "Full House": {
+       "n": 3,
+       "pct": 5
+      },
+      "Straight": {
+       "n": 2,
+       "pct": 3
+      },
+      "Five of a Kind": {
+       "n": 2,
+       "pct": 3
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "4": {
+     "n": 64,
+     "cardsPlayedMean": 4.8,
+     "hands": {
+      "Pair": {
+       "n": 19,
+       "pct": 30
+      },
+      "Two Pair": {
+       "n": 12,
+       "pct": 19
+      },
+      "Flush": {
+       "n": 11,
+       "pct": 17
+      },
+      "High Card": {
+       "n": 6,
+       "pct": 9
+      },
+      "Three of a Kind": {
+       "n": 5,
+       "pct": 8
+      },
+      "Four of a Kind": {
+       "n": 4,
+       "pct": 6
+      },
+      "Straight": {
+       "n": 3,
+       "pct": 5
+      },
+      "Full House": {
+       "n": 3,
+       "pct": 5
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "5": {
+     "n": 66,
+     "cardsPlayedMean": 4.7,
+     "hands": {
+      "Pair": {
+       "n": 22,
+       "pct": 33
+      },
+      "High Card": {
+       "n": 12,
+       "pct": 18
+      },
+      "Flush": {
+       "n": 12,
+       "pct": 18
+      },
+      "Two Pair": {
+       "n": 5,
+       "pct": 8
+      },
+      "Straight": {
+       "n": 4,
+       "pct": 6
+      },
+      "Five of a Kind": {
+       "n": 4,
+       "pct": 6
+      },
+      "Three of a Kind": {
+       "n": 3,
+       "pct": 5
+      },
+      "Full House": {
+       "n": 3,
+       "pct": 5
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "6": {
+     "n": 62,
+     "cardsPlayedMean": 4.8,
+     "hands": {
+      "Flush": {
+       "n": 23,
+       "pct": 37
+      },
+      "Pair": {
+       "n": 17,
+       "pct": 27
+      },
+      "Two Pair": {
+       "n": 7,
+       "pct": 11
+      },
+      "High Card": {
+       "n": 5,
+       "pct": 8
+      },
+      "Straight": {
+       "n": 4,
+       "pct": 6
+      },
+      "Five of a Kind": {
+       "n": 4,
+       "pct": 6
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 2
+      },
+      "Full House": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "7": {
+     "n": 58,
+     "cardsPlayedMean": 4.8,
+     "hands": {
+      "Pair": {
+       "n": 14,
+       "pct": 24
+      },
+      "Flush": {
+       "n": 13,
+       "pct": 22
+      },
+      "High Card": {
+       "n": 8,
+       "pct": 14
+      },
+      "Two Pair": {
+       "n": 7,
+       "pct": 12
+      },
+      "Straight": {
+       "n": 6,
+       "pct": 10
+      },
+      "Three of a Kind": {
+       "n": 4,
+       "pct": 7
+      },
+      "Flush Five": {
+       "n": 4,
+       "pct": 7
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 2
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "8": {
+     "n": 58,
+     "cardsPlayedMean": 4.9,
+     "hands": {
+      "Pair": {
+       "n": 19,
+       "pct": 33
+      },
+      "Flush": {
+       "n": 12,
+       "pct": 21
+      },
+      "Straight": {
+       "n": 6,
+       "pct": 10
+      },
+      "Two Pair": {
+       "n": 5,
+       "pct": 9
+      },
+      "Flush Five": {
+       "n": 5,
+       "pct": 9
+      },
+      "High Card": {
+       "n": 4,
+       "pct": 7
+      },
+      "Four of a Kind": {
+       "n": 4,
+       "pct": 7
+      },
+      "Five of a Kind": {
+       "n": 2,
+       "pct": 3
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "9+": {
+     "n": 175,
+     "cardsPlayedMean": 4.7,
+     "hands": {
+      "Flush": {
+       "n": 46,
+       "pct": 26
+      },
+      "Pair": {
+       "n": 35,
+       "pct": 20
+      },
+      "Flush Five": {
+       "n": 29,
+       "pct": 17
+      },
+      "High Card": {
+       "n": 18,
+       "pct": 10
+      },
+      "Straight": {
+       "n": 13,
+       "pct": 7
+      },
+      "Five of a Kind": {
+       "n": 13,
+       "pct": 7
+      },
+      "Two Pair": {
+       "n": 8,
+       "pct": 5
+      },
+      "Three of a Kind": {
+       "n": 6,
+       "pct": 3
+      },
+      "Four of a Kind": {
+       "n": 4,
+       "pct": 2
+      },
+      "Full House": {
+       "n": 2,
+       "pct": 1
+      },
+      "Straight Flush": {
+       "n": 1,
+       "pct": 1
+      }
+     }
+    }
+   },
+   "byDeck": {
+    "PLASMA": {
+     "n": 58,
+     "hands": {
+      "Straight": {
+       "n": 41,
+       "pct": 71
+      },
+      "Pair": {
+       "n": 10,
+       "pct": 17
+      },
+      "High Card": {
+       "n": 3,
+       "pct": 5
+      },
+      "Full House": {
+       "n": 1,
+       "pct": 2
+      },
+      "Flush": {
+       "n": 1,
+       "pct": 2
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 2
+      },
+      "Straight Flush": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "ERRATIC": {
+     "n": 68,
+     "hands": {
+      "Five of a Kind": {
+       "n": 27,
+       "pct": 40
+      },
+      "Pair": {
+       "n": 10,
+       "pct": 15
+      },
+      "High Card": {
+       "n": 8,
+       "pct": 12
+      },
+      "Three of a Kind": {
+       "n": 7,
+       "pct": 10
+      },
+      "Four of a Kind": {
+       "n": 6,
+       "pct": 9
+      },
+      "Full House": {
+       "n": 5,
+       "pct": 7
+      },
+      "Two Pair": {
+       "n": 5,
+       "pct": 7
+      }
+     }
+    },
+    "GHOST": {
+     "n": 208,
+     "hands": {
+      "Pair": {
+       "n": 81,
+       "pct": 39
+      },
+      "High Card": {
+       "n": 42,
+       "pct": 20
+      },
+      "Two Pair": {
+       "n": 30,
+       "pct": 14
+      },
+      "Flush": {
+       "n": 17,
+       "pct": 8
+      },
+      "Flush Five": {
+       "n": 12,
+       "pct": 6
+      },
+      "Three of a Kind": {
+       "n": 11,
+       "pct": 5
+      },
+      "Four of a Kind": {
+       "n": 7,
+       "pct": 3
+      },
+      "Full House": {
+       "n": 6,
+       "pct": 3
+      },
+      "Straight": {
+       "n": 2,
+       "pct": 1
+      }
+     }
+    },
+    "YELLOW": {
+     "n": 41,
+     "hands": {
+      "Pair": {
+       "n": 29,
+       "pct": 71
+      },
+      "High Card": {
+       "n": 6,
+       "pct": 15
+      },
+      "Two Pair": {
+       "n": 4,
+       "pct": 10
+      },
+      "Straight": {
+       "n": 1,
+       "pct": 2
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "CHECKERED": {
+     "n": 171,
+     "hands": {
+      "Flush": {
+       "n": 143,
+       "pct": 84
+      },
+      "Flush Five": {
+       "n": 14,
+       "pct": 8
+      },
+      "High Card": {
+       "n": 6,
+       "pct": 4
+      },
+      "Pair": {
+       "n": 5,
+       "pct": 3
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 1
+      },
+      "Two Pair": {
+       "n": 1,
+       "pct": 1
+      },
+      "Straight": {
+       "n": 1,
+       "pct": 1
+      }
+     }
+    },
+    "BLUE": {
+     "n": 32,
+     "hands": {
+      "Two Pair": {
+       "n": 23,
+       "pct": 72
+      },
+      "High Card": {
+       "n": 4,
+       "pct": 13
+      },
+      "Pair": {
+       "n": 2,
+       "pct": 6
+      },
+      "Flush": {
+       "n": 1,
+       "pct": 3
+      },
+      "Full House": {
+       "n": 1,
+       "pct": 3
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 3
+      }
+     }
+    },
+    "ABANDONED": {
+     "n": 51,
+     "hands": {
+      "Two Pair": {
+       "n": 16,
+       "pct": 31
+      },
+      "Flush Five": {
+       "n": 12,
+       "pct": 24
+      },
+      "Full House": {
+       "n": 10,
+       "pct": 20
+      },
+      "Three of a Kind": {
+       "n": 4,
+       "pct": 8
+      },
+      "Pair": {
+       "n": 4,
+       "pct": 8
+      },
+      "Four of a Kind": {
+       "n": 3,
+       "pct": 6
+      },
+      "Flush": {
+       "n": 1,
+       "pct": 2
+      },
+      "Straight": {
+       "n": 1,
+       "pct": 2
+      }
+     }
+    },
+    "BLACK": {
+     "n": 28,
+     "hands": {
+      "Pair": {
+       "n": 20,
+       "pct": 71
+      },
+      "Flush": {
+       "n": 3,
+       "pct": 11
+      },
+      "Two Pair": {
+       "n": 1,
+       "pct": 4
+      },
+      "Full House": {
+       "n": 1,
+       "pct": 4
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 4
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 4
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 4
+      }
+     }
+    }
+   }
+  }
+ },
+ "RED": {
+  "videos": [
+   "hj_BuRY6uRc"
+  ],
+  "decks": {
+   "YELLOW": 15
+  },
+  "runs": 1,
+  "shopVisits": 15,
+  "moneyLeavingShop": {
+   "all": {
+    "visits": 15,
+    "exit": {
+     "n": 14,
+     "mean": 23.5,
+     "median": 27,
+     "p25": 14.5,
+     "p75": 31
+    },
+    "entry": {
+     "n": 15,
+     "mean": 37.5,
+     "median": 35,
+     "p25": 32.5,
+     "p75": 42
+    },
+    "exitAtLeast25Pct": 57,
+    "exitUnder5Pct": 7,
+    "exitOnInterestStepPct": 46
+   },
+   "byAnte": {
+    "1": {
+     "visits": 1,
+     "exit": {
+      "n": 1,
+      "mean": 13,
+      "median": 13,
+      "p25": 13,
+      "p75": 13
+     },
+     "entry": {
+      "n": 1,
+      "mean": 22,
+      "median": 22,
+      "p25": 22,
+      "p75": 22
+     },
+     "exitAtLeast25Pct": 0,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 0
+    },
+    "2": {
+     "visits": 2,
+     "exit": {
+      "n": 2,
+      "mean": 20.5,
+      "median": 20.5,
+      "p25": 19.8,
+      "p75": 21.3
+     },
+     "entry": {
+      "n": 2,
+      "mean": 23,
+      "median": 23,
+      "p25": 23,
+      "p75": 23
+     },
+     "exitAtLeast25Pct": 0,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 0
+    },
+    "3": {
+     "visits": 2,
+     "exit": {
+      "n": 2,
+      "mean": 13.5,
+      "median": 13.5,
+      "p25": 7.8,
+      "p75": 19.3
+     },
+     "entry": {
+      "n": 2,
+      "mean": 34,
+      "median": 34,
+      "p25": 34,
+      "p75": 34
+     },
+     "exitAtLeast25Pct": 50,
+     "exitUnder5Pct": 50,
+     "exitOnInterestStepPct": 100
+    },
+    "4": {
+     "visits": 3,
+     "exit": {
+      "n": 2,
+      "mean": 32.5,
+      "median": 32.5,
+      "p25": 31.8,
+      "p75": 33.3
+     },
+     "entry": {
+      "n": 3,
+      "mean": 37.3,
+      "median": 35,
+      "p25": 33,
+      "p75": 40.5
+     },
+     "exitAtLeast25Pct": 100,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 50
+    },
+    "5": {
+     "visits": 1,
+     "exit": {
+      "n": 1,
+      "mean": 36,
+      "median": 36,
+      "p25": 36,
+      "p75": 36
+     },
+     "entry": {
+      "n": 1,
+      "mean": 41,
+      "median": 41,
+      "p25": 41,
+      "p75": 41
+     },
+     "exitAtLeast25Pct": 100,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 100
+    },
+    "6": {
+     "visits": 1,
+     "exit": {
+      "n": 1,
+      "mean": 45,
+      "median": 45,
+      "p25": 45,
+      "p75": 45
+     },
+     "entry": {
+      "n": 1,
+      "mean": 39,
+      "median": 39,
+      "p25": 39,
+      "p75": 39
+     },
+     "exitAtLeast25Pct": 100,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 100
+    },
+    "7": {
+     "visits": 3,
+     "exit": {
+      "n": 3,
+      "mean": 21.7,
+      "median": 29,
+      "p25": 18,
+      "p75": 29
+     },
+     "entry": {
+      "n": 3,
+      "mean": 43.7,
+      "median": 41,
+      "p25": 37.5,
+      "p75": 48.5
+     },
+     "exitAtLeast25Pct": 67,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 0
+    },
+    "8": {
+     "visits": 2,
+     "exit": {
+      "n": 2,
+      "mean": 18.5,
+      "median": 18.5,
+      "p25": 12.3,
+      "p75": 24.8
+     },
+     "entry": {
+      "n": 2,
+      "mean": 51.5,
+      "median": 51.5,
+      "p25": 47.3,
+      "p75": 55.8
+     },
+     "exitAtLeast25Pct": 50,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 100
+    }
+   }
+  },
+  "rerolls": {
+   "all": {
+    "visits": 15,
+    "withRerollPct": 53,
+    "rerollsPerVisit": 1.9,
+    "rerollsWhenRerolling": {
+     "n": 8,
+     "mean": 3.5,
+     "median": 2,
+     "p25": 1,
+     "p75": 2.3
+    },
+    "spentPerVisit": 15.3,
+    "moneyLeftAfterLastReroll": {
+     "n": 8,
+     "mean": 25.5,
+     "median": 28.5,
+     "p25": 23.3,
+     "p75": 30.8
+    }
+   },
+   "byAnte": {
+    "1": {
+     "visits": 1,
+     "withRerollPct": 100,
+     "rerollsPerVisit": 2,
+     "rerollsWhenRerolling": {
+      "n": 1,
+      "mean": 2,
+      "median": 2,
+      "p25": 2,
+      "p75": 2
+     },
+     "spentPerVisit": 7,
+     "moneyLeftAfterLastReroll": {
+      "n": 1,
+      "mean": 18,
+      "median": 18,
+      "p25": 18,
+      "p75": 18
+     }
+    },
+    "2": {
+     "visits": 2,
+     "withRerollPct": 0,
+     "rerollsPerVisit": 0,
+     "rerollsWhenRerolling": {
+      "n": 0
+     },
+     "spentPerVisit": 0,
+     "moneyLeftAfterLastReroll": {
+      "n": 0
+     }
+    },
+    "3": {
+     "visits": 2,
+     "withRerollPct": 50,
+     "rerollsPerVisit": 1.5,
+     "rerollsWhenRerolling": {
+      "n": 1,
+      "mean": 3,
+      "median": 3,
+      "p25": 3,
+      "p75": 3
+     },
+     "spentPerVisit": 1.5,
+     "moneyLeftAfterLastReroll": {
+      "n": 1,
+      "mean": 28,
+      "median": 28,
+      "p25": 28,
+      "p75": 28
+     }
+    },
+    "4": {
+     "visits": 3,
+     "withRerollPct": 0,
+     "rerollsPerVisit": 0,
+     "rerollsWhenRerolling": {
+      "n": 0
+     },
+     "spentPerVisit": 0,
+     "moneyLeftAfterLastReroll": {
+      "n": 0
+     }
+    },
+    "5": {
+     "visits": 1,
+     "withRerollPct": 100,
+     "rerollsPerVisit": 1,
+     "rerollsWhenRerolling": {
+      "n": 1,
+      "mean": 1,
+      "median": 1,
+      "p25": 1,
+      "p75": 1
+     },
+     "spentPerVisit": 5,
+     "moneyLeftAfterLastReroll": {
+      "n": 1,
+      "mean": 36,
+      "median": 36,
+      "p25": 36,
+      "p75": 36
+     }
+    },
+    "6": {
+     "visits": 1,
+     "withRerollPct": 0,
+     "rerollsPerVisit": 0,
+     "rerollsWhenRerolling": {
+      "n": 0
+     },
+     "spentPerVisit": 0,
+     "moneyLeftAfterLastReroll": {
+      "n": 0
+     }
+    },
+    "7": {
+     "visits": 3,
+     "withRerollPct": 100,
+     "rerollsPerVisit": 1.3,
+     "rerollsWhenRerolling": {
+      "n": 3,
+      "mean": 1.3,
+      "median": 1,
+      "p25": 1,
+      "p75": 1.5
+     },
+     "spentPerVisit": 7,
+     "moneyLeftAfterLastReroll": {
+      "n": 3,
+      "mean": 35.3,
+      "median": 29,
+      "p25": 29,
+      "p75": 38.5
+     }
+    },
+    "8": {
+     "visits": 2,
+     "withRerollPct": 100,
+     "rerollsPerVisit": 9,
+     "rerollsWhenRerolling": {
+      "n": 2,
+      "mean": 9,
+      "median": 9,
+      "p25": 5.5,
+      "p75": 12.5
+     },
+     "spentPerVisit": 97,
+     "moneyLeftAfterLastReroll": {
+      "n": 2,
+      "mean": 8,
+      "median": 8,
+      "p25": -0.5,
+      "p75": 16.5
+     }
+    }
+   },
+   "byEntryMoney": {
+    "20-29": {
+     "visits": 3,
+     "withRerollPct": 33,
+     "rerollsPerVisit": 0.7,
+     "rerollsWhenRerolling": {
+      "n": 1,
+      "mean": 2,
+      "median": 2,
+      "p25": 2,
+      "p75": 2
+     },
+     "spentPerVisit": 2.3,
+     "moneyLeftAfterLastReroll": {
+      "n": 1,
+      "mean": 18,
+      "median": 18,
+      "p25": 18,
+      "p75": 18
+     }
+    },
+    "30-49": {
+     "visits": 10,
+     "withRerollPct": 50,
+     "rerollsPerVisit": 2.3,
+     "rerollsWhenRerolling": {
+      "n": 5,
+      "mean": 4.6,
+      "median": 2,
+      "p25": 1,
+      "p75": 3
+     },
+     "spentPerVisit": 20.7,
+     "moneyLeftAfterLastReroll": {
+      "n": 5,
+      "mean": 26.4,
+      "median": 29,
+      "p25": 28,
+      "p75": 36
+     }
+    },
+    "50+": {
+     "visits": 2,
+     "withRerollPct": 100,
+     "rerollsPerVisit": 1.5,
+     "rerollsWhenRerolling": {
+      "n": 2,
+      "mean": 1.5,
+      "median": 1.5,
+      "p25": 1.3,
+      "p75": 1.8
+     },
+     "spentPerVisit": 8,
+     "moneyLeftAfterLastReroll": {
+      "n": 2,
+      "mean": 27,
+      "median": 27,
+      "p25": 26,
+      "p75": 28
+     }
+    }
+   },
+   "byAnteAndEntryMoney": {
+    "1": {
+     "20-29": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 2
+     }
+    },
+    "2": {
+     "20-29": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     }
+    },
+    "3": {
+     "30-49": {
+      "visits": 2,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 1.5
+     }
+    },
+    "4": {
+     "30-49": {
+      "visits": 3,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     }
+    },
+    "5": {
+     "30-49": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 1
+     }
+    },
+    "6": {
+     "30-49": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     }
+    },
+    "7": {
+     "30-49": {
+      "visits": 2,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 1.5
+     },
+     "50+": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 1
+     }
+    },
+    "8": {
+     "30-49": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 16
+     },
+     "50+": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 2
+     }
+    }
+   }
+  },
+  "skips": {
+   "1": {
+    "opportunities": 2,
+    "skippedSmall": 1,
+    "skippedBig": 0,
+    "skipPct": 50,
+    "tags": {
+     "unread": 1
+    }
+   },
+   "2": {
+    "opportunities": 2,
+    "skippedSmall": 1,
+    "skippedBig": 0,
+    "skipPct": 50,
+    "tags": {
+     "unread": 1
+    }
+   },
+   "3": {
+    "opportunities": 2,
+    "skippedSmall": 0,
+    "skippedBig": 1,
+    "skipPct": 50,
+    "tags": {
+     "Meteor Tag": 1
+    }
+   },
+   "4": {
+    "opportunities": 2,
+    "skippedSmall": 1,
+    "skippedBig": 0,
+    "skipPct": 50,
+    "tags": {
+     "Uncommon Tag": 1
+    }
+   },
+   "5": {
+    "opportunities": 2,
+    "skippedSmall": 1,
+    "skippedBig": 1,
+    "skipPct": 100,
+    "tags": {
+     "unread": 2
+    }
+   },
+   "6": {
+    "opportunities": 2,
+    "skippedSmall": 1,
+    "skippedBig": 1,
+    "skipPct": 100,
+    "tags": {
+     "unread": 2
+    }
+   },
+   "7": {
+    "opportunities": 2,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "8": {
+    "opportunities": 2,
+    "skippedSmall": 1,
+    "skippedBig": 0,
+    "skipPct": 50,
+    "tags": {
+     "unread": 1
+    }
+   }
+  },
+  "packs": {
+   "opened": 17,
+   "boughtInShopByAnte": {
+    "1": {
+     "visits": 1,
+     "packsBought": 0,
+     "perVisit": 0
+    },
+    "2": {
+     "visits": 2,
+     "packsBought": 1,
+     "perVisit": 0.5
+    },
+    "3": {
+     "visits": 2,
+     "packsBought": 2,
+     "perVisit": 1
+    },
+    "4": {
+     "visits": 3,
+     "packsBought": 3,
+     "perVisit": 1
+    },
+    "5": {
+     "visits": 1,
+     "packsBought": 0,
+     "perVisit": 0
+    },
+    "6": {
+     "visits": 1,
+     "packsBought": 2,
+     "perVisit": 2
+    },
+    "7": {
+     "visits": 3,
+     "packsBought": 3,
+     "perVisit": 1
+    },
+    "8": {
+     "visits": 2,
+     "packsBought": 4,
+     "perVisit": 2
+    }
+   },
+   "byAnte": {
+    "2": {
+     "opened": 1,
+     "Standard": 1
+    },
+    "3": {
+     "opened": 3,
+     "Celestial": 2,
+     "Standard": 1
+    },
+    "4": {
+     "opened": 3,
+     "Standard": 1,
+     "Celestial": 1,
+     "Spectral": 1
+    },
+    "5": {
+     "opened": 1,
+     "Spectral": 1
+    },
+    "6": {
+     "opened": 2,
+     "Celestial": 1,
+     "Standard": 1
+    },
+    "7": {
+     "opened": 3,
+     "Celestial": 2,
+     "Standard": 1
+    },
+    "8": {
+     "opened": 4,
+     "Celestial": 3,
+     "Standard": 1
+    }
+   },
+   "byType": {
+    "Celestial": {
+     "opened": 9,
+     "sizes": {
+      "normal/jumbo": 9
+     },
+     "fromTagsPct": 11,
+     "medianAnte": 7,
+     "byAnte": {
+      "3": 2,
+      "4": 1,
+      "6": 1,
+      "7": 2,
+      "8": 3
+     },
+     "jokersTaken": {
+      "packsWithOne": 0,
+      "jokers": {}
+     },
+     "leftDisplay": {
+      "n": 4,
+      "cards": {
+       "Venus": 2,
+       "Uranus": 1,
+       "Mercury": 1
+      }
+     },
+     "consumablesArriving": {},
+     "offeredMost": {
+      "Uranus": 4,
+      "Venus": 4,
+      "Earth": 4,
+      "Mars": 4,
+      "Neptune": 3,
+      "Jupiter": 3,
+      "Mercury": 2,
+      "Saturn": 2,
+      "Pluto": 2,
+      "Black Hole": 1
+     }
+    },
+    "Spectral": {
+     "opened": 2,
+     "sizes": {
+      "mega": 1,
+      "normal/jumbo": 1
+     },
+     "fromTagsPct": 50,
+     "medianAnte": 5,
+     "byAnte": {
+      "4": 1,
+      "5": 1
+     },
+     "jokersTaken": {
+      "packsWithOne": 0,
+      "jokers": {}
+     },
+     "leftDisplay": {
+      "n": 1,
+      "cards": {
+       "Sigil": 1
+      }
+     },
+     "consumablesArriving": {},
+     "offeredMost": {
+      "Ectoplasm": 1,
+      "Cryptid": 1,
+      "Ouija": 1,
+      "Sigil": 1,
+      "Talisman": 1,
+      "Hex": 1
+     }
+    },
+    "Standard": {
+     "opened": 6,
+     "sizes": {
+      "normal/jumbo": 6
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 6,
+     "byAnte": {
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "6": 1,
+      "7": 1,
+      "8": 1
+     },
+     "jokersTaken": {
+      "packsWithOne": 0,
+      "jokers": {}
+     },
+     "leftDisplay": {
+      "n": 0,
+      "cards": {}
+     },
+     "consumablesArriving": {},
+     "offeredMost": {}
+    }
+   }
+  },
+  "vouchers": {
+   "bought": 3,
+   "runsWithVouchers": 1,
+   "sequences": [
+    {
+     "run": "hj_BuRY6uRc#1",
+     "vouchers": [
+      "Telescope (a4)",
+      "Overstock (a7)",
+      "Observatory (a8)"
+     ]
+    }
+   ],
+   "byAnte": {
+    "4": {
+     "n": 1,
+     "Telescope": 1
+    },
+    "7": {
+     "n": 1,
+     "Overstock": 1
+    },
+    "8": {
+     "n": 1,
+     "Observatory": 1
+    }
+   },
+   "shelf": {
+    "offered": 13,
+    "bought": 3,
+    "boughtPct": 23,
+    "entryMoneyWhenBought": {
+     "n": 3,
+     "mean": 50.3,
+     "median": 56,
+     "p25": 45.5,
+     "p75": 58
+    },
+    "entryMoneyWhenPassed": {
+     "n": 10,
+     "mean": 34.3,
+     "median": 36.5,
+     "p25": 25.8,
+     "p75": 41
+    }
+   },
+   "byVoucher": {
+    "Overstock": {
+     "bought": 1,
+     "medianAnte": 7,
+     "antes": [
+      7
+     ],
+     "order": [
+      2
+     ],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 33
+    },
+    "Observatory": {
+     "bought": 1,
+     "medianAnte": 8,
+     "antes": [
+      8
+     ],
+     "order": [
+      3
+     ],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 50
+    },
+    "Telescope": {
+     "bought": 1,
+     "medianAnte": 4,
+     "antes": [
+      4
+     ],
+     "order": [
+      1
+     ],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 100
+    },
+    "Crystal Ball": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 0
+    },
+    "Reroll Surplus": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    },
+    "Director's Cut": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    },
+    "Planet Merchant": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    },
+    "Wasteful": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    }
+   }
+  },
+  "consumables": {
+   "Tarot": {
+    "actions": {
+     "bought": 2,
+     "used": 2
+    },
+    "byAnte": {
+     "6": {
+      "bought": 1
+     },
+     "7": {
+      "used": 1
+     },
+     "8": {
+      "bought": 1,
+      "used": 1
+     }
+    },
+    "usedWhere": {
+     "hand": 2
+    },
+    "shelf": {
+     "offered": 11,
+     "bought": 2,
+     "boughtPct": 18
+    },
+    "byCard": {
+     "The Chariot": {
+      "bought": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 7
+     },
+     "The Hermit": {
+      "bought": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 8
+     }
+    }
+   },
+   "Planet": {
+    "actions": {},
+    "byAnte": {},
+    "usedWhere": {},
+    "shelf": {
+     "offered": 16,
+     "bought": 0,
+     "boughtPct": 0
+    },
+    "byCard": {}
+   },
+   "Spectral": {
+    "actions": {},
+    "byAnte": {},
+    "usedWhere": {},
+    "shelf": {
+     "offered": 0,
+     "bought": 0,
+     "boughtPct": null
+    },
+    "byCard": {}
+   }
+  },
+  "jokerSales": {
+   "sold": 4,
+   "replacedPct": 100,
+   "roundsHeld": {
+    "n": 4,
+    "mean": 2.5,
+    "median": 3,
+    "p25": 2.5,
+    "p75": 3
+   },
+   "where": {
+    "shop": 4
+   },
+   "byAnte": {
+    "2": {
+     "sold": 1,
+     "replaced": 1,
+     "jokers": {
+      "Devious Joker": 1
+     }
+    },
+    "3": {
+     "sold": 2,
+     "replaced": 2,
+     "jokers": {
+      "Chaos the Clown": 1,
+      "Walkie Talkie": 1
+     }
+    },
+    "7": {
+     "sold": 1,
+     "replaced": 1,
+     "jokers": {
+      "Jolly Joker": 1
+     }
+    }
+   },
+   "mostSold": {
+    "Devious Joker": 1,
+    "Chaos the Clown": 1,
+    "Walkie Talkie": 1,
+    "Jolly Joker": 1
+   },
+   "replacements": {
+    "Devious Joker -> Blue Joker": 1,
+    "Chaos the Clown -> Egg": 1,
+    "Walkie Talkie -> Egg": 1,
+    "Jolly Joker -> Supernova": 1
+   }
+  },
+  "hands": {
+   "plays": 24,
+   "playsRead": 7,
+   "byAnte": {
+    "1": {
+     "n": 3,
+     "cardsPlayedMean": 5,
+     "hands": {
+      "Full House": {
+       "n": 2,
+       "pct": 67
+      },
+      "Straight": {
+       "n": 1,
+       "pct": 33
+      }
+     }
+    },
+    "2": {
+     "n": 2,
+     "cardsPlayedMean": 5,
+     "hands": {
+      "Full House": {
+       "n": 1,
+       "pct": 50
+      },
+      "Two Pair": {
+       "n": 1,
+       "pct": 50
+      }
+     }
+    },
+    "3": {
+     "n": 2,
+     "cardsPlayedMean": 5,
+     "hands": {
+      "Two Pair": {
+       "n": 1,
+       "pct": 50
+      },
+      "Pair": {
+       "n": 1,
+       "pct": 50
+      }
+     }
+    }
+   },
+   "byDeck": {
+    "YELLOW": {
+     "n": 7,
+     "hands": {
+      "Full House": {
+       "n": 3,
+       "pct": 43
+      },
+      "Two Pair": {
+       "n": 2,
+       "pct": 29
+      },
+      "Straight": {
+       "n": 1,
+       "pct": 14
+      },
+      "Pair": {
+       "n": 1,
+       "pct": 14
+      }
+     }
+    }
+   }
+  }
+ },
+ "WHITE": {
+  "videos": [
+   "-GUBw5pfwWY",
+   "IK2QVkr5fzE",
+   "hj_BuRY6uRc",
+   "s2qZNADhAY4",
+   "ywRtrJktO5M"
+  ],
+  "decks": {
+   "GHOST": 134,
+   "RED": 22
+  },
+  "runs": 5,
+  "shopVisits": 156,
+  "moneyLeavingShop": {
+   "all": {
+    "visits": 156,
+    "exit": {
+     "n": 156,
+     "mean": 47.9,
+     "median": 29,
+     "p25": 21,
+     "p75": 51.3
+    },
+    "entry": {
+     "n": 146,
+     "mean": 87.4,
+     "median": 60,
+     "p25": 39,
+     "p75": 95.8
+    },
+    "exitAtLeast25Pct": 68,
+    "exitUnder5Pct": 8,
+    "exitOnInterestStepPct": 55
+   },
+   "byAnte": {
+    "1": {
+     "visits": 6,
+     "exit": {
+      "n": 6,
+      "mean": 6.5,
+      "median": 1.5,
+      "p25": 1,
+      "p75": 11.8
+     },
+     "entry": {
+      "n": 6,
+      "mean": 15,
+      "median": 13,
+      "p25": 9.5,
+      "p75": 20.3
+     },
+     "exitAtLeast25Pct": 0,
+     "exitUnder5Pct": 67,
+     "exitOnInterestStepPct": 100
+    },
+    "2": {
+     "visits": 15,
+     "exit": {
+      "n": 15,
+      "mean": 18.3,
+      "median": 12,
+      "p25": 5,
+      "p75": 31
+     },
+     "entry": {
+      "n": 15,
+      "mean": 22.9,
+      "median": 21,
+      "p25": 11,
+      "p75": 37.5
+     },
+     "exitAtLeast25Pct": 33,
+     "exitUnder5Pct": 20,
+     "exitOnInterestStepPct": 67
+    },
+    "3": {
+     "visits": 15,
+     "exit": {
+      "n": 15,
+      "mean": 31.2,
+      "median": 27,
+      "p25": 12,
+      "p75": 49
+     },
+     "entry": {
+      "n": 14,
+      "mean": 110.2,
+      "median": 58.5,
+      "p25": 15.5,
+      "p75": 81.8
+     },
+     "exitAtLeast25Pct": 60,
+     "exitUnder5Pct": 7,
+     "exitOnInterestStepPct": 71
+    },
+    "4": {
+     "visits": 16,
+     "exit": {
+      "n": 16,
+      "mean": 33.1,
+      "median": 31,
+      "p25": 24.5,
+      "p75": 39.3
+     },
+     "entry": {
+      "n": 15,
+      "mean": 65.2,
+      "median": 57,
+      "p25": 42.5,
+      "p75": 66
+     },
+     "exitAtLeast25Pct": 75,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 38
+    },
+    "5": {
+     "visits": 15,
+     "exit": {
+      "n": 15,
+      "mean": 38.6,
+      "median": 30,
+      "p25": 26,
+      "p75": 37.5
+     },
+     "entry": {
+      "n": 15,
+      "mean": 61.9,
+      "median": 56,
+      "p25": 39,
+      "p75": 88
+     },
+     "exitAtLeast25Pct": 93,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 60
+    },
+    "6": {
+     "visits": 20,
+     "exit": {
+      "n": 20,
+      "mean": 39.2,
+      "median": 27.5,
+      "p25": 22.5,
+      "p75": 32
+     },
+     "entry": {
+      "n": 19,
+      "mean": 66.2,
+      "median": 61,
+      "p25": 43,
+      "p75": 90
+     },
+     "exitAtLeast25Pct": 65,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 50
+    },
+    "7": {
+     "visits": 21,
+     "exit": {
+      "n": 21,
+      "mean": 25.5,
+      "median": 27,
+      "p25": 20,
+      "p75": 32
+     },
+     "entry": {
+      "n": 19,
+      "mean": 71.7,
+      "median": 61,
+      "p25": 49,
+      "p75": 67
+     },
+     "exitAtLeast25Pct": 57,
+     "exitUnder5Pct": 10,
+     "exitOnInterestStepPct": 37
+    },
+    "8": {
+     "visits": 17,
+     "exit": {
+      "n": 17,
+      "mean": 58,
+      "median": 36,
+      "p25": 26,
+      "p75": 97
+     },
+     "entry": {
+      "n": 16,
+      "mean": 71.6,
+      "median": 63,
+      "p25": 45.8,
+      "p75": 98
+     },
+     "exitAtLeast25Pct": 94,
+     "exitUnder5Pct": 0,
+     "exitOnInterestStepPct": 82
+    },
+    "9+": {
+     "visits": 31,
+     "exit": {
+      "n": 31,
+      "mean": 105.6,
+      "median": 62,
+      "p25": 27,
+      "p75": 164.5
+     },
+     "entry": {
+      "n": 27,
+      "mean": 189.3,
+      "median": 137,
+      "p25": 84.5,
+      "p75": 262
+     },
+     "exitAtLeast25Pct": 81,
+     "exitUnder5Pct": 10,
+     "exitOnInterestStepPct": 43
+    }
+   }
+  },
+  "rerolls": {
+   "all": {
+    "visits": 156,
+    "withRerollPct": 67,
+    "rerollsPerVisit": 3.6,
+    "rerollsWhenRerolling": {
+     "n": 105,
+     "mean": 5.3,
+     "median": 4,
+     "p25": 2,
+     "p75": 7
+    },
+    "spentPerVisit": 30.3,
+    "moneyLeftAfterLastReroll": {
+     "n": 105,
+     "mean": 50.2,
+     "median": 37,
+     "p25": 25,
+     "p75": 55
+    }
+   },
+   "byAnte": {
+    "1": {
+     "visits": 6,
+     "withRerollPct": 0,
+     "rerollsPerVisit": 0,
+     "rerollsWhenRerolling": {
+      "n": 0
+     },
+     "spentPerVisit": 0,
+     "moneyLeftAfterLastReroll": {
+      "n": 0
+     }
+    },
+    "2": {
+     "visits": 15,
+     "withRerollPct": 27,
+     "rerollsPerVisit": 0.3,
+     "rerollsWhenRerolling": {
+      "n": 4,
+      "mean": 1.3,
+      "median": 1,
+      "p25": 1,
+      "p75": 1.3
+     },
+     "spentPerVisit": 1.7,
+     "moneyLeftAfterLastReroll": {
+      "n": 4,
+      "mean": 37,
+      "median": 33,
+      "p25": 28.8,
+      "p75": 41.3
+     }
+    },
+    "3": {
+     "visits": 15,
+     "withRerollPct": 60,
+     "rerollsPerVisit": 1.8,
+     "rerollsWhenRerolling": {
+      "n": 9,
+      "mean": 3,
+      "median": 2,
+      "p25": 1,
+      "p75": 5
+     },
+     "spentPerVisit": 12.1,
+     "moneyLeftAfterLastReroll": {
+      "n": 9,
+      "mean": 16.2,
+      "median": 32,
+      "p25": 19,
+      "p75": 37
+     }
+    },
+    "4": {
+     "visits": 16,
+     "withRerollPct": 75,
+     "rerollsPerVisit": 3.8,
+     "rerollsWhenRerolling": {
+      "n": 12,
+      "mean": 5.1,
+      "median": 4.5,
+      "p25": 3.5,
+      "p75": 6.3
+     },
+     "spentPerVisit": 30,
+     "moneyLeftAfterLastReroll": {
+      "n": 12,
+      "mean": 34.3,
+      "median": 36,
+      "p25": 14.8,
+      "p75": 42.8
+     }
+    },
+    "5": {
+     "visits": 15,
+     "withRerollPct": 80,
+     "rerollsPerVisit": 4.2,
+     "rerollsWhenRerolling": {
+      "n": 12,
+      "mean": 5.3,
+      "median": 6,
+      "p25": 3.5,
+      "p75": 7
+     },
+     "spentPerVisit": 30.5,
+     "moneyLeftAfterLastReroll": {
+      "n": 12,
+      "mean": 35.3,
+      "median": 31,
+      "p25": 24,
+      "p75": 34.5
+     }
+    },
+    "6": {
+     "visits": 20,
+     "withRerollPct": 80,
+     "rerollsPerVisit": 3.3,
+     "rerollsWhenRerolling": {
+      "n": 16,
+      "mean": 4.1,
+      "median": 3.5,
+      "p25": 1,
+      "p75": 6.3
+     },
+     "spentPerVisit": 24.7,
+     "moneyLeftAfterLastReroll": {
+      "n": 16,
+      "mean": 43.3,
+      "median": 40,
+      "p25": 30.8,
+      "p75": 56
+     }
+    },
+    "7": {
+     "visits": 21,
+     "withRerollPct": 95,
+     "rerollsPerVisit": 4.5,
+     "rerollsWhenRerolling": {
+      "n": 20,
+      "mean": 4.7,
+      "median": 4,
+      "p25": 1,
+      "p75": 6.3
+     },
+     "spentPerVisit": 33.6,
+     "moneyLeftAfterLastReroll": {
+      "n": 20,
+      "mean": 45.8,
+      "median": 37,
+      "p25": 23.3,
+      "p75": 57.3
+     }
+    },
+    "8": {
+     "visits": 17,
+     "withRerollPct": 82,
+     "rerollsPerVisit": 4.8,
+     "rerollsWhenRerolling": {
+      "n": 14,
+      "mean": 5.9,
+      "median": 4,
+      "p25": 2.3,
+      "p75": 8.5
+     },
+     "spentPerVisit": 39.8,
+     "moneyLeftAfterLastReroll": {
+      "n": 14,
+      "mean": 46.1,
+      "median": 41,
+      "p25": 24.3,
+      "p75": 56.3
+     }
+    },
+    "9+": {
+     "visits": 31,
+     "withRerollPct": 58,
+     "rerollsPerVisit": 5.2,
+     "rerollsWhenRerolling": {
+      "n": 18,
+      "mean": 8.9,
+      "median": 6,
+      "p25": 3.5,
+      "p75": 11.5
+     },
+     "spentPerVisit": 55,
+     "moneyLeftAfterLastReroll": {
+      "n": 18,
+      "mean": 104.8,
+      "median": 55.5,
+      "p25": 38,
+      "p75": 121.3
+     }
+    }
+   },
+   "byEntryMoney": {
+    "<10": {
+     "visits": 10,
+     "withRerollPct": 20,
+     "rerollsPerVisit": 2.4,
+     "rerollsWhenRerolling": {
+      "n": 2,
+      "mean": 12,
+      "median": 12,
+      "p25": 11,
+      "p75": 13
+     },
+     "spentPerVisit": 20.8,
+     "moneyLeftAfterLastReroll": {
+      "n": 2,
+      "mean": 43.5,
+      "median": 43.5,
+      "p25": 32.3,
+      "p75": 54.8
+     }
+    },
+    "10-19": {
+     "visits": 10,
+     "withRerollPct": 10,
+     "rerollsPerVisit": 0.8,
+     "rerollsWhenRerolling": {
+      "n": 1,
+      "mean": 8,
+      "median": 8,
+      "p25": 8,
+      "p75": 8
+     },
+     "spentPerVisit": 6.8,
+     "moneyLeftAfterLastReroll": {
+      "n": 1,
+      "mean": 2,
+      "median": 2,
+      "p25": 2,
+      "p75": 2
+     }
+    },
+    "20-29": {
+     "visits": 9,
+     "withRerollPct": 11,
+     "rerollsPerVisit": 0.7,
+     "rerollsWhenRerolling": {
+      "n": 1,
+      "mean": 6,
+      "median": 6,
+      "p25": 6,
+      "p75": 6
+     },
+     "spentPerVisit": 5,
+     "moneyLeftAfterLastReroll": {
+      "n": 1,
+      "mean": 34,
+      "median": 34,
+      "p25": 34,
+      "p75": 34
+     }
+    },
+    "30-49": {
+     "visits": 25,
+     "withRerollPct": 80,
+     "rerollsPerVisit": 2.2,
+     "rerollsWhenRerolling": {
+      "n": 20,
+      "mean": 2.8,
+      "median": 1,
+      "p25": 1,
+      "p75": 4.3
+     },
+     "spentPerVisit": 14.7,
+     "moneyLeftAfterLastReroll": {
+      "n": 20,
+      "mean": 25,
+      "median": 28.5,
+      "p25": 21.8,
+      "p75": 31.3
+     }
+    },
+    "50+": {
+     "visits": 92,
+     "withRerollPct": 85,
+     "rerollsPerVisit": 4.8,
+     "rerollsWhenRerolling": {
+      "n": 78,
+      "mean": 5.7,
+      "median": 5,
+      "p25": 2,
+      "p75": 7
+     },
+     "spentPerVisit": 41.4,
+     "moneyLeftAfterLastReroll": {
+      "n": 78,
+      "mean": 59.8,
+      "median": 43,
+      "p25": 28.5,
+      "p75": 61.8
+     }
+    }
+   },
+   "byAnteAndEntryMoney": {
+    "1": {
+     "<10": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "10-19": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     }
+    },
+    "2": {
+     "<10": {
+      "visits": 3,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "10-19": {
+      "visits": 4,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 3,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 4,
+      "withRerollPct": 75,
+      "rerollsPerVisit": 0.8
+     },
+     "50+": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 2
+     }
+    },
+    "3": {
+     "<10": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "10-19": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "20-29": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 1
+     },
+     "50+": {
+      "visits": 8,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 3.3
+     }
+    },
+    "4": {
+     "10-19": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 4,
+      "withRerollPct": 50,
+      "rerollsPerVisit": 3
+     },
+     "50+": {
+      "visits": 10,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 4.9
+     }
+    },
+    "5": {
+     "20-29": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 6
+     },
+     "30-49": {
+      "visits": 5,
+      "withRerollPct": 60,
+      "rerollsPerVisit": 1.6
+     },
+     "50+": {
+      "visits": 9,
+      "withRerollPct": 89,
+      "rerollsPerVisit": 5.4
+     }
+    },
+    "6": {
+     "10-19": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 8
+     },
+     "20-29": {
+      "visits": 2,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "30-49": {
+      "visits": 3,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 3.7
+     },
+     "50+": {
+      "visits": 13,
+      "withRerollPct": 92,
+      "rerollsPerVisit": 3.5
+     }
+    },
+    "7": {
+     "<10": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 10
+     },
+     "30-49": {
+      "visits": 4,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 3
+     },
+     "50+": {
+      "visits": 14,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 4.9
+     }
+    },
+    "8": {
+     "<10": {
+      "visits": 1,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 14
+     },
+     "30-49": {
+      "visits": 4,
+      "withRerollPct": 100,
+      "rerollsPerVisit": 2
+     },
+     "50+": {
+      "visits": 11,
+      "withRerollPct": 73,
+      "rerollsPerVisit": 5.1
+     }
+    },
+    "9+": {
+     "<10": {
+      "visits": 1,
+      "withRerollPct": 0,
+      "rerollsPerVisit": 0
+     },
+     "50+": {
+      "visits": 26,
+      "withRerollPct": 65,
+      "rerollsPerVisit": 5.6
+     }
+    }
+   }
+  },
+  "skips": {
+   "1": {
+    "opportunities": 10,
+    "skippedSmall": 4,
+    "skippedBig": 0,
+    "skipPct": 40,
+    "tags": {
+     "Charm Tag": 4
+    }
+   },
+   "2": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "3": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "4": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "5": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "6": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "7": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 1,
+    "skipPct": 10,
+    "tags": {
+     "Holographic Tag": 1
+    }
+   },
+   "8": {
+    "opportunities": 10,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   },
+   "9+": {
+    "opportunities": 18,
+    "skippedSmall": 0,
+    "skippedBig": 0,
+    "skipPct": 0,
+    "tags": {}
+   }
+  },
+  "packs": {
+   "opened": 158,
+   "boughtInShopByAnte": {
+    "1": {
+     "visits": 6,
+     "packsBought": 4,
+     "perVisit": 0.7
+    },
+    "2": {
+     "visits": 15,
+     "packsBought": 14,
+     "perVisit": 0.9
+    },
+    "3": {
+     "visits": 15,
+     "packsBought": 18,
+     "perVisit": 1.2
+    },
+    "4": {
+     "visits": 16,
+     "packsBought": 23,
+     "perVisit": 1.4
+    },
+    "5": {
+     "visits": 15,
+     "packsBought": 17,
+     "perVisit": 1.1
+    },
+    "6": {
+     "visits": 20,
+     "packsBought": 24,
+     "perVisit": 1.2
+    },
+    "7": {
+     "visits": 21,
+     "packsBought": 26,
+     "perVisit": 1.2
+    },
+    "8": {
+     "visits": 17,
+     "packsBought": 12,
+     "perVisit": 0.7
+    },
+    "9+": {
+     "visits": 31,
+     "packsBought": 15,
+     "perVisit": 0.5
+    }
+   },
+   "byAnte": {
+    "1": {
+     "opened": 4,
+     "Buffoon": 2,
+     "Spectral": 1,
+     "Arcana": 1
+    },
+    "2": {
+     "opened": 14,
+     "Celestial": 8,
+     "Arcana": 5,
+     "Spectral": 1
+    },
+    "3": {
+     "opened": 18,
+     "Celestial": 7,
+     "Buffoon": 6,
+     "Standard": 3,
+     "Arcana": 2
+    },
+    "4": {
+     "opened": 24,
+     "Arcana": 9,
+     "Celestial": 8,
+     "Standard": 5,
+     "Buffoon": 1,
+     "Spectral": 1
+    },
+    "5": {
+     "opened": 17,
+     "Celestial": 8,
+     "Arcana": 5,
+     "Standard": 2,
+     "Buffoon": 2
+    },
+    "6": {
+     "opened": 24,
+     "Celestial": 12,
+     "Arcana": 6,
+     "Buffoon": 2,
+     "Spectral": 2,
+     "Standard": 2
+    },
+    "7": {
+     "opened": 26,
+     "Arcana": 10,
+     "Celestial": 6,
+     "Standard": 5,
+     "Buffoon": 3,
+     "Spectral": 2
+    },
+    "8": {
+     "opened": 12,
+     "Arcana": 5,
+     "Celestial": 4,
+     "Standard": 2,
+     "Buffoon": 1
+    },
+    "9+": {
+     "opened": 15,
+     "Arcana": 14,
+     "Buffoon": 1
+    }
+   },
+   "byType": {
+    "Arcana": {
+     "opened": 61,
+     "sizes": {
+      "normal/jumbo": 51,
+      "mega": 10
+     },
+     "fromTagsPct": 7,
+     "medianAnte": 7,
+     "byAnte": {
+      "1": 1,
+      "2": 5,
+      "3": 2,
+      "4": 9,
+      "5": 5,
+      "6": 6,
+      "7": 10,
+      "8": 5,
+      "9+": 14
+     },
+     "jokersTaken": {
+      "packsWithOne": 3,
+      "jokers": {
+       "Perkeo": 1,
+       "Gros Michel": 1,
+       "Baron": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 3,
+      "cards": {
+       "The Hierophant": 1,
+       "The Sun": 1,
+       "The Soul": 1
+      }
+     },
+     "consumablesArriving": {
+      "Cryptid": 4,
+      "The Fool": 1,
+      "Deja Vu": 1,
+      "Ankh": 1
+     },
+     "offeredMost": {
+      "The Hierophant": 14,
+      "The Star": 11,
+      "The Fool": 10,
+      "The Hanged Man": 10,
+      "The Emperor": 8,
+      "The Chariot": 8,
+      "The Magician": 7,
+      "The Devil": 7,
+      "Judgement": 7,
+      "Death": 7,
+      "The Moon": 7,
+      "The Tower": 7
+     }
+    },
+    "Buffoon": {
+     "opened": 18,
+     "sizes": {
+      "normal/jumbo": 16,
+      "mega": 1,
+      "?": 1
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 5,
+     "byAnte": {
+      "1": 2,
+      "3": 6,
+      "4": 1,
+      "5": 2,
+      "6": 2,
+      "7": 3,
+      "8": 1,
+      "9+": 1
+     },
+     "jokersTaken": {
+      "packsWithOne": 10,
+      "jokers": {
+       "Scary Face": 2,
+       "Perkeo": 2,
+       "Blueprint": 2,
+       "Green Joker": 1,
+       "Gros Michel": 1,
+       "Baron": 1,
+       "Runner": 1,
+       "Reserved Parking": 1,
+       "The Idol": 1,
+       "Shoot the Moon": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 1,
+      "cards": {
+       "Business Card": 1
+      }
+     },
+     "consumablesArriving": {
+      "The Empress": 1,
+      "Cryptid": 1
+     },
+     "offeredMost": {
+      "Shoot the Moon": 2,
+      "Sock and Buskin": 2,
+      "The Trio": 2,
+      "Sixth Sense": 2,
+      "Scary Face": 1,
+      "Clever Joker": 1,
+      "Sly Joker": 1,
+      "Crafty Joker": 1,
+      "Golden Joker": 1,
+      "Troubadour": 1,
+      "Green Joker": 1,
+      "Cartomancer": 1
+     }
+    },
+    "Celestial": {
+     "opened": 53,
+     "sizes": {
+      "normal/jumbo": 50,
+      "mega": 3
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 5,
+     "byAnte": {
+      "2": 8,
+      "3": 7,
+      "4": 8,
+      "5": 8,
+      "6": 12,
+      "7": 6,
+      "8": 4
+     },
+     "jokersTaken": {
+      "packsWithOne": 2,
+      "jokers": {
+       "Hallucination": 1,
+       "Business Card": 1,
+       "Blueprint": 1
+      }
+     },
+     "leftDisplay": {
+      "n": 1,
+      "cards": {
+       "Venus": 1
+      }
+     },
+     "consumablesArriving": {
+      "The Fool": 3,
+      "Deja Vu": 1,
+      "Death": 1,
+      "Temperance": 1,
+      "The Hermit": 1
+     },
+     "offeredMost": {
+      "Pluto": 13,
+      "Earth": 11,
+      "Mercury": 11,
+      "Mars": 10,
+      "Planet X": 10,
+      "Saturn": 8,
+      "Uranus": 8,
+      "Jupiter": 7,
+      "Venus": 7,
+      "Neptune": 4,
+      "Eris": 2,
+      "Black Hole": 1
+     }
+    },
+    "Spectral": {
+     "opened": 7,
+     "sizes": {
+      "normal/jumbo": 6,
+      "?": 1
+     },
+     "fromTagsPct": 14,
+     "medianAnte": 6,
+     "byAnte": {
+      "1": 1,
+      "2": 1,
+      "4": 1,
+      "6": 2,
+      "7": 2
+     },
+     "jokersTaken": {
+      "packsWithOne": 0,
+      "jokers": {}
+     },
+     "leftDisplay": {
+      "n": 0,
+      "cards": {}
+     },
+     "consumablesArriving": {
+      "Deja Vu": 1
+     },
+     "offeredMost": {
+      "Ouija": 3,
+      "Grim": 2,
+      "Ankh": 1,
+      "Cryptid": 1,
+      "Ectoplasm": 1,
+      "Wraith": 1,
+      "Deja Vu": 1,
+      "Immolate": 1
+     }
+    },
+    "Standard": {
+     "opened": 19,
+     "sizes": {
+      "normal/jumbo": 17,
+      "mega": 2
+     },
+     "fromTagsPct": 0,
+     "medianAnte": 5,
+     "byAnte": {
+      "3": 3,
+      "4": 5,
+      "5": 2,
+      "6": 2,
+      "7": 5,
+      "8": 2
+     },
+     "jokersTaken": {
+      "packsWithOne": 0,
+      "jokers": {}
+     },
+     "leftDisplay": {
+      "n": 0,
+      "cards": {}
+     },
+     "consumablesArriving": {
+      "Death": 1
+     },
+     "offeredMost": {}
+    }
+   }
+  },
+  "vouchers": {
+   "bought": 13,
+   "runsWithVouchers": 5,
+   "sequences": [
+    {
+     "run": "-GUBw5pfwWY#0",
+     "vouchers": [
+      "Telescope (a7)"
+     ]
+    },
+    {
+     "run": "hj_BuRY6uRc#0",
+     "vouchers": [
+      "Magic Trick (a7)",
+      "Overstock (a8)"
+     ]
+    },
+    {
+     "run": "IK2QVkr5fzE#0",
+     "vouchers": [
+      "Overstock (a1)",
+      "Reroll Surplus (a5)",
+      "Telescope (a6)",
+      "Hieroglyph (a9)"
+     ]
+    },
+    {
+     "run": "s2qZNADhAY4#0",
+     "vouchers": [
+      "Grabber (a4)",
+      "Crystal Ball (a5)",
+      "Petroglyph (a7)"
+     ]
+    },
+    {
+     "run": "ywRtrJktO5M#0",
+     "vouchers": [
+      "Telescope (a4)",
+      "Observatory (a6)",
+      "Clearance Sale (a7)"
+     ]
+    }
+   ],
+   "byAnte": {
+    "1": {
+     "n": 1,
+     "Overstock": 1
+    },
+    "4": {
+     "n": 2,
+     "Grabber": 1,
+     "Telescope": 1
+    },
+    "5": {
+     "n": 2,
+     "Reroll Surplus": 1,
+     "Crystal Ball": 1
+    },
+    "6": {
+     "n": 2,
+     "Telescope": 1,
+     "Observatory": 1
+    },
+    "7": {
+     "n": 4,
+     "Telescope": 1,
+     "Magic Trick": 1,
+     "Petroglyph": 1,
+     "Clearance Sale": 1
+    },
+    "8": {
+     "n": 1,
+     "Overstock": 1
+    },
+    "9+": {
+     "n": 1,
+     "Hieroglyph": 1
+    }
+   },
+   "shelf": {
+    "offered": 105,
+    "bought": 13,
+    "boughtPct": 12,
+    "entryMoneyWhenBought": {
+     "n": 13,
+     "mean": 70.3,
+     "median": 64,
+     "p25": 46,
+     "p75": 94
+    },
+    "entryMoneyWhenPassed": {
+     "n": 89,
+     "mean": 78.5,
+     "median": 56,
+     "p25": 25,
+     "p75": 96
+    }
+   },
+   "byVoucher": {
+    "Telescope": {
+     "bought": 3,
+     "medianAnte": 6,
+     "antes": [
+      7,
+      6,
+      4
+     ],
+     "order": [
+      1,
+      3,
+      1
+     ],
+     "shelfVisits": 7,
+     "boughtFromShelfPct": 43
+    },
+    "Overstock": {
+     "bought": 2,
+     "medianAnte": 8,
+     "antes": [
+      8,
+      1
+     ],
+     "order": [
+      2,
+      1
+     ],
+     "shelfVisits": 8,
+     "boughtFromShelfPct": 25
+    },
+    "Magic Trick": {
+     "bought": 1,
+     "medianAnte": 7,
+     "antes": [
+      7
+     ],
+     "order": [
+      1
+     ],
+     "shelfVisits": 24,
+     "boughtFromShelfPct": 4
+    },
+    "Hieroglyph": {
+     "bought": 1,
+     "medianAnte": 9,
+     "antes": [
+      9
+     ],
+     "order": [
+      4
+     ],
+     "shelfVisits": 6,
+     "boughtFromShelfPct": 17
+    },
+    "Observatory": {
+     "bought": 1,
+     "medianAnte": 6,
+     "antes": [
+      6
+     ],
+     "order": [
+      2
+     ],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 33
+    },
+    "Grabber": {
+     "bought": 1,
+     "medianAnte": 4,
+     "antes": [
+      4
+     ],
+     "order": [
+      1
+     ],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 50
+    },
+    "Crystal Ball": {
+     "bought": 1,
+     "medianAnte": 5,
+     "antes": [
+      5
+     ],
+     "order": [
+      2
+     ],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 50
+    },
+    "Clearance Sale": {
+     "bought": 1,
+     "medianAnte": 7,
+     "antes": [
+      7
+     ],
+     "order": [
+      3
+     ],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 50
+    },
+    "Reroll Surplus": {
+     "bought": 1,
+     "medianAnte": 5,
+     "antes": [
+      5
+     ],
+     "order": [
+      2
+     ],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 100
+    },
+    "Petroglyph": {
+     "bought": 1,
+     "medianAnte": 7,
+     "antes": [
+      7
+     ],
+     "order": [
+      3
+     ],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 100
+    },
+    "Planet Merchant": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 13,
+     "boughtFromShelfPct": 0
+    },
+    "Wasteful": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 9,
+     "boughtFromShelfPct": 0
+    },
+    "Tarot Merchant": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 6,
+     "boughtFromShelfPct": 0
+    },
+    "Director's Cut": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 5,
+     "boughtFromShelfPct": 0
+    },
+    "Blank": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 5,
+     "boughtFromShelfPct": 0
+    },
+    "Overstock Plus": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 0
+    },
+    "Seed Money": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 3,
+     "boughtFromShelfPct": 0
+    },
+    "Hone": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 2,
+     "boughtFromShelfPct": 0
+    },
+    "Paint Brush": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    },
+    "Reroll Glut": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    },
+    "Palette": {
+     "bought": 0,
+     "antes": [],
+     "order": [],
+     "shelfVisits": 1,
+     "boughtFromShelfPct": 0
+    }
+   }
+  },
+  "consumables": {
+   "Tarot": {
+    "actions": {
+     "used": 31,
+     "bought": 21,
+     "sold": 20,
+     "gained": 18,
+     "picked": 12
+    },
+    "byAnte": {
+     "2": {
+      "picked": 3,
+      "used": 2,
+      "bought": 1
+     },
+     "3": {
+      "used": 5,
+      "bought": 2,
+      "gained": 2,
+      "picked": 1,
+      "sold": 1
+     },
+     "4": {
+      "bought": 10,
+      "used": 8,
+      "sold": 2,
+      "gained": 2,
+      "picked": 1
+     },
+     "5": {
+      "sold": 6,
+      "gained": 5,
+      "used": 2,
+      "picked": 1
+     },
+     "6": {
+      "sold": 7,
+      "bought": 5,
+      "used": 5,
+      "gained": 5,
+      "picked": 3
+     },
+     "7": {
+      "used": 8,
+      "gained": 4,
+      "bought": 2,
+      "picked": 2,
+      "sold": 2
+     },
+     "8": {
+      "sold": 2,
+      "used": 1,
+      "bought": 1
+     },
+     "9+": {
+      "picked": 1
+     }
+    },
+    "usedWhere": {
+     "hand": 23,
+     "shop": 5,
+     "pack": 3
+    },
+    "shelf": {
+     "offered": 245,
+     "bought": 9,
+     "boughtPct": 4
+    },
+    "byCard": {
+     "Death": {
+      "used": 12,
+      "bought": 10,
+      "sold": 6,
+      "gained": 6,
+      "picked": 2,
+      "total": 36,
+      "medianAnte": 5
+     },
+     "The Fool": {
+      "used": 7,
+      "gained": 6,
+      "sold": 6,
+      "picked": 5,
+      "bought": 2,
+      "total": 26,
+      "medianAnte": 6
+     },
+     "Temperance": {
+      "gained": 3,
+      "used": 3,
+      "sold": 3,
+      "picked": 2,
+      "bought": 1,
+      "total": 12,
+      "medianAnte": 6
+     },
+     "The Hanged Man": {
+      "bought": 3,
+      "sold": 2,
+      "used": 1,
+      "total": 6,
+      "medianAnte": 6
+     },
+     "The Devil": {
+      "bought": 2,
+      "sold": 1,
+      "used": 1,
+      "total": 4,
+      "medianAnte": 4
+     },
+     "Strength": {
+      "bought": 2,
+      "used": 2,
+      "total": 4,
+      "medianAnte": 6
+     },
+     "The Empress": {
+      "picked": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 3
+     },
+     "The Tower": {
+      "gained": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 3
+     },
+     "The Moon": {
+      "gained": 1,
+      "sold": 1,
+      "total": 2,
+      "medianAnte": 5
+     },
+     "The Lovers": {
+      "gained": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 6
+     },
+     "The Magician": {
+      "bought": 1,
+      "sold": 1,
+      "total": 2,
+      "medianAnte": 4
+     },
+     "The Chariot": {
+      "picked": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 4
+     },
+     "The Hermit": {
+      "picked": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 4
+     }
+    }
+   },
+   "Planet": {
+    "actions": {
+     "sold": 6,
+     "bought": 4,
+     "gained": 3,
+     "used": 2,
+     "picked": 1
+    },
+    "byAnte": {
+     "3": {
+      "bought": 1,
+      "used": 1
+     },
+     "4": {
+      "picked": 1
+     },
+     "5": {
+      "used": 1
+     },
+     "8": {
+      "bought": 1
+     },
+     "9+": {
+      "sold": 6,
+      "gained": 3,
+      "bought": 2
+     }
+    },
+    "usedWhere": {
+     "hand": 2
+    },
+    "shelf": {
+     "offered": 196,
+     "bought": 0,
+     "boughtPct": 0
+    },
+    "byCard": {
+     "Pluto": {
+      "sold": 6,
+      "bought": 3,
+      "gained": 3,
+      "picked": 1,
+      "used": 1,
+      "total": 14,
+      "medianAnte": 9
+     },
+     "Jupiter": {
+      "bought": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 3
+     }
+    }
+   },
+   "Spectral": {
+    "actions": {
+     "used": 32,
+     "sold": 19,
+     "bought": 17,
+     "picked": 16,
+     "gained": 16
+    },
+    "byAnte": {
+     "1": {
+      "picked": 1,
+      "used": 1,
+      "sold": 1
+     },
+     "2": {
+      "sold": 2,
+      "bought": 1,
+      "gained": 1
+     },
+     "3": {
+      "bought": 2,
+      "sold": 1,
+      "picked": 1,
+      "used": 1
+     },
+     "4": {
+      "used": 12,
+      "bought": 7,
+      "gained": 5,
+      "sold": 4,
+      "picked": 3
+     },
+     "5": {
+      "gained": 4,
+      "sold": 3,
+      "picked": 2,
+      "used": 2
+     },
+     "6": {
+      "sold": 5,
+      "gained": 5,
+      "used": 5,
+      "bought": 4,
+      "picked": 3
+     },
+     "7": {
+      "used": 9,
+      "picked": 5,
+      "sold": 3,
+      "bought": 3
+     },
+     "8": {
+      "picked": 1,
+      "used": 1
+     },
+     "9+": {
+      "gained": 1,
+      "used": 1
+     }
+    },
+    "usedWhere": {
+     "shop": 15,
+     "hand": 8,
+     "blind_select": 5,
+     "cash_out": 4
+    },
+    "shelf": {
+     "offered": 132,
+     "bought": 8,
+     "boughtPct": 6
+    },
+    "byCard": {
+     "Cryptid": {
+      "used": 14,
+      "bought": 11,
+      "sold": 9,
+      "picked": 6,
+      "gained": 6,
+      "total": 46,
+      "medianAnte": 6
+     },
+     "Deja Vu": {
+      "used": 10,
+      "picked": 5,
+      "gained": 5,
+      "bought": 1,
+      "sold": 1,
+      "total": 22,
+      "medianAnte": 5
+     },
+     "Immolate": {
+      "sold": 3,
+      "picked": 2,
+      "bought": 2,
+      "used": 1,
+      "total": 8,
+      "medianAnte": 4
+     },
+     "Medium": {
+      "sold": 2,
+      "bought": 1,
+      "gained": 1,
+      "used": 1,
+      "picked": 1,
+      "total": 6,
+      "medianAnte": 6
+     },
+     "Talisman": {
+      "gained": 1,
+      "sold": 1,
+      "bought": 1,
+      "used": 1,
+      "total": 4,
+      "medianAnte": 4
+     },
+     "Hex": {
+      "used": 2,
+      "gained": 1,
+      "sold": 1,
+      "total": 4,
+      "medianAnte": 6
+     },
+     "Ectoplasm": {
+      "gained": 2,
+      "sold": 2,
+      "total": 4,
+      "medianAnte": 5
+     },
+     "Trance": {
+      "bought": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 4
+     },
+     "Sigil": {
+      "picked": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 7
+     },
+     "Ankh": {
+      "picked": 1,
+      "used": 1,
+      "total": 2,
+      "medianAnte": 6
+     }
+    }
+   }
+  },
+  "jokerSales": {
+   "sold": 85,
+   "replacedPct": 96,
+   "roundsHeld": {
+    "n": 85,
+    "mean": 4.4,
+    "median": 3,
+    "p25": 1,
+    "p75": 5
+   },
+   "where": {
+    "shop": 68,
+    "pack": 7,
+    "cash_out": 6,
+    "blind_select": 2,
+    "hand": 2
+   },
+   "byAnte": {
+    "1": {
+     "sold": 1,
+     "replaced": 1,
+     "jokers": {
+      "Zany Joker": 1
+     }
+    },
+    "2": {
+     "sold": 6,
+     "replaced": 6,
+     "jokers": {
+      "Green Joker": 1,
+      "Egg": 1,
+      "Scary Face": 1,
+      "Walkie Talkie": 1,
+      "Driver's License": 1,
+      "Crafty Joker": 1
+     }
+    },
+    "3": {
+     "sold": 13,
+     "replaced": 13,
+     "jokers": {
+      "Smiley Face": 1,
+      "Scary Face": 1,
+      "Hallucination": 1,
+      "Midas Mask": 1,
+      "Loyalty Card": 1,
+      "Faceless Joker": 1,
+      "Gros Michel": 1,
+      "Riff-Raff": 1
+     }
+    },
+    "4": {
+     "sold": 12,
+     "replaced": 12,
+     "jokers": {
+      "Hanging Chad": 2,
+      "Mail-In Rebate": 1,
+      "Golden Ticket": 1,
+      "Abstract Joker": 1,
+      "Greedy Joker": 1,
+      "Fortune Teller": 1,
+      "Invisible Joker": 1,
+      "Satellite": 1
+     }
+    },
+    "5": {
+     "sold": 7,
+     "replaced": 7,
+     "jokers": {
+      "Reserved Parking": 1,
+      "Gros Michel": 1,
+      "Wrathful Joker": 1,
+      "Cartomancer": 1,
+      "Hanging Chad": 1,
+      "Photograph": 1,
+      "Shoot the Moon": 1
+     }
+    },
+    "6": {
+     "sold": 10,
+     "replaced": 10,
+     "jokers": {
+      "Mime": 1,
+      "Card Sharp": 1,
+      "Mail-In Rebate": 1,
+      "Reserved Parking": 1,
+      "Astronomer": 1,
+      "Sly Joker": 1,
+      "Sixth Sense": 1,
+      "Gift Card": 1
+     }
+    },
+    "7": {
+     "sold": 15,
+     "replaced": 14,
+     "jokers": {
+      "Perkeo": 3,
+      "Reserved Parking": 2,
+      "Scholar": 1,
+      "Red Card": 1,
+      "Chaos the Clown": 1,
+      "Swashbuckler": 1,
+      "Gros Michel": 1,
+      "Photograph": 1
+     }
+    },
+    "8": {
+     "sold": 6,
+     "replaced": 6,
+     "jokers": {
+      "Astronomer": 1,
+      "Golden Joker": 1,
+      "Gift Card": 1,
+      "Reserved Parking": 1,
+      "Scholar": 1,
+      "Cavendish": 1
+     }
+    },
+    "9+": {
+     "sold": 15,
+     "replaced": 13,
+     "jokers": {
+      "Mail-In Rebate": 2,
+      "Business Card": 1,
+      "Fortune Teller": 1,
+      "Hanging Chad": 1,
+      "Golden Ticket": 1,
+      "Invisible Joker": 1,
+      "Delayed Gratification": 1,
+      "Golden Joker": 1
+     }
+    }
+   },
+   "mostSold": {
+    "Reserved Parking": 7,
+    "Mail-In Rebate": 5,
+    "Gros Michel": 5,
+    "Hanging Chad": 4,
+    "Scholar": 4,
+    "Perkeo": 3,
+    "Golden Joker": 3,
+    "Scary Face": 2,
+    "Golden Ticket": 2,
+    "Astronomer": 2,
+    "Fortune Teller": 2,
+    "Swashbuckler": 2,
+    "Gift Card": 2,
+    "Invisible Joker": 2,
+    "Driver's License": 2,
+    "Cartomancer": 2,
+    "Photograph": 2,
+    "Raised Fist": 2,
+    "Sixth Sense": 2,
+    "Trading Card": 2
+   },
+   "replacements": {
+    "Reserved Parking -> Perkeo": 2,
+    "Scholar -> Mime": 2,
+    "Smiley Face -> Scary Face": 1,
+    "Scary Face -> Hanging Chad": 1,
+    "Hallucination -> Hanging Chad": 1,
+    "Midas Mask -> Mail-In Rebate": 1,
+    "Mail-In Rebate -> Blueprint": 1,
+    "Golden Ticket -> Baron": 1,
+    "Hanging Chad -> Baron": 1,
+    "Mime -> Perkeo": 1,
+    "Perkeo -> Scholar": 1,
+    "Scholar -> Brainstorm": 1,
+    "Astronomer -> Mime": 1,
+    "Green Joker -> Mail-In Rebate": 1,
+    "Egg -> Abstract Joker": 1,
+    "Scary Face -> Swashbuckler": 1,
+    "Abstract Joker -> Invisible Joker": 1,
+    "Card Sharp -> Brainstorm": 1,
+    "Mail-In Rebate -> Hanging Chad": 1,
+    "Reserved Parking -> Red Card": 1,
+    "Red Card -> Chaos the Clown": 1,
+    "Chaos the Clown -> Reserved Parking": 1,
+    "Swashbuckler -> Gros Michel": 1,
+    "Reserved Parking -> Gros Michel": 1,
+    "Perkeo -> Gros Michel": 1
+   }
+  },
+  "hands": {
+   "plays": 190,
+   "playsRead": 52,
+   "byAnte": {
+    "1": {
+     "n": 8,
+     "cardsPlayedMean": 5,
+     "hands": {
+      "Flush": {
+       "n": 3,
+       "pct": 38
+      },
+      "Three of a Kind": {
+       "n": 2,
+       "pct": 25
+      },
+      "Two Pair": {
+       "n": 1,
+       "pct": 13
+      },
+      "Full House": {
+       "n": 1,
+       "pct": 13
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 13
+      }
+     }
+    },
+    "2": {
+     "n": 16,
+     "cardsPlayedMean": 4.9,
+     "hands": {
+      "Two Pair": {
+       "n": 5,
+       "pct": 31
+      },
+      "Full House": {
+       "n": 4,
+       "pct": 25
+      },
+      "Pair": {
+       "n": 3,
+       "pct": 19
+      },
+      "Three of a Kind": {
+       "n": 2,
+       "pct": 13
+      },
+      "High Card": {
+       "n": 1,
+       "pct": 6
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 6
+      }
+     }
+    },
+    "3": {
+     "n": 11,
+     "cardsPlayedMean": 4.5,
+     "hands": {
+      "High Card": {
+       "n": 4,
+       "pct": 36
+      },
+      "Three of a Kind": {
+       "n": 3,
+       "pct": 27
+      },
+      "Full House": {
+       "n": 3,
+       "pct": 27
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 9
+      }
+     }
+    },
+    "4": {
+     "n": 3,
+     "cardsPlayedMean": 5,
+     "hands": {
+      "Full House": {
+       "n": 2,
+       "pct": 67
+      },
+      "Three of a Kind": {
+       "n": 1,
+       "pct": 33
+      }
+     }
+    },
+    "5": {
+     "n": 5,
+     "cardsPlayedMean": 4.6,
+     "hands": {
+      "Pair": {
+       "n": 3,
+       "pct": 60
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 20
+      },
+      "High Card": {
+       "n": 1,
+       "pct": 20
+      }
+     }
+    },
+    "6": {
+     "n": 5,
+     "cardsPlayedMean": 3.4,
+     "hands": {
+      "Pair": {
+       "n": 4,
+       "pct": 80
+      },
+      "High Card": {
+       "n": 1,
+       "pct": 20
+      }
+     }
+    },
+    "7": {
+     "n": 4,
+     "cardsPlayedMean": 3.8,
+     "hands": {
+      "Pair": {
+       "n": 2,
+       "pct": 50
+      },
+      "Two Pair": {
+       "n": 1,
+       "pct": 25
+      },
+      "High Card": {
+       "n": 1,
+       "pct": 25
+      }
+     }
+    }
+   },
+   "byDeck": {
+    "GHOST": {
+     "n": 31,
+     "hands": {
+      "Two Pair": {
+       "n": 7,
+       "pct": 23
+      },
+      "High Card": {
+       "n": 7,
+       "pct": 23
+      },
+      "Pair": {
+       "n": 6,
+       "pct": 19
+      },
+      "Three of a Kind": {
+       "n": 4,
+       "pct": 13
+      },
+      "Full House": {
+       "n": 3,
+       "pct": 10
+      },
+      "Flush": {
+       "n": 2,
+       "pct": 6
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 3
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 3
+      }
+     }
+    },
+    "RED": {
+     "n": 21,
+     "hands": {
+      "Full House": {
+       "n": 7,
+       "pct": 33
+      },
+      "Pair": {
+       "n": 6,
+       "pct": 29
+      },
+      "Three of a Kind": {
+       "n": 4,
+       "pct": 19
+      },
+      "Five of a Kind": {
+       "n": 1,
+       "pct": 5
+      },
+      "Flush": {
+       "n": 1,
+       "pct": 5
+      },
+      "Four of a Kind": {
+       "n": 1,
+       "pct": 5
+      },
+      "High Card": {
+       "n": 1,
+       "pct": 5
+      }
+     }
+    }
+   }
+  }
+ }
+}

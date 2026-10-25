@@ -29,6 +29,16 @@ META = {
     "-GUBw5pfwWY": ("endless", "naneinf by ante 9: negative Business Card from Judgement and an early Baron, a fast endless finish."),
     "IK2QVkr5fzE": ("endless", "naneinf speedrun built on copied Immolates (an 11-card deck) and a Baron-centred endless build."),
     "XfLcmbk09tc": ("early", "Pair build: an early Wraith into Burnt Joker carried the early game while he levelled Pair (166 levels)."),
+    # Added 2026-10-23 for White stake and deck variety. White stake runs are rare on the channel: since
+    # mid 2024 every normal run is Gold Stake, so White comes from launch week and the naneinf speedruns.
+    "hj_BuRY6uRc": ("white", "Launch day (game 1.0.0): a White Stake Red Deck win at ante 8, then a Red Stake Yellow Deck run."),
+    "ywRtrJktO5M": ("endless", "White Stake naneinf speedrun (Brainstorm mod Perkeo start) finished in 23 minutes."),
+    "s2qZNADhAY4": ("endless", "White Stake naneinf speedrun (Brainstorm mod Perkeo start); three key pieces came early."),
+    "8cuq_dW2V_g": ("early", "Erratic Deck: a start with nine Kings pushed a Photograph and Hanging Chad (Photochad) build."),
+    "vA_acBOHMb4": ("early", "Abandoned Deck (no face cards) and he still went for a face card build after close early calls."),
+    "ylLAEKHkm00": ("early", "Black Deck: a strong Holographic Joker carried the early game; sold a top joker for Baseball Card."),
+    "0YQg7HqqF40": ("early", "Plasma Deck: weak scoring jokers all run, carried by foil jokers, Plasma balancing and Saturns."),
+    "o0Dv57c9UhY": ("early", "Blue Deck: an early Spare Trousers and Square Joker scaled into the late antes."),
 }
 # Deck and stake, as listed in the sources of data/roffle/playbook.json (another agent's file).
 DECK = {
@@ -46,6 +56,17 @@ DECK = {
     # Not in that list: deck read from the draw pile's card back (closest colour of the
     # Abandoned/Red/Yellow backs, which share one pattern), stake from the video description.
     "XfLcmbk09tc": ("Yellow", "Gold"),
+    # Added 2026-10-23. Stake from the video description, the HUD blind targets (White and Red share
+    # the base scaling, Gold's Small Blind pays nothing) or what he says; deck from the card back
+    # and the starting hands and discards.
+    "hj_BuRY6uRc": ("Red", "White", [(0, "Red", "White"), (1690, "Yellow", "Red")]),
+    "ywRtrJktO5M": ("Ghost", "White"),
+    "s2qZNADhAY4": ("Ghost", "White"),
+    "8cuq_dW2V_g": ("Erratic", "Gold"),
+    "vA_acBOHMb4": ("Abandoned", "Gold"),
+    "ylLAEKHkm00": ("Black", "Gold"),
+    "0YQg7HqqF40": ("Plasma", "Gold"),
+    "o0Dv57c9UhY": ("Blue", "Gold"),
 }
 
 
@@ -80,6 +101,8 @@ def main():
                 "kind": META.get(vid, ("", ""))[0],
                 "deck": DECK.get(vid, (None, None))[0],
                 "stake": DECK.get(vid, (None, None))[1],
+                # A video with runs on different decks or stakes: where each setting starts.
+                **({"segments": [{"start_t": t, "deck": d, "stake": st} for t, d, st in DECK[vid][2]]} if len(DECK.get(vid, ())) > 2 else {}),
                 "why_chosen": META.get(vid, ("", ""))[1],
                 "analysed_seconds": timeline.get("analysed"),
                 "runs": timeline.get("runs"),

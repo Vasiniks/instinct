@@ -205,6 +205,10 @@ def blind_segments(readings, breaks):
         else:
             segs.append({"key": r["key"], "start": r["t"], "end": r["t"], "n": 1})
     segs = [s for s in segs if s["n"] >= 2]
+    # A blind read only twice that starts with no break after the one before is a misread chip in
+    # that blind (a boss chip read for 2 s in the middle of a Big Blind, or the next boss's chip
+    # flashing as the last one ends); kept, it adds an ante, and two skips, to everything after.
+    segs = [s for i, s in enumerate(segs) if not (s["n"] <= 2 and i > 0 and not any(segs[i - 1]["end"] < b < s["start"] for b in breaks))]
     # Glue back a blind split by a stray break (two segments of the same blind in a row).
     out = []
     for s in segs:

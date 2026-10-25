@@ -1,6 +1,6 @@
 // Decision bars and gate meters.
 
-import { h, pct, reducedMotion, withTip } from "./dom.ts";
+import { h, mount, pct, reducedMotion, withTip } from "./dom.ts";
 
 export interface BarRow {
   id: string;
@@ -13,13 +13,28 @@ export interface BarRow {
   chosen: boolean;
   /** The model's own top option. */
   pick: boolean;
+  /** The move's kind as a swatch family (play, discard, money, card, blind, pass). */
+  kind?: string;
+  /** The card the move touches, badged as the game does: a joker by rarity, others by set. */
+  tag?: { text: string; tone: string };
+  /** A play's estimated score, chips x mult. */
+  est?: { chips: number; mult: number; approximate: boolean };
 }
 
 interface RowEls {
   row: HTMLElement;
+  kind: HTMLElement;
+  tags: HTMLElement;
   fill: HTMLElement;
   ghost: HTMLElement;
   value: HTMLElement;
+}
+
+const num = (x: number) => (Number.isInteger(x) ? x.toLocaleString() : x.toFixed(1));
+
+/** Chips x mult in the game's blue and red boxes; "~" when the score is approximate. */
+function score(e: NonNullable<BarRow["est"]>): HTMLElement {
+  return h("span", { class: "score" }, e.approximate ? "~" : "", h("b", { class: "score-chips" }, num(e.chips)), "×", h("b", { class: "score-mult" }, num(e.mult)));
 }
 
 /** Keyed rows so probabilities animate in place, Doom-demo style, instead of being redrawn. */
@@ -51,11 +66,14 @@ export class DecisionBars {
         els = this.#build(r.id);
         this.#rows.set(r.id, els);
       }
-      const { row, fill, ghost, value } = els;
+      const { row, kind, tags, fill, ghost, value } = els;
       row.classList.toggle("chosen", r.chosen);
       row.classList.toggle("pick", r.pick);
-      row.setAttribute("aria-label", `${r.label}: ${pct(r.p)}${r.chosen ? ", chosen" : ""}${r.pick ? ", model's pick" : ""}`);
+      const said = [r.tag?.text.toLowerCase(), r.est && `${num(r.est.chips)} chips times ${num(r.est.mult)} mult`].filter(Boolean).join(", ");
+      row.setAttribute("aria-label", `${r.label}${said ? ` (${said})` : ""}: ${pct(r.p)}${r.chosen ? ", chosen" : ""}${r.pick ? ", model's pick" : ""}`);
+      kind.className = `bar-kind k-${r.kind ?? "pass"}`;
       (row.querySelector(".bar-label") as HTMLElement).textContent = r.label;
+      mount(tags, r.est ? score(r.est) : null, r.tag ? h("span", { class: `dot-tag c-${r.tag.tone}` }, r.tag.text) : null);
       // The chosen row is styled; only a model pick the gates overruled needs words.
       (row.querySelector(".bar-badges") as HTMLElement).textContent = r.pick && !r.chosen ? "model's pick" : "";
       value.textContent = pct(r.p);
@@ -71,13 +89,15 @@ export class DecisionBars {
   }
 
   #build(id: string): RowEls {
+    const kind = h("span", { class: "bar-kind", "aria-hidden": "true" });
+    const tags = h("span", { class: "bar-tags" });
     const fill = h("div", { class: "bar-fill" });
     const ghost = h("div", { class: "bar-ghost" });
     const value = h("span", { class: "bar-value" });
     const row = h(
       "div",
       { class: "bar-row", role: "listitem", tabindex: 0 },
-      h("div", { class: "bar-head" }, h("span", { class: "bar-label" }), h("span", { class: "bar-badges" }), value),
+      h("div", { class: "bar-head" }, kind, h("span", { class: "bar-label" }), tags, h("span", { class: "bar-badges" }), value),
       h("div", { class: "bar-track" }, fill, ghost),
     );
     const pick = () => {
@@ -102,18 +122,18 @@ export class DecisionBars {
         this.el.classList.contains("interactive") ? h("p", { class: "tip-meta" }, "Click to send this action") : null,
       );
     });
-    return { row, fill, ghost, value };
+    return { row, kind, tags, fill, ghost, value };
   }
 }
 
-/** A 0..1 meter with an optional threshold tick. */
-export function meter(value: number | undefined, opts: { threshold?: number; label: string; note?: string; title?: string; passAbove?: boolean }): HTMLElement {
+/** A 0..1 meter with an optional threshold tick; `tone` colors a meter that isn't a probability gate (style.css .tone-*). */
+export function meter(value: number | undefined, opts: { threshold?: number; label: string; note?: string; title?: string; passAbove?: boolean; tone?: string }): HTMLElement {
   const v = value === undefined ? undefined : Math.max(0, Math.min(1, value));
   const over = v !== undefined && opts.threshold !== undefined && v >= opts.threshold;
   const state = v === undefined || opts.threshold === undefined || opts.passAbove === undefined ? "" : over === opts.passAbove ? " pass" : " fail";
   return h(
     "div",
-    { class: `meter${state}`, role: "meter", "aria-valuemin": 0, "aria-valuemax": 1, "aria-valuenow": v ?? 0, "aria-label": opts.label, title: opts.title },
+    { class: `meter${state}${opts.tone ? ` tone-${opts.tone}` : ""}`, role: "meter", "aria-valuemin": 0, "aria-valuemax": 1, "aria-valuenow": v ?? 0, "aria-label": opts.label, title: opts.title },
     h("div", { class: "meter-head" }, h("span", null, opts.label), h("span", { class: "meter-value" }, pct(v))),
     h(
       "div",

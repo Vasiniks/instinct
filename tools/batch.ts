@@ -6,6 +6,7 @@
 //   node tools/batch.ts --games 20 --decks RED,BLUE,PLASMA --stake WHITE
 //   node tools/batch.ts --games 6 --urls http://127.0.0.1:12346,http://127.0.0.1:12350
 //   node tools/batch.ts --games 3 --mock --sim           # plumbing check: simulator, no model calls
+//   node tools/batch.ts --games 40 --set simWeight=1.69  # TUNING numbers or switches, as in simbench
 //   --backend local uses StartLux on :8090 instead of cloud Jev
 //
 // Seeds come from --prefix (default INST) and the game number, so a rerun replays the same deals.
@@ -15,11 +16,16 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { blindDeck } from "../src/blinddeck.ts";
 import { loadConfig } from "../src/config.ts";
+import { enableParallel } from "../src/parallel.ts";
 import type { Snapshot } from "../src/extract.ts";
+import { FEATURES } from "../src/features.ts";
 import { Agent, type TickRecord } from "../src/loop.ts";
 import { simGame } from "../src/sim.ts";
 import { type Engine, httpEngine, mockEngine } from "../src/systemone.ts";
+import { applyOverrides } from "../src/tuning.ts";
 
+// Round simulations on worker threads (identical results); several workers already share the CPU.
+enableParallel(Math.max(1, Math.floor(6 / Math.max(1, (process.argv.includes("--urls") ? process.argv[process.argv.indexOf("--urls") + 1].split(",").length : 1)))));
 const argv = process.argv.slice(2);
 const arg = (name: string, fallback?: string) => {
   const i = argv.indexOf(`--${name}`);
@@ -35,6 +41,7 @@ const sim = arg("sim") !== undefined;
 const backend = arg("backend", "cloud")!;
 const prefix = (arg("prefix", "INST")!.toUpperCase().replace(/[^A-Z1-9]/g, "") || "INST").slice(0, 4);
 const maxTicks = Number(arg("max-ticks", "2500"));
+const applied = applyOverrides(arg("set") ?? "", FEATURES as Record<string, boolean>);
 
 /** Balatro seeds are up to 8 characters with no 0 (it reads as O): the game number in base 9 on digits 1-9. */
 const seedOf = (n: number) => prefix + [...n.toString(9).padStart(4, "0")].map((d) => String(Number(d) + 1)).join("");
@@ -126,7 +133,7 @@ async function worker(url: string) {
   }
 }
 
-console.log(`${games} games, ${decks.join("/")} on ${stake}, ${urls.length} worker${urls.length === 1 ? "" : "s"}${mock ? ", mock model" : ""}. Logs: ${out}`);
+console.log(`${games} games, ${decks.join("/")} on ${stake}, ${urls.length} worker${urls.length === 1 ? "" : "s"}${mock ? ", mock model" : ""}${applied.length ? `, ${applied.join(" ")}` : ""}. Logs: ${out}`);
 await Promise.all(urls.map(worker));
 const wins = results.filter((r) => r.won).length;
 const antes = results.map((r) => r.ante).sort((a, b) => a - b);

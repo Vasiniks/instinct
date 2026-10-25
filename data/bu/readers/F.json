@@ -1,0 +1,3103 @@
+{
+ "videos": [
+  {
+   "id": "ab30EDBnscQ",
+   "title": "All Jokers Tier List (Commons)",
+   "why": "Ranks all 61 commons: early flat +Mult over chips, discards and hands as money, consistency over variance, money-joker ordering",
+   "talk_share": "high"
+  },
+  {
+   "id": "eT6X1613CbA",
+   "title": "All Jokers Tier List (Uncommons)",
+   "why": "Ranks uncommons: xMult priority, fragility to bosses, skip cost (Throwback), deck-size limits, money/value generators",
+   "talk_share": "high"
+  },
+  {
+   "id": "-dFEWf4t7yU",
+   "title": "All Jokers Tier List (Rares and Legendaries)",
+   "why": "Ranks rares/legendaries: copy jokers, hand-xMult rares, bosses-halve-score model; partly on fun/design",
+   "talk_share": "high"
+  }
+ ],
+ "claims": [
+  {
+   "id": "jokers.commons-are-early-hires",
+   "topic": "jokers",
+   "decision": "joker sell",
+   "statement": "Common flat-scoring jokers (+Mult/+Chips hand-type jokers, Jimbo, sinful jokers, chips jokers) and common money jokers are bought in antes 1-2 to survive; treat every common as effectively perishable and plan to sell it for an uncommon/xMult scorer or better Planet levels later.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "buying commons early; selling them from ~ante 3 when a better scorer is offered"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 256.12,
+     "text": "you're not taking these things in anti 4 you're not taking these things in anti 6 you're taking these things in the first two an and then that's it and then you sell them to anties later",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=256s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2023.0,
+     "text": "every common Joker that you pick up is perishable if you pick up a money generating Joker it's perishable you will reach a point in the game where you have to sell it to score more points",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2023s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2089.399,
+     "text": "at the time that you get these Commons they do the thing that they need you to do they do survival for you",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2089s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.bridge-without-overspending",
+     "econ.spend-early-then-hold-cap"
+    ]
+   },
+   "knob": "joker value for common flat-scoring jokers: full in antes 1-2, decaying from ante 3 (e.g. x0.6 by ante 4); when slots are full and an uncommon/rare scorer or xMult is offered, sell the weakest common",
+   "notes": "He says this most directly about the hand-type +Mult commons; the 'perishable' remark covers money commons too."
+  },
+  {
+   "id": "jokers.mult-over-chips",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "For the hand-type commons, every +Mult version beats every +Chips version. Early you want the +Mult; later you want neither. Chips jokers fall off because Planet levels give mostly chips (e.g. +20 to +30 chips per +1 to +2 Mult).",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 375.199,
+     "text": "early on early on I'd rather have the plus mol later on I'd rather not have any of these so like that's kind of the tension here",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=375s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 384.599,
+     "text": "I think all of the chips are going to be worse than all of the Mt",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=384s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2080.399,
+     "text": "the ratio is much higher chips leaning on the planet cards and so all of these chips generators fall off later on",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2080s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "value(+Chips hand joker: Sly/Wily/Clever/Devious/Crafty) < value(matching +Mult joker), e.g. x0.6; both decay toward 0 after ante 3-4"
+  },
+  {
+   "id": "jokers.hand-type-order",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Rank the hand-type +Mult commons by ease of the hand times payoff: Droll (Flush +10) > Mad (Two Pair +10) > Crazy (Straight +12) > Jolly (Pair +8, 'mid') > Jimbo (+4, $2, 'mid') > Zany (Three of a Kind +12, too hard to make). Use the same order for the +Chips versions (Crafty middle, Sly 'basically free but only 50 chips', Wily lowest).",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 189.64,
+     "text": "probably for me the best of these set is going to be droll and I think droll what I like about droll is it's really easy to make flushes",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=189s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 230.959,
+     "text": "I actually prefer mad better because of how easy it is to make two pair for the plus 10 and probably the worst of these I actually put Jimbo above zany",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=230s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 391.039,
+     "text": "I would rank them in probably the same order as far as like you know the what is the difficulty of making the hand versus like you know what is the reward that you get",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=391s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "hand-type joker value table: Droll 1.0, Mad 0.95, Crazy 0.9, Jolly 0.8, Joker 0.7, Zany 0.6 (relative); chips versions same order scaled down"
+  },
+  {
+   "id": "jokers.unrestricted-mult-early",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Early, +Mult that works on any hand (Half Joker +20 when playing <=3 cards, Abstract, Mystic Summit +15, Gros Michel +15, Smiley Face, Even Steven, the suit 'sinful' jokers) is worth more than hand-type +Mult. The sinful jokers rank above hand-type jokers because a 3-card partial flush already gives +9.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4725.48,
+     "text": "I think the solid unrestricted sources of Plus Mt are insane early game very stable",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4725s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1086.96,
+     "text": "plus 15 to any hand that you play any garbage that you play plus 15 which is Big",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1086s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 530.36,
+     "text": "you don't have to play the full flush you could just play a straight that has only three cards and it would still be nine mol",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=530s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "stake.gold-buys-early-scoring"
+    ],
+    "note": "Roffle skips cheap early flat scoring at White stake and banks the money; BU (no stake given) calls unrestricted +Mult 'insane early game' and buys these commons in antes 1-2."
+   },
+   "knob": "early-game value multiplier for any-hand +Mult jokers vs hand-type +Mult jokers (e.g. x1.3); Half Joker / Abstract / sinful / Smiley / Even Steven in the top common group",
+   "notes": "Relevant to the White-stake target: BU gives no stake restriction here."
+  },
+  {
+   "id": "jokers.four-jokers-by-ante-2",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Expect to hold about 4 jokers by the end of ante 2 (said while valuing Abstract, which starts around +12 and reaches ~+15).",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 718.36,
+     "text": "you get up to 4 four Jokers within the first two anties and so I think abstract it's easy smash for me",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=718s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.spend-early-then-hold-cap"
+    ]
+   },
+   "knob": "target >= 4 filled joker slots by the end of ante 2 (fill with cheap scoring/money jokers)",
+   "notes": "Said once in passing; the 4 is his estimate of typical joker count, read here as a target (implied)."
+  },
+  {
+   "id": "hands.chips-make-hand-type-irrelevant",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "A flat chips source (about +100 chips from Odd Todd, Ice Cream, Runner, Blue Joker) makes any hand score about the same in the short term. Then play throwaway High Card or Pair and spend discards digging for Gold cards and Purple/Blue Seals instead of chasing a hand. This is why he puts Odd Todd above Even Steven.",
+   "conditions": {
+    "antes": [
+     1,
+     2,
+     3
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "joker chips >= ~100"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 867.32,
+     "text": "if you have like plus 100 chips then it doesn't matter if you play a flush it doesn't matter if you play a pair they're both going to score relatively you know about the same amount of points",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=867s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 884.279,
+     "text": "you can use your discards for Value um and you don't have to worry about what hand that you're trying to make",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=884s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.spam-one-cheap-hand"
+    ]
+   },
+   "knob": "if flat joker chips >= ~100: hand chooser ignores hand-type preference (play cheapest winning hand) and discards target Gold/sealed cards"
+  },
+  {
+   "id": "jokers.discards-are-money",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Jokers that ask you not to discard (Banner, Green Joker, Delayed Gratification, Ramen, and in effect Blue Joker) lose value, because discards dig for Gold cards and Purple Seals. With even one Purple Seal or Gold card in the deck, sell Delayed Gratification and don't buy Banner.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "deck has >= 1 Purple Seal or Gold card"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 964.399,
+     "text": "the main thing that I use discarding for is for digging for gold cards which then give you value digging for purple seals which then give you value",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=964s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1899.919,
+     "text": "having just one purple seal in your deck just one that's enough for you to sell your gratification that's enough for you to not buy Banner yeah same even just a gold card",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1899s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 5185.719,
+     "text": "not being able to use your discards discards are a lot of value discards allow you to get gold cards discards allow you to get purple seals",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=5185s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "if deck has >= 1 Purple Seal or Gold card: Delayed Gratification gets high sell priority, Banner/Green Joker/Ramen value x0.5",
+   "notes": "The 'one purple seal' line is a chatter's point that he reads aloud and endorses ('yeah same even just a gold card'). Late in the commons video he moved Green Joker up a little (to just behind Runner), mentioning Gold-stake players who rate it."
+  },
+  {
+   "id": "jokers.hands-are-money",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Count each extra hand a joker makes you spend as about $1 lost (unused hands pay $1 each). Dusk (last hand only), Loyalty Card + Burglar (six hands a round), DNA (costs a hand) and Square Joker (four 4-card hands for +16) are all marked down.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 378.599,
+     "text": "dust gives you the re-triggers but it's only on your last hand which is expensive you got to use up your hands your hands are money",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=378s",
+     "gloss": "Dusk"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 626.839,
+     "text": "why are you spending six hands every round when you could could just be spending three hands or something like that",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=626s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2343.2,
+     "text": "Square cost me $4 per round if I'm using the runner I'm playing one straight every round anyway it doesn't cost me extra",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2343s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "jokers.value-in-context"
+    ],
+    "note": "Roffle: Loyalty Card with six hands a round is a real xMult; BU: six hands a round is too expensive even at its best."
+   },
+   "knob": "joker value -= $1 x (expected extra hands per round the joker requires); Dusk/Loyalty/DNA/Square penalised"
+  },
+  {
+   "id": "jokers.consistency-over-variance",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Prefer predictable output to random output with the same average. Misprint (average ~+12, like Abstract) is a pass: when you can make only one scoring hand, a low roll ends the run, and fixed output lets you plan throwaway hands. Bloodstone is the same: it needs three x1.5 procs to beat Acrobat's x3.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "<= 1 reliable scoring hand"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1564.84,
+     "text": "if you only have the ability to make one scoring hand getting the low roll can be run ending",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1564s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1593.88,
+     "text": "I like I like being able to know exactly what's going to happen",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1593s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 3792.16,
+     "text": "it's just not as consistent as you know even like acrobat times three it takes three 1.5s",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=3792s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "value random-output jokers (Misprint, Bloodstone, Space Joker, Rough Gem, 8 Ball) at a low percentile of their output (e.g. 25th) rather than the mean, especially early"
+  },
+  {
+   "id": "hands.throwaway-hands-for-value",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Once one hand is enough to win the round, play the other hands as throwaways for To-Do List or Rebate money, Purple Seals, Gold cards or levels, and discard more freely. A stable score lets you win with fewer hands and get more value each round.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "one hand already beats the blind"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1247.12,
+     "text": "if you know that I can win every round in just one hand I know that I don't need two flushes I know that I only need one flush then you can be a little bit more liberal with your discarding",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1247s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1598.679,
+     "text": "often times what I'm looking for is I actually don't want to score points I actually just want to throw away hands for you know to-do list money or rebate money",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1598s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.throwaway-hands-to-scale"
+    ]
+   },
+   "knob": "if projected best hand >= remaining blind chips: spend earlier hands/discards on value actions (To-Do List hand, Rebate rank, sealed/Gold cards), play the winning hand last"
+  },
+  {
+   "id": "economy.spend-early-then-save-25",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "Early spending that costs interest can beat interest if it lets you play greedier, e.g. buying more with Credit Card. Otherwise save by buying nothing until you have $25 in the bank (the interest cap).",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1269.039,
+     "text": "a early expense in the beginning you know spending down even though it costs you interest can be worth it long term can be better than interest sometimes because it unlocks your ability to play more greedy",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1269s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4310.159,
+     "text": "normally when you're trying to save money for interest you like okay I just don't buy anything until I have $25 in the bank",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4310s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.spend-early-then-hold-cap"
+    ]
+   },
+   "knob": "antes 1-2: spend on scoring/money jokers even below $25; afterwards a 'saving' state buys nothing until money >= $25",
+   "notes": "Elsewhere (Bull) he says 'typically I roll a bunch' instead of saving money, so in practice he rerolls more than this rule suggests."
+  },
+  {
+   "id": "economy.credit-card-burst",
+   "topic": "economy",
+   "decision": "shop joker buy",
+   "statement": "Credit Card: use the debt in one burst. Buy everything in one or two shops, sell the card, then buy nothing until you are out of debt. You rarely find two jokers you want in the same shop, so buying a little each shop is usually better, and he ranks it low (below 8 Ball). Its main use is getting off the ground on Black Deck or Gold stake.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any (Black Deck noted)",
+    "stake": "any (Gold noted)"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4296.48,
+     "text": "I think like the ideal scenario is you get the credit card you buy everything in one shop where you buy everything in the next shop and then you get rid of it",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4296s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4279.159,
+     "text": "it's rare for you to find two jokers that you want to buy from the same shop right usually it's a couple rounds before before you find the next Joker that you actually care about",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4279s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1227.919,
+     "text": "if you're playing on the gold Stak sometimes you just need to get off the ground",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1227s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.credit-card-debt"
+    ],
+    "note": "Agrees that the debt is for an early burst, but BU ranks the card itself low (behind 8 Ball)."
+   },
+   "knob": "Credit Card joker value low (below 8 Ball); if owned: allow negative money for at most 2 shops, then sell it and freeze purchases until money >= 0",
+   "notes": "Self-contradiction: at first he called Credit Card a 'gentle smash', better than the hand-type +Mult jokers early, then after a chat challenge moved it behind 8 Ball."
+  },
+  {
+   "id": "economy.scoring-before-golden-joker",
+   "topic": "economy",
+   "decision": "shop joker buy",
+   "statement": "In the first couple of rounds buy a scoring joker before Golden Joker. It costs $6 plus the interest lost and pays $4 a round, so it has to be held several rounds to pay off. He ranks it near the worst money joker, next to Delayed Gratification.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "no scoring joker yet"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 3064.799,
+     "text": "golden Joker cost six you know it cost you twice as much and you get back some of that money",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=3064s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 3081.599,
+     "text": "early on I think you know you need some kind of scoring Joker to help you survive the the first couple rounds here",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=3081s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "econ.money-jokers-first"
+    ],
+    "note": "Roffle buys money jokers in antes 1-2 even over a small scoring gain; BU wants a scoring joker first and rates Golden Joker low."
+   },
+   "knob": "ante 1 with no scoring joker: Golden Joker value below any +Mult common; Golden Joker ~= Delayed Gratification in money-joker table"
+  },
+  {
+   "id": "economy.money-joker-table",
+   "topic": "economy",
+   "decision": "shop joker buy",
+   "statement": "Money jokers, as he ranks them. Commons: Mail-In Rebate is overtuned (top). Business Card is mid: above Delayed Gratification, below Chaos the Clown. Faceless sits above Gratification. To-Do List is about Business Card but swingier. Golden Joker is about Gratification (low). Reserved Parking and Golden Ticket are passes: Parking nets about $2.5 a round at best after paying a hand ($1), and Ticket earns only $1 more per Gold card played than holding it. Uncommons: Bull and Bootstraps 'off the charts'; Gift Card and Rocket smash; Turtle Bean smash but 'not top tier money'; Cloud 9 conditional; To the Moon below Cloud 9; Satellite pass (too slow to get going).",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 3417.52,
+     "text": "rebate is imbalanced the number too big and so like you can't use that as your like point of comparison",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=3417s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 3639.72,
+     "text": "seven face cards on average gives you 350 or sorry $3.5 but it cost you a dollar so you get 2.5",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=3639s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 5214.679,
+     "text": "ticket is one additional dollar one additional dollar right like it gives you $4 per Gold Card played but like if you keep the gold card in your hand it's $3",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=5214s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "econ.money-jokers-first"
+    ],
+    "note": "Roffle lists Reserved Parking, Golden Ticket and Credit Card as early money jokers to take; BU passes on Parking and Ticket and rates Credit Card low."
+   },
+   "knob": "money-joker value table: Rebate > Clown >= Business Card ~ To-Do > Faceless > Gratification ~ Golden Joker > Golden Ticket, Reserved Parking (pass); uncommon: Bull ~ Bootstraps > Gift Card ~ Rocket > Turtle Bean > Cloud 9 > To the Moon > Satellite",
+   "notes": "Chaos the Clown was first rated 'easily better than Golden Joker' (~$7/round if you reroll 3x/shop) and then argued down because you need money to reroll, and late in the game the slot is needed for scoring. 'Money's just busted' is his general stance."
+  },
+  {
+   "id": "skips_tags.dont-skip-shops",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Skipping a blind costs that shop and its booster packs, a huge opportunity cost, so he generally doesn't take skip tags. More than about 3 skips in a run goes badly. Throwback is a trap: in three shops you will find an uncommon better than it.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4668.4,
+     "text": "I think skipping booster packs is expensive it's a huge opportunity cost so like you don't skip you don't take skip tags you don't skip rounds you don't take skip tags because you",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4668s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1732.36,
+     "text": "if you're skipping more than three times probably you're going to have a bad time",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1732s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1745.039,
+     "text": "if you just shop three times you're going to find an uncommon Joker that's better than throwback",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1745s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "skip a blind at most ~3 times per run, and only when the tag clearly beats the shop + packs lost; Throwback / Diet Cola valued low",
+   "notes": "Roffle states this only for Gold stake; BU applies it generally. The Diet Cola point: even a doubled skip tag may not be worth the slot."
+  },
+  {
+   "id": "packs.standard-pack-take-seals",
+   "topic": "packs",
+   "decision": "pack pick",
+   "statement": "In Standard packs take the sealed cards (Purple, Blue; the Blue Seal buff makes Blue worth taking now). With no seals, take nothing. He treats Standard packs as high variance.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 2690.44,
+     "text": "I think with the buff to the Blue Seal now it's worth it to take Blue Seals from the stand standard packs",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=2690s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 5040.92,
+     "text": "standard packs kind of high variants if you get the seals they're good if you don't get the seals you don't take them",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=5040s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 2686.2,
+     "text": "from the standard packs you're actually picking up purple seals you're picking up Blue Seals",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=2686s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.blue-seals-early"
+    ]
+   },
+   "knob": "Standard pack pick: take a card with Purple/Blue (also Gold/Red) Seal; if none, skip the pick (avoid deck bloat)",
+   "notes": "He mentions a recent Blue Seal buff (the 1.0.1-era change)."
+  },
+  {
+   "id": "jokers.slow-mult-scalers-weak",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Slow +Mult scalers (Ride the Bus at $6, Green Joker, Supernova, Red Card) are weak. By the time they are big you should already be doing something else. Early you need immediate flat +Mult (Half Joker) to carry you while you build economy and the deck.",
+   "conditions": {
+    "antes": [
+     1,
+     2,
+     3
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4107.839,
+     "text": "if you invest a lot into it by the time it becomes big by the time it becomes useful you're already at a point in the game where you should just be doing something else",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4107s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4148.92,
+     "text": "you need Habs early on to carry you while you're still building up your economy while you're still you know doing the deck building",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4148s",
+     "gloss": "Half Joker"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.dont-greed-past-scoring"
+    ]
+   },
+   "knob": "antes 1-2: value slow +Mult scalers (Bus, Green, Supernova, Red Card) by expected Mult at ante 3, below same-cost flat +Mult jokers",
+   "notes": "Exception: the reroll-scaling +Mult he calls 'JJ' (likely Flash Card) 'grows so fast' even when picked up later."
+  },
+  {
+   "id": "hands.runner-bank-then-pivot",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "With Runner, play one Straight a round for about 6 rounds (or one every other round for about 12), then play Pairs, Flushes or anything else; the banked chips apply to every hand. Runner is a hedge against not finding Saturns, and once Saturns arrive it goes obsolete.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "Runner owned"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2281.52,
+     "text": "you can play one straight every round for maybe six rounds or you know one straight every other round for like 12 rounds and then just play pears after that just play flushes after that play anything else",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2281s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2245.44,
+     "text": "the runner gives you a hedge against not getting Saturn cards",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2245s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.throwaway-hands-to-scale"
+    ]
+   },
+   "knob": "with Runner: play a Straight once per round when available (even as a throwaway) until Runner chips >= ~90, then play the best hand"
+  },
+  {
+   "id": "jokers.square-joker-bad",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Square Joker is expelled: it takes four 4-card hands to gain what one Straight gives Runner, and each extra hand costs $1. Constellation 'can smash with the best of them'.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2121.68,
+     "text": "Square can get out of my class I don't want to see you on campus ever again",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2121s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 2324.72,
+     "text": "Square takes four hands in order to get the same plus 15 that the runner does",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=2324s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1044.679,
+     "text": "constellation can smash with the best of them",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1044s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "jokers.square-over-early-constellation"
+    ],
+    "note": "Roffle prefers Square Joker over Constellation early; BU expels Square and rates Constellation among the best uncommons (he does not discuss timing)."
+   },
+   "knob": "Square Joker value ~0 (never buy); Constellation high among uncommons"
+  },
+  {
+   "id": "jokers.high-card-needs-chips-and-mult",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "A High Card plan needs a +Mult scaler (Ride the Bus, Supernova, Green Joker) and a chips source. Without the chips source, Green Joker is trash.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "High Card plan"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4584.639,
+     "text": "they're not the only thing that you need to make a high card run work you also need a source of chips like you need both and so if you don't get the source of chips then your green Joker is trash",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4584s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.spam-one-cheap-hand"
+    ]
+   },
+   "knob": "buy Bus/Green/Supernova for High Card only if a chips source (Stuntman, Ice Cream, Odd Todd, Stone/Bull/Castle...) is already owned"
+  },
+  {
+   "id": "hands.play-five-cards",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Most of the time play five cards per hand, so Splash does nothing and he almost never takes it. Splash only helps when the build is failing.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4470.199,
+     "text": "almost never take it cuz like most of the time what you should be doing you should be playing Five cards and if you're playing Five cards Splash doesn't do anything",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4470s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "hand play: pad played hands to 5 cards with the lowest-value cards (cycle the hand) unless a joker rewards <= 4 cards (Half Joker, Square); Splash value ~0"
+  },
+  {
+   "id": "jokers.xmult-priority",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Among uncommons you are mostly looking for xMult. Unconditional xMult that works with any hand (Steel Joker, Acrobat, Card Sharp, Blackboard, Seeing Double) beats retrigger jokers (Hack, Dusk, Sock and Buskin) and conditional or random xMult (Idol, Bloodstone, Throwback).",
+   "conditions": {
+    "antes": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 736.32,
+     "text": "I think most of the time what you're looking for you want the the sources of X mol",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=736s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 742.68,
+     "text": "hack is going to be worse than these like generic X mol steel and acrobat no matter what hand you play you get the X molt it's free",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=742s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.need-multiplicative"
+    ]
+   },
+   "knob": "uncommon value: unconditional xMult > retrigger/conditional; prefer xMult over more +Mult once 2-3 +Mult sources exist"
+  },
+  {
+   "id": "bosses.boss-halves-score",
+   "topic": "bosses",
+   "decision": "boss reroll",
+   "statement": "Model every boss ability as roughly halving your score (e.g. one that blocks your hands means half as many hands). Some bosses do more than halve it: they end the run.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 2485.04,
+     "text": "I think of every boss of or yeah, every boss kind of divides your score by two.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=2485s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 2502.319,
+     "text": "Except there's some bosses that don't just give you half your score. Some bosses just end you.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=2502s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.buy-an-answer-before-the-boss"
+    ]
+   },
+   "knob": "boss readiness: require projected round score >= 2x boss chip requirement (or apply x0.5 to projected score) before the boss; if a boss counters the core plan, buy an answer or reroll the boss",
+   "notes": "Said while explaining why Chicot is a 'free x2'."
+  },
+  {
+   "id": "bosses.next-small-blind-check",
+   "topic": "bosses",
+   "decision": "shop joker buy",
+   "statement": "Judge the build by whether it beats the next ante's Small Blind without boss-only help. That Small Blind is about the size of the boss you just beat, so boosts that only fire on the boss (Loyalty Card timed to bosses, a Campfire built up for the boss) leave a gap.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 562.959,
+     "text": "now I have to do the small blind which is the same size as the boss but I have to do it without the help of the loyalty card",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=562s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "build-strength metric = sustainable per-round score vs next ante Small Blind (~ current boss size); don't count one-shot/boss-timed boosts"
+  },
+  {
+   "id": "jokers.matador-a-third",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Matador pays off against only about a third of bosses, and it baits you into greed. He'd still take it quietly.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 4772.48,
+     "text": "I think if I go through the list of bosses I think it works a third of the time",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=4772s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 4838.199,
+     "text": "really what it is the Matador is not baiting the boss the banador is baiting me baiting me into being greedy",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=4838s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.matador-only-if-it-triggers"
+    ]
+   },
+   "knob": "Matador value = $8 x P(next boss triggers on your hand) with P~0.33 by default; check the actual upcoming boss"
+  },
+  {
+   "id": "bosses.card-sharp-fragile",
+   "topic": "bosses",
+   "decision": "boss reroll",
+   "statement": "Card Sharp's x3 is easy to get on most hands, but The Eye, The Mouth and The Needle shut it off, so it's fragile.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "Card Sharp is a main xMult"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1224.32,
+     "text": "Card sharp loses to specific bosses like the eye and the mouth one of them is like you can't repeat hand types",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1224s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1263.96,
+     "text": "oh yeah card sharp also loses to the needle yeah I think it's a little bit fragile",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1263s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.reroll-needle-and-flint"
+    ]
+   },
+   "knob": "Card Sharp value x0.8; if Card Sharp is the main xMult and the boss is Eye/Mouth/Needle, reroll the boss (Director's Cut) or buy an answer"
+  },
+  {
+   "id": "bosses.face-card-bosses",
+   "topic": "bosses",
+   "decision": "shop joker buy",
+   "statement": "Face-card payoff jokers carry boss risk: bosses that flip face cards face-down or debuff them (The Plant) can end a face build. He passes on Pareidolia for this, and Triboulet 'baits' you into going all-in on face cards.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "face-card build"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 815.279,
+     "text": "it does have this big drawback of the bosses that mess with your face cards like all your face cards face down or you know disabling all your face cards",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=815s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 2144.64,
+     "text": "get the face card debuff boss and then it's over. Yeah, the plant.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=2144s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.plant-insurance"
+    ]
+   },
+   "knob": "Pareidolia value low; in face builds keep non-face scoring backup and treat The Plant as must-answer (reroll/plan)"
+  },
+  {
+   "id": "deck_fixing.deck-size-cap",
+   "topic": "deck_fixing",
+   "decision": "deck fixing",
+   "statement": "Don't bloat the deck. After about 6 added cards he doesn't want a seventh or to go above 60 cards (Hologram). DNA is a pass because it adds cards and costs a hand: Four of a Kind needs only four copies. Marble Joker is 'classic deck bloat'.",
+   "conditions": {
+    "deck": "any (52-card decks)",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1613.32,
+     "text": "once you've added like six cards to your deck I don't know if I want to add a seventh card to my deck",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1613s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 775.279,
+     "text": "DNA adds a card to my deck. Even if it's my best card. I I've said this before. If you want to play four of a kind, you only need four to play four of a kind.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=775s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "cap additions at ~start size + 6 (about 58-60 cards) unless a joker rewards size (Hologram/Erosion inverse); DNA/Marble value low"
+  },
+  {
+   "id": "jokers.trading-card-and-tarot-makers",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Value generators: Trading Card (card removal plus money) does more than Constellation. Hallucination is about as good as Cartomancer (about 1 Tarot a round) and both are top. Superposition (often under 1 a round off Abandoned Deck) and 8 Ball (~1 a round only with lots of 8s) are lower. Vagabond's random Tarots are worse than Trading Card's removal and money.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1091.28,
+     "text": "constellation doesn't do as much as trading card trading card gives you two benefits you get the card removal and you get the money",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1091s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 3556.16,
+     "text": "Hallucination is as good or perhaps sometimes better than cartomancer and cardom mancer is an uncommon that cost you six bucks",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=3556s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 1461.84,
+     "text": "Why would I want random tarot cards when I can just get the best just card removal and money.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=1461s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "fix.trading-card-thins"
+    ]
+   },
+   "knob": "value table: Trading Card > Constellation; Hallucination ~ Cartomancer (top commons/uncommon generators) > Superposition (deck-dependent: ~1.6/round on Abandoned, ~0.7 else) > 8 Ball",
+   "notes": "The Superposition per-round figures come from a chatter he reads aloud, after which he demoted it."
+  },
+  {
+   "id": "jokers.gift-card-keep",
+   "topic": "jokers",
+   "decision": "joker sell",
+   "statement": "Gift Card goes the whole run and you never sell it. It turns every later Temperance into a big payout (up to $50, often several in one ante), and it also raises the sell value of held consumables.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1992.519,
+     "text": "gift card you never sell it gift card goes all the way every time",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1992s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 2010.0,
+     "text": "it enables all of future Temperance cards which are pretty easy to get multiple Temperance cards in the same ante",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=2010s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.late-money-engines"
+    ]
+   },
+   "knob": "Gift Card: never sell; Temperance value = min($50, total joker sell value) once Gift Card is owned"
+  },
+  {
+   "id": "reroll.flash-card-reroll-hard",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "With the reroll-scaling +Mult joker he calls 'JJ' (most likely Flash Card) you can spend 5-10 rerolls in one shop. It grows so fast that its flat +Mult beats Card Sharp's x3 and you stop needing Glass cards or Planets.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "Flash Card owned (inferred)"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1300.12,
+     "text": "what's cool about JJ is you can spend like f 5 to 10 rerolls in the same shop",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1300s",
+     "gloss": "JJ = Flash Card (inferred)"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 1292.64,
+     "text": "JJ gets big enough that you don't need glass cards you don't need Planet cards if JJ gets big enough",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=1292s",
+     "gloss": "JJ = Flash Card (inferred)"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "if Flash Card owned: raise per-shop reroll budget to 5-10 when money allows (still keep the interest floor per econ.reroll-only-from-surplus)",
+   "notes": "The joker name is inferred: the captions say 'JJ', but the description (scales from rerolls, '5 to 10 rerolls in the same shop', speedrun money) fits Flash Card. He also says he typically 'rolls a bunch' rather than saving (Bull section)."
+  },
+  {
+   "id": "jokers.decaying-short-term",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Decaying jokers are fine for the few rounds you need them. Popcorn gives +20, +16, +12 over three rounds. Ice Cream starts at +100 chips and 'saves runs'. Gros Michel is now 1 in 6 to die (was 1 in 4) but still can't be relied on; the chance at Cavendish is what makes it worth buying.",
+   "conditions": {
+    "antes": [
+     1,
+     2,
+     3
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 5274.32,
+     "text": "popcorn gives me 20 16 and 12 that's it I only need it for three rounds",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=5274s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1034.6,
+     "text": "Michelle now one and six chance instead of one and four chance",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1034s"
+    },
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 1096.559,
+     "text": "the thing that like takes it over the top for me is you have the chance of getting Cavendish",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=1096s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.decaying-only-when-needed"
+    ]
+   },
+   "knob": "decaying jokers valued by sum of output over next ~3 rounds; Gros Michel value includes P(Cavendish later)",
+   "notes": "Gros Michel odds: he notes the 1.0.1 change from 1 in 4 to 1 in 6."
+  },
+  {
+   "id": "reroll.reroll-down-for-an-answer",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "Most uncommons are situational: whatever you are doing, many of them are useless to you. When the run needs a specific answer (e.g. Luchador against a killer boss), spend all the money and reroll down to get it.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "upcoming boss counters the build"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 2171.359,
+     "text": "most uncommons are situational and like most of the time whatever you got going on there's going to be a ton of stuff that you don't want to see",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=2171s"
+    },
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 2194.52,
+     "text": "when you do need it you're going to you're going to go out of your way you're going to spend all the money you're going to reroll down you're going to get the Luchador",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=2194s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "if the next boss counters the build and an answer joker exists: allow rerolling below the interest floor (down to $0) to find it"
+  },
+  {
+   "id": "hands.save-glass-for-emergencies",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Usually don't play Glass cards; save them for emergencies when you need the big hand (playing them risks shattering).",
+   "conditions": {
+    "deck": "any",
+    "stake": "any",
+    "build_state": "Glass cards in deck"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 2673.0,
+     "text": "most of the time with the glass cards what you want to do is you don't actually want to play them you want to save them until an emergency situation",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=2673s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "hand chooser: leave Glass cards out of the played hand when the hand already beats the remaining blind without them"
+  },
+  {
+   "id": "deck_fixing.one-suit-default",
+   "topic": "deck_fixing",
+   "decision": "deck fixing",
+   "statement": "His default deck plan concentrates one suit. That's why Ancient Joker, which wants a rotating suit, usually arrives too late to fit and is 'in the wrong class'.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 2015.36,
+     "text": "most of the time I do want to have all same suits a lot of the time. Like that's just the default state.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=2015s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "deck.checkered-suit-by-payoff"
+    ]
+   },
+   "knob": "suit-converting Tarots (Star/Moon/Sun/World) target the majority suit; Ancient Joker value low"
+  },
+  {
+   "id": "jokers.held-in-hand-builds-mid",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "In a normal run (to ante 8), held-in-hand builds are weaker than they look. Mime is 'mid' and worse than Photograph, and Baron+Mime is endless thinking. Baron needs kings actually drawn, plus levels in Three of a Kind/Pair/High Card, which you don't usually level. He still rates Baron highly ('I would smash').",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "eT6X1613CbA",
+     "t_seconds": 264.56,
+     "text": "people people are just like endless pilled you know like oh it's it's just Baron and mime every time but like in a real run MIM is mid",
+     "url": "https://www.youtube.com/watch?v=eT6X1613CbA&t=264s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 842.16,
+     "text": "Baron is at its best when you level up your three of a kind, your pairs, and your high card, which you're not going to do all the time because it's typically like bad to do that.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=842s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Mime value modest (below Photograph); Baron value conditional on Kings in deck (>= 4) and Steel/held cards"
+  },
+  {
+   "id": "jokers.copy-jokers-and-rare-xmult",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Rares: Blueprint 'does everything' (overpowered). Brainstorm is a more restrictive, worse Blueprint. Baseball Card is the top smash but needs a couple of uncommons, which isn't hard to have. Stuntman's +250 chips equals about 15 Jupiter levels on Flush. Campfire very consistently passes x10 and is close to a free x2 if you collect many consumables. Duo/Trio/Order/Tribe/Family are 'mid' among rares: Duo and Trio best, Family worst.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 9.76,
+     "text": "I mean blueprint does all of the thing. It does everything, right?",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=9s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 1054.4,
+     "text": "Stuntman or the the baseball card, you kind of need to have a couple uncommons, though. It's not too hard to have multiple uncommons.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=1054s"
+    },
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 1366.159,
+     "text": "I very consistently get this you know above X10.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=1366s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.copy-needs-a-target"
+    ]
+   },
+   "knob": "rare value table: Blueprint ~ Baseball Card ~ Yorick top; Campfire, Baron, Stuntman, Triboulet high; Brainstorm below Campfire; Duo/Trio > Order > Tribe > Family ('mid'); Driver's License mid; DNA, Ancient, Obelisk, Vagabond low",
+   "notes": "His rare and legendary rankings mix in fun and design (Obelisk is 'strong' but expelled for not being fun; Vagabond for being a lot of work; Chicot held down for 'making the game boring'), so don't read rows as pure power."
+  },
+  {
+   "id": "jokers.driver-license-quota",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Driver's License is 'mid': 16 enhanced cards within 8 antes is tough (he thinks 12 would be reasonable), so it only fits a deck already heavy with enhancements.",
+   "conditions": {
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "-dFEWf4t7yU",
+     "t_seconds": 1782.559,
+     "text": "Yeah, you know, in eight anties getting 16 enhanced cards might be kind of tough actually.",
+     "url": "https://www.youtube.com/watch?v=-dFEWf4t7yU&t=1782s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Driver's License value conditional on enhanced-card count (e.g. >= 10 enhanced by purchase time)"
+  },
+  {
+   "id": "shop.fortune-teller-late",
+   "topic": "shop",
+   "decision": "shop joker buy",
+   "statement": "Fortune Teller is retroactive (it counts Tarots already used this run), so you don't buy it early. It's a later pickup once many Tarots have been used.",
+   "conditions": {
+    "antes": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "ab30EDBnscQ",
+     "t_seconds": 4759.56,
+     "text": "fortune teller is retroactive fortune teller obviously you're not going to pick it up early but when you find it later",
+     "url": "https://www.youtube.com/watch?v=ab30EDBnscQ&t=4759s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Fortune Teller value = +1 Mult x tarots used so far; skip in antes 1-2"
+  }
+ ],
+ "tables": {
+  "joker_tiers": [
+   {
+    "joker": "Joker",
+    "rarity": "Common",
+    "tier": "mid",
+    "row": null,
+    "when_good": "+4 Mult for $2; cheap early filler",
+    "when_bad": "doesn't carry a run alone; he ranks it above only Zany among the flat +Mult set",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 103.88,
+    "quote": "does a thing for four bucks Jimbo's mid for me"
+   },
+   {
+    "joker": "Jolly Joker",
+    "rarity": "Common",
+    "tier": "mid",
+    "row": null,
+    "when_good": "Pair is easy to make; early +8",
+    "when_bad": "only slightly better than Jimbo; falls off after ante 2",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 168.2,
+    "quote": "I think Jolly's still kind of mid for me"
+   },
+   {
+    "joker": "Droll Joker",
+    "rarity": "Common",
+    "tier": "best of the hand-type +Mult set (not a soloer)",
+    "row": null,
+    "when_good": "Flushes are easy, +10; antes 1-2",
+    "when_bad": "'falls off rapidly'; doesn't solo",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 189.64,
+    "quote": "probably for me the best of these set is going to be droll"
+   },
+   {
+    "joker": "Mad Joker",
+    "rarity": "Common",
+    "tier": "2nd of hand-type +Mult set",
+    "row": null,
+    "when_good": "Two Pair easy to make for +10; antes 1-2",
+    "when_bad": "falls off after early antes",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 230.959,
+    "quote": "I actually prefer mad better because of how easy it is to make two pair"
+   },
+   {
+    "joker": "Crazy Joker",
+    "rarity": "Common",
+    "tier": "fine (below Droll and Mad)",
+    "row": null,
+    "when_good": "Straight builds early, +12",
+    "when_bad": "Straights harder to make",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 225.439,
+    "quote": "I think crazy is probably close to but not quite as good as droll"
+   },
+   {
+    "joker": "Zany Joker",
+    "rarity": "Common",
+    "tier": "worst of hand-type +Mult set (below Jimbo)",
+    "row": null,
+    "when_good": "only if already playing Three of a Kind/Full House",
+    "when_bad": "Three of a Kind too difficult to make reliably",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 238.799,
+    "quote": "probably the worst of these I actually put Jimbo above zany"
+   },
+   {
+    "joker": "Hanging Chad",
+    "rarity": "Common",
+    "tier": "Graduating with honors",
+    "row": "Graduating with honors",
+    "when_good": "retriggers first card: Gold Seals/Lucky cards for money, sinful jokers, Empress Mult cards, Hierophant Bonus cards; with Photograph strong enough to solo",
+    "when_bad": "needs the payoff on the first scored card",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 297.08,
+    "quote": "I think Chad is obviously graduating with honors"
+   },
+   {
+    "joker": "Photograph",
+    "rarity": "Common",
+    "tier": "good; with Hanging Chad 'insane' (solo)",
+    "row": null,
+    "when_good": "only one face card needed (put it last); pairs with sinful jokers; with Hanging Chad strong enough to solo",
+    "when_bad": "face-card debuff bosses",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 504.72,
+    "quote": "I think both of these are good separately and I think together they're insane"
+   },
+   {
+    "joker": "Crafty Joker",
+    "rarity": "Common",
+    "tier": "middle of the +Chips set",
+    "row": null,
+    "when_good": "Flushes easy; +80 chips early",
+    "when_bad": "all chips jokers worse than the +Mult jokers; fall off as Planets add chips",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 415.599,
+    "quote": "crafty uh flushes easy to make the reward you get is good for how easy it is to make"
+   },
+   {
+    "joker": "Clever Joker",
+    "rarity": "Common",
+    "tier": "middle of the +Chips set (like Crafty)",
+    "row": null,
+    "when_good": "Two Pair easy early",
+    "when_bad": "chips fall off later",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 427.56,
+    "quote": "kind of the same thing with the two pair here"
+   },
+   {
+    "joker": "Sly Joker",
+    "rarity": "Common",
+    "tier": "low +Chips ('basically free but only 50 chips')",
+    "row": null,
+    "when_good": "any Pair; free chips early",
+    "when_bad": "only +50 chips",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 429.479,
+    "quote": "Sly is easy to make a pair but the reward is not very good"
+   },
+   {
+    "joker": "Wily Joker",
+    "rarity": "Common",
+    "tier": "bottom of the +Chips set",
+    "row": null,
+    "when_good": "early Three of a Kind builds",
+    "when_bad": "hard hand for chips payoff",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 437.4,
+    "quote": "maybe you know we could put Wy down here devious slightly higher",
+    "gloss": "Wily"
+   },
+   {
+    "joker": "Devious Joker",
+    "rarity": "Common",
+    "tier": "low +Chips (slightly above Wily)",
+    "row": null,
+    "when_good": "Straight builds early",
+    "when_bad": "chips fall off later",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 437.4,
+    "quote": "maybe you know we could put Wy down here devious slightly higher"
+   },
+   {
+    "joker": "Gluttonous Joker",
+    "rarity": "Common",
+    "tier": "easy smash (sinful)",
+    "row": null,
+    "when_good": "+3 per Club; works on partial flushes; early",
+    "when_bad": "slightly redundant with Onyx Agate (both +Mult)",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 550.32,
+    "quote": "glutenous Joker easy smash for me"
+   },
+   {
+    "joker": "Lusty Joker",
+    "rarity": "Common",
+    "tier": "easy smash, lowest of the sinful jokers",
+    "row": null,
+    "when_good": "pairs with Bloodstone",
+    "when_bad": "liked least of the four (mostly name joke)",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 567.72,
+    "quote": "I like Lusty the least because I would rather it be lustful Joker"
+   },
+   {
+    "joker": "Greedy Joker",
+    "rarity": "Common",
+    "tier": "easy smash (sinful)",
+    "row": null,
+    "when_good": "+3 per Diamond; early",
+    "when_bad": "its suit partner Rough Gem is weak, so less synergy",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 624.92,
+    "quote": "the problem is like the rough gem kind of sucks"
+   },
+   {
+    "joker": "Wrathful Joker",
+    "rarity": "Common",
+    "tier": "easy smash (sinful)",
+    "row": null,
+    "when_good": "+Mult pairs well with Arrowhead's +Chips on Spades",
+    "when_bad": "falls off later like all commons",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 601.92,
+    "quote": "gives you Plus Mt to go with your plus chips that seems correct to me"
+   },
+   {
+    "joker": "Half Joker",
+    "rarity": "Common",
+    "tier": "easy smash",
+    "row": null,
+    "when_good": "+20 Mult on <=3-card hands; carries the early game while economy is built",
+    "when_bad": "playing <=3 cards is often not what you want",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 657.72,
+    "quote": "plus 20 is insane I think havsies is easy smash for me",
+    "gloss": "Half Joker"
+   },
+   {
+    "joker": "Abstract Joker",
+    "rarity": "Common",
+    "tier": "easy smash",
+    "row": null,
+    "when_good": "~+12 to +15 Mult on any hand once you have ~4 jokers (antes 1-2); slightly above Half Joker",
+    "when_bad": "below the sinful jokers, which have more synergy",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 723.68,
+    "quote": "abstract it's easy smash for me"
+   },
+   {
+    "joker": "Odd Todd",
+    "rarity": "Common",
+    "tier": "smash (above sinful jokers; edge over Even Steven)",
+    "row": null,
+    "when_good": "chips are rare on jokers; ~+100 chips lets you play throwaway hands and use discards for value",
+    "when_bad": "chips fall off once Planets level up",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 912.44,
+    "quote": "I think Todd then you know gets the edge Over Steven"
+   },
+   {
+    "joker": "Even Steven",
+    "rarity": "Common",
+    "tier": "smash (above sinful jokers)",
+    "row": null,
+    "when_good": "+4 per even card; Two Pair of evens = +16 Mult",
+    "when_bad": "slightly below Odd Todd",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 799.76,
+    "quote": "probably smash on both I'm not going to pass either of these"
+   },
+   {
+    "joker": "Delayed Gratification",
+    "rarity": "Common",
+    "tier": "soft smash, later demoted",
+    "row": null,
+    "when_good": "money joker if you can skip discards",
+    "when_bad": "costs discard value (Gold/Purple Seal digging) and $1 per hand used as discard; sell once you have one Purple Seal/Gold card",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 989.639,
+    "quote": "gratification it's a it's a soft smash for me"
+   },
+   {
+    "joker": "Gros Michel",
+    "rarity": "Common",
+    "tier": "easy smash",
+    "row": null,
+    "when_good": "+15 Mult any hand; chance to unlock Cavendish; 1 in 6 extinction since 1.0.1",
+    "when_bad": "can't rely on her lasting",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1102.919,
+    "quote": "for that chance I think it's worth it to pick up Michelle for"
+   },
+   {
+    "joker": "Cavendish",
+    "rarity": "Common",
+    "tier": "easy smash",
+    "row": null,
+    "when_good": "'probably the best non-scaling xMult'; x3 any hand",
+    "when_bad": "only appears after Gros Michel dies",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1113.039,
+    "quote": "Cavendish easy smash for me"
+   },
+   {
+    "joker": "Credit Card",
+    "rarity": "Common",
+    "tier": "gentle smash, later moved behind 8 Ball",
+    "row": null,
+    "when_good": "Black Deck / Gold stake: burst-buy in 1-2 shops, then sell",
+    "when_bad": "occupies a slot; rarely two wanted jokers per shop; must stop buying until out of debt",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4340.719,
+    "quote": "maybe for that reason we could put it behind the eightball"
+   },
+   {
+    "joker": "8 Ball",
+    "rarity": "Common",
+    "tier": "gentle smash, then pass (self-contradiction)",
+    "row": null,
+    "when_good": "decks with many 8s (~1 Tarot/round)",
+    "when_bad": "needs about four 8s to average one Tarot; rarely play 8s every round",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3396.039,
+    "quote": "I think eightball we can pass on the eightball"
+   },
+   {
+    "joker": "Raised Fist",
+    "rarity": "Common",
+    "tier": "smash",
+    "row": null,
+    "when_good": "~+10 to +15 Mult (sometimes 16-18) nearly free; works with Steel cards (held in hand)",
+    "when_bad": "sometimes must discard low cards",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1496.12,
+    "quote": "I think it's going to be a smash for me for the fist"
+   },
+   {
+    "joker": "Misprint",
+    "rarity": "Common",
+    "tier": "pass",
+    "row": null,
+    "when_good": "average ~+12, better on average than Droll/Mad",
+    "when_bad": "a low roll on your only scoring hand can end the run; unpredictable",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1619.32,
+    "quote": "it's going to be a pass for me dog on the misprint"
+   },
+   {
+    "joker": "Mystic Summit",
+    "rarity": "Common",
+    "tier": "smash (below Abstract and Half, above Credit Card)",
+    "row": null,
+    "when_good": "+15 any hand; can toggle it on and off by using discards",
+    "when_bad": "bad when you need two hands to win",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1713.32,
+    "quote": "worse than havsies too but I take it above"
+   },
+   {
+    "joker": "Banner",
+    "rarity": "Common",
+    "tier": "pass ('don't belong in this class')",
+    "row": "You're in the wrong class (implied)",
+    "when_good": "only with Delayed Gratification or a no-discard plan",
+    "when_bad": "makes you hold discards and miss Gold cards/Purple Seals",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1768.519,
+    "quote": "Banner requires you to use your discards that's it it's a pass for me dog"
+   },
+   {
+    "joker": "Ice Cream",
+    "rarity": "Common",
+    "tier": "smash (placed with Odd Todd)",
+    "row": null,
+    "when_good": "+100 chips that ticks down; 'saves runs'; spreads out evenly",
+    "when_bad": "decays",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1927.84,
+    "quote": "gelato is getting the smash though gelato goes with Todd",
+    "gloss": "Ice Cream"
+   },
+   {
+    "joker": "Blue Joker",
+    "rarity": "Common",
+    "tier": "above other chips jokers, below +Mult",
+    "row": null,
+    "when_good": "free chips any hand (~90 early, never below ~30)",
+    "when_bad": "rewards not discarding in effect",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 1998.96,
+    "quote": "I put the blue Joker up here I think I'd rather have Mt than than blue Joker"
+   },
+   {
+    "joker": "Square Joker",
+    "rarity": "Common",
+    "tier": "Expelled",
+    "row": "Expelled",
+    "when_good": "never",
+    "when_bad": "takes four 4-card hands to equal one Runner trigger; each extra hand costs $1",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2121.68,
+    "quote": "Square can get out of my class I don't want to see you on campus ever again"
+   },
+   {
+    "joker": "Runner",
+    "rarity": "Common",
+    "tier": "easy smash ('easiest smash')",
+    "row": null,
+    "when_good": "+15 chips per Straight; bank ~6 rounds then pivot; hedge against no Saturns",
+    "when_bad": "obsolete once many Saturns found",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2173.119,
+    "quote": "easy easiest smash easy smash for me on the runner"
+   },
+   {
+    "joker": "Scholar",
+    "rarity": "Common",
+    "tier": "pass",
+    "row": null,
+    "when_good": "Ace-heavy decks",
+    "when_bad": "finding Aces is not trivial; less safe than the sinful jokers",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2452.839,
+    "quote": "skolar is going to get the pass from me"
+   },
+   {
+    "joker": "Walkie Talkie",
+    "rarity": "Common",
+    "tier": "pass",
+    "row": null,
+    "when_good": "10s and 4s two-pair/full house",
+    "when_bad": "only two ranks that don't link into Straights; less consistent than Even Steven",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2522.88,
+    "quote": "it's going to be a pass pass for me on the walkie-talkie"
+   },
+   {
+    "joker": "Scary Face",
+    "rarity": "Common",
+    "tier": "smash (reluctant; above Ice Cream)",
+    "row": null,
+    "when_good": "face-card chips source",
+    "when_bad": "fewer faces than odd cards (Odd Todd better)",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2612.2,
+    "quote": "I would complain about it the whole time but I would still smash scary face"
+   },
+   {
+    "joker": "Smiley Face",
+    "rarity": "Common",
+    "tier": "easy smash",
+    "row": null,
+    "when_good": "+5 per face; a face Pair = +10; can discard toward faces",
+    "when_bad": "face-card debuff bosses",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2647.04,
+    "quote": "that's a easy that's an easy smash smiley face"
+   },
+   {
+    "joker": "Riff-raff",
+    "rarity": "Common",
+    "tier": "easy smash ('top of the line')",
+    "row": null,
+    "when_good": "any time; makes commons",
+    "when_bad": "not 'the greatest': Cavendish beats it",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2748.599,
+    "quote": "Riff Raff is easy smash for me topof the line smash"
+   },
+   {
+    "joker": "Chaos the Clown",
+    "rarity": "Common",
+    "tier": "high early, later argued down",
+    "row": null,
+    "when_good": "if you reroll ~3x/shop it is worth ~$7/round",
+    "when_bad": "need money to reroll; late game the slot is needed for scoring",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 2831.16,
+    "quote": "I think the clown is going to give you seven bucks every round"
+   },
+   {
+    "joker": "Golden Joker",
+    "rarity": "Common",
+    "tier": "smash 'not proud', later placed with Delayed Gratification",
+    "row": null,
+    "when_good": "free $4/round once you have scoring",
+    "when_bad": "costs $6 plus interest; early you need a scoring joker first; near-worst money joker",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3088.16,
+    "quote": "golden we can put we could put down here with gratification"
+   },
+   {
+    "joker": "Business Card",
+    "rarity": "Common",
+    "tier": "smash 'not super proud' (mid money; above Raised Fist, below Smiley)",
+    "row": null,
+    "when_good": "face builds; ~$1 per face",
+    "when_bad": "small payout for the effort",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3177.52,
+    "quote": "I think business card for me I think it's still going to get the smash"
+   },
+   {
+    "joker": "Faceless Joker",
+    "rarity": "Common",
+    "tier": "below Business Card, above Gratification",
+    "row": null,
+    "when_good": "discarding 3 faces for $5",
+    "when_bad": "hard to assemble 3 faces in one discard",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3301.96,
+    "quote": "faceless is going to be worse than business card"
+   },
+   {
+    "joker": "Mail-In Rebate",
+    "rarity": "Common",
+    "tier": "smash (overtuned; above Gros Michel)",
+    "row": null,
+    "when_good": "always; 'the number too big'",
+    "when_bad": "none mentioned",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3450.039,
+    "quote": "Reb's going to get the rebate going to get the smash from me",
+    "gloss": "Mail-In Rebate"
+   },
+   {
+    "joker": "Superposition",
+    "rarity": "Common",
+    "tier": "smash, demoted, then 'above Golden Ticket'",
+    "row": null,
+    "when_good": "Abandoned Deck (~1.6 Tarots/round per chat); self-enabling",
+    "when_bad": "Straight+Ace hard early; ~0.7/round on other decks; at most one trigger if one Straight wins",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 5167.679,
+    "quote": "we could put super position above the ticket Justice for super position"
+   },
+   {
+    "joker": "Hallucination",
+    "rarity": "Common",
+    "tier": "'straight to the top' (big-time smash)",
+    "row": "Graduating with honors (implied)",
+    "when_good": "Tarot from every pack opened; as good as or better than Cartomancer",
+    "when_bad": "none mentioned",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3551.52,
+    "quote": "Hallucination is going straight to the top"
+   },
+   {
+    "joker": "Reserved Parking",
+    "rarity": "Common",
+    "tier": "pass",
+    "row": null,
+    "when_good": "many face cards held",
+    "when_bad": "~$2.5/round net at best (after $1 hand) with full effort",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3612.079,
+    "quote": "I think parking's going to get the pass"
+   },
+   {
+    "joker": "Golden Ticket",
+    "rarity": "Common",
+    "tier": "pass",
+    "row": null,
+    "when_good": "with Hanging Chad/retriggers, many Gold cards",
+    "when_bad": "only +$1 per Gold card played vs held; often shows with 2 Gold cards",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3775.96,
+    "quote": "I'm going to give it the pass I'm a pass on the ticket"
+   },
+   {
+    "joker": "Supernova",
+    "rarity": "Common",
+    "tier": "pass (not expelled)",
+    "row": null,
+    "when_good": "High Card plan with a chips source",
+    "when_bad": "slow; 'doesn't spark joy'",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4001.72,
+    "quote": "I don't think Supernova deserves to be expelled but it doesn't spark Joy"
+   },
+   {
+    "joker": "To Do List",
+    "rarity": "Common",
+    "tier": "with Business Card (mid money)",
+    "row": null,
+    "when_good": "big paydays when the hand is High Card/Pair",
+    "when_bad": "high variance; tempts greedy plays",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 3847.279,
+    "quote": "I think to-do list to-do list goes with business card"
+   },
+   {
+    "joker": "Ride the Bus",
+    "rarity": "Common",
+    "tier": "pass (above Misprint)",
+    "row": null,
+    "when_good": "High Card with a chips source; you can still discard and play flushes while it builds",
+    "when_bad": "$6; obsolete by the time it's big",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4159.64,
+    "quote": "it's going to be a pass for me on the bus I like bu better than misprint though"
+   },
+   {
+    "joker": "Splash",
+    "rarity": "Common",
+    "tier": "pass",
+    "row": null,
+    "when_good": "only when the build is failing",
+    "when_bad": "you should usually play 5 cards; does nothing then",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4423.52,
+    "quote": "I think wet Joker is going to get a pass",
+    "gloss": "Splash"
+   },
+   {
+    "joker": "Green Joker",
+    "rarity": "Common",
+    "tier": "'get out of here', then moved up behind Runner",
+    "row": null,
+    "when_good": "High Card with a chips source; Gold stake players like it ($4)",
+    "when_bad": "takes away discards (Gold cards/Purple Seals)",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 5494.96,
+    "quote": "Green Joker can come up here but uh it's going it's it's behind the running man"
+   },
+   {
+    "joker": "Red Card",
+    "rarity": "Common",
+    "tier": "underrated, then 'worse than Misprint, better than Zany'",
+    "row": null,
+    "when_good": "late game with spare money to skip packs",
+    "when_bad": "skipping packs is a big opportunity cost; worse than Blue Joker",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4950.0,
+    "quote": "red card is worse than misprint it's worse than the Plus Mt for hands"
+   },
+   {
+    "joker": "Fortune Teller",
+    "rarity": "Common",
+    "tier": "low (above Green Joker)",
+    "row": null,
+    "when_good": "found later after many Tarots used (retroactive)",
+    "when_bad": "not an early pickup",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4762.4,
+    "quote": "obviously you're not going to pick it up early but when you find it"
+   },
+   {
+    "joker": "Juggler",
+    "rarity": "Common",
+    "tier": "smash ('not my proudest')",
+    "row": null,
+    "when_good": "hand size helps find better hands safely",
+    "when_bad": "he'd rather have flat +15 Mult",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4853.159,
+    "quote": "I'm down with the juggler this silly little hat here we could smash"
+   },
+   {
+    "joker": "Drunkard",
+    "rarity": "Common",
+    "tier": "below Smiley Face (discards are money)",
+    "row": null,
+    "when_good": "+1 discard each round (discards are money); combos with Faceless",
+    "when_bad": "not as much as Smiley's Mult",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 5057.04,
+    "quote": "extra discard discards are money this card is not as good as smiley face"
+   },
+   {
+    "joker": "Popcorn",
+    "rarity": "Common",
+    "tier": "smash",
+    "row": null,
+    "when_good": "+20/+16/+12: covers the three rounds you need",
+    "when_bad": "decays",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 5269.92,
+    "quote": "popcorn we can smash I'm down with the popcorn"
+   },
+   {
+    "joker": "Swashbuckler",
+    "rarity": "Common",
+    "tier": "above Misprint, below Ride the Bus",
+    "row": null,
+    "when_good": "like Abstract but needs joker sell value",
+    "when_bad": "'more awkward' than Abstract",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 5286.119,
+    "quote": "swash bukler swash bunler is better than misprint",
+    "gloss": "Swashbuckler"
+   },
+   {
+    "joker": "Shoot the Moon",
+    "rarity": "Common",
+    "tier": "about level with Scholar (slightly better)",
+    "row": null,
+    "when_good": "+13 Mult per held Queen; one Queen enough",
+    "when_bad": "Queens hard; high variance",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 5319.119,
+    "quote": "shoot the Moon is better than the scholar but it's like equal footing as the scholar"
+   },
+   {
+    "joker": "Egg",
+    "rarity": "Common",
+    "tier": null,
+    "row": null,
+    "when_good": "not placed in captions (only referenced as 'the egg run'); placement, if any, was on screen",
+    "when_bad": "",
+    "video": "ab30EDBnscQ",
+    "t_seconds": 4749.12,
+    "quote": "it kind of just becomes like the egg run"
+   },
+   {
+    "joker": "Marble Joker",
+    "rarity": "Uncommon",
+    "tier": "Expelled ('throw it out of college')",
+    "row": "Expelled",
+    "when_good": "only as the literal first joker for a Pairs/High Card Stone plan",
+    "when_bad": "slow (needs 4-5 Stone cards), deck bloat, few synergies",
+    "video": "eT6X1613CbA",
+    "t_seconds": 169.64,
+    "quote": "we can throw it out of colle we can throw it"
+   },
+   {
+    "joker": "Flash Card",
+    "rarity": "Uncommon",
+    "tier": "smash (captions say 'JJ'; name inferred)",
+    "row": null,
+    "when_good": "pick up any time and reroll 5-10 times a shop; flat +Mult outgrows Card Sharp's xMult",
+    "when_bad": "slow start; no synergy with Steel/Glass",
+    "video": "eT6X1613CbA",
+    "t_seconds": 199.04,
+    "quote": "speaking of JJ JJ gets a smash from me JJ my boy",
+    "gloss": "JJ = Flash Card (inferred)"
+   },
+   {
+    "joker": "Mime",
+    "rarity": "Uncommon",
+    "tier": "mid ('in a real run Mime is mid')",
+    "row": null,
+    "when_good": "High Card/Pairs, few cards played, Steel/Baron",
+    "when_bad": "4-card hands; worse than Photograph",
+    "video": "eT6X1613CbA",
+    "t_seconds": 270.96,
+    "quote": "in a real run MIM is mid",
+    "gloss": "Mime"
+   },
+   {
+    "joker": "Loyalty Card",
+    "rarity": "Uncommon",
+    "tier": "pass ('not expelled')",
+    "row": null,
+    "when_good": "x4 every boss if timed right (with Burglar)",
+    "when_bad": "annoying; small blind after boss must be beaten without it; combo costs six hands a round",
+    "video": "eT6X1613CbA",
+    "t_seconds": 327.68,
+    "quote": "and so it's going to be a pass for me usually forget it exists"
+   },
+   {
+    "joker": "Dusk",
+    "rarity": "Uncommon",
+    "tier": "See me after class",
+    "row": "See me after class",
+    "when_good": "can pop off big",
+    "when_bad": "last-hand only uses up hands (hands are money); worse than Acrobat",
+    "video": "eT6X1613CbA",
+    "t_seconds": 370.96,
+    "quote": "DUS can pass see me after class",
+    "gloss": "Dusk"
+   },
+   {
+    "joker": "Acrobat",
+    "rarity": "Uncommon",
+    "tier": "above Joker Stencil ('makes it to ante 8')",
+    "row": null,
+    "when_good": "no-brainer x3 on last hand",
+    "when_bad": "none mentioned",
+    "video": "eT6X1613CbA",
+    "t_seconds": 410.12,
+    "quote": "acrobat over stencil I think acrobat makes it to the final anti"
+   },
+   {
+    "joker": "Joker Stencil",
+    "rarity": "Uncommon",
+    "tier": "below Acrobat, Steel Joker, Burglar",
+    "row": null,
+    "when_good": "-",
+    "when_bad": "'doesn't make it to ante 8'",
+    "video": "eT6X1613CbA",
+    "t_seconds": 415.24,
+    "quote": "anti eight I think stencil doesn't"
+   },
+   {
+    "joker": "Fibonacci",
+    "rarity": "Uncommon",
+    "tier": "considered for honors",
+    "row": null,
+    "when_good": "good in the first round and all the way to the end; works with Glass/Steel (Ace-5 Straights = +36)",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 429.599,
+    "quote": "I'm trying to decide whether or not Fibonacci gets the honors"
+   },
+   {
+    "joker": "Steel Joker",
+    "rarity": "Uncommon",
+    "tier": "above Stencil and Burglar (generic xMult)",
+    "row": null,
+    "when_good": "add Steel cards, which you want anyway",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 510.36,
+    "quote": "I think steel Joker is better than"
+   },
+   {
+    "joker": "Burglar",
+    "rarity": "Uncommon",
+    "tier": "mid (between Stencil and Steel Joker)",
+    "row": null,
+    "when_good": "with Blueprint/Brainstorm; extra hands = $3/round",
+    "when_bad": "lose discards (no Purple Seals); worse Telescope",
+    "video": "eT6X1613CbA",
+    "t_seconds": 645.959,
+    "quote": "burglar goes I think it's better than stencil"
+   },
+   {
+    "joker": "Hack",
+    "rarity": "Uncommon",
+    "tier": "better than Burglar, then pass",
+    "row": null,
+    "when_good": "retriggering Glass 2-5s (x2 joker then)",
+    "when_bad": "worse than generic xMult (Steel/Acrobat)",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4719.36,
+    "quote": "we're going to pass on the hack"
+   },
+   {
+    "joker": "Pareidolia",
+    "rarity": "Uncommon",
+    "tier": "pass ('not in my class')",
+    "row": "You're in the wrong class (implied)",
+    "when_good": "with Smiley Face/Midas Mask",
+    "when_bad": "face-card bosses; synergies not common enough",
+    "video": "eT6X1613CbA",
+    "t_seconds": 827.399,
+    "quote": "I'm going to pass I'm going to pass on paradia"
+   },
+   {
+    "joker": "Space Joker",
+    "rarity": "Uncommon",
+    "tier": "'at 1 in 4 get out of here' (above Pareidolia)",
+    "row": null,
+    "when_good": "gamble on levels; 1 in 3 would be a 'slam dunk'",
+    "when_bad": "1 in 4 too low",
+    "video": "eT6X1613CbA",
+    "t_seconds": 910.399,
+    "quote": "for one and four get out of here I like it better than paradia"
+   },
+   {
+    "joker": "Blackboard",
+    "rarity": "Uncommon",
+    "tier": "smash (below Ceremonial Dagger)",
+    "row": null,
+    "when_good": "x3 when held cards are all Spades/Clubs; Negative Blackboard copies",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1029.319,
+    "quote": "we definitely smash with the the Blackboard though"
+   },
+   {
+    "joker": "Ceremonial Dagger",
+    "rarity": "Uncommon",
+    "tier": "above Blackboard",
+    "row": null,
+    "when_good": "controllable scaling +Mult; can eat Blackboard-type jokers",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 933.68,
+    "quote": "Blackboard time three is not as good as the dagger"
+   },
+   {
+    "joker": "Sixth Sense",
+    "rarity": "Uncommon",
+    "tier": "pass",
+    "row": null,
+    "when_good": "thin up to four 6s",
+    "when_bad": "costs a hand and a solo 6; a worse Trading Card; Spectrals high variance",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1025.0,
+    "quote": "I we we pass we pass on six cents",
+    "gloss": "Sixth Sense"
+   },
+   {
+    "joker": "Constellation",
+    "rarity": "Uncommon",
+    "tier": "smash 'with the best of them'",
+    "row": null,
+    "when_good": "easy to scale by buying Planets in shops/packs; works with Glass/Steel",
+    "when_bad": "does less than Trading Card",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1044.679,
+    "quote": "constellation can smash with the best of them"
+   },
+   {
+    "joker": "Vampire",
+    "rarity": "Uncommon",
+    "tier": "'still solos', above Fibonacci (Solo group project implied)",
+    "row": "Solo group project (implied)",
+    "when_good": "scales from enhanced cards via Tarots",
+    "when_bad": "incompatible with Glass/Steel; below Midas Mask",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1080.559,
+    "quote": "I think Dr aula still solos I think even better than fibon arci does",
+    "gloss": "Dr Acula = Vampire"
+   },
+   {
+    "joker": "Trading Card",
+    "rarity": "Uncommon",
+    "tier": "above Constellation ('busted')",
+    "row": null,
+    "when_good": "card removal plus money",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1091.28,
+    "quote": "constellation doesn't do as much as trading card trading card gives you two benefits"
+   },
+   {
+    "joker": "Hiker",
+    "rarity": "Uncommon",
+    "tier": "smash (quiet)",
+    "row": null,
+    "when_good": "always gives chips; stacks permanently",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1146.559,
+    "quote": "I'd smash the hiker but I wouldn't tell anybody about it"
+   },
+   {
+    "joker": "Card Sharp",
+    "rarity": "Uncommon",
+    "tier": "above Mime, below Flash Card",
+    "row": null,
+    "when_good": "x3 on most hands below Flush",
+    "when_bad": "The Eye/The Mouth/The Needle shut it off; fragile",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1218.24,
+    "quote": "it's better than the Mine Card sharp loses to specific bosses",
+    "gloss": "Mime"
+   },
+   {
+    "joker": "Madness",
+    "rarity": "Uncommon",
+    "tier": "pass (edge over Loyalty Card)",
+    "row": null,
+    "when_good": "Black stake Eternal puzzle",
+    "when_bad": "destroys jokers; Dagger is controllable",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1323.52,
+    "quote": "I think it's going to be a no for me I think I'm going to pass on the madness"
+   },
+   {
+    "joker": "Seance",
+    "rarity": "Uncommon",
+    "tier": "doesn't deliver in practice (above Sixth Sense)",
+    "row": null,
+    "when_good": "if already making Straight Flushes; with Blueprint/Brainstorm",
+    "when_bad": "Straight Flush non-trivial",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1512.44,
+    "quote": "you got to be honest about the Seance and it just it just doesn't do the thing"
+   },
+   {
+    "joker": "Hologram",
+    "rarity": "Uncommon",
+    "tier": "below Constellation and Flash Card, above Card Sharp",
+    "row": null,
+    "when_good": "with Certificate (+0.25 per round); adding cards",
+    "when_bad": "after ~6 added cards you don't want more (>60 cards)",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1621.88,
+    "quote": "I think hologram is not as good as JJ probably better than card",
+    "gloss": "JJ = Flash Card (inferred)"
+   },
+   {
+    "joker": "Throwback",
+    "rarity": "Uncommon",
+    "tier": "pass",
+    "row": null,
+    "when_good": "-",
+    "when_bad": "needs >3 skips; 3 shops find a better uncommon",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1772.12,
+    "quote": "but generally I'm going to pass"
+   },
+   {
+    "joker": "Cloud 9",
+    "rarity": "Uncommon",
+    "tier": "conditional smash",
+    "row": null,
+    "when_good": "many 9s: $4-6/round",
+    "when_bad": "costs $7; 'not xMult'",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1840.799,
+    "quote": "if the weather was right if the conditions were right I could be willing to smash"
+   },
+   {
+    "joker": "To the Moon",
+    "rarity": "Uncommon",
+    "tier": "below Cloud 9",
+    "row": null,
+    "when_good": "costs $5",
+    "when_bad": "income caps lower than Cloud 9",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1908.88,
+    "quote": "Nine's got to be better than to the Moon right"
+   },
+   {
+    "joker": "Satellite",
+    "rarity": "Uncommon",
+    "tier": "pass (above Throwback)",
+    "row": null,
+    "when_good": "-",
+    "when_bad": "costs too much to get going; slow",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1947.32,
+    "quote": "satellites going to get the it's going to be pass on the satellite"
+   },
+   {
+    "joker": "Rocket",
+    "rarity": "Uncommon",
+    "tier": "smash",
+    "row": null,
+    "when_good": "number goes big",
+    "when_bad": "often bought too late to pay off",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1948.6,
+    "quote": "it's going to be pass on the satellite but it's going to be smash on the"
+   },
+   {
+    "joker": "Gift Card",
+    "rarity": "Uncommon",
+    "tier": "smash",
+    "row": null,
+    "when_good": "never sell; enables later Temperance (often several per ante)",
+    "when_bad": "seems to do nothing at first",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1969.76,
+    "quote": "gift card is going to be a smash for me Dog"
+   },
+   {
+    "joker": "Midas Mask",
+    "rarity": "Uncommon",
+    "tier": "smash (chosen over Vampire)",
+    "row": null,
+    "when_good": "make the deck Gold cards",
+    "when_bad": "art",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2063.28,
+    "quote": "but I would let mid smash before Dr Acula"
+   },
+   {
+    "joker": "Luchador",
+    "rarity": "Uncommon",
+    "tier": "close to the middle, later moved down to Mr. Bones",
+    "row": null,
+    "when_good": "reroll down for it when a boss will end you",
+    "when_bad": "usually unneeded",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2205.88,
+    "quote": "to have it squarely in the middle yeah well not squarely in the middle but close to the middle"
+   },
+   {
+    "joker": "Turtle Bean",
+    "rarity": "Uncommon",
+    "tier": "maybe smash ('not top-tier money')",
+    "row": null,
+    "when_good": "+5 hand size: Blue Seals, Gold cards; taken more often than Rocket",
+    "when_bad": "decays",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2231.599,
+    "quote": "I don't think the bean is top tier money"
+   },
+   {
+    "joker": "Erosion",
+    "rarity": "Uncommon",
+    "tier": "smash, then moved down behind the xMult sources",
+    "row": null,
+    "when_good": "one Hanged Man = +8; ~+16 reliably; counts from deck's starting size (Abandoned)",
+    "when_bad": "capped; standard-pack seal picks push deck size up",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2707.92,
+    "quote": "we could bring it down maybe behind all of these sources of XM"
+   },
+   {
+    "joker": "Stone Joker",
+    "rarity": "Uncommon",
+    "tier": "below Hiker, above Space Joker",
+    "row": null,
+    "when_good": "3 Stone cards = +75 chips ~ Ice Cream; busted with Marble",
+    "when_bad": "most of the time you don't need a chips source (Planets)",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2548.68,
+    "quote": "Stone Joker is worse than hiker hiker always gives you chips"
+   },
+   {
+    "joker": "Lucky Cat",
+    "rarity": "Uncommon",
+    "tier": "proud smash, moved to top rank",
+    "row": "top rank (implied)",
+    "when_good": "Lucky cards; scales; between Bull and Bootstraps",
+    "when_bad": "grows slower than Constellation",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2784.04,
+    "quote": "what actually would go in the top rank if not the cat"
+   },
+   {
+    "joker": "Bull",
+    "rarity": "Uncommon",
+    "tier": "easy smash ('off the charts'; above Lucky Cat)",
+    "row": null,
+    "when_good": "chips for money held; High Card/Pair builds; fewer shop decisions",
+    "when_bad": "rewards saving, which he says he rarely does",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2823.88,
+    "quote": "presenting are the Bulls Bulls smash"
+   },
+   {
+    "joker": "Bootstraps",
+    "rarity": "Uncommon",
+    "tier": "easy smash ('off the charts'; below Lucky Cat)",
+    "row": null,
+    "when_good": "Mult for money held",
+    "when_bad": "Mult is easier to get elsewhere than chips",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2901.8,
+    "quote": "I think the cat goes in between obviously they're both great right they're both off the charts easy"
+   },
+   {
+    "joker": "Diet Cola",
+    "rarity": "Uncommon",
+    "tier": "pass ('mid')",
+    "row": null,
+    "when_good": "if you have a spare slot and budget for the skip",
+    "when_bad": "even a doubled skip tag may not be worth it",
+    "video": "eT6X1613CbA",
+    "t_seconds": 2986.359,
+    "quote": "I think the cold is mid for me",
+    "gloss": "Diet Cola"
+   },
+   {
+    "joker": "Spare Trousers",
+    "rarity": "Uncommon",
+    "tier": "smash",
+    "row": null,
+    "when_good": "Two Pair builds",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3023.28,
+    "quote": "oh we definitely we're going to smash with the pants",
+    "gloss": "Spare Trousers"
+   },
+   {
+    "joker": "Ramen",
+    "rarity": "Uncommon",
+    "tier": "below Hologram",
+    "row": null,
+    "when_good": "with Burglar / no-discard play",
+    "when_bad": "every discard ticks it down (stressful)",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3156.64,
+    "quote": "worse than hologram I feel like hologram adding cards to the deck"
+   },
+   {
+    "joker": "Seltzer",
+    "rarity": "Uncommon",
+    "tier": "below Card Sharp, Dagger, Blackboard",
+    "row": null,
+    "when_good": "end game (ante 7) with 2+ Glass cards or Lucky/Gold Seals",
+    "when_bad": "one Glass card = just x2 for a slot",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3269.4,
+    "quote": "I think Seltzer is going to be not as good as card sharp"
+   },
+   {
+    "joker": "Castle",
+    "rarity": "Uncommon",
+    "tier": "worse than money and xMult, better than Throwback and Erosion",
+    "row": null,
+    "when_good": "Checkered Deck; discarding a lot",
+    "when_bad": "slow; two discards; chips easier elsewhere",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3398.039,
+    "quote": "Castle is worse than money worse than x mol better than throwback"
+   },
+   {
+    "joker": "Mr. Bones",
+    "rarity": "Uncommon",
+    "tier": "pass, later 'as good as Luchador'",
+    "row": null,
+    "when_good": "x4-equivalent rescue for one round; works face down",
+    "when_bad": "single use; no blind reward money",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3482.88,
+    "quote": "nah I'm going to pass on senor wos",
+    "gloss": "Senor wos = Senor Huesos = Mr. Bones"
+   },
+   {
+    "joker": "Sock and Buskin",
+    "rarity": "Uncommon",
+    "tier": "with Hack (better than Hack)",
+    "row": null,
+    "when_good": "face builds with Smiley Face",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3531.039,
+    "quote": "I think it's better than Hack and I think the reason for that is smiley face exists"
+   },
+   {
+    "joker": "Troubadour",
+    "rarity": "Uncommon",
+    "tier": null,
+    "row": null,
+    "when_good": "no verdict said ('like Bean but permanent'); placement on screen only",
+    "when_bad": "",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3553.68,
+    "quote": "trador is like Bean but permanent plus two instead of plus five hand size",
+    "gloss": "Troubadour"
+   },
+   {
+    "joker": "Certificate",
+    "rarity": "Uncommon",
+    "tier": "pass (about Space Joker)",
+    "row": null,
+    "when_good": "with Hologram ('off the charts'); seals are valuable",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3602.72,
+    "quote": "certificate I think generally it's going to be a pass"
+   },
+   {
+    "joker": "Smeared Joker",
+    "rarity": "Uncommon",
+    "tier": "pass (with Mr. Bones)",
+    "row": null,
+    "when_good": "Flush House; suit-joker synergy",
+    "when_bad": "Flushes already free; Shortcut helps Straight Flushes more; replace with real scoring",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3738.359,
+    "quote": "it's going to be a pass pass for me on smear Joker"
+   },
+   {
+    "joker": "Bloodstone",
+    "rarity": "Uncommon",
+    "tier": "no",
+    "row": null,
+    "when_good": "Hearts with Lusty Joker",
+    "when_bad": "too inconsistent; needs three x1.5 procs to beat Acrobat",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3809.48,
+    "quote": "nah it's a no for me Onyx aots up here with Fibonacci"
+   },
+   {
+    "joker": "Onyx Agate",
+    "rarity": "Uncommon",
+    "tier": "with Fibonacci (high)",
+    "row": null,
+    "when_good": "Clubs +7 Mult per card",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3809.48,
+    "quote": "nah it's a no for me Onyx aots up here with Fibonacci",
+    "gloss": "Onyx Agate"
+   },
+   {
+    "joker": "Arrowhead",
+    "rarity": "Uncommon",
+    "tier": "smash (close to/over Onyx Agate, below Fibonacci)",
+    "row": null,
+    "when_good": "Spades; up to ~250 chips like Stuntman without hand-size loss",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3948.16,
+    "quote": "Arrowhead I would smash I like that it's a good shape for smash"
+   },
+   {
+    "joker": "Rough Gem",
+    "rarity": "Uncommon",
+    "tier": "low ('rough'; above Bloodstone)",
+    "row": null,
+    "when_good": "Diamonds",
+    "when_bad": "$1 per Diamond too little",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3957.72,
+    "quote": "rough gem for the money is rough"
+   },
+   {
+    "joker": "Glass Joker",
+    "rarity": "Uncommon",
+    "tier": "pass",
+    "row": null,
+    "when_good": "destroy Glass with Hanged Man/Trading Card to scale",
+    "when_bad": "you usually don't want to remove Glass cards",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4070.68,
+    "quote": "but I'm going to pass glass joker I'm going to pass"
+   },
+   {
+    "joker": "Showman",
+    "rarity": "Uncommon",
+    "tier": "pass",
+    "row": null,
+    "when_good": "duplicate Planets/Tarots/Cavendish",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4175.759,
+    "quote": "I think it's going to be pass on the showman"
+   },
+   {
+    "joker": "Flower Pot",
+    "rarity": "Uncommon",
+    "tier": "pass ('get out of here')",
+    "row": null,
+    "when_good": "with Smeared/Wild cards",
+    "when_bad": "four suits rarely fits your hand",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4185.759,
+    "quote": "flower pot you can you can get out of here"
+   },
+   {
+    "joker": "Merry Andy",
+    "rarity": "Uncommon",
+    "tier": "conditional smash",
+    "row": null,
+    "when_good": "sometimes ('not an all the time thing')",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4232.199,
+    "quote": "I'm willing to smash as long as it's not an all the time thing with",
+    "gloss": "Andrew = Merry Andy"
+   },
+   {
+    "joker": "Oops! All 6s",
+    "rarity": "Uncommon",
+    "tier": "smash (upgraded on chat input)",
+    "row": null,
+    "when_good": "Lucky cards (~+$5/round with 5 Lucky), Reserved Parking, Hallucination, Space Joker",
+    "when_bad": "needs probability cards in the deck",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4349.719,
+    "quote": "it's going to be a smash for me on the sixes"
+   },
+   {
+    "joker": "The Idol",
+    "rarity": "Uncommon",
+    "tier": "pass ('get out of here'; above Marble)",
+    "row": null,
+    "when_good": "deep endless runs",
+    "when_bad": "only sometimes x2; Photograph is always x2",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4378.199,
+    "quote": "I think Idol I think Idol's going to get the pass"
+   },
+   {
+    "joker": "Seeing Double",
+    "rarity": "Uncommon",
+    "tier": "smash (below Arrowhead)",
+    "row": null,
+    "when_good": "'free' x2 on whatever you already play with a Club",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4555.28,
+    "quote": "seeing double and I we can smash"
+   },
+   {
+    "joker": "Cartomancer",
+    "rarity": "Uncommon",
+    "tier": "smash (just below Hallucination; 'on the cusp' of honors)",
+    "row": null,
+    "when_good": "a little value each round, like a fair Trading Card",
+    "when_bad": "only one random Tarot a round; Emperor gives two for $3",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4649.4,
+    "quote": "camman is still worse than hallucination it's close it's it's on the cusp"
+   },
+   {
+    "joker": "Matador",
+    "rarity": "Uncommon",
+    "tier": "smash (quiet; not expelled)",
+    "row": null,
+    "when_good": "big payout on the right bosses",
+    "when_bad": "works on ~1/3 of bosses; baits greed",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4724.92,
+    "quote": "Matador and I we going to smash but we're not going to tell anybody about it"
+   },
+   {
+    "joker": "Astronomer",
+    "rarity": "Uncommon",
+    "tier": "below Cartomancer (above Cloud 9, below Rocket/Midas)",
+    "row": null,
+    "when_good": "with Constellation (he'd still keep them separate)",
+    "when_bad": "-",
+    "video": "eT6X1613CbA",
+    "t_seconds": 4870.52,
+    "quote": "is not as good as cardom mancer but I think it's better than the rocket"
+   },
+   {
+    "joker": "Four Fingers",
+    "rarity": "Uncommon",
+    "tier": null,
+    "row": null,
+    "when_good": "not mentioned in the captions; placed on screen only (uncommon video opens mid-list)",
+    "when_bad": "",
+    "video": "eT6X1613CbA",
+    "t_seconds": 1.36,
+    "quote": "we're going to cut all that stuff out we're going to jump right in"
+   },
+   {
+    "joker": "Shortcut",
+    "rarity": "Uncommon",
+    "tier": null,
+    "row": null,
+    "when_good": "not placed in captions (only 'Shortcut helps Straight Flushes more than Smeared')",
+    "when_bad": "",
+    "video": "eT6X1613CbA",
+    "t_seconds": 3691.079,
+    "quote": "the straight part is the hard that's or the part that's hard not the flush part"
+   },
+   {
+    "joker": "Blueprint",
+    "rarity": "Rare",
+    "tier": "top ('does everything', 'overpowered')",
+    "row": null,
+    "when_good": "any copy target",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 9.76,
+    "quote": "I mean blueprint does all of the thing."
+   },
+   {
+    "joker": "Burnt Joker",
+    "rarity": "Rare",
+    "tier": "very powerful (below Stuntman)",
+    "row": null,
+    "when_good": "save discards to discard a big hand for a level",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 23.68,
+    "quote": "think burnt joker is very powerful."
+   },
+   {
+    "joker": "Obelisk",
+    "rarity": "Rare",
+    "tier": "Expelled (not fun, though 'very strong')",
+    "row": "Expelled",
+    "when_good": "-",
+    "when_bad": "baits you into maximising; counting hands; not fun",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 253.439,
+    "quote": "get out of my class. Get Get off campus."
+   },
+   {
+    "joker": "Stuntman",
+    "rarity": "Rare",
+    "tier": "smash, not honors",
+    "row": null,
+    "when_good": "+250 chips ~ 15 Jupiter levels; Pairs/High Card",
+    "when_bad": "-2 hand size = less action",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 210.4,
+    "quote": "I don't think Stunt Man's going to get the honors from me."
+   },
+   {
+    "joker": "The Duo",
+    "rarity": "Rare",
+    "tier": "mid among rares (best of the hand-xMult set)",
+    "row": null,
+    "when_good": "free x2",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 419.44,
+    "quote": "Duo trio maybe the best. Duo is free. Free times two."
+   },
+   {
+    "joker": "The Trio",
+    "rarity": "Rare",
+    "tier": "mid among rares (best of the set)",
+    "row": null,
+    "when_good": "x3 very consistent later",
+    "when_bad": "not early",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 426.0,
+    "quote": "Trio. You don't get the times three early, but you do very consistently get the times three later."
+   },
+   {
+    "joker": "The Order",
+    "rarity": "Rare",
+    "tier": "mid among rares (above Tribe)",
+    "row": null,
+    "when_good": "Straights x3",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 441.599,
+    "quote": "I like order a little bit better."
+   },
+   {
+    "joker": "The Tribe",
+    "rarity": "Rare",
+    "tier": "mid among rares (below Order)",
+    "row": null,
+    "when_good": "Flushes",
+    "when_bad": "x2 for Flushes not enough payoff for the work",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 434.08,
+    "quote": "I think times two for flushes is not enough payoff for enough for how much work it is."
+   },
+   {
+    "joker": "The Family",
+    "rarity": "Rare",
+    "tier": "worst of the hand-xMult set",
+    "row": null,
+    "when_good": "-",
+    "when_bad": "if you're playing Four of a Kind you're already winning",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 476.0,
+    "quote": "family is the worst because if you're playing four of a kind"
+   },
+   {
+    "joker": "Baseball Card",
+    "rarity": "Rare",
+    "tier": "smash (top: the standard other smashes compare to)",
+    "row": null,
+    "when_good": "a couple of uncommons (not hard)",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 534.64,
+    "quote": "Baseball, we can smash. Yeah, this guy I would smash."
+   },
+   {
+    "joker": "Brainstorm",
+    "rarity": "Rare",
+    "tier": "below Campfire ('worse Blueprint')",
+    "row": null,
+    "when_good": "if Blueprint didn't exist",
+    "when_bad": "positional restriction",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1472.72,
+    "quote": "Campfire over brainstorm."
+   },
+   {
+    "joker": "DNA",
+    "rarity": "Rare",
+    "tier": "pass",
+    "row": null,
+    "when_good": "-",
+    "when_bad": "costs a hand, adds cards, doesn't remove bad ones",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 734.56,
+    "quote": "I'll pass DNA and I there's no way we're going to smash here."
+   },
+   {
+    "joker": "Baron",
+    "rarity": "Rare",
+    "tier": "smash (placed high)",
+    "row": null,
+    "when_good": "many Kings drawn; levelled Three of a Kind/Pair/High Card",
+    "when_bad": "few Kings in hand",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 795.2,
+    "quote": "Baron. Baron. I would smash."
+   },
+   {
+    "joker": "Invisible Joker",
+    "rarity": "Rare",
+    "tier": null,
+    "row": null,
+    "when_good": "no verdict said: 'like Blueprint but only one thing'; copies Polychrome/rentals/eternals, 'Ankh but less dangerous'",
+    "when_bad": "",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1153.84,
+    "quote": "invisible joker is like blueprint but it can only do one thing"
+   },
+   {
+    "joker": "Vagabond",
+    "rarity": "Rare",
+    "tier": "conditional smash, then 'get out of here' (expelled per chat)",
+    "row": "Expelled (implied)",
+    "when_good": "the Tarots do win runs",
+    "when_bad": "a lot of work; random Tarots worse than Trading Card",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1454.159,
+    "quote": "Vagabon can get out of here."
+   },
+   {
+    "joker": "Campfire",
+    "rarity": "Rare",
+    "tier": "smash (not Baseball-level; above Brainstorm)",
+    "row": null,
+    "when_good": "very consistently >x10; ~free x2 with many consumables",
+    "when_bad": "resets after the boss: plan for next small blind",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1384.4,
+    "quote": "campfire and I we'll smash. Not like baseball card smash"
+   },
+   {
+    "joker": "Hit the Road",
+    "rarity": "Rare",
+    "tier": "above DNA ('not mid')",
+    "row": null,
+    "when_good": "Jack discards",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1513.6,
+    "quote": "I like hit the road more than DNA."
+   },
+   {
+    "joker": "Wee Joker",
+    "rarity": "Rare",
+    "tier": null,
+    "row": null,
+    "when_good": "no verdict said; play 2s and Strength Aces into 2s (+8 chips each, permanent)",
+    "when_bad": "",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1688.32,
+    "quote": "when I see your Wii it puts a smile on my face",
+    "gloss": "Wee Joker"
+   },
+   {
+    "joker": "Driver's License",
+    "rarity": "Rare",
+    "tier": "mid ('not an easy smash')",
+    "row": null,
+    "when_good": "16 enhanced cards (12 would be fair)",
+    "when_bad": "doesn't scale; 16 in 8 antes is tough",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1704.32,
+    "quote": "I think driver's license is I think it's mid."
+   },
+   {
+    "joker": "Ancient Joker",
+    "rarity": "Rare",
+    "tier": "You're in the wrong class",
+    "row": "You're in the wrong class",
+    "when_good": "with Wild cards or even suits",
+    "when_bad": "arrives after you've committed to one suit",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 1823.2,
+    "quote": "I'm not saying that you can't be here. You just can't be in my class."
+   },
+   {
+    "joker": "Yorick",
+    "rarity": "Legendary",
+    "tier": "top, with Baseball Card (honors implied)",
+    "row": "Graduating with honors (implied)",
+    "when_good": "easier quest than Driver's License; not affected by face-card bosses",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 2266.0,
+    "quote": "Ricky's up here with baseball card.",
+    "gloss": "Ricky = Yorick"
+   },
+   {
+    "joker": "Canio",
+    "rarity": "Legendary",
+    "tier": "below Yorick",
+    "row": null,
+    "when_good": "making face cards to destroy them",
+    "when_bad": "-",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 2254.32,
+    "quote": "I think Ricky's just a little bit easier than Cano.",
+    "gloss": "Cano = Canio"
+   },
+   {
+    "joker": "Triboulet",
+    "rarity": "Legendary",
+    "tier": "high (maybe over Stuntman)",
+    "row": null,
+    "when_good": "free, like Idol without the work",
+    "when_bad": "face-card debuff boss (The Plant) can end it",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 2286.16,
+    "quote": "Tribule is like Idol except you don't have to work for it.",
+    "gloss": "Triboulet"
+   },
+   {
+    "joker": "Perkeo",
+    "rarity": "Legendary",
+    "tier": "below Yorick ('can't give the same honors')",
+    "row": null,
+    "when_good": "copying Death/Hanged Man for deck manipulation",
+    "when_bad": "takes over the run like Vagabond",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 2359.76,
+    "quote": "I can't give you the same honors as Ricky.",
+    "gloss": "Percolator = Perkeo"
+   },
+   {
+    "joker": "Chicot",
+    "rarity": "Legendary",
+    "tier": "lowest legendary (with Perkeo)",
+    "row": null,
+    "when_good": "free x2 vs every boss; prevents run-ending bosses",
+    "when_bad": "'makes the game boring'; buggy",
+    "video": "-dFEWf4t7yU",
+    "t_seconds": 2387.599,
+    "quote": "I think Chicklets is not at the same level as the others.",
+    "gloss": "Chicklets = Chicot"
+   }
+  ],
+  "scale": {
+   "rows_top_to_bottom": [
+    {
+     "row": "Graduating with honors",
+     "meaning": "above and beyond; excels in every situation"
+    },
+    {
+     "row": "Solo group project",
+     "meaning": "does a lot on its own, picks up the slack for other jokers; graduates but not with honors across the board"
+    },
+    {
+     "row": "See me after class",
+     "meaning": "did all right for a while then fell off; hope for redemption"
+    },
+    {
+     "row": "You're in the wrong class",
+     "meaning": "doesn't meet the prereqs; shouldn't be in this class"
+    },
+    {
+     "row": "Expelled",
+     "meaning": "shouldn't be in any class"
+    }
+   ],
+   "verbal_verdicts": "For nearly every joker he gives a 'smash or pass' verdict instead of naming the row: smash = he'd take it, pass/no = he wouldn't. Strength of the smash, high to low: 'easy/easiest/top-of-the-line/big-time smash' and 'off the charts' > 'proud smash' > 'smash' > 'smash but not proud / wouldn't tell anybody' > 'gentle/soft smash' > 'conditional smash' > 'mid' > 'pass'/'no'. Most rows are set by dragging on screen and only some are said aloud; `row` is filled only when he names it (or a chatter names it and he accepts).",
+   "caveats": [
+    "Rankings are partly vibes, art and fun ('this is based on Vibes only'): Obelisk is called 'very strong' but expelled for not being fun, Vagabond for being a lot of work, Chicot held down because it 'makes the game boring', and Brainstorm and Midas Mask are discussed partly on art.",
+    "Commons are judged relative to commons ('we're talking about commons here'); a common 'easy smash' is not worth an uncommon 'smash'.",
+    "Several placements moved after chat donations or arguments (Credit Card, 8 Ball, Clown, Superposition, Red Card, Golden Joker, Green Joker, Erosion, Lucky Cat, Luchador, Brainstorm, Vagabond); the table gives the final stated position where one exists.",
+    "The uncommon video opens with 'we're going to cut all that stuff out', so some uncommons (e.g. Four Fingers) were never placed in the captions.",
+    "Version: 1.0.1f (June 2024)."
+   ],
+   "rough_power_reading": "Not his words: a rough reading of the verbal verdicts for a value table. easy smash/top ~ S-A, smash ~ B, mid/conditional ~ C, pass ~ D, expelled/wrong class ~ F."
+  }
+ }
+}

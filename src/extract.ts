@@ -1,8 +1,8 @@
 // The extractor: one BlindDeck `gamestate` -> a normalized Snapshot that the rest of the agent
 // (candidates, evaluator, UI, logs) reads, plus a compact view sized for a small System One model.
 
-import { RANKS, SUITS, cardLabel, cardLongLabel, normEdition, toPCard, type PCard } from "./cards.ts";
-import { HAND_NAMES, rulesFromJokers, type HandLevel, type Joker, type Rules } from "./poker.ts";
+import { RANKS, SUITS, cardLabel, cardLongLabel, normEdition, normRank, toPCard, type PCard } from "./cards.ts";
+import { HAND_NAMES, rulesFromJokers, type HandLevel, type Joker, type RoundCards, type Rules } from "./poker.ts";
 import type { Blind, GameState, HeldTag, RawCard, RunSummary } from "./types.ts";
 
 export interface Item {
@@ -24,6 +24,8 @@ export interface Item {
   targetMax: number;
   requiresJokers: number;
   randomJoker: boolean;
+  /** The Fool: the Tarot or Planet it would copy ("" before any has been used, when the game refuses it). */
+  copyKey?: string;
 }
 
 export interface ShopItem extends Item {
@@ -61,6 +63,11 @@ export interface Snapshot {
   discardsLeft: number;
   rerollCost: number;
   bossRerollAvailable: boolean;
+  /** This round's picks for Ancient Joker (suit) and The Idol (rank and suit); they change every round. */
+  roundCards: RoundCards;
+  /** Cards in the whole deck and at the start of the run (Erosion, Steel Joker), when the game says. */
+  deckSize?: number;
+  startDeckSize?: number;
   hand: PCard[];
   handSize: number;
   playLimit: number;
@@ -147,6 +154,7 @@ function toItem(raw: RawCard, index: number): Item {
     targetMax: raw.value?.target_max ?? 0,
     requiresJokers: raw.value?.requires_jokers_min ?? 0,
     randomJoker: Boolean(raw.value?.random_joker_effect),
+    ...(raw.value?.copy_key !== undefined ? { copyKey: raw.value.copy_key } : {}),
   };
 }
 
@@ -229,6 +237,9 @@ export function extract(gs: GameState): Snapshot {
     discardsLeft: round.discards_left ?? 0,
     rerollCost: round.reroll_cost ?? 5,
     bossRerollAvailable: Boolean(round.boss_reroll_available),
+    roundCards: { ancientSuit: round.ancient_suit, idolRank: normRank(round.idol_rank), idolSuit: round.idol_suit },
+    ...(gs.run?.deck_size ? { deckSize: gs.run.deck_size } : {}),
+    ...(gs.run?.starting_deck_size ? { startDeckSize: gs.run.starting_deck_size } : {}),
     hand: (gs.hand?.cards ?? []).map(toPCard),
     handSize: gs.hand?.limit ?? 8,
     playLimit: gs.hand?.highlighted_limit ?? 5,

@@ -6751,120 +6751,882 @@
  ],
  "packs": [
   {
-   "t": 36.0,
-   "pack": "Buffoon"
+   "t": 35.0,
+   "end_t": 36.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean"
+    },
+    {
+     "key": "j_sixth_sense",
+     "name": "Sixth Sense"
+    }
+   ]
   },
   {
    "t": 90.0,
-   "pack": "Celestial"
+   "end_t": 91.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    }
+   ]
+  },
+  {
+   "t": 96.0,
+   "end_t": 97.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": []
+  },
+  {
+   "t": 139.0,
+   "end_t": 139.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": [
+    {
+     "key": "j_devious",
+     "name": "Devious Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
   },
   {
    "t": 282.0,
-   "pack": "Buffoon"
+   "end_t": 287.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 6,
+   "offered": [
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean"
+    },
+    {
+     "key": "j_throwback",
+     "name": "Throwback"
+    },
+    {
+     "key": "j_blue_joker",
+     "name": "Blue Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_baseball",
+     "name": "Baseball Card",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 291.0,
+   "end_t": 291.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
   },
   {
    "t": 386.0,
-   "pack": "Buffoon"
+   "end_t": 390.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 5,
+   "offered": [
+    {
+     "key": "j_misprint",
+     "name": "Misprint"
+    }
+   ]
   },
   {
-   "t": 438.0,
-   "pack": "Buffoon"
+   "t": 437.0,
+   "end_t": 453.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 17,
+   "offered": [
+    {
+     "key": "j_onyx_agate",
+     "name": "Onyx Agate",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_scary_face",
+     "name": "Scary Face",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_matador",
+     "name": "Matador",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_red_card",
+     "name": "Red Card"
+    }
+   ]
   },
   {
-   "t": 544.0,
-   "pack": "Arcana"
+   "t": 499.0,
+   "end_t": 499.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
+  },
+  {
+   "t": 543.0,
+   "end_t": 544.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 548.0,
+   "end_t": 549.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": []
   },
   {
    "t": 608.0,
-   "pack": "Arcana"
+   "end_t": 618.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 11,
+   "offered": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 625.0,
+   "end_t": 626.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    }
+   ]
   },
   {
    "t": 758.0,
-   "pack": "Celestial"
+   "end_t": 758.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
   },
   {
-   "t": 804.0,
-   "pack": "Arcana"
+   "t": 761.0,
+   "end_t": 761.0,
+   "pack": "Celestial",
+   "size": "mega",
+   "reads": 1,
+   "offered": []
   },
   {
-   "t": 894.0,
-   "pack": "Celestial"
+   "t": 803.0,
+   "end_t": 806.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 4,
+   "offered": [
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
   },
   {
-   "t": 970.0,
-   "pack": "Arcana"
+   "t": 810.0,
+   "end_t": 821.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 12,
+   "offered": [
+    {
+     "key": "j_sock_and_buskin",
+     "name": "Sock and Buskin"
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 893.0,
+   "end_t": 894.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 968.0,
+   "end_t": 972.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 5,
+   "offered": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    }
+   ]
+  },
+  {
+   "t": 977.0,
+   "end_t": 977.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
   },
   {
    "t": 1032.0,
-   "pack": "Arcana"
+   "end_t": 1044.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 9,
+   "offered": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    }
+   ]
+  },
+  {
+   "t": 1049.0,
+   "end_t": 1053.0,
+   "pack": "Celestial",
+   "size": "mega",
+   "reads": 3,
+   "offered": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
   },
   {
    "t": 1112.0,
-   "pack": "Arcana"
+   "end_t": 1112.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_wheel_of_fortune",
+     "name": "The Wheel of Fortune"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    }
+   ]
   },
   {
    "t": 1158.0,
-   "pack": "Arcana"
+   "end_t": 1160.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 3,
+   "offered": [
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 1164.0,
+   "end_t": 1165.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": []
+  },
+  {
+   "t": 1211.0,
+   "end_t": 1211.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
   },
   {
    "t": 1216.0,
-   "pack": "Celestial"
+   "end_t": 1216.0,
+   "pack": "Celestial",
+   "size": "mega",
+   "reads": 1,
+   "offered": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
   },
   {
-   "t": 1258.0,
-   "pack": "Arcana"
+   "t": 1257.0,
+   "end_t": 1260.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 4,
+   "offered": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1264.0,
+   "end_t": 1265.0,
+   "pack": "Celestial",
+   "size": "mega",
+   "reads": 2,
+   "offered": []
   },
   {
    "t": 1318.0,
-   "pack": "Celestial"
+   "end_t": 1318.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
   },
   {
-   "t": 1376.0,
-   "pack": "Arcana"
+   "t": 1375.0,
+   "end_t": 1378.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 4,
+   "offered": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1383.0,
+   "end_t": 1383.0,
+   "pack": "Buffoon",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
   },
   {
    "t": 1428.0,
-   "pack": "Arcana"
+   "end_t": 1436.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 5,
+   "offered": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    }
+   ]
   },
   {
    "t": 1482.0,
-   "pack": "Spectral"
+   "end_t": 1485.0,
+   "pack": "Spectral",
+   "size": "normal/jumbo",
+   "reads": 3,
+   "offered": []
   },
   {
    "t": 1550.0,
-   "pack": "Arcana"
+   "end_t": 1555.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 6,
+   "offered": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    }
+   ]
   },
   {
-   "t": 1688.0,
-   "pack": "Arcana"
+   "t": 1559.0,
+   "end_t": 1559.0,
+   "pack": "Celestial",
+   "size": "mega",
+   "reads": 1,
+   "offered": []
   },
   {
-   "t": 1784.0,
-   "pack": "Celestial"
+   "t": 1687.0,
+   "end_t": 1694.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 8,
+   "offered": [
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
   },
   {
-   "t": 1848.0,
-   "pack": "Arcana"
+   "t": 1783.0,
+   "end_t": 1784.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    }
+   ]
   },
   {
-   "t": 1916.0,
-   "pack": "Arcana"
+   "t": 1788.0,
+   "end_t": 1791.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 4,
+   "offered": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_world",
+     "name": "The World"
+    }
+   ]
+  },
+  {
+   "t": 1847.0,
+   "end_t": 1852.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 6,
+   "offered": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 1857.0,
+   "end_t": 1857.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
+  },
+  {
+   "t": 1915.0,
+   "end_t": 1923.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 9,
+   "offered": [
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_world",
+     "name": "The World"
+    }
+   ]
   },
   {
    "t": 1980.0,
-   "pack": "Arcana"
+   "end_t": 1983.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 4,
+   "offered": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    }
+   ]
   },
   {
-   "t": 2078.0,
-   "pack": "Arcana"
+   "t": 1988.0,
+   "end_t": 1988.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 1,
+   "offered": []
+  },
+  {
+   "t": 2076.0,
+   "end_t": 2078.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 3,
+   "offered": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    }
+   ]
+  },
+  {
+   "t": 2086.0,
+   "end_t": 2087.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    }
+   ]
   },
   {
    "t": 2168.0,
-   "pack": "Arcana"
+   "end_t": 2172.0,
+   "pack": "Arcana",
+   "size": "normal/jumbo",
+   "reads": 5,
+   "offered": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_world",
+     "name": "The World"
+    }
+   ]
   },
   {
-   "t": 2284.0,
-   "pack": "Celestial"
+   "t": 2177.0,
+   "end_t": 2181.0,
+   "pack": "Celestial",
+   "size": "mega",
+   "reads": 3,
+   "offered": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 2283.0,
+   "end_t": 2284.0,
+   "pack": "Celestial",
+   "size": "normal/jumbo",
+   "reads": 2,
+   "offered": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    }
+   ]
   }
  ],
  "offers": [
@@ -7136,10 +7898,6 @@
      "stickers": [
       "eternal"
      ]
-    },
-    {
-     "key": "v_blank",
-     "name": "Blank"
     }
    ]
   },
@@ -7295,10 +8053,6 @@
      "stickers": [
       "perishable"
      ]
-    },
-    {
-     "key": "v_blank",
-     "name": "Blank"
     }
    ]
   },
@@ -7647,11 +8401,6 @@
      "name": "Temperance"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_empress",
      "name": "The Empress"
     }
@@ -7672,11 +8421,6 @@
     {
      "key": "c_temperance",
      "name": "Temperance"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_empress",
@@ -7701,11 +8445,6 @@
      "name": "Temperance"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_empress",
      "name": "The Empress"
     }
@@ -7726,11 +8465,6 @@
     {
      "key": "c_temperance",
      "name": "Temperance"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_empress",
@@ -7755,11 +8489,6 @@
      "name": "Temperance"
     },
     {
-     "key": "v_blank",
-     "name": "Blank",
-     "edition": "Negative"
-    },
-    {
      "key": "c_empress",
      "name": "The Empress"
     }
@@ -7780,11 +8509,6 @@
     {
      "key": "c_pluto",
      "name": "Pluto"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     }
    ]
   },
@@ -8074,11 +8798,6 @@
     {
      "key": "c_hanged_man",
      "name": "The Hanged Man"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     }
    ]
   },
@@ -8200,11 +8919,6 @@
     {
      "key": "c_venus",
      "name": "Venus"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     }
    ]
   },
@@ -8312,11 +9026,6 @@
      "name": "The Sun"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_heirophant",
      "name": "The Hierophant"
     }
@@ -8385,10 +9094,6 @@
     {
      "key": "c_pluto",
      "name": "Pluto"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card"
     },
     {
      "key": "c_neptune",
@@ -8566,11 +9271,6 @@
      "name": "Venus"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_neptune",
      "name": "Neptune"
     }
@@ -8603,11 +9303,6 @@
      "name": "Death"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_justice",
      "name": "Justice"
     }
@@ -8628,11 +9323,6 @@
     {
      "key": "c_death",
      "name": "Death"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_justice",
@@ -8703,16 +9393,6 @@
     {
      "key": "c_neptune",
      "name": "Neptune"
-    }
-   ]
-  },
-  {
-   "t": 1322.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "c_heirophant",
-     "name": "The Hierophant"
     }
    ]
   },
@@ -8880,16 +9560,6 @@
    ]
   },
   {
-   "t": 1434.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_seance",
-     "name": "Séance"
-    }
-   ]
-  },
-  {
    "t": 1438.0,
    "where": "shop",
    "items": [
@@ -8927,17 +9597,6 @@
     {
      "key": "v_reroll_surplus",
      "name": "Reroll Surplus"
-    }
-   ]
-  },
-  {
-   "t": 1484.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_turtle_bean",
-     "name": "Turtle Bean",
-     "edition": "Negative"
     }
    ]
   },
@@ -9055,11 +9714,6 @@
      "name": "The Tower"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_hanged_man",
      "name": "The Hanged Man"
     }
@@ -9072,16 +9726,6 @@
     {
      "key": "c_moon",
      "name": "The Moon"
-    }
-   ]
-  },
-  {
-   "t": 1560.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_devious",
-     "name": "Devious Joker"
     }
    ]
   },
@@ -9198,11 +9842,6 @@
      "name": "Justice"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_magician",
      "name": "The Magician"
     }
@@ -9223,11 +9862,6 @@
     {
      "key": "c_justice",
      "name": "Justice"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_magician",
@@ -9270,11 +9904,6 @@
      "name": "Justice"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_magician",
      "name": "The Magician"
     }
@@ -9315,42 +9944,6 @@
    ]
   },
   {
-   "t": 1704.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_mime",
-     "name": "Mime",
-     "stickers": [
-      "eternal"
-     ]
-    }
-   ]
-  },
-  {
-   "t": 1780.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_ride_the_bus",
-     "name": "Ride the Bus"
-    },
-    {
-     "key": "p_arcana_jumbo_2",
-     "name": "Jumbo Arcana Pack",
-     "edition": "Negative"
-    },
-    {
-     "key": "j_seance",
-     "name": "Séance"
-    },
-    {
-     "key": "p_celestial_normal_1",
-     "name": "Celestial Pack"
-    }
-   ]
-  },
-  {
    "t": 1784.0,
    "where": "pack",
    "items": [
@@ -9361,31 +9954,6 @@
     {
      "key": "c_pluto",
      "name": "Pluto"
-    },
-    {
-     "key": "v_blank",
-     "name": "Blank",
-     "edition": "Negative"
-    }
-   ]
-  },
-  {
-   "t": 1786.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_ride_the_bus",
-     "name": "Ride the Bus",
-     "stickers": [
-      "eternal"
-     ]
-    },
-    {
-     "key": "j_walkie_talkie",
-     "name": "Walkie Talkie",
-     "stickers": [
-      "perishable"
-     ]
     }
    ]
   },
@@ -9404,11 +9972,6 @@
     {
      "key": "c_death",
      "name": "Death"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_world",
@@ -9479,21 +10042,12 @@
    "where": "pack",
    "items": [
     {
-     "key": "v_tarot_merchant",
-     "name": "Tarot Merchant"
-    },
-    {
      "key": "c_justice",
      "name": "Justice"
     },
     {
      "key": "c_fool",
      "name": "The Fool"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_tower",
@@ -9505,10 +10059,6 @@
    "t": 1850.0,
    "where": "pack",
    "items": [
-    {
-     "key": "v_blank",
-     "name": "Blank"
-    },
     {
      "key": "c_justice",
      "name": "Justice"
@@ -9538,11 +10088,6 @@
     {
      "key": "c_fool",
      "name": "The Fool"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_devil",
@@ -9644,11 +10189,6 @@
      "name": "The Magician"
     },
     {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    },
-    {
      "key": "c_justice",
      "name": "Justice"
     }
@@ -9659,17 +10199,8 @@
    "where": "pack",
    "items": [
     {
-     "key": "v_blank",
-     "name": "Blank"
-    },
-    {
      "key": "c_magician",
      "name": "The Magician"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
     },
     {
      "key": "c_justice",
@@ -9690,10 +10221,6 @@
      "name": "The Magician"
     },
     {
-     "key": "v_blank",
-     "name": "Blank"
-    },
-    {
      "key": "c_justice",
      "name": "Justice"
     }
@@ -9703,10 +10230,6 @@
    "t": 1922.0,
    "where": "pack",
    "items": [
-    {
-     "key": "v_blank",
-     "name": "Blank"
-    },
     {
      "key": "c_world",
      "name": "The World"
@@ -9882,20 +10405,6 @@
     {
      "key": "c_star",
      "name": "The Star"
-    }
-   ]
-  },
-  {
-   "t": 2084.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "j_droll",
-     "name": "Droll Joker"
-    },
-    {
-     "key": "j_caino",
-     "name": "Canio"
     }
    ]
   },
@@ -10151,11 +10660,6 @@
      "name": "Jupiter"
     },
     {
-     "key": "v_blank",
-     "name": "Blank",
-     "edition": "Negative"
-    },
-    {
      "key": "c_venus",
      "name": "Venus"
     }
@@ -10218,25 +10722,6 @@
     {
      "key": "c_pluto",
      "name": "Pluto"
-    },
-    {
-     "key": "j_business",
-     "name": "Business Card",
-     "edition": "Negative"
-    }
-   ]
-  },
-  {
-   "t": 2286.0,
-   "where": "pack",
-   "items": [
-    {
-     "key": "c_empress",
-     "name": "The Empress"
-    },
-    {
-     "key": "c_lovers",
-     "name": "The Lovers"
     }
    ]
   }
@@ -11002,10 +11487,1383 @@
  "ante_check": {
   "offset": 0,
   "ocr_readings": 332,
-  "agree": 299
+  "agree": 299,
+  "merged_blinds": 0,
+  "missed_ante_vouchers": 0
  },
  "cursor_seen": 0.32,
  "recognizer_calls": 3259,
  "card_model_calls": 660,
- "seconds_to_analyse": 822.4
+ "seconds_to_analyse": 822.4,
+ "pack_offers_raw": [
+  {
+   "t": 36.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean"
+    },
+    {
+     "key": "j_sixth_sense",
+     "name": "Sixth Sense"
+    }
+   ]
+  },
+  {
+   "t": 92.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    }
+   ]
+  },
+  {
+   "t": 140.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_devious",
+     "name": "Devious Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 284.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean"
+    },
+    {
+     "key": "j_throwback",
+     "name": "Throwback"
+    },
+    {
+     "key": "j_blue_joker",
+     "name": "Blue Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_baseball",
+     "name": "Baseball Card",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 390.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_misprint",
+     "name": "Misprint"
+    }
+   ]
+  },
+  {
+   "t": 438.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_onyx_agate",
+     "name": "Onyx Agate",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_scary_face",
+     "name": "Scary Face",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_matador",
+     "name": "Matador",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    }
+   ]
+  },
+  {
+   "t": 440.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_onyx_agate",
+     "name": "Onyx Agate",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_scary_face",
+     "name": "Scary Face",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_matador",
+     "name": "Matador",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 450.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_onyx_agate",
+     "name": "Onyx Agate",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_scary_face",
+     "name": "Scary Face",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_matador",
+     "name": "Matador",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_red_card",
+     "name": "Red Card"
+    }
+   ]
+  },
+  {
+   "t": 452.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_onyx_agate",
+     "name": "Onyx Agate",
+     "stickers": [
+      "rental"
+     ]
+    },
+    {
+     "key": "j_scary_face",
+     "name": "Scary Face",
+     "stickers": [
+      "perishable"
+     ]
+    },
+    {
+     "key": "j_matador",
+     "name": "Matador",
+     "stickers": [
+      "perishable",
+      "rental"
+     ]
+    },
+    {
+     "key": "j_crafty",
+     "name": "Crafty Joker",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 544.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    }
+   ]
+  },
+  {
+   "t": 610.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    }
+   ]
+  },
+  {
+   "t": 612.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    }
+   ]
+  },
+  {
+   "t": 614.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    }
+   ]
+  },
+  {
+   "t": 616.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    }
+   ]
+  },
+  {
+   "t": 618.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    }
+   ]
+  },
+  {
+   "t": 626.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 758.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 804.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 812.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_sock_and_buskin",
+     "name": "Sock and Buskin"
+    },
+    {
+     "key": "j_jolly",
+     "name": "Jolly Joker",
+     "stickers": [
+      "eternal",
+      "rental"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 894.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 968.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    }
+   ]
+  },
+  {
+   "t": 970.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    }
+   ]
+  },
+  {
+   "t": 972.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    }
+   ]
+  },
+  {
+   "t": 1032.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    }
+   ]
+  },
+  {
+   "t": 1050.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_earth",
+     "name": "Earth"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
+  },
+  {
+   "t": 1112.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_wheel_of_fortune",
+     "name": "The Wheel of Fortune"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    }
+   ]
+  },
+  {
+   "t": 1160.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 1216.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_saturn",
+     "name": "Saturn"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_neptune",
+     "name": "Neptune"
+    }
+   ]
+  },
+  {
+   "t": 1258.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1260.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1322.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    }
+   ]
+  },
+  {
+   "t": 1376.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1430.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    }
+   ]
+  },
+  {
+   "t": 1432.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_sun",
+     "name": "The Sun"
+    }
+   ]
+  },
+  {
+   "t": 1434.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_seance",
+     "name": "Séance"
+    }
+   ]
+  },
+  {
+   "t": 1484.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_turtle_bean",
+     "name": "Turtle Bean",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1550.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    }
+   ]
+  },
+  {
+   "t": 1552.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_hanged_man",
+     "name": "The Hanged Man"
+    }
+   ]
+  },
+  {
+   "t": 1554.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_moon",
+     "name": "The Moon"
+    }
+   ]
+  },
+  {
+   "t": 1560.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_devious",
+     "name": "Devious Joker"
+    }
+   ]
+  },
+  {
+   "t": 1688.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 1690.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 1692.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 1694.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    }
+   ]
+  },
+  {
+   "t": 1704.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_mime",
+     "name": "Mime",
+     "stickers": [
+      "eternal"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1780.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus"
+    },
+    {
+     "key": "p_arcana_jumbo_2",
+     "name": "Jumbo Arcana Pack",
+     "edition": "Negative"
+    },
+    {
+     "key": "j_seance",
+     "name": "Séance"
+    },
+    {
+     "key": "p_celestial_normal_1",
+     "name": "Celestial Pack"
+    }
+   ]
+  },
+  {
+   "t": 1784.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 1786.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_ride_the_bus",
+     "name": "Ride the Bus",
+     "stickers": [
+      "eternal"
+     ]
+    },
+    {
+     "key": "j_walkie_talkie",
+     "name": "Walkie Talkie",
+     "stickers": [
+      "perishable"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1790.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_star",
+     "name": "The Star"
+    },
+    {
+     "key": "c_strength",
+     "name": "Strength"
+    },
+    {
+     "key": "c_death",
+     "name": "Death"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_world",
+     "name": "The World"
+    }
+   ]
+  },
+  {
+   "t": 1848.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "v_tarot_merchant",
+     "name": "Tarot Merchant"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    }
+   ]
+  },
+  {
+   "t": 1850.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    }
+   ]
+  },
+  {
+   "t": 1852.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_fool",
+     "name": "The Fool"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_devil",
+     "name": "The Devil"
+    }
+   ]
+  },
+  {
+   "t": 1916.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_hermit",
+     "name": "The Hermit"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1918.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1920.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_world",
+     "name": "The World"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1922.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "v_blank",
+     "name": "Blank"
+    },
+    {
+     "key": "c_world",
+     "name": "The World"
+    },
+    {
+     "key": "c_magician",
+     "name": "The Magician"
+    },
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    }
+   ]
+  },
+  {
+   "t": 1982.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_emperor",
+     "name": "The Emperor"
+    },
+    {
+     "key": "c_temperance",
+     "name": "Temperance"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    }
+   ]
+  },
+  {
+   "t": 2076.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_chariot",
+     "name": "The Chariot"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    }
+   ]
+  },
+  {
+   "t": 2078.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_tower",
+     "name": "The Tower"
+    },
+    {
+     "key": "c_star",
+     "name": "The Star"
+    }
+   ]
+  },
+  {
+   "t": 2084.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "j_droll",
+     "name": "Droll Joker"
+    },
+    {
+     "key": "j_caino",
+     "name": "Canio"
+    }
+   ]
+  },
+  {
+   "t": 2086.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_high_priestess",
+     "name": "The High Priestess"
+    },
+    {
+     "key": "c_judgement",
+     "name": "Judgement"
+    }
+   ]
+  },
+  {
+   "t": 2170.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_justice",
+     "name": "Justice"
+    },
+    {
+     "key": "c_heirophant",
+     "name": "The Hierophant"
+    },
+    {
+     "key": "c_world",
+     "name": "The World"
+    }
+   ]
+  },
+  {
+   "t": 2178.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_uranus",
+     "name": "Uranus"
+    },
+    {
+     "key": "c_mars",
+     "name": "Mars"
+    },
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "v_blank",
+     "name": "Blank",
+     "edition": "Negative"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    }
+   ]
+  },
+  {
+   "t": 2284.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_jupiter",
+     "name": "Jupiter"
+    },
+    {
+     "key": "c_venus",
+     "name": "Venus"
+    },
+    {
+     "key": "c_pluto",
+     "name": "Pluto"
+    },
+    {
+     "key": "j_business",
+     "name": "Business Card",
+     "edition": "Negative"
+    }
+   ]
+  },
+  {
+   "t": 2286.0,
+   "where": "pack",
+   "items": [
+    {
+     "key": "c_empress",
+     "name": "The Empress"
+    },
+    {
+     "key": "c_lovers",
+     "name": "The Lovers"
+    }
+   ]
+  }
+ ],
+ "packs_pass": {
+  "reads": 616,
+  "named": 177,
+  "first_pass_packs": 29
+ }
 }

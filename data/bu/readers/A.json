@@ -1,0 +1,1972 @@
+{
+  "videos": [
+    {
+      "id": "atVF4VLHks4",
+      "title": "Balatro Basics 1: Early Ante strategies and tips for higher winrate",
+      "why": "Antes 1-3 on Red deck/White stake: one-shot round 1 with a high flush/straight, buy only the scoring you need (about one scoring joker per ante), bank to the $25 interest cap, then spend; joker-by-joker shop verdicts.",
+      "talk_share": "high"
+    },
+    {
+      "id": "sgOgbZzXYag",
+      "title": "A quick guide to Balatro [University]",
+      "why": "Channel index; only strategic content is that every White-stake run should be winnable and Basics 1 is the recommended starting guide.",
+      "talk_share": "low"
+    },
+    {
+      "id": "3P5fzcsuy2Q",
+      "title": "Balatro 101: Surviving early Rounds *without* Jokers",
+      "why": "Ante 1 with no jokers: score estimates per hand type, two-hand plans for Big Blind and Boss, suit-debuff bosses, value of one early Planet (Saturn > Jupiter) and of Empress/bonus cards.",
+      "talk_share": "high"
+    },
+    {
+      "id": "u5zjR-4vylg",
+      "title": "Balatro 101: Why you should play Flushes (in Round 1)",
+      "why": "Round 1 discard strategy: chip thresholds for a 300 one-shot, flush as default target, when to chase full house or straight, use all discards first; score just enough and take value otherwise.",
+      "talk_share": "high"
+    },
+    {
+      "id": "ooudv0Yh--g",
+      "title": "Balatro 101: This is THE Build for Beginners",
+      "why": "Chips vs Mult: 1 Mult ~ 7.5 chips, first joker should be +Mult, then a chips joker or second +Mult; diminishing returns on additive, xMult for endgame.",
+      "talk_share": "high"
+    },
+    {
+      "id": "V5zDmtnCjZ0",
+      "title": "Balatro 101: How the game benefits from intentional \"imbalance\"",
+      "why": "Designer view of chips jokers: rarer than +Mult jokers, first chips joker ~ second +Mult joker, take early chips jokers (esp. Foil), chips make pairs viable, planets obsolete chips jokers late.",
+      "talk_share": "high"
+    }
+  ],
+  "claims": [
+    {
+      "id": "hands.round1-flush-default",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "In round 1 (300 chips, level-1 hands, no scoring jokers) aim to one-shot with a five-card hand and default to a Flush: it scores more than a Straight and is easier to draw than a Full House. Go for a Straight only if it will be Q-, K- or A-high; go for a Full House only from trips.",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "ante 1 small blind (also any blind with no scoring jokers and level-1 hands)"
+      },
+      "quotes": [
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 194.72,
+          "text": "The flush is recommended for round one because it scores more points than a straight and it's easier to draw than a full house.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=194s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 1250.88,
+          "text": "our typical pattern in round one is to look for a high flush or a high straight",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=1250s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 311.919,
+          "text": "Most of the time, we go for the flush in the first round. Full house and straight are other possibilities",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=311s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "round-1 target selection: target=Flush by default; Straight only if the completed straight is >= Q-high; Full House only when holding trips",
+      "notes": "Repeated in Basics 1 (2024) and the 2025 flush short; consistent."
+    },
+    {
+      "id": "hands.one-shot-chip-thresholds",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "At level 1 with 4 Mult, a 300 one-shot needs base + card chips >= 75: Full House needs >= 35 chips from cards (JJ555, 99666, 88777 work; 33322 doesn't), Flush >= 40 (cards averaging rank 8+, so discard on-suit low cards such as a 2 while digging), Straight >= 45 (only Q-, K-, A-high straights one-shot; J-high falls just short and needs a follow-up pair).",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "level-1 hands, no scoring jokers"
+      },
+      "quotes": [
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 150.16,
+          "text": "So, the secret is going to be getting the blue chips number up to 75 at least.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=150s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 1296.36,
+          "text": "40 is an average of eight or higher right I need all of my clubs to be eight or higher two is not going to cut it",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=1296s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 184.56,
+          "text": "Ace high straight, king high straight, queen high straight, those are your only options.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=184s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "when choosing which cards to keep for a round-1 one-shot: require sum(card chips) >= 75 - base(hand) with base FH 40, Flush 35, Straight 30; discard on-suit cards with rank < 8 when digging for the flush",
+      "notes": "Base chips at level 1: Full House 40, Flush 35, Straight 30, all x4. Thresholds are his stated numbers."
+    },
+    {
+      "id": "hands.two-pair-flush-trips-fullhouse",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Opening with Two Pair: don't play it and don't chase the Full House (only 4 outs); discard toward a flush. Opening with Three of a Kind (round 1): don't play it yet; discard the rest and draw any pair for a Full House, which is easy.",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "round 1 / one-shot target, level-1 hands"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6877.48,
+          "text": "if you have two pair I think two pair it's too hard to get the full house if you have three of a kind I think three of a kind is pretty easy to get the Full House",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6877s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 222.08,
+          "text": "Regardless of how many points the full house could score, the chance of drawing the full house is way too low.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=222s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 243.04,
+          "text": "if your opening hand is three of a kind, don't play the three of a kind right away. It's not going to be enough points on its own, but it's not that hard to complete the full house.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=243s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "discard policy: from two pair -> keep best suited cards and chase flush, never hold both pairs for FH; from trips -> hold trips, discard the rest to draw a pair",
+      "notes": "In round 2 he gives a different rule for a high triple (play it right away as filler); see hands.round2-two-hands. Both hold: round-1 one-shot vs two-hand plan."
+    },
+    {
+      "id": "hands.count-outs",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Pick the draw with more outs. An inside or one-rank straight draw (4 cards can complete it) is as hard as a Full House, while 3 suited cards have about 10 outs. Discard a low straight to dig for a flush. With four in a row, chase the straight only if the cards are high enough to one-shot, otherwise keep going for the flush.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "level-1 hands, digging for one five-card hand"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 1343.44,
+          "text": "there's only four cards that can do it it has to be one of my Four Queens and and if that's what the requirement is then getting that straight is the same difficulty as getting a full house",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=1343s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 268.32,
+          "text": "most of the time, it makes sense to actually discard an entire straight, discard a low straight, digging for that flush.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=268s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 305.28,
+          "text": "Four in a row. If the cards are high enough, go for the straight. Otherwise, keep going for that flush.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=305s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "discard planner: score each candidate target by P(complete with remaining discards) using outs in the remaining deck; break ties toward the target that one-shots; a straight draw whose completion is < Q-high is worth 0 for a round-1 one-shot",
+      "notes": "Also says the cards kept for a high flush and a high straight overlap, so both can be chased at once (B1 ~2578 s)."
+    },
+    {
+      "id": "hands.all-discards-then-burn-hands",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Use all your discards before playing any hand. If you still lack the five-card hand, play junk hands as extra discards to dig for it; the one five-card hand usually wins, and if it falls short, follow it with a pair. Even if the opening hand has a flush, discard to try for a better one.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "early antes, five-card hand plan"
+      },
+      "quotes": [
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 322.32,
+          "text": "Make sure you use all of your discards before playing any hands. Even if your opening hand contains a flush, you can still discard a few cards to try to draw a better flush.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=322s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 213.12,
+          "text": "when you run out of discards a thing that you could do is you could just play hands as garbage play hands like you would discards",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=213s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 177.519,
+          "text": "It's okay to play a few hands as discards.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=177s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "round policy: never play a non-winning scoring hand while discards remain (unless it wins the blind); when out of discards and the target hand isn't formed and hands_left >= 2, play the lowest-value cards as a junk hand to dig",
+      "notes": "Burning a hand costs $1 of leftover-hand money, so it's a trade-off (B1 ~247 s)."
+    },
+    {
+      "id": "hands.fewest-hands-for-money",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Each unused hand pays $1 at cash-out, so plan each blind for the fewest hands: decide in advance which 'good enough' hand (not the best hand) wins the round and commit to it. A purchase that lets you win in fewer hands partly pays for itself the way interest does.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "any"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 144.68,
+          "text": "with two left over we have two extra dollars here and so you get more money if you use fewer hands",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=144s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 1386.0,
+          "text": "decide ahead of time every round decide ahead of time what is going to be a winning hand not necessarily the best hand but what is going to be a good enough hand and then commit fully commit to making that happen",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=1386s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 1461.559,
+          "text": "sometimes spending your money is the same as interest right if it allows you to win with fewer hands",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=1461s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "round planner: minimise expected hands used subject to P(win) ~ 1; count each hand saved as +$1 in shop value, e.g. a scoring joker that turns 2-hand wins into 1-hand wins earns about $1 per blind"
+    },
+    {
+      "id": "hands.round2-two-hands",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Without scoring jokers, ante 1 Big Blind (450) and Boss (600) take two hands: one good five-card hand (~250-350) plus a filler (three of a kind ~135-180, two pair ~100, pair ~50-60); you don't need both hands to be good. In round 2, if you draw a high three of a kind, play it right away instead of digging for a Full House, keeping your discards to set up the five-card hand.",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "no scoring jokers, level-1 hands, Big Blind or Boss"
+      },
+      "quotes": [
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 118.32,
+          "text": "It's important to note here, you do need two hands to win, but you don't need both hands to be good hands.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=118s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 123.759,
+          "text": "If you draw the high triple at any point, usually it's best to just play it right away instead of trying to dig for the full house.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=123s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 688.16,
+          "text": "probably I can do this in two hands I can do this in only two hands is all I need",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=688s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "two-hand planner for 450/600 targets: accept plan {five-card hand + filler with filler >= target - E[five-card]}; when holding trips rank >= 5 in a two-hand plan, play trips immediately",
+      "notes": "Differs from his round-1 rule (from trips, dig for the Full House) because round 1 aims for a one-shot; not a contradiction but a context switch."
+    },
+    {
+      "id": "hands.round2-any-two-five-card-hands",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "For two-hand plans, any two five-card hands are enough, so when discarding don't hold cards just because they're high; low cards are fine. What matters is being able to draw two separate five-card hands: pick one target hand and discard for it.",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "two-hand plan, no scoring jokers"
+      },
+      "quotes": [
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 152.4,
+          "text": "Luckily, any two hands will work as long as we're talking about five card hands.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=152s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 156.48,
+          "text": "When you're discarding, don't just hold on to the high cards because they could give you a lot of points. Low cards are okay. The thing that's most important is being able to draw these two separate five card hands.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=156s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "discard scoring in two-hand plans: weight completion probability over card rank (rank bonus only matters for one-shot targets)",
+      "notes": "Contrasts with the round-1 one-shot rule of discarding low on-suit cards; the difference is one-shot vs two-hand target."
+    },
+    {
+      "id": "hands.level1-score-estimates",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Rough level-1 scores with no jokers: pair ~50-60 (high pair 60), two pair ~100 (same as two separate pairs), three of a kind ~135-180 (~150), five-card hands 200-325; a 'good hand' is anything that one-shots 300, and the weakest acceptable five-card hand is about 225.",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "no scoring jokers, level-1 hands"
+      },
+      "quotes": [
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 186.239,
+          "text": "To review, a pair is about 50 points. Two pair is twice as much. And three of a kind is about 150. Five card hands could be anywhere from 200 to 325.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=186s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 143.92,
+          "text": "Two pair scores exactly the same as two separate pairs, which is around 100 points.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=143s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 72.479,
+          "text": "most five card hands will be good enough, but on the weaker side of things, you could go down as low as 225 points.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=72s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "sanity table for the round simulator / heuristic planner (see tables.hand_scores_level1)",
+      "notes": "Two pair 'exactly the same as two separate pairs' also implies two pair isn't worth playing over a pair in a multi-hand plan unless it saves a hand."
+    },
+    {
+      "id": "bosses.suit-debuff-plan",
+      "topic": "bosses",
+      "decision": "hand choice/discard",
+      "statement": "Against suit-debuff bosses (four of the ante-1 bosses) debuffed cards still count toward the hand but add no chips: about -40 points per debuffed card at 4 Mult. Build the flush in a suit that isn't debuffed, and recount whether the hand still reaches the target.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "boss is The Club/Goad/Head/Window"
+      },
+      "quotes": [
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 229.68,
+          "text": "Debuffed cards can still be used as part of poker hands, but these cards won't add any chips. Assuming you have four molt, 10 less chips is 40 less points, and that's 40 points per card being debuffed.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=229s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 961.04,
+          "text": "maybe I should go for the diamonds flush since none of them are debuffed it'll be easier for me to get the ones that I need",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=961s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "under suit-debuff boss: exclude debuffed suit from flush targets; count debuffed cards as 0 chips in the one-shot threshold",
+      "notes": "He also notes The Pillar punishes reusing cards (NJ ~225 s)."
+    },
+    {
+      "id": "hands.hedge-backup-hand-type",
+      "topic": "hands",
+      "decision": "shop joker buy",
+      "statement": "If the plan depends on a hard hand (Full House, Flower Pot conditions) and the boss makes it harder (-1 hand size), buy a cheap backup joker for an easier hand type (Devious Joker for straights) and prefer two reliable straights over chasing a Full House. A hand that's easy to find but scores too little is also a failure.",
+      "conditions": {
+        "antes": [
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "main plan relies on Full House or a conditional xMult; boss reduces hand size or debuffs"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6287.239,
+          "text": "the boss is minus one hand side minus one hand side is going to make it harder for us to get our full houses harder for us to get our flower pot so maybe maybe let's pick up a backup option",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6287s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6477.56,
+          "text": "it's not that the hand was too hard to find necessarily it's just that when we did find the hand it wasn't worth enough points",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6477s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6501.679,
+          "text": "that's the reason good reason to hedge and pick up the devious joker as a backup",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6501s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "bosses.buy-an-answer-before-the-boss"
+        ]
+      },
+      "knob": "before the boss: if P(beat boss with current plan) < threshold, add value to jokers that score an easier hand type (straight/flush/pair) by the gain in P(win)"
+    },
+    {
+      "id": "planets.saturn-over-jupiter-early",
+      "topic": "planets",
+      "decision": "Planet",
+      "statement": "One early Planet changes ante 1: level-2 Flush (50x6) scores ~400-600, almost always one-shots the Big Blind but almost never the Boss; level-2 Straight (60x7) scores ~500-800 and usually one-shots the 600 Boss. Saturn (+30/+3) outgrows Jupiter (+15/+2), so with equal levels straights are worth about twice as much, which is also why Shortcut is worth buying. Early, he prefers Planets for the high five-card hands over Three of a Kind/Two Pair.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "no strong scoring jokers yet"
+      },
+      "quotes": [
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 271.12,
+          "text": "you can expect between 400 and 600 points, almost always enough to one-shot round two, almost never enough to one-shot the boss.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=271s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 294.96,
+          "text": "Easily enough to one-shot round two. Also, usually one-shots the boss.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=294s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4627.52,
+          "text": "Saturn is worth twice as many chips so Straits are worth twice as many points",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4627s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "conflicts",
+        "principles": [
+          "hands.spam-one-cheap-hand"
+        ],
+        "note": "Roffle pours planets into a cheap hand (High Card/Pair) when jokers carry the score; BU early-game prefers levelling Straight/Flush/Full House"
+      },
+      "knob": "planet value early: Saturn > Jupiter > Earth > Venus/Uranus; take a Saturn/Jupiter when the ante-1 Boss isn't covered; Shortcut value up when Straight level >= Flush level",
+      "notes": "BU also says one Planet on Two Pair makes it about as good as a five-card hand (NJ ~308 s), and V5z notes lower hands gain more chips than Mult per Planet late; the conflict with Roffle is about the early game only."
+    },
+    {
+      "id": "packs.celestial-slotless-scoring",
+      "topic": "packs",
+      "decision": "pack open",
+      "statement": "Planets are like Negative jokers: they add score without using a joker slot, so consider Celestial packs instead of filling every joker slot. When unsure which hand to build, open the Celestial pack first and let what it offers (Saturn vs Jupiter) set the direction.",
+      "conditions": {
+        "antes": [
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "scoring partly covered, joker slots filling"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3271.4,
+          "text": "any Joker slots and so you know maybe what I want to do rather than filling up my Joker slots all the way maybe I want to pick up these Celestial packs",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3271s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6551.56,
+          "text": "I think what we do here is we try the celestial pack first uh will give us information what direction we want to go",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6551s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5697.96,
+          "text": "I can open this Celestial pack and it'll give me more information about what direction to go",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5697s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "shop.open-packs-before-deciding",
+          "pivots.follow-the-resources"
+        ]
+      },
+      "knob": "shop order: open Celestial/Buffoon packs before buying hand-specific jokers; Celestial pack value includes slot-free scoring when joker slots >= 4 used"
+    },
+    {
+      "id": "packs.skip-early-packs",
+      "topic": "packs",
+      "decision": "pack open",
+      "statement": "You don't need anything from the first shop: skip Spectral packs (about 1 in 10 boosters) and other packs in the first shops and bank the money for interest. You're never punished for passing on them.",
+      "conditions": {
+        "antes": [
+          1
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "scoring is enough for the next blinds"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2649.52,
+          "text": "for just playing it safe and then making sure that we have our early game online you don't need anything from the first shop",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2649s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3539.72,
+          "text": "you're not going to be punished for not taking it you're not going to be punished for not taking anything here",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3539s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "antes 1-2: pack_open allowed only if next-blind risk is high or money after purchase stays >= $25 (or same interest bracket)",
+      "notes": "He says Spectral packs are 'generally speaking better earlier' but still skips them early to save. V5z (2025, 1.0.1) mentions the first shop's guaranteed Buffoon pack, which he doesn't count in his joker-odds estimate."
+    },
+    {
+      "id": "packs.buffoon-for-boss-safety",
+      "topic": "packs",
+      "decision": "pack open",
+      "statement": "When the next boss threatens your scoring (e.g. The Flint halving base chips, -1 hand size), buy a Jumbo Buffoon pack ($6, 4 choices, 'good value') even if it drops you below $25, and open it before buying anything else so its contents shape the rest of the shop.",
+      "conditions": {
+        "antes": [
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "next boss not safely beaten"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5327.92,
+          "text": "maybe I want this buffoon pack even though I want to try to stay above $25 here I want to take the mega the jumbo buffoon pack here just so that I'm you know certain I'll survive",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5327s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5987.679,
+          "text": "if I was really concerned about my survivability being able to beat the boss here I would take the buffoon pack first you know looking for some kind of scoring help",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5987s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5565.239,
+          "text": "by taking the buffoon pack first you know we have more information about what we want to do in this shop",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5565s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "shop.open-packs-before-deciding",
+          "jokers.dont-greed-past-scoring"
+        ]
+      },
+      "knob": "if P(beat next boss) < threshold: buy Buffoon (prefer Jumbo) before other shop purchases, allowed to break the $25 floor"
+    },
+    {
+      "id": "economy.save-to-interest-cap",
+      "topic": "economy",
+      "decision": "money/interest",
+      "statement": "In antes 1-2 buy only what you need to beat the coming blinds; otherwise hold money for interest ($1 per $5) until the $25 cap ($5 per round). Once interest is capped, spend freely on packs, rerolls and scaling.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "White",
+        "build_state": "White stake; scoring covers the next blinds"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3687.4,
+          "text": "the first two anties figure out just what you need and then not spend on anything more than what you need",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3687s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3128.24,
+          "text": "money up until you get the maxed out interest when you reach $25",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3128s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7756.599,
+          "text": "once you have your interest online once you have that passive interest $5 per round then you could do whatever you want then you can buy whatever you want you can buy all the booster packs",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7756s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "stake.gold-buys-early-scoring",
+          "econ.spend-early-then-hold-cap"
+        ],
+        "note": "Roffle spends more freely in antes 1-2 and holds $25 from ante 3; BU saves from ante 1 and buys only needed scoring plus money jokers, the same as Roffle's White-stake advice"
+      },
+      "knob": "antes 1-2: buy a non-money joker only if (next 3 blinds not beaten with current build) or it's a money/value generator; otherwise keep money; from reaching $25, treat money above $25 as spendable",
+      "notes": "He reaches $25-35 by the start of ante 3 in his example runs."
+    },
+    {
+      "id": "economy.interest-brackets",
+      "topic": "economy",
+      "decision": "money/interest",
+      "statement": "Interest is paid per full $5 up to $25, so a purchase that doesn't drop you below a $5 step costs no interest (e.g. $24 -> $20 for a pack costs nothing). Compare each purchase with the interest it actually loses.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "any"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6774.639,
+          "text": "or actually it doesn't even cost me a point of Interest right if I go from 24 to 20 so this Celestial pack is definitely worth it",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6774s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 901.48,
+          "text": "if I save all of my $10 here I will get $1 per five I'll get $2 worth of interest",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=901s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5733.239,
+          "text": "if I buy the $3 Arcana pack that'll take me down to $26 $26 is enough you know I'll still have the interest cap here",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5733s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "econ.breakpoints-and-rent"
+        ]
+      },
+      "knob": "purchase cost = price + interest_lost where interest_lost = floor(min(m,25)/5) - floor(min(m-price,25)/5); allow purchases with interest_lost = 0 more freely"
+    },
+    {
+      "id": "economy.feed-scalers-after-cap",
+      "topic": "economy",
+      "decision": "hand choice/discard",
+      "statement": "Extra hands played only to grow Ride the Bus or Square Joker cost $1 each (about $1 per +1 Mult on the Bus), and buying Planets just to grow Constellation costs interest. Until money reaches the $25 cap, play the winning hand right away; once at or above $25, play throwaway hands to grow scalers.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "owns a scaling joker (Ride the Bus, Square Joker, Constellation)"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3998.76,
+          "text": "in the early game save our money until we reach the $25 interest cap and then after that if you want to go super hard on the bus",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3998s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5618.52,
+          "text": "since we have $21 here I think we keep we just play the straight and then get the extra $2 and then once we hit the interest cap then you can level up your bus",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5618s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5115.04,
+          "text": "every dollar over 25 is not worth as much to me and so instead of just playing this straight I'm going to go ahead and and just play cards to level up the bus",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5115s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "conflicts",
+        "principles": [
+          "hands.throwaway-hands-to-scale"
+        ],
+        "note": "Roffle plays scaling throwaway hands whenever the last hand still wins; BU (2024) does it only once money is >= $25"
+      },
+      "knob": "if money < $25: play the winning hand as soon as it's available; if money >= $25 and the last hand still wins: play scaler-growing junk hands first",
+      "notes": "The 2025 short (economy.scaler-hands-cost-a-dollar) states the same cost but is looser about when to do it."
+    },
+    {
+      "id": "economy.scaler-hands-cost-a-dollar",
+      "topic": "economy",
+      "decision": "hand choice/discard",
+      "statement": "(2025 version) Sometimes it's right not to play the big scoring hand at once and play a few extra hands first to stack Ride the Bus or Green Joker, but it isn't free: each extra hand costs $1 at cash-out (winning round 1 in a single hand leaves 3 hands, i.e. $3).",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "owns Ride the Bus or Green Joker"
+      },
+      "quotes": [
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 92.079,
+          "text": "Sometimes it makes sense don't play your big scoring hand right away. Play a few extra hands so you can keep stacking value on the bus and the green joker.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=92s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 101.28,
+          "text": "It's important to note here this is not free. It actually costs you a dollar every hand you play in the first round.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=101s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "hands.throwaway-hands-to-scale"
+        ]
+      },
+      "knob": "value each extra scaler-growing hand as (scaler gain) - $1 - interest effect; take it when the gain is worth more than $1",
+      "notes": "Newer (2025) than Basics 1, which waits until $25 before doing this. Keep both; test both gates."
+    },
+    {
+      "id": "economy.money-generators-early",
+      "topic": "economy",
+      "decision": "shop joker buy",
+      "statement": "In the early game, buy the minimum scoring you need and as much money as you can. Money and value generators are worth buying in antes 1-2 once scoring is covered: Egg (worth $4 even at the cost of $1 interest), Golden Joker ('incredibly powerful, exactly what you're looking for'), Rocket, Business Card (each face card has a 50% chance of $2, so +$1 on average, and two face cards per hand is net positive). Taking Business Card over Raised Fist is greedy but OK when the boss is already covered.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "next blinds covered by current scoring"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2768.359,
+          "text": "you're looking for some combination of money generators and some combination of scoring Jokers and thinking about you know how do I get the minimum amount of scoring I need and have as much money as I can",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2768s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5931.119,
+          "text": "as far as like early game stuff golden Joker is incredibly powerful that's exactly what you're looking for",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5931s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7447.92,
+          "text": "I think I'm going to take the business card for the money here this is definitely I'll admit this is definitely playing a little bit greedy here",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7447s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "econ.money-jokers-first"
+        ]
+      },
+      "knob": "antes 1-2 joker value: money jokers (Golden Joker, Egg, Rocket, Business Card) get a bonus over flat scoring when the next boss is beaten with margin; otherwise scoring first",
+      "notes": "Business Card EV math from B1 ~7477 s."
+    },
+    {
+      "id": "reroll.after-interest-cap",
+      "topic": "reroll",
+      "decision": "reroll",
+      "statement": "Don't reroll early; start rerolling (and opening packs freely) only once interest is capped and scoring is secure. He gives up early pieces like Photograph partly to keep money for packs and rerolls later.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "money below $25 -> no rerolls"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5849.56,
+          "text": "with the money now we can start rrolling",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5849s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 6933.36,
+          "text": "I'd rather have the money to potentially buy booster packs and potentially buy shop rerolls",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=6933s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "econ.reroll-only-from-surplus"
+        ]
+      },
+      "knob": "reroll only with money above $25 (+ next reroll cost), antes 1-3",
+      "notes": "He does reroll once in an ante-2 shop (B1 ~7416 s) without stating his money; the general rule is from his summary."
+    },
+    {
+      "id": "economy.just-enough-points",
+      "topic": "economy",
+      "decision": "hand choice/discard",
+      "statement": "Score just enough to win each round and spend the rest of the round on value: e.g. discard for Mail-In Rebate money even if it costs Banner bonus, discard Glass cards to avoid breaking them, discard Steel cards to draw Gold cards or other value.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "round already winnable"
+      },
+      "quotes": [
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 36.96,
+          "text": "one sort of level up moment for relatively new players is realizing you only need to score just enough points every round and spend the rest of your efforts on generating as much value as you can each round.",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=36s"
+        },
+        {
+          "video": "u5zjR-4vylg",
+          "t_seconds": 77.119,
+          "text": "Sometimes it makes sense to discard a few times for the mailing rebate money and just accept I don't need the maximum bonus from the banner.",
+          "gloss": "Mail-In Rebate",
+          "url": "https://www.youtube.com/watch?v=u5zjR-4vylg&t=77s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "hands.throwaway-hands-to-scale"
+        ]
+      },
+      "knob": "round planner objective: maximise value (money, scaler growth, card preservation) subject to P(win) >= threshold, not maximise score"
+    },
+    {
+      "id": "jokers.one-scoring-joker-per-ante",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Aim for about one scoring joker per ante: 1 by the end of ante 1, 2 by the end of ante 2, a 3rd to succeed in ante 3. In the first shop look mainly for a scoring joker; if none, skip and win in two hands.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "White",
+        "build_state": "White stake, Red deck example"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2784.44,
+          "text": "typically what you're looking for is an average of about one scoring Joker per ante",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2784s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2794.92,
+          "text": "we're going to bring it up to two scoring Jokers by the end of anti 2 and then for you to be successful in anti3 you're looking for your third scoring Joker",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2794s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5880.36,
+          "text": "in the first shop I'm looking mostly for a scoring Joker if I don't get a scoring Joker we'll just go next and play two hands",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5880s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.dont-greed-past-scoring"
+        ]
+      },
+      "knob": "scoring-joker target = current ante (1 by end of ante 1, 2 by end of ante 2, 3 during ante 3); while owned scoring jokers < target, favour scoring buys over saving",
+      "notes": "Exactly stated numbers. See jokers.mult-plus-chips-covers-ante3 for a case where two strong jokers were enough."
+    },
+    {
+      "id": "jokers.mult-plus-chips-covers-ante3",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "A strong +Mult joker plus a chips joker (e.g. Mystic Summit + Scary Face, or Wrathful Joker + Square Joker) is enough to get through ante 3; after that, just save money for interest.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "owns one solid +Mult and one solid chips joker"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2528.119,
+          "text": "with this combination of Mt and chips we're good we're good for the first three anes we can just save our money for interest",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2528s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7346.32,
+          "text": "if we have the two of these that is enough scoring that can carry us through the end of anti3 Just The Two of these",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7346s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "econ.spend-early-then-hold-cap"
+        ]
+      },
+      "knob": "if owned = {+Mult >= ~15, chips >= ~60} then stop buying scoring through ante 3 unless a boss check fails",
+      "notes": "In the same video he also says about three scoring jokers for ante 3 (jokers.one-scoring-joker-per-ante); this is the strong-pair exception, so test both."
+    },
+    {
+      "id": "jokers.mult-first-then-chips",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Make the first scoring joker a +Mult joker: level-1 hands already have ~75 chips against 4 Mult, so +8 Mult triples the score while +60 chips doesn't double it. After the first +Mult, a chips joker or a second +Mult give about the same. +Mult has diminishing returns: a third +Mult joker adds only ~50%, while a first chips joker adds ~100%, so swap a third +Mult for a chips joker. Endgame scoring comes from xMult.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "level-1/2 hands, building first jokers"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7095.599,
+          "text": "in the you know very early game the first joke you're you're looking for is Mt the second thing you're looking for for is chips",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7095s"
+        },
+        {
+          "video": "ooudv0Yh--g",
+          "t_seconds": 277.84,
+          "text": "In the beginning, the most important thing is finding your first molt joker. On top of that, you can add a chips joker or another molt joker. The end result is the same.",
+          "url": "https://www.youtube.com/watch?v=ooudv0Yh--g&t=277s"
+        },
+        {
+          "video": "ooudv0Yh--g",
+          "t_seconds": 228.959,
+          "text": "that third molt joker is only 50% more than just having two. Whereas, if I had a chips joker, the chip joker is 100% more chips.",
+          "url": "https://www.youtube.com/watch?v=ooudv0Yh--g&t=228s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.need-multiplicative"
+        ]
+      },
+      "knob": "joker value by marginal ratio: gain(+m Mult) = (M+m)/M, gain(+c chips) = (C+c)/C on the typical hand; first scoring joker prefers +Mult; with >= 2 +Mult jokers, value the first chips joker above a third +Mult",
+      "notes": "Consistent across Basics 1 (2024) and the 2025 shorts."
+    },
+    {
+      "id": "jokers.mult-chip-exchange-rate",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Pieces are balanced at about 1 Mult = 7.5 chips (+4 Mult ~ +30 chips: Empress Mult card vs Hierophant Bonus card, Even Steven vs Odd Todd). The first chips joker is about half as strong as the first +Mult joker and about as strong as the second +Mult joker. Chips jokers originally used 20 chips to 4 Mult and were raised so they'd be a viable early bridge.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "early game"
+      },
+      "quotes": [
+        {
+          "video": "ooudv0Yh--g",
+          "t_seconds": 16.56,
+          "text": "As a point of reference, gaining one molt is about the same as gaining seven and a half chips.",
+          "url": "https://www.youtube.com/watch?v=ooudv0Yh--g&t=16s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 185.04,
+          "text": "your first chips joker is about half as strong as your first molt joker, but about the same as your second molt choker.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=185s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "joker valuation table: first +Mult joker weight 1.0; first chips joker 0.5; second +Mult 0.5; convert 1 Mult = 7.5 chips for quick estimates",
+      "notes": "He calls the 1-to-7.5 rate a design reference; actual marginal value depends on current totals (jokers.mult-first-then-chips)."
+    },
+    {
+      "id": "jokers.take-chips-jokers-when-seen",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Chips jokers are rare (21 total, 14 common) while +Mult jokers are common (35, 28 common; about one every two shops, usually at least one in the first two rounds of ante 1). So take early chips jokers when they show up, especially Foil: you may prefer +Mult in ante 1, but by ante 3 you'll be desperate for chips. You don't need many chips jokers, and Bonus cards are another source of chips.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "owns at least one +Mult joker or by ante 2-3 no chips source"
+      },
+      "quotes": [
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 336.08,
+          "text": "take early chips jokers when they appear, especially foils. The number may not seem very big, but you might not have any other options for a while.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=336s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 326.4,
+          "text": "You may prefer a molt joker in ante one, but by the time you get to anti3, you'll be desperate for that chips joker.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=326s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 291.919,
+          "text": "you should get about one plus mold joker every two shops on average.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=291s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.square-over-early-constellation"
+        ]
+      },
+      "knob": "chips-joker value multiplier x1.3 (Foil x1.5) when no chips joker is owned, from ante 2; +Mult joker scarcity prior: expect one per 2 shops",
+      "notes": "2025 short. Basics 1 agrees in practice (he repeatedly looks for 'some source of chips' once he has Mult)."
+    },
+    {
+      "id": "jokers.early-mult-baseline",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "An early common +Mult joker should give about +10-12 Mult on average. Raised Fist (often more) is worth its $5. Mystic Summit (+15 Mult at 0 discards, $5) beats Misprint (+0-23, random) because you control when it fires, and discards are free to burn.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "buying first +Mult joker"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2855.04,
+          "text": "on average you're looking for at least early on from the common Jokers you're looking for plus 10ish plus 10 or 12 Mt from your Joker",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2855s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2261.079,
+          "text": "the consistency of the summit being able to control for sure when this is going to happen is you know a huge advantage over the misprint",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2261s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "+Mult joker accept threshold in antes 1-2: expected +Mult >= 10 for a $4-5 common; deterministic effects valued above random ones with the same mean",
+      "notes": "Mystic Summit works only with 0 discards left, which he gets by discarding first (B1 ~2289 s)."
+    },
+    {
+      "id": "jokers.sinful-strong-early",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "The suit ('sinful') jokers Greedy/Lusty/Wrathful/Gluttonous are the strongest early common +Mult jokers. Take the one that matches the suit you're making flushes in (Greedy over Crazy Joker once flushes are levelled). Even off-plan, two of the suit in a Two Pair still gives +8.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "playing flushes or any hand with that suit"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7262.36,
+          "text": "the early game plus mol options I think the uh the sinful Jokers is what I call them this is the wrathful Joker I think these are the strongest",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7262s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4445.719,
+          "text": "I think we want to go for Synergy so I'm going to go for the greedy Joker here",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4445s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "joker value bonus for suit jokers matching the deck's dominant suit or levelled Flush",
+      "notes": "Version: he says '+20 Mult' on a flush and '+8' for two cards, i.e. +4 per card at v1.0.0n. In 1.0.1 (and in this repo's src/poker.ts) they give +3 per card, so +15 on a 5-card flush; scale his valuation down."
+    },
+    {
+      "id": "jokers.pass-speculative-early",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "In antes 1-2, pass jokers that don't help you score now or need set-up, and hold the money instead: enablers (Pareidolia, Drunkard), hard conditions (Clever Joker needs Four of a Kind, a mid-to-late joker; Flower Pot), retrigger/synergy pieces (Dusk), Swashbuckler with no other jokers, slow scalers (Supernova, Fortune Teller), Photograph (early it's only like +4 Mult for $5), Throwback (few skips).",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "White",
+        "build_state": "White stake; no synergy pieces yet"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 1514.64,
+          "text": "sort of the safer more consistent thing to do is just hold our money for interest and then you know we just have more money for more options in the future",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=1514s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 2915.72,
+          "text": "clever Joker is more like a mid to end game Joker like it plus 150 is a big number um but the four of a kind requirement is tough",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=2915s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3523.799,
+          "text": "I just want to get the ball rolling I want to you know secure my early scoring you know with some plus mold some chips this is not the kind of thing that I'm looking for",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3523s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.pass-no-synergy",
+          "stake.gold-buys-early-scoring"
+        ]
+      },
+      "knob": "antes 1-2 joker blacklist unless synergy exists: Pareidolia, Drunkard, Clever, Flower Pot, Dusk, Swashbuckler(no jokers), Supernova, Fortune Teller, Photograph, Throwback (see tables.early_joker_verdicts)",
+      "notes": "Flower Pot: 'not one of my favorites', also stops working against any suit-debuff boss (B1 ~6094 s)."
+    },
+    {
+      "id": "jokers.take-cheap-scalers-early",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Buy fast-growing scaling jokers early as investments even if they score little now: Ride the Bus ($6, stays in the final lineup) and Constellation (think of it like Egg: it pays off later). Skip slow scalers early: Supernova (you can play only 1-2 of the same five-card hand per round) and Fortune Teller (+1 Mult per Tarot, about $3-4 per +1).",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "current scoring enough for the next blinds"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 3663.28,
+          "text": "we don't need the help now and then we can build it and then have it very large for later on and so I think you know this is exactly what we want here",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=3663s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4116.359,
+          "text": "for the purposes of the early game I think you still take the constellation early because it is powerful later",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4116s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5978.239,
+          "text": "early on because of how slowly this grows I'm not into the Supernova I'm not into taking this",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5978s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "conflicts",
+        "principles": [
+          "jokers.square-over-early-constellation"
+        ],
+        "note": "Roffle prefers Square Joker over early Constellation (which matters only from late ante 3-4); BU buys Constellation early as a long-term value piece"
+      },
+      "knob": "antes 1-2: scaling joker value = projected value at ante 4-5 discounted; Ride the Bus/Constellation pass, Supernova/Fortune Teller fail",
+      "notes": "Growing them with extra hands or Planet buys waits for the $25 cap (economy.feed-scalers-after-cap)."
+    },
+    {
+      "id": "jokers.square-joker",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Buy Square Joker early. Basics 1 (2024) calls it slow, weak scaling but good enough for the early-to-mid game (likely sold in the endgame). The 2025 short calls it very powerful: it keeps gaining chips until card choice no longer matters, and it's a good deal at $4. Grow it with four-card hands only after the interest cap.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "any"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7137.4,
+          "text": "I think Square Joker also is just slow scaling weak scaling but it could be good enough good enough for the early to mid game",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7137s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 433.52,
+          "text": "That's why Square Joker is so powerful. being able to consistently and easily keep gaining more chips over time, eventually reaching this state where it doesn't matter what cards you play.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=433s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 564.64,
+          "text": "respect square joker, the appropriate amount for a common joker, which only costs $4, which in my opinion is a good deal.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=564s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.square-over-early-constellation"
+        ]
+      },
+      "knob": "Square Joker value: buy in antes 1-3 when affordable; value higher than a flat chips common",
+      "notes": "Self-difference across videos: the 2024 'slow/weak' becomes 2025 'so powerful' (both say buy it). Price: he says $5 in Basics 1 (v1.0.0n), $4 in 2025 (1.0.1)."
+    },
+    {
+      "id": "jokers.decaying-only-if-needed",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Ice Cream is a safe pick when you need chips for the coming blinds, but skip it and save when current scoring is enough.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "evaluating decaying chips jokers"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7381.4,
+          "text": "if you wanted to play it safe I think the ice cream is the safe pick here I think it's a sufficiently powerful pick um I'm going to save my money for interest because I know that I don't need the ice cream",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7381s"
+        }
+      ],
+      "confidence": "low",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.decaying-only-when-needed"
+        ]
+      },
+      "knob": "decaying jokers (Ice Cream etc.) value only if the next 2-3 blinds aren't covered"
+    },
+    {
+      "id": "jokers.gros-michel-for-cavendish",
+      "topic": "jokers",
+      "decision": "shop joker buy",
+      "statement": "Given Rocket or Gros Michel, Rocket is the safer pick but Gros Michel has more upside: it gives +Mult now and, once it goes extinct, Cavendish (x3 Mult on every hand, a common) can appear in the shop.",
+      "conditions": {
+        "antes": [
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "choice between Rocket and Gros Michel (from a Jumbo Buffoon pack)"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5537.36,
+          "text": "I think the safer thing is to just take the rocket but I think the higher reward higher upside thing is to take the banana",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5537s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5460.76,
+          "text": "Cavendish is a times three Mt so whatever hand you play triple the score this is huge this is exactly the kind of thing that you're looking for in the late game",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5460s"
+        }
+      ],
+      "confidence": "low",
+      "roffle": {
+        "relation": "conflicts",
+        "principles": [
+          "jokers.decaying-only-when-needed"
+        ],
+        "note": "Roffle takes Gros Michel only when score is needed now; BU takes it for the Cavendish unlock upside"
+      },
+      "knob": "Gros Michel value += expected Cavendish value (in 1.0.1 the unlock is a per-run pool flag)",
+      "notes": "He says the destruction chance is 1 in 4; the game card says 1 in 6. His rarity aside (commons twice as common as uncommons, then 'maybe a sixth') is unreliable: 1.0.1 shop rates are 70/25/5."
+    },
+    {
+      "id": "jokers.sell-chips-jokers-late",
+      "topic": "jokers",
+      "decision": "joker sell",
+      "statement": "In the true endgame (ante 8), Planet levels supply the chips, so flat chips jokers become obsolete and can be sold for better pieces; don't buy more chips jokers late. Ride the Bus survives to the final lineup; Square Joker may not.",
+      "conditions": {
+        "antes": [
+          7,
+          8
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "high Planet levels"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 7113.599,
+          "text": "often with these chips you're selling your chips jokers in the end game in ant8 you have high enough uh Planet CS that you don't need the chips anymore",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=7113s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 511.919,
+          "text": "In the true endgame, the chips from your planet levels make your chips jokers obsolete, and that's okay.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=511s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "ante >= 7: chips-joker value scales with chips share of score; sell flat chips jokers first when a slot is needed",
+      "notes": "Repeated in 2024 and 2025."
+    },
+    {
+      "id": "jokers.marginal-contribution",
+      "topic": "jokers",
+      "decision": "joker sell",
+      "statement": "Value jokers by the share of your Mult (and chips) each one supplies right now; use these shares to decide which joker to sell and which to buy. When swapping, estimate from last round's score (e.g. selling one of three +Mult jokers and adding a chips joker that doubles chips).",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "any"
+      },
+      "quotes": [
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 552.72,
+          "text": "practice asking what percent of my molt comes from each joker. Compare these percentages. Do the same for different sources of chips. Use this information to decide what joker should I sell, what joker should I buy",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=552s"
+        },
+        {
+          "video": "ooudv0Yh--g",
+          "t_seconds": 245.599,
+          "text": "Whenever I make a change like this, I think about how much I scored in the previous round.",
+          "url": "https://www.youtube.com/watch?v=ooudv0Yh--g&t=245s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "jokers.value-in-context"
+        ]
+      },
+      "knob": "sell/buy decision by marginal score: value(j) = score(with j) / score(without j) on the typical hand; sell the lowest when a slot is needed"
+    },
+    {
+      "id": "ordering.mult-left-xmult-right",
+      "topic": "ordering",
+      "decision": "joker order",
+      "statement": "Put +Mult jokers on the left and xMult jokers on the right, so the multipliers apply after the additions.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "owns both +Mult and xMult jokers"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4048.039,
+          "text": "we want the plus mol options on the left and we want the X mol options on the right",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4048s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "joker order: sort by effect phase: +chips/+Mult first, then xMult",
+      "notes": "Related: Photograph's x2 applies when the card scores, before joker +Mult, so early it's only like +4 Mult (B1 ~6898 s)."
+    },
+    {
+      "id": "skips_tags.rarely-skip",
+      "topic": "skips_tags",
+      "decision": "blind skip and tags",
+      "statement": "Default to playing every blind: shops (with their joker offers) help you stabilise, and you're never punished for not skipping. In general skip at most about 2 times a run. An ante-1 Small Blind skip for the Investment tag ($15 after the boss) is slightly better than playing (worth about $8-10 in reward, hand money and interest) but close, because a skipped shop also has value.",
+      "conditions": {
+        "antes": [
+          1,
+          2
+        ],
+        "deck": "any",
+        "stake": "White",
+        "build_state": "White stake"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4670.4,
+          "text": "for early on you know beginners just you know trying to figure out the game don't don't take any skips you will not be punished for not taking any skips",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4670s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5374.119,
+          "text": "I think generally you should be skipping you know two or fewer times",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5374s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4732.12,
+          "text": "maybe you get $10 worth of value from playing $8 to $10 worth of value if you play versus $15 if you skip so okay $15 is worth more",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4732s"
+        }
+      ],
+      "confidence": "high",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "skips.play-every-blind-at-gold"
+        ],
+        "note": "Roffle's is Gold-only; BU says this at White too, with an Investment-tag exception"
+      },
+      "knob": "skip only if tag in {Investment} (ante 1-2) and current build wins the Big Blind in <= 2 hands; cap skips at 2 per run",
+      "notes": "He says the round reward is $4 (vanilla Small Blind pays $3). Throwback is rarely good because you skip so little (B1 ~5358 s)."
+    },
+    {
+      "id": "vouchers.worth-breaking-interest",
+      "topic": "vouchers",
+      "decision": "voucher",
+      "statement": "Some vouchers are worth dropping below the interest cap for. The voucher changes after each boss, so buy a wanted one now (he buys Clearance Sale and the boss-reroll voucher, and saves for Wasteful). Save for a wanted voucher rather than spending on a $3 Arcana pack.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "voucher in {Clearance Sale, Wasteful, Director's Cut} affordable"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4457.639,
+          "text": "some vouchers they're worth spending your money for even though you lose the ability to make interest",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4457s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5278.08,
+          "text": "if I want this clearance sale voucher I need to purchase it now and I think this is one of those like I said it is powerful enough it is worth you know losing a little bit of money",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5278s"
+        },
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 5747.88,
+          "text": "I want to not just hit the in uh the interest cap but I want to save my money for the voucher rather than spending",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=5747s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "shop.vouchers-early"
+        ]
+      },
+      "knob": "voucher buy rule: allow breaking the $25 floor for Clearance Sale/Wasteful/Director's Cut-class vouchers; reserve money for a visible voucher over packs",
+      "notes": "Wasteful is +1 discard. The boss-reroll voucher (Director's Cut) was bought with spare money at $34 (B1 ~3373 s)."
+    },
+    {
+      "id": "consumables.empress-vs-bonus-cards",
+      "topic": "consumables",
+      "decision": "Tarot/Spectral use",
+      "statement": "One Empress (2 Mult cards) roughly triples a level-1 five-card hand (75x4 -> 75x12), while a Bonus card (+30) adds only ~40%, so with no jokers the Mult cards are stronger. But he says Bonus cards are usually the better enhancement, since a +Mult joker makes Mult cards redundant and Bonus cards can stand in for a chips joker.",
+      "conditions": {
+        "antes": [
+          1,
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "using Empress/Hierophant"
+      },
+      "quotes": [
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 339.28,
+          "text": "With two molt cards, we have three times as much molt. So, we get three times as many points from just one empress card.",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=339s"
+        },
+        {
+          "video": "3P5fzcsuy2Q",
+          "t_seconds": 366.56,
+          "text": "figure out why it's usually better to have bonus cards instead of mold cards",
+          "url": "https://www.youtube.com/watch?v=3P5fzcsuy2Q&t=366s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 346.72,
+          "text": "You can also rely on bonus cards as a source of chips other than molt cards, which might be redundant with your joker already giving you molt.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=346s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "tarot use: Empress valued high with no +Mult joker; Hierophant valued above Empress once a +Mult joker is owned",
+      "notes": "He only sketches 'why Bonus cards are usually better' and leaves it for a future video."
+    },
+    {
+      "id": "consumables.temperance-now",
+      "topic": "consumables",
+      "decision": "Tarot/Spectral use",
+      "statement": "Use Temperance right away when the money it gives now earns more interest than you'd gain by holding it while you buy more jokers.",
+      "conditions": {
+        "antes": [
+          2,
+          3
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "below the interest cap"
+      },
+      "quotes": [
+        {
+          "video": "atVF4VLHks4",
+          "t_seconds": 4265.159,
+          "text": "if I use the money now I get two extra dollars of Interest right",
+          "url": "https://www.youtube.com/watch?v=atVF4VLHks4&t=4265s"
+        }
+      ],
+      "confidence": "low",
+      "roffle": {
+        "relation": "new",
+        "principles": []
+      },
+      "knob": "Temperance: use immediately if it raises the interest bracket this round; hold only if a joker buy is planned before cash-out"
+    },
+    {
+      "id": "hands.chips-joker-makes-pairs-viable",
+      "topic": "hands",
+      "decision": "hand choice/discard",
+      "statement": "Once you have a flat chips joker (~+100), card ranks and hand types matter much less: a pair played twice scores about the same as one five-card hand, and you can almost always play four pairs per round but barely two flushes. Chips jokers 'create something from nothing'.",
+      "conditions": {
+        "antes": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "deck": "any",
+        "stake": "any",
+        "build_state": "owns a big flat chips joker and some +Mult"
+      },
+      "quotes": [
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 394.56,
+          "text": "With one chips joker and some amount of malt, playing a pair twice scores about the same as a five card hand, except you can barely play two flushes per round. You can almost always play four pairs per round.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=394s"
+        },
+        {
+          "video": "V5zDmtnCjZ0",
+          "t_seconds": 354.479,
+          "text": "Once you start getting chips from jokers, the chips from your cards don't matter as much.",
+          "url": "https://www.youtube.com/watch?v=V5zDmtnCjZ0&t=354s"
+        }
+      ],
+      "confidence": "medium",
+      "roffle": {
+        "relation": "agrees",
+        "principles": [
+          "hands.spam-one-cheap-hand",
+          "hands.pairs-dont-care-about-the-deck"
+        ]
+      },
+      "knob": "hand planner: with chips_from_jokers >= ~100, allow multi-pair plans as alternatives to five-card hands"
+    }
+  ],
+  "tables": {
+    "hand_scores_level1": {
+      "note": "His ballpark scores with no jokers at level 1 (NJ, FL, B1). Thresholds are chips needed from cards for a 300 one-shot at x4.",
+      "rows": [
+        {
+          "hand": "Pair",
+          "approx_score": "50-60 (high pair 60)"
+        },
+        {
+          "hand": "Two Pair",
+          "approx_score": "~100 (same as two separate pairs)"
+        },
+        {
+          "hand": "Three of a Kind",
+          "approx_score": "135-180 (~150)"
+        },
+        {
+          "hand": "Straight",
+          "approx_score": "200-325; one-shots 300 only if Q/K/A-high",
+          "card_chips_for_300": 45
+        },
+        {
+          "hand": "Flush",
+          "approx_score": "~280 average, 250-350",
+          "card_chips_for_300": 40
+        },
+        {
+          "hand": "Full House",
+          "approx_score": "250-360",
+          "card_chips_for_300": 35
+        },
+        {
+          "hand": "Level-2 Flush (50x6)",
+          "approx_score": "400-600: one-shots ante-1 Big Blind, almost never the Boss"
+        },
+        {
+          "hand": "Level-2 Straight (60x7)",
+          "approx_score": "500-800: usually one-shots the ante-1 Boss"
+        }
+      ]
+    },
+    "early_joker_verdicts": {
+      "note": "Antes 1-3, White stake, mostly Red deck (Basics 1, v1.0.0n). take = he bought or recommends; pass = he passed, with the reason; cond = only under the stated condition.",
+      "rows": [
+        {
+          "joker": "Joker (Jimbo)",
+          "verdict": "take",
+          "why": "+4 Mult doubles level-1 hands; 'perfectly fine' early"
+        },
+        {
+          "joker": "Sly Joker",
+          "verdict": "take",
+          "why": "+50 chips on pair-containing hands next to Jimbo"
+        },
+        {
+          "joker": "Mystic Summit",
+          "verdict": "take",
+          "why": "+15 Mult at 0 discards, controllable; beats Misprint"
+        },
+        {
+          "joker": "Misprint",
+          "verdict": "cond",
+          "why": "random 0-23; weaker than Summit"
+        },
+        {
+          "joker": "Scary Face",
+          "verdict": "take",
+          "why": "chips to go with Mult"
+        },
+        {
+          "joker": "Raised Fist",
+          "verdict": "take",
+          "why": "often more than the +10-12 baseline; worth $5"
+        },
+        {
+          "joker": "Egg",
+          "verdict": "take",
+          "why": "money generator, worth the interest it costs"
+        },
+        {
+          "joker": "Golden Joker",
+          "verdict": "take",
+          "why": "'incredibly powerful' early"
+        },
+        {
+          "joker": "Rocket",
+          "verdict": "take",
+          "why": "safe, fast money"
+        },
+        {
+          "joker": "Business Card",
+          "verdict": "cond",
+          "why": "greedy money pick when the boss is covered"
+        },
+        {
+          "joker": "Hallucination",
+          "verdict": "take",
+          "why": "value generator (Tarots), favourite; pays only with packs"
+        },
+        {
+          "joker": "8 Ball",
+          "verdict": "take",
+          "why": "value/income; don't force eights"
+        },
+        {
+          "joker": "Ride the Bus",
+          "verdict": "take",
+          "why": "scaling +Mult that lasts to the endgame"
+        },
+        {
+          "joker": "Constellation",
+          "verdict": "take",
+          "why": "early investment like Egg; don't buy Planets to feed it before $25"
+        },
+        {
+          "joker": "Square Joker",
+          "verdict": "take",
+          "why": "chips scaler; good early-mid (2025: very strong at $4)"
+        },
+        {
+          "joker": "Shortcut",
+          "verdict": "take",
+          "why": "makes straights easier; Saturn levels make straights worth ~2x"
+        },
+        {
+          "joker": "Greedy/Lusty/Wrathful/Gluttonous",
+          "verdict": "take",
+          "why": "strongest early +Mult commons; pick the suit you flush"
+        },
+        {
+          "joker": "Crazy/Devious Joker",
+          "verdict": "cond",
+          "why": "backup hand type, or when straights are levelled"
+        },
+        {
+          "joker": "Walkie Talkie",
+          "verdict": "take",
+          "why": "took it while available (chips+mult)"
+        },
+        {
+          "joker": "Ice Cream",
+          "verdict": "cond",
+          "why": "safe pick only if scoring is needed"
+        },
+        {
+          "joker": "Gros Michel",
+          "verdict": "cond",
+          "why": "higher upside than Rocket (Cavendish unlock)"
+        },
+        {
+          "joker": "Pareidolia",
+          "verdict": "pass",
+          "why": "enabler, no score alone; speculative"
+        },
+        {
+          "joker": "Drunkard",
+          "verdict": "pass",
+          "why": "enabler (+1 discard), not needed"
+        },
+        {
+          "joker": "Swashbuckler",
+          "verdict": "pass",
+          "why": "needs other jokers first"
+        },
+        {
+          "joker": "Clever Joker",
+          "verdict": "pass",
+          "why": "Four of a Kind requirement; mid-late joker"
+        },
+        {
+          "joker": "Dusk",
+          "verdict": "pass",
+          "why": "retrigger synergy piece, not early consistency"
+        },
+        {
+          "joker": "Supernova",
+          "verdict": "pass",
+          "why": "grows too slowly early"
+        },
+        {
+          "joker": "Fortune Teller",
+          "verdict": "pass",
+          "why": "slow (+1 per Tarot); later with a Tarot source"
+        },
+        {
+          "joker": "Photograph",
+          "verdict": "pass",
+          "why": "x2 before joker Mult = like +4 for $5 early; late-game piece"
+        },
+        {
+          "joker": "Flower Pot",
+          "verdict": "pass",
+          "why": "hard condition, dies to suit-debuff bosses"
+        },
+        {
+          "joker": "Throwback",
+          "verdict": "pass",
+          "why": "you skip <= 2 times a run"
+        },
+        {
+          "joker": "Madness",
+          "verdict": "cond",
+          "why": "x Mult but 'wacky/stressful'; took Jimbo instead"
+        }
+      ]
+    }
+  }
+}

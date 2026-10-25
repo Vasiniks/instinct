@@ -2,6 +2,8 @@
   "source": {
     "videos": [
       "-GUBw5pfwWY GHOST/WHITE",
+      "0YQg7HqqF40 PLASMA/GOLD",
+      "8cuq_dW2V_g ERRATIC/GOLD",
       "IK2QVkr5fzE GHOST/WHITE",
       "LXou4GPdMYY GHOST/GOLD",
       "OTn6yl2jxGg GHOST/GOLD",
@@ -10,50 +12,62 @@
       "bb3UmQWsofM GHOST/GOLD",
       "brRkg1_VFAU CHECKERED/GOLD",
       "e-xjK3zeAVM GHOST/GOLD",
+      "hj_BuRY6uRc RED/WHITE",
       "nLdGlAmcWAM GHOST/GOLD",
+      "o0Dv57c9UhY BLUE/GOLD",
       "oqiWiv4ygWU CHECKERED/GOLD",
-      "yefo5lyt6wU CHECKERED/GOLD"
+      "s2qZNADhAY4 GHOST/WHITE",
+      "vA_acBOHMb4 ABANDONED/GOLD",
+      "yefo5lyt6wU CHECKERED/GOLD",
+      "ylLAEKHkm00 BLACK/GOLD",
+      "ywRtrJktO5M GHOST/WHITE"
     ],
     "built": "2026-10-23",
-    "plays": 1010,
-    "playsReadInFull": 192,
-    "blinds": 387
+    "plays": 1649,
+    "playsReadInFull": 296,
+    "blinds": 633
   },
   "handsByPhase": {
     "early": {
-      "plays": 61,
+      "plays": 100,
       "share": {
-        "Flush": 28,
-        "Two Pair": 20,
-        "Pair": 18,
-        "High Card": 16,
-        "Three of a Kind": 8,
-        "Full House": 3,
-        "Straight": 3,
-        "Five of a Kind": 2,
-        "Four of a Kind": 2
+        "Two Pair": 24,
+        "Flush": 22,
+        "Pair": 19,
+        "High Card": 12,
+        "Full House": 9,
+        "Three of a Kind": 7,
+        "Straight": 4,
+        "Four of a Kind": 2,
+        "Five of a Kind": 1
       }
     },
     "mid": {
-      "plays": 81,
+      "plays": 133,
       "share": {
-        "Pair": 38,
-        "Flush": 28,
-        "High Card": 21,
-        "Two Pair": 7,
-        "Three of a Kind": 2,
-        "Straight": 1,
-        "Full House": 1
+        "Pair": 39,
+        "High Card": 19,
+        "Flush": 17,
+        "Two Pair": 13,
+        "Full House": 5,
+        "Three of a Kind": 3,
+        "Straight": 2,
+        "Five of a Kind": 1,
+        "Flush Five": 1,
+        "Four of a Kind": 1
       }
     },
     "endless": {
-      "plays": 50,
+      "plays": 63,
       "share": {
-        "Pair": 42,
-        "Flush": 20,
-        "High Card": 18,
-        "Flush Five": 14,
-        "Three of a Kind": 4,
+        "Pair": 35,
+        "High Card": 21,
+        "Flush": 16,
+        "Flush Five": 13,
+        "Two Pair": 8,
+        "Three of a Kind": 3,
+        "Straight": 2,
+        "Five of a Kind": 2,
         "Full House": 2
       }
     }
@@ -61,23 +75,74 @@
   "handsByDeck": {
     "GHOST/WHITE": {
       "early": {
-        "plays": 13,
+        "plays": 16,
         "share": {
-          "Two Pair": 23,
-          "High Card": 23,
-          "Three of a Kind": 23,
-          "Pair": 15,
-          "Five of a Kind": 8,
-          "Full House": 8
+          "Two Pair": 25,
+          "High Card": 25,
+          "Pair": 19,
+          "Three of a Kind": 19,
+          "Five of a Kind": 6,
+          "Full House": 6
         }
       },
       "mid": {
-        "plays": 0,
-        "share": {}
+        "plays": 3,
+        "share": {
+          "High Card": 100
+        }
       },
       "endless": {
         "plays": 0,
         "share": {}
+      }
+    },
+    "PLASMA/GOLD": {
+      "early": {
+        "plays": 3,
+        "share": {
+          "Full House": 33,
+          "Flush": 33,
+          "Straight": 33
+        }
+      },
+      "mid": {
+        "plays": 4,
+        "share": {
+          "Straight": 50,
+          "High Card": 25,
+          "Pair": 25
+        }
+      },
+      "endless": {
+        "plays": 3,
+        "share": {
+          "High Card": 67,
+          "Straight": 33
+        }
+      }
+    },
+    "ERRATIC/GOLD": {
+      "early": {
+        "plays": 4,
+        "share": {
+          "Pair": 50,
+          "High Card": 25,
+          "Full House": 25
+        }
+      },
+      "mid": {
+        "plays": 5,
+        "share": {
+          "High Card": 40,
+          "Pair": 40,
+          "Five of a Kind": 20
+        }
+      },
+      "endless": {
+        "plays": 1,
+        "share": {
+          "Five of a Kind": 100
+        }
       }
     },
     "GHOST/GOLD": {
@@ -94,24 +159,23 @@
         }
       },
       "mid": {
-        "plays": 49,
+        "plays": 56,
         "share": {
-          "Pair": 53,
-          "High Card": 33,
-          "Two Pair": 6,
-          "Three of a Kind": 4,
+          "Pair": 57,
+          "High Card": 29,
+          "Two Pair": 5,
+          "Three of a Kind": 5,
           "Straight": 2,
           "Full House": 2
         }
       },
       "endless": {
-        "plays": 29,
+        "plays": 22,
         "share": {
-          "Pair": 66,
-          "High Card": 14,
-          "Flush Five": 14,
-          "Three of a Kind": 3,
-          "Full House": 3
+          "Pair": 59,
+          "High Card": 18,
+          "Flush Five": 18,
+          "Full House": 5
         }
       }
     },
@@ -163,99 +227,223 @@
           "Flush Five": 19
         }
       }
+    },
+    "RED/WHITE": {
+      "early": {
+        "plays": 8,
+        "share": {
+          "Full House": 50,
+          "Two Pair": 25,
+          "Three of a Kind": 13,
+          "Four of a Kind": 13
+        }
+      },
+      "mid": {
+        "plays": 8,
+        "share": {
+          "Pair": 75,
+          "Full House": 25
+        }
+      },
+      "endless": {
+        "plays": 0,
+        "share": {}
+      }
+    },
+    "BLUE/GOLD": {
+      "early": {
+        "plays": 7,
+        "share": {
+          "Two Pair": 71,
+          "Flush": 14,
+          "Pair": 14
+        }
+      },
+      "mid": {
+        "plays": 8,
+        "share": {
+          "Two Pair": 63,
+          "High Card": 25,
+          "Pair": 13
+        }
+      },
+      "endless": {
+        "plays": 7,
+        "share": {
+          "Two Pair": 71,
+          "High Card": 29
+        }
+      }
+    },
+    "ABANDONED/GOLD": {
+      "early": {
+        "plays": 9,
+        "share": {
+          "Two Pair": 33,
+          "Pair": 22,
+          "Flush": 11,
+          "Straight": 11,
+          "Full House": 11,
+          "Three of a Kind": 11
+        }
+      },
+      "mid": {
+        "plays": 11,
+        "share": {
+          "Two Pair": 55,
+          "Full House": 27,
+          "Three of a Kind": 9,
+          "Flush Five": 9
+        }
+      },
+      "endless": {
+        "plays": 1,
+        "share": {
+          "Flush Five": 100
+        }
+      }
+    },
+    "BLACK/GOLD": {
+      "early": {
+        "plays": 5,
+        "share": {
+          "Flush": 40,
+          "Pair": 40,
+          "Two Pair": 20
+        }
+      },
+      "mid": {
+        "plays": 6,
+        "share": {
+          "Pair": 83,
+          "Four of a Kind": 17
+        }
+      },
+      "endless": {
+        "plays": 8,
+        "share": {
+          "Pair": 88,
+          "Three of a Kind": 13
+        }
+      }
     }
   },
   "padding": {
     "early": {
-      "plays": 38,
-      "fiveCards": 74,
-      "bare": 3
+      "plays": 62,
+      "fiveCards": 66,
+      "bare": 6
     },
     "mid": {
-      "plays": 56,
-      "fiveCards": 59,
-      "bare": 4
+      "plays": 98,
+      "fiveCards": 51,
+      "bare": 9
     },
     "endless": {
-      "plays": 32,
-      "fiveCards": 38,
-      "bare": 3
+      "plays": 42,
+      "fiveCards": 24,
+      "bare": 19
     }
   },
   "perBlind": {
     "early": {
-      "blinds": 88,
+      "blinds": 151,
       "handsMean": 2.5,
-      "oneHand": 28,
-      "discardsMean": 0.4,
-      "noDiscards": 65,
-      "discardFirst": 27,
+      "oneHand": 30,
+      "discardsMean": 0.5,
+      "noDiscards": 58,
+      "discardFirst": 33,
       "cardsPerDiscard": 3.2
     },
     "mid": {
-      "blinds": 151,
-      "handsMean": 3.2,
-      "oneHand": 22,
-      "discardsMean": 0.8,
-      "noDiscards": 52,
-      "discardFirst": 23,
-      "cardsPerDiscard": 2.8
+      "blinds": 280,
+      "handsMean": 3,
+      "oneHand": 23,
+      "discardsMean": 0.9,
+      "noDiscards": 50,
+      "discardFirst": 29,
+      "cardsPerDiscard": 2.9
     },
     "endless": {
-      "blinds": 104,
-      "handsMean": 3,
-      "oneHand": 29,
-      "discardsMean": 1.2,
-      "noDiscards": 38,
-      "discardFirst": 29,
+      "blinds": 141,
+      "handsMean": 3.1,
+      "oneHand": 26,
+      "discardsMean": 1.1,
+      "noDiscards": 39,
+      "discardFirst": 30,
       "cardsPerDiscard": 2.8
     }
   },
   "rerollStats": {
     "early": {
-      "rerolls": 40,
-      "medianLeft": 40,
-      "goldRerolls": 28,
-      "goldLeftAtLeast25": 79
+      "rerolls": 75,
+      "medianLeft": 36,
+      "goldRerolls": 38,
+      "goldLeftAtLeast25": 74
     },
     "mid": {
-      "rerolls": 426,
-      "medianLeft": 50,
-      "goldRerolls": 217,
-      "goldLeftAtLeast25": 88
+      "rerolls": 723,
+      "medianLeft": 44,
+      "goldRerolls": 335,
+      "goldLeftAtLeast25": 87
     },
     "endless": {
-      "rerolls": 513,
-      "medianLeft": 57,
-      "goldRerolls": 407,
-      "goldLeftAtLeast25": 84
+      "rerolls": 650,
+      "medianLeft": 59,
+      "goldRerolls": 490,
+      "goldLeftAtLeast25": 80
     }
   },
   "rerollVisits": {
     "early": {
-      "visits": 93,
-      "withReroll": 20,
-      "meanRerolls": 0.4,
-      "meanSpent": 2.2
+      "visits": 159,
+      "withReroll": 23,
+      "meanRerolls": 0.5,
+      "meanSpent": 2.5
     },
     "mid": {
-      "visits": 191,
-      "withReroll": 62,
-      "meanRerolls": 2.2,
-      "meanSpent": 15.5
+      "visits": 348,
+      "withReroll": 61,
+      "meanRerolls": 2.1,
+      "meanSpent": 14.2
     },
     "endless": {
-      "visits": 155,
-      "withReroll": 74,
-      "meanRerolls": 3.3,
-      "meanSpent": 24.2
+      "visits": 204,
+      "withReroll": 70,
+      "meanRerolls": 3.2,
+      "meanSpent": 23.7
     }
   },
   "vouchers": [
     {
       "name": "Reroll Surplus",
+      "n": 8,
+      "medianAnte": 7
+    },
+    {
+      "name": "Wasteful",
+      "n": 6,
+      "medianAnte": 5
+    },
+    {
+      "name": "Overstock",
       "n": 6,
       "medianAnte": 7
+    },
+    {
+      "name": "Telescope",
+      "n": 5,
+      "medianAnte": 4
+    },
+    {
+      "name": "Grabber",
+      "n": 5,
+      "medianAnte": 4
+    },
+    {
+      "name": "Director's Cut",
+      "n": 4,
+      "medianAnte": 4
     },
     {
       "name": "Blank",
@@ -263,29 +451,44 @@
       "medianAnte": 6
     },
     {
-      "name": "Overstock",
-      "n": 3,
-      "medianAnte": 1
-    },
-    {
-      "name": "Grabber",
-      "n": 3,
-      "medianAnte": 4
-    },
-    {
-      "name": "Telescope",
-      "n": 2,
+      "name": "Clearance Sale",
+      "n": 4,
       "medianAnte": 7
     },
     {
+      "name": "Planet Merchant",
+      "n": 3,
+      "medianAnte": 3
+    },
+    {
+      "name": "Hieroglyph",
+      "n": 3,
+      "medianAnte": 9
+    },
+    {
       "name": "Hone",
-      "n": 2,
+      "n": 3,
       "medianAnte": 8
     },
     {
       "name": "Crystal Ball",
+      "n": 3,
+      "medianAnte": 6
+    },
+    {
+      "name": "Observatory",
+      "n": 3,
+      "medianAnte": 7
+    },
+    {
+      "name": "Paint Brush",
       "n": 2,
-      "medianAnte": 10
+      "medianAnte": 4
+    },
+    {
+      "name": "Overstock Plus",
+      "n": 2,
+      "medianAnte": 9
     },
     {
       "name": "Seed Money",
@@ -298,24 +501,9 @@
       "medianAnte": 11
     },
     {
-      "name": "Clearance Sale",
-      "n": 2,
-      "medianAnte": 9
-    },
-    {
-      "name": "Wasteful",
-      "n": 2,
-      "medianAnte": 5
-    },
-    {
       "name": "Antimatter",
       "n": 2,
       "medianAnte": 11
-    },
-    {
-      "name": "Hieroglyph",
-      "n": 1,
-      "medianAnte": 9
     },
     {
       "name": "Glow Up",
@@ -323,19 +511,9 @@
       "medianAnte": 8
     },
     {
-      "name": "Overstock Plus",
+      "name": "Magic Trick",
       "n": 1,
-      "medianAnte": 9
-    },
-    {
-      "name": "Director's Cut",
-      "n": 1,
-      "medianAnte": 3
-    },
-    {
-      "name": "Planet Merchant",
-      "n": 1,
-      "medianAnte": 3
+      "medianAnte": 7
     },
     {
       "name": "Nacho Tong",
@@ -346,16 +524,39 @@
       "name": "Liquidation",
       "n": 1,
       "medianAnte": 11
+    },
+    {
+      "name": "Petroglyph",
+      "n": 1,
+      "medianAnte": 7
+    },
+    {
+      "name": "Tarot Merchant",
+      "n": 1,
+      "medianAnte": 2
     }
   ],
   "skips": {
-    "selected": 420,
-    "skipped": 4,
+    "selected": 700,
+    "skipped": 17,
     "tags": [
       "Charm Tag",
       "Charm Tag",
       "unknown",
-      "Buffoon Tag"
+      "Buffoon Tag",
+      "Holographic Tag",
+      "unknown",
+      "unknown",
+      "Meteor Tag",
+      "Uncommon Tag",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown",
+      "Charm Tag",
+      "Uncommon Tag",
+      "Charm Tag"
     ]
   }
 }

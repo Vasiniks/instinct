@@ -2,9 +2,12 @@
 // the situation -> route by phase into one of four lanes, each a short chain of forks the code
 // walks (blind: boss, skip; hand: free card, clear now, round tree; shop: outlook, joker row,
 // targets; pack: kind, offers) -> value every move -> ask the model -> gates -> combine the
-// model's pick with the values -> send, then back to the start. Nodes are HTML in a grid; edges
-// are drawn from the measured node boxes. The path the shown tick took is drawn in blue, and each
-// fork shows the way it went (hover for why).
+// model's pick with the values -> send, then back to the start. Nodes are HTML in a grid, grouped
+// (Read, Think, Decide, Judge, Send) by soft panels drawn behind them; edges are drawn from the
+// measured node boxes. The path the shown tick took is drawn in blue: the chosen lane filled, the
+// lanes not taken dashed, the gate's outcome in ink. Each lane's forks carry their phase's hue on
+// the left edge, as on the trace's timeline. Two layouts: "bench" runs left to right, "rail" (a
+// narrow left column) runs top to bottom, the same grid transposed.
 
 import type { Config } from "../src/config.ts";
 import type { Stage, TickRecord } from "../src/loop.ts";
@@ -48,36 +51,45 @@ interface NodeEls {
   metric: HTMLElement;
 }
 
-const col = (c: number, row?: number) => ({ gridColumn: String(c), ...(row ? { gridRow: String(row) } : {}) });
-const NODES: { id: NodeId; title: string; cls: string; style?: Partial<CSSStyleDeclaration> }[] = [
-  { id: "observe", title: "Observe", cls: "main", style: col(1) },
-  { id: "extract", title: "Extract", cls: "main", style: col(2) },
-  { id: "plan", title: "Plan", cls: "main", style: col(3) },
-  { id: "assess", title: "Assess", cls: "main", style: col(4) },
+export type Layout = "bench" | "rail";
+
+/**
+ * Where a node sits in the bench layout: its column, and its row among the four lane rows (none
+ * means it spans them all). The rail layout swaps the two.
+ */
+interface Spot {
+  c: number;
+  r?: number | string;
+}
+const NODES: { id: NodeId; title: string; cls: string; at: Spot }[] = [
+  { id: "observe", title: "Observe", cls: "main", at: { c: 1 } },
+  { id: "extract", title: "Extract", cls: "main", at: { c: 2 } },
+  { id: "plan", title: "Plan", cls: "main", at: { c: 3 } },
+  { id: "assess", title: "Assess", cls: "main", at: { c: 4 } },
   // What the assess stage reads, side by side: each feeds the route.
-  { id: "synergy", title: "Synergy", cls: "fork", style: col(5, 1) },
-  { id: "deck", title: "Deck", cls: "fork", style: col(5, 2) },
-  { id: "bosspool", title: "Boss pool", cls: "fork", style: col(5, 3) },
-  { id: "planets", title: "Planets", cls: "fork", style: col(5, 4) },
-  { id: "route", title: "Route", cls: "main", style: col(6) },
-  { id: "boss", title: "Boss", cls: "fork", style: col(7, 1) },
-  { id: "skip", title: "Skip?", cls: "fork", style: col(8, 1) },
-  { id: "free", title: "Free card first?", cls: "fork", style: col(7, 2) },
-  { id: "clear", title: "Clear now?", cls: "fork", style: col(8, 2) },
-  { id: "tree", title: "Round tree", cls: "fork", style: col(9, 2) },
-  { id: "outlook", title: "Outlook", cls: "fork", style: col(7, 3) },
-  { id: "row", title: "Joker row", cls: "fork", style: col(8, 3) },
-  { id: "targets", title: "Targets", cls: "fork", style: col(9, 3) },
-  { id: "packkind", title: "Pack", cls: "fork", style: col(7, 4) },
-  { id: "offers", title: "Offers", cls: "fork", style: col(8, 4) },
-  { id: "value", title: "Value", cls: "main", style: col(10) },
-  { id: "ask", title: "Ask", cls: "main", style: col(11) },
-  { id: "gate", title: "Gate", cls: "main", style: col(12) },
-  { id: "pass", title: "Passed", cls: "outcome", style: col(13, 1) },
-  { id: "review", title: "Review", cls: "outcome", style: { gridColumn: "13", gridRow: "2 / 4" } },
-  { id: "abstain", title: "Abstain", cls: "outcome", style: col(13, 4) },
-  { id: "combine", title: "Combine", cls: "main", style: col(14) },
-  { id: "act", title: "Act", cls: "act" },
+  { id: "synergy", title: "Synergy", cls: "fork sub", at: { c: 5, r: 1 } },
+  { id: "deck", title: "Deck", cls: "fork sub", at: { c: 5, r: 2 } },
+  { id: "bosspool", title: "Boss pool", cls: "fork sub", at: { c: 5, r: 3 } },
+  { id: "planets", title: "Planets", cls: "fork sub", at: { c: 5, r: 4 } },
+  { id: "route", title: "Route", cls: "main", at: { c: 6 } },
+  { id: "boss", title: "Boss", cls: "fork lane", at: { c: 7, r: 1 } },
+  { id: "skip", title: "Skip?", cls: "fork lane", at: { c: 8, r: 1 } },
+  { id: "free", title: "Free card first?", cls: "fork lane", at: { c: 7, r: 2 } },
+  { id: "clear", title: "Clear now?", cls: "fork lane", at: { c: 8, r: 2 } },
+  { id: "tree", title: "Round tree", cls: "fork lane", at: { c: 9, r: 2 } },
+  { id: "outlook", title: "Outlook", cls: "fork lane", at: { c: 7, r: 3 } },
+  { id: "row", title: "Joker row", cls: "fork lane", at: { c: 8, r: 3 } },
+  { id: "targets", title: "Targets", cls: "fork lane", at: { c: 9, r: 3 } },
+  { id: "packkind", title: "Pack", cls: "fork lane", at: { c: 7, r: 4 } },
+  { id: "offers", title: "Offers", cls: "fork lane", at: { c: 8, r: 4 } },
+  { id: "value", title: "Value", cls: "main", at: { c: 10 } },
+  { id: "ask", title: "Ask", cls: "main model", at: { c: 11 } },
+  { id: "gate", title: "Gate", cls: "main", at: { c: 12 } },
+  { id: "pass", title: "Passed", cls: "outcome", at: { c: 13, r: 1 } },
+  { id: "review", title: "Review", cls: "outcome", at: { c: 13, r: "2 / 4" } },
+  { id: "abstain", title: "Abstain", cls: "outcome", at: { c: 13, r: 4 } },
+  { id: "combine", title: "Combine", cls: "main", at: { c: 14 } },
+  { id: "act", title: "Act", cls: "main act", at: { c: 15 } },
 ];
 
 const ASSESS: NodeId[] = ["synergy", "deck", "bosspool", "planets"];
@@ -106,6 +118,15 @@ const EDGES: [NodeId, NodeId][] = [
   ["review", "combine"],
   ["abstain", "combine"],
   ["combine", "act"],
+];
+
+/** Soft panels behind related stages. */
+const GROUPS: { label: string; nodes: NodeId[] }[] = [
+  { label: "Read", nodes: ["observe", "extract"] },
+  { label: "Think", nodes: ["plan", "assess", ...ASSESS] },
+  { label: "Decide", nodes: ["route", ...Object.values(LANES).flat(), "value"] },
+  { label: "Judge", nodes: ["ask", "gate", "pass", "review", "abstain", "combine"] },
+  { label: "Send", nodes: ["act"] },
 ];
 
 const MODE_TEXT: Record<ReviewMode, string> = { blend: "model and code combined", fallback: "heuristic decides", model: "model's pick anyway", pause: "you decide" };
@@ -157,6 +178,7 @@ export class FlowChart {
   #nodes = {} as Record<NodeId, NodeEls>;
   #svg: SVGSVGElement;
   #taken = { nodes: new Set<NodeId>(), edges: new Set<string>(), bypass: false };
+  #layout: Layout = "bench";
 
   constructor() {
     this.#svg = svg("svg", { class: "flow-edges", "aria-hidden": "true" });
@@ -165,7 +187,8 @@ export class FlowChart {
       // A node shows its name and time; what it did (and why) shows on hover.
       const detail = h("span", { class: "node-detail" });
       const metric = h("span", { class: "node-metric" });
-      const el = h("div", { class: `node ${n.cls}`, style: n.style, tabindex: "0" }, h("span", { class: "node-title" }, n.title), detail, metric);
+      const lane = (Object.keys(LANES) as Lane[]).find((l) => LANES[l].includes(n.id));
+      const el = h("div", { class: `node ${n.cls}${lane ? ` ph-${lane}` : ""}`, tabindex: "0" }, h("span", { class: "node-title" }, n.title), detail, metric);
       withTip(el, () => {
         const why = detail.title && detail.title !== detail.textContent ? detail.title : "";
         return h("div", null, h("p", { class: "tip-title" }, n.title), detail.textContent ? h("p", null, detail.textContent) : null, why ? h("p", { class: "tip-meta" }, why) : null, metric.textContent ? h("p", { class: "tip-meta" }, metric.textContent) : null);
@@ -173,7 +196,21 @@ export class FlowChart {
       this.#nodes[n.id] = { el, detail, metric };
       this.el.append(el);
     }
+    this.setLayout("bench");
     new ResizeObserver(() => this.#draw()).observe(this.el);
+  }
+
+  /** Bench runs left to right; rail is the same grid transposed, top to bottom. */
+  setLayout(layout: Layout) {
+    this.#layout = layout;
+    for (const n of NODES) {
+      const across = String(n.at.c);
+      const along = n.at.r === undefined ? "1 / 5" : String(n.at.r);
+      const el = this.#nodes[n.id].el;
+      el.style.gridColumn = layout === "bench" ? across : along;
+      el.style.gridRow = layout === "bench" ? along : across;
+    }
+    this.#draw();
   }
 
   update(t: TickRecord | undefined, opts: { active?: Stage; gates?: Config["gates"]; reviewMode?: ReviewMode }) {
@@ -259,10 +296,18 @@ export class FlowChart {
 
     this.#taken = route(t);
     const activeNode = opts.active ? STAGE_NODE[opts.active] : undefined;
+    const routed = this.#taken.nodes.has("route");
     for (const n of NODES) {
       const el = this.#nodes[n.id].el;
-      el.classList.toggle("taken", this.#taken.nodes.has(n.id));
-      el.classList.toggle("dim", Boolean(t) && !this.#taken.nodes.has(n.id) && n.cls !== "outcome");
+      const taken = this.#taken.nodes.has(n.id);
+      // When the tick took a lane, the others are drawn dashed; Act is dashed when nothing was
+      // sent; any other stage the tick skipped fades.
+      const untaken = Boolean(t) && routed && n.cls.includes("lane") && !taken;
+      const held = n.id === "act" && Boolean(t) && !t?.call;
+      el.classList.toggle("taken", taken);
+      el.classList.toggle("untaken", untaken);
+      el.classList.toggle("held", held);
+      el.classList.toggle("dim", Boolean(t) && !taken && !untaken && !held && n.cls !== "outcome");
       el.classList.toggle("active", activeNode === n.id);
       el.classList.toggle("failed", (n.id === "act" && Boolean(r && !r.ok)) || (n.id === "ask" && Boolean(t?.request && !t.response)));
     }
@@ -292,28 +337,67 @@ export class FlowChart {
     const path = (d: string, taken: boolean, dashed = false) =>
       svg("path", { d, class: `edge${taken ? " taken" : ""}${dashed ? " dashed" : ""}`, "marker-end": `url(#${taken ? "flow-arrow-taken" : "flow-arrow"})` });
     const out: SVGElement[] = [defs];
-    // Right-angle edges: across, down or up at the midpoint of the gap, across again. Edges that fan
-    // out of one node share that vertical, so a fork reads as one trunk with branches.
+    const rail = this.#layout === "rail";
+    const W = box.width / z;
+    const H = box.height / z;
+    const text = (x: number, y: number, label: string, cls: string, rotate = 0) => {
+      const el = svg("text", { x, y, class: cls, "text-anchor": cls === "edge-label" ? "middle" : "start", ...(rotate ? { transform: `rotate(${rotate} ${x} ${y})` } : {}) });
+      el.textContent = label;
+      return el;
+    };
+    // Groups first, so they sit behind the edges and the nodes; their labels go on top at the end.
+    const labels: SVGElement[] = [];
+    for (const g of GROUPS) {
+      const rs = g.nodes.map(rect);
+      const l = Math.min(...rs.map((x) => x.l));
+      const r = Math.max(...rs.map((x) => x.r));
+      const t = Math.min(...rs.map((x) => x.t));
+      const b = Math.max(...rs.map((x) => x.b));
+      if (rail) {
+        // Full-width bands; the label sits in the corner, beside the group's first (centred) stage.
+        out.push(svg("rect", { x: 16, y: t - 6, width: W - 32, height: b - t + 12, rx: 8, class: "group" }));
+        labels.push(text(23, t + 7, g.label, "group-label"));
+      } else {
+        out.push(svg("rect", { x: l - 4, y: t - 20, width: r - l + 8, height: b - t + 25, rx: 8, class: "group" }));
+        labels.push(text(l + 2, t - 7, g.label, "group-label"));
+      }
+    }
+    // Right-angle edges, in the layout's direction. An edge turns in the gap next to the end with
+    // several edges: just after a fork, just before a merge. So a fork or a merge reads as one
+    // trunk, and lanes of different lengths run along their own row into the merge.
+    const fanOut = new Set(EDGES.map(([a]) => a).filter((a, i, all) => all.indexOf(a) !== i));
     for (const [a, b] of EDGES) {
       const p = rect(a);
       const q = rect(b);
-      const mid = Math.round((p.r + q.l) / 2);
-      const d = Math.abs(p.cy - q.cy) < 1 ? `M${p.r},${p.cy} H${q.l - 1}` : `M${p.r},${p.cy} H${mid} V${q.cy} H${q.l - 1}`;
+      let d: string;
+      if (rail) {
+        const turn = Math.round(fanOut.has(a) ? p.b + 8 : q.t - 8);
+        d = Math.abs(p.cx - q.cx) < 1 ? `M${p.cx},${p.b} V${q.t - 1}` : `M${p.cx},${p.b} V${turn} H${q.cx} V${q.t - 1}`;
+      } else {
+        const turn = Math.round(fanOut.has(a) ? p.r + 7 : q.l - 7);
+        d = Math.abs(p.cy - q.cy) < 1 ? `M${p.r},${p.cy} H${q.l - 1}` : `M${p.r},${p.cy} H${turn} V${q.cy} H${q.l - 1}`;
+      }
       out.push(path(d, this.#taken.edges.has(`${a}>${b}`)));
     }
-    // Forced steps skip the model and the gates.
+    // Forced steps skip the model and the gates; every tick ends back at the start.
     const ex = rect("extract");
     const act = rect("act");
-    const top = 9;
-    out.push(path(`M${ex.cx},${ex.t} V${top} H${act.cx} V${act.t - 1}`, this.#taken.bypass, true));
-    out.push(svg("text", { x: (ex.cx + act.cx) / 2, y: top - 3, "text-anchor": "middle", class: "edge-label" }));
-    (out[out.length - 1] as SVGTextElement).textContent = "forced step";
-    // Every tick ends back at the start once the game settles.
     const obs = rect("observe");
-    const bottom = box.height / z - 12;
-    out.push(path(`M${act.cx},${act.b} V${bottom} H${obs.cx} V${obs.b + 1}`, false));
-    out.push(svg("text", { x: (obs.cx + act.cx) / 2, y: bottom + 12, "text-anchor": "middle", class: "edge-label" }));
-    (out[out.length - 1] as SVGTextElement).textContent = "next tick";
-    this.#svg.replaceChildren(...out);
+    if (rail) {
+      const right = W - 7;
+      out.push(path(`M${ex.r},${ex.cy} H${right} V${act.cy} H${act.r + 1}`, this.#taken.bypass, true));
+      out.push(text(right - 4, (ex.cy + act.cy) / 2, "forced step", "edge-label", 90));
+      const left = 7;
+      out.push(path(`M${act.l},${act.cy} H${left} V${obs.cy} H${obs.l - 1}`, false));
+      out.push(text(left + 4, (obs.cy + act.cy) / 2, "next tick", "edge-label", -90));
+    } else {
+      const top = 7;
+      out.push(path(`M${ex.cx},${ex.t} V${top} H${act.cx} V${act.t - 1}`, this.#taken.bypass, true));
+      out.push(text((ex.cx + act.cx) / 2, top - 2, "forced step", "edge-label"));
+      const bottom = H - 10;
+      out.push(path(`M${act.cx},${act.b} V${bottom} H${obs.cx} V${obs.b + 1}`, false));
+      out.push(text((obs.cx + act.cx) / 2, bottom + 10, "next tick", "edge-label"));
+    }
+    this.#svg.replaceChildren(...out, ...labels);
   }
 }

@@ -1,6 +1,7 @@
 # Roffle Lite decisions dataset
 
-What Roffle (YouTube: Roffle Lite) chose across twelve Balatro runs: blinds played and skipped,
+What Roffle (YouTube: Roffle Lite) chose across twenty Balatro videos (21 runs: 15 at Gold Stake, 5 at
+White and 1 at Red, on 9 decks): blinds played and skipped,
 jokers and consumables bought, picked, sold and used, vouchers, rerolls, and the cards he played
 and discarded. For each choice it records the jokers he held, what the shop or pack offered, what
 his mouse rested on before he chose, the ante, and what he was saying. It is made for teaching the
@@ -19,6 +20,7 @@ vision model API is used (no Jev, no local StartLux).
 | `<video_id>.decisions.jsonl` | The same decisions, one video at a time |
 | `priors.json` | Per joker: times offered, taken (and in antes 1 to 3), sold, looked over and passed. Written by `node tools/roffle/priors.ts`; the agent reads it |
 | `style.json` | How he plays hands: hand types by phase and deck, kickers, hands and discards per blind, rerolls, vouchers, skips. Written by `node tools/roffle/style.ts --json` |
+| `policy.json` | Numeric policies by stake (White, Gold, Red) and ante, each with its count: money on leaving the shop, rerolls, skips and tags, packs, vouchers, consumables, joker sales, hand types. Written by `node tools/roffle/policy.ts` (see Policies below) |
 | `catalog/jokers.json` | All 150 vanilla jokers from the game files: key, name, rarity, cost, sprite position, effect text, config |
 | `catalog/consumables.json` | Tarot, planet, spectral and voucher names by key |
 | `catalog/blinds.json` | The 30 blinds: name, HUD colour, score multiplier, boss and showdown flags, earliest ante |
@@ -62,7 +64,12 @@ Fields from the first version keep their names and meaning; everything else was 
 
 `<video_id>.json` adds `blinds` (every blind played: start, end, key, name, ante, round, boss flag,
 score target), `skips`, `shops` (per shop visit: ante, rerolls, money spent on them, what was
-bought), `ante_check` and `cursor_seen` (share of seconds with the cursor found). Run records in
+bought), `packs` (one per pack opened: start, end, type, `size` `mega` or `normal/jumbo`, name
+readings, the cards on offer that fit its type), `ante_check` (OCR agreement, offset, blinds merged,
+ante vouchers found missing) and `cursor_seen` (share of seconds with the cursor found);
+`pack_offers_raw` keeps the first pass's pack offers, and `pack_reads` the per-second name
+readings (in the six videos run after it was added; `packs.py --cached` reuses them). Decisions made in a pack keep the first pass's `pack` and `offered` as `pack_first_pass`
+and `offered_first_pass`. Run records in
 `runs` borrow balatro-run-tracker's field names: `ante_reached`, `round_reached`, `money`, `jokers`.
 
 ## How it works
@@ -100,7 +107,16 @@ bought), `ante_check` and `cursor_seen` (share of seconds with the cursor found)
    - `tools/roffle/played.py` reads the play area right after each `play_hand` and replaces a
      partial lift with the cards played (the lift is kept as `cards_lifted`);
    - `tools/roffle/rerolls.py` re-reads the Reroll price every second through each shop visit and
-     rebuilds the `reroll` decisions and the shop summaries.
+     rebuilds the `reroll` decisions and the shop summaries;
+   - `tools/roffle/packs.py` re-reads the pack name panel every second through each pack screen
+     and rebuilds `packs`, one entry per pack opened, with its type, Mega or not, and the cards on
+     offer that fit its type (see Packs below);
+   - `tools/roffle/antes.py` re-derives ante and round from the blinds played without reading
+     frames: a blind that starts with no shop, cash out or blind select screen since the one before
+     is merged into it (a chip misread for a moment), and where shifting the rest of a run down by
+     one or two antes makes clearly more of the HUD's OCR ante readings agree (8 readings and 3%
+     at least), the count drops there: a Hieroglyph or Petroglyph bought without the voucher being
+     seen. Decisions, shop visits and skips are dated again.
 5. **Clean-up rules**, all in `analyze.py`, run again by `collect.py`: misread cards that vanish
    and come back, buys next to a pack screen with no shop evidence, Invisible Joker copies, run
    splits (see the code comments). Runs take ante and round reached from the blinds played.
@@ -112,72 +128,160 @@ To re-run from scratch:
 python3 -m pip install --use-deprecated=legacy-certs --target tools/roffle/.vendor --no-deps yt-dlp "torchvision==0.27.1" ultralytics
 git clone --depth 1 https://github.com/manwhar/BalatroEngine tools/roffle/vendor/BalatroEngine
 python3 tools/roffle/catalog.py
-IDS="e-xjK3zeAVM OTn6yl2jxGg yefo5lyt6wU nLdGlAmcWAM SkwRy_N5D9A brRkg1_VFAU bb3UmQWsofM LXou4GPdMYY oqiWiv4ygWU XfLcmbk09tc -GUBw5pfwWY IK2QVkr5fzE"
+IDS="e-xjK3zeAVM OTn6yl2jxGg yefo5lyt6wU nLdGlAmcWAM SkwRy_N5D9A brRkg1_VFAU bb3UmQWsofM LXou4GPdMYY oqiWiv4ygWU XfLcmbk09tc -GUBw5pfwWY IK2QVkr5fzE hj_BuRY6uRc ywRtrJktO5M s2qZNADhAY4 8cuq_dW2V_g vA_acBOHMb4 ylLAEKHkm00 0YQg7HqqF40 o0Dv57c9UhY"
 tools/roffle/fetch.sh $IDS
 PYTHONPATH=tools/roffle/.vendor python3 tools/roffle/analyze.py -- $IDS
 PYTHONPATH=tools/roffle/.vendor python3 tools/roffle/played.py -- $IDS
 PYTHONPATH=tools/roffle/.vendor python3 tools/roffle/rerolls.py -- $IDS
+PYTHONPATH=tools/roffle/.vendor python3 tools/roffle/packs.py -- $IDS
+python3 tools/roffle/antes.py -- $IDS
 python3 tools/roffle/collect.py
+node tools/roffle/priors.ts && node tools/roffle/style.ts --json && node tools/roffle/policy.ts
 ```
 
 The `--` matters: one id starts with a dash. torch 2.12 must already be installed; torchvision
 0.27.1 is the build that matches it. Homebrew's ffmpeg was broken on this machine (missing
 libx265), so frames are read with OpenCV.
 
-## Results (2026-10-22, second pass)
+## Results (2026-10-23: 20 videos)
 
 | Video | Kind | Deck/stake | Length | Run reached | Decisions | Blinds played / skipped | Rerolls | Vouchers | Plays / discards | Jokers in / out |
 | - | - | - | - | - | - | - | - | - | - | - |
 | e-xjK3zeAVM | early | Ghost/Gold | 29 min | ante 12, round 34 | 234 | 34 / 0 | 37 | 3 | 68 / 14 | 18 / 11 |
 | OTn6yl2jxGg | early | Ghost/Gold | 30 min | ante 12, round 35 | 285 | 35 / 0 | 32 | 4 | 61 / 46 | 10 / 4 |
 | yefo5lyt6wU | early | Checkered/Gold | 36 min | ante 11, round 32 | 333 | 32 / 0 | 70 | 4 | 106 / 29 | 28 / 22 |
-| nLdGlAmcWAM | early | Ghost/Gold | 36 min | ante 11, round 32 | 355 | 32 / 0 | 58 | 2 | 64 / 48 | 13 / 7 |
-| SkwRy_N5D9A | early | Ghost/Gold | 37 min | ante 13, round 37 | 363 | 37 / 2 | 58 | 5 | 114 / 28 | 19 / 18 |
-| brRkg1_VFAU | early | Checkered/Gold | 46 min | ante 13, round 39 | 459 | 39 / 0 | 39 | 2 | 121 / 23 | 42 / 35 |
-| bb3UmQWsofM | early | Ghost/Gold | 46 min | ante 13, round 39 | 466 | 39 / 0 | 152 | 2 | 94 / 15 | 25 / 18 |
+| nLdGlAmcWAM | early | Ghost/Gold | 36 min | ante 10, round 32 | 355 | 32 / 0 | 58 | 2 | 64 / 48 | 13 / 7 |
+| SkwRy_N5D9A | early | Ghost/Gold | 37 min | ante 11, round 37 | 363 | 37 / 2 | 58 | 5 | 114 / 28 | 19 / 18 |
+| brRkg1_VFAU | early | Checkered/Gold | 46 min | ante 12, round 39 | 459 | 39 / 0 | 39 | 2 | 121 / 23 | 42 / 35 |
+| bb3UmQWsofM | early | Ghost/Gold | 46 min | ante 12, round 39 | 466 | 39 / 0 | 152 | 2 | 94 / 15 | 25 / 18 |
 | LXou4GPdMYY | early | Ghost/Gold | 48 min | ante 13, round 37 | 464 | 37 / 0 | 73 | 5 | 123 / 44 | 29 / 23 |
 | oqiWiv4ygWU | early | Checkered/Gold | 50 min | ante 12, round 36 | 509 | 36 / 0 | 108 | 3 | 91 / 29 | 33 / 27 |
 | XfLcmbk09tc | early | Yellow/Gold | 40 min | ante 13, round 39 | 358 | 39 / 0 | 25 | 4 | 103 / 56 | 13 / 8 |
 | -GUBw5pfwWY | endless | Ghost/White | 25 min | ante 9, round 25 | 278 | 25 / 1 | 91 | 1 | 31 / 18 | 24 / 18 |
 | IK2QVkr5fzE | endless | Ghost/White | 38 min | ante 11, round 35 | 495 | 35 / 1 | 236 | 4 | 34 / 17 | 30 / 24 |
+| hj_BuRY6uRc | white | Red/White, then Yellow/Red | 49 min | won at ante 8 (round 24); then ante 8, round 15 | 272 | 39 / 10 | 41 | 5 | 81 / 17 | 30 / 22 |
+| ywRtrJktO5M | endless | Ghost/White | 25 min | ante 8, round 25 | 251 | 25 / 1 | 73 | 3 | 26 / 17 | 25 / 18 |
+| s2qZNADhAY4 | endless | Ghost/White | 39 min | ante 13, round 44 | 483 | 44 / 1 | 144 | 3 | 42 / 28 | 31 / 23 |
+| 8cuq_dW2V_g | early | Erratic/Gold | 46 min | ante 14, round 43 | 440 | 43 / 0 | 79 | 3 | 127 / 38 | 32 / 27 |
+| vA_acBOHMb4 | early | Abandoned/Gold | 45 min | ante 12, round 36 | 397 | 36 / 1 | 72 | 6 | 94 / 16 | 28 / 22 |
+| ylLAEKHkm00 | early | Black/Gold | 36 min | ante 11, round 33 | 254 | 33 / 0 | 22 | 5 | 64 / 31 | 16 / 10 |
+| 0YQg7HqqF40 | early | Plasma/Gold | 44 min | ante 10, round 28 | 305 | 28 / 0 | 8 | 4 | 103 / 55 | 23 / 18 |
+| o0Dv57c9UhY | early | Blue/Gold | 33 min | ante 10, round 32 | 239 | 32 / 0 | 30 | 5 | 102 / 24 | 12 / 6 |
 
-4,599 decisions: 655 early (ante 1 to 3), 2,017 mid, 1,927 endless. By type: 1,010 `play_hand`,
-979 `reroll`, 420 `select_blind`, 367 `discard`, 974 consumable decisions, 307 `reorder_jokers`,
-166 `buy_joker`, 62 `pack_pick_joker`, 56 `gain_joker`, 179 `sell_joker`, 36 `lose_joker`,
-39 `buy_voucher`, 4 `skip_blind`. Deck and stake follow the `sources` of `playbook.json`, except
-XfLcmbk09tc, whose deck was read off its card back.
+7,240 decisions: 1,151 early (ante 1 to 3), 3,592 mid, 2,496 endless, 1 with no ante. By type:
+1,649 `play_hand`, 1,448 `reroll`, 700 `select_blind`, 593 `discard`, 1,380 consumable decisions,
+538 `reorder_jokers`, 271 `buy_joker`, 104 `pack_pick_joker`, 106 `gain_joker`, 281 `sell_joker`,
+80 `lose_joker`, 73 `buy_voucher`, 17 `skip_blind`. The first twelve videos' deck and stake follow
+the `sources` of `playbook.json` (XfLcmbk09tc's deck from its card back).
 
-**Ante.** Every decision now has an ante; it was null for 166 of 544 (31%) from OCR alone. 4,591
-come from the blinds played and 8 (before the first blind of a video) from OCR. Checks:
-- of 248 readable blind targets in antes 1 to 8, 191 equal the stake's target for the derived
-  ante, 53 are OCR misreads that match no ante, and 4 match another ante;
-- the HUD round counter read by OCR agrees with the derived round in 2,407 of 3,067 readings (78%);
-- the HUD ante read by OCR agrees in 2,796 of 3,647 (77%). The disagreements looked at were OCR:
-  6 read as 5, and two-digit endless antes losing a digit.
+**The eight videos added on 2026-10-23**, for White Stake and for decks other than Ghost and
+Checkered. White Stake runs are rare on the channel: since mid 2024 every normal run is Gold Stake
+(the descriptions say so), so White comes from two places:
+- hj_BuRY6uRc, launch day (20 February 2024, game 1.0.0): a White Stake Red Deck win at ante 8,
+  then a Red Stake Yellow Deck run (`segments` in `videos.json`; stake and deck from what he says
+  and the run setup screen). 1.0.0 scaled antes 3 and 4 higher (Small Blind 2,800 and 6,000 at
+  White). It is his first week with the game, and the old layout puts the facecam over the right
+  edge;
+- two more naneinf speedruns on Ghost Deck at White Stake (ywRtrJktO5M, s2qZNADhAY4), with the
+  Brainstorm mod rerolling for a Perkeo start, like the two already here. Their White Stake is
+  read off the blind targets (ante 7 Big Blind 52,500, ante 8 boss 100,000).
 
-**Spot-check, early game first.** Checked by eye against the video:
-- Blinds: the blind sequences of the first ten minutes of two videos (27 blinds) were all right.
-- Skips: all 4 checked. 3 are right with the right tag (Charm Tag twice in the naneinf runs,
-  Buffoon Tag once). The 4th, at a run start, was inferred from a Small Blind the HUD never showed
-  and is likely a miss rather than a skip (it is marked `low`).
-- Early joker choices (one video, antes 1 to 3): 5 of 7 fully right, 1 sale logged as a loss,
-  1 pick of a joker he already held.
-- Vouchers: 2 of 2 right (Reroll Surplus, Director's Cut).
-- Rerolls: two shop visits counted frame by frame (3, and 7 for $42) match exactly. The first pass,
-  which read the price every 2 s, had found 3 and 5; the per-second pass fixed it.
-- Plays and discards (antes 1 to 3, one video): 12 of 13 have the right type. The cards are exact
-  for 10 of 13 after reading the play area (6 of 13 from the lifted cards alone), partial for 2.
-- Hover: one shop visit followed second by second; the recorded hovers match where the cursor
-  was. The first pass's spot-check of 46 joker decisions (38 fully right) still applies to the
-  joker and consumable types, whose logic is unchanged.
+And five Gold Stake runs on other decks, from the descriptions and the card backs: Erratic
+(8cuq_dW2V_g), Abandoned (vA_acBOHMb4), Black (ylLAEKHkm00), Plasma (0YQg7HqqF40, a sponsor overlay
+covers the deck pile) and Blue (o0Dv57c9UhY). Looked at and left out: the pre-launch videos of
+11 to 18 February 2024 (an early build with other blind targets, several decks a video) and the
+April 2024 Deck Creator mod challenges (a deck of 52 Stone cards). ylLAEKHkm00 opens with a few
+seconds of its ending (ante 12); its run is counted from its first blind.
 
-**Mouse.** The cursor is found in about a third of the seconds. 405 of 1,564 shop decisions carry
-hover data, and 105 hovers on shop buys are on items he looked at and did not take. Click
-confirmation is weak: 236 yes, 437 no, 1,790 unknown. "No" usually means the cursor was seen on
-something nearby (the Buy button area, the next card).
+**Ante.** 7,227 decisions take their ante from the blinds played, 12 from OCR. `antes.py` merged two
+misread blinds (a Pillar chip read for 2 s inside a Big Blind on launch day; a Verdant Leaf chip for
+4 s after Cerulean Bell in 8cuq_dW2V_g, which had made the first pass shift that whole video one
+ante down and invent two skips) and found 8 antes of missed Hieroglyphs and Petroglyphs in 7 videos
+(SkwRy_N5D9A two; nLdGlAmcWAM, brRkg1_VFAU, bb3UmQWsofM, ywRtrJktO5M, o0Dv57c9UhY, s2qZNADhAY4
+one). The corrected endings of four of the first twelve now match the HUD readings noted in
+`playbook.json` (SkwRy_N5D9A ante 11, nLdGlAmcWAM ante 10, brRkg1_VFAU and bb3UmQWsofM ante 12;
+this table had 13, 11, 13 and 13). Checks:
+- of 454 readable blind targets in antes 1 to 8, 362 equal the stake's target for the derived
+  ante (launch day against 1.0.0's table), 6 match another ante and 86 are OCR misreads;
+- the HUD ante read by OCR agrees in 5,078 of 5,978 readings (85%; 77% before `antes.py`).
 
-Analysis took 13 to 18 minutes per video on CPU, plus a few minutes per video for the two second
-passes (`played.py`, `rerolls.py`).
+**Packs.** The first pass named a pack at its first pack screen and then not for 20 s, so packs
+bought back to back (Standard then Arcana, Arcana then Buffoon) were one pack, with the second's
+cards and picks under the first's type; and the pixel font's first capital often read "fircana",
+which matched no type. With Arcana and Spectral packs the hand shows under the pack and its face
+cards read as jokers (Business Card most often), and on launch day shop frames with a tooltip over
+Next Round passed for packs. `packs.py` fixes all of these: the first twelve videos went from 336
+packs to 569, 916 over all twenty, and 10 of 10 sampled openings had the right type and size.
+
+**Spot-check of the new videos** (6 decisions each, at -3, 0 and +3 s; 10 on launch day):
+- Erratic, Blue, Plasma: 6 of 6 each (buys, sales, vouchers, rerolls, a Judgement joker out of an
+  Arcana pack, a discard). In Erratic the antes were one low for 24 minutes until `antes.py`.
+- Abandoned: 6 of 6, but a reroll right after a Hieroglyph in the same shop keeps the ante from
+  before the voucher (the voucher takes effect at once; the count changes at the next blind).
+- Black: 5 of 6; a To Do List buy is logged at the next blind's start (the row read late).
+- Launch day: 10 of 10 (two skips, two Overstocks, Gros Michel and Jolly Joker buys, two sales,
+  two rerolls), with antes matching the HUD after the merge.
+- The two naneinf runs: 9 of 12. A Sixth Sense bought and sold three minutes apart in s2qZNADhAY4
+  looks like a row misread, a Cartomancer buy in ywRtrJktO5M couldn't be confirmed, and one play
+  has only one of its five cards (The Psychic forced five).
+
+**Agreement** (`node tools/roffle/agree.ts --weights 0,0.5,1,1.5`, leave one video out). On the
+first twelve videos before these changes: pick 47/52/53/55% of 173 visits, take 62/65/66/66% of
+493. On all twenty: pick 48/51/53/53% of 268, take 67/68/69/69% of 795, sell 35% of 271 (chance
+22%). The first twelve scored with priors from the other nineteen: pick 49/53/55/54%, take
+63/66/66/67%. The five White videos: pick 37/38/38/40% of 81 (chance 24%), take 74-75% of 178.
+
+**Mouse.** 678 of 2,409 shop decisions carry hover data. Click confirmation: 421 yes, 727 no,
+3,850 unknown.
+
+Analysis took 15 to 33 minutes per video on CPU with four running at once, plus a few minutes for
+the second passes.
+
+## Policies (`policy.json`)
+
+`node tools/roffle/policy.ts` turns the dataset into numbers an agent can use, kept apart by stake
+(`WHITE`, `GOLD`, and `RED` for launch day's second run), by ante (1 to 8, then 9+ pooled), each
+with its count: money on leaving the shop (`moneyLeavingShop`: exit and entry money, share at $25
+or more, under $5, on an interest step), rerolls per shop visit by ante, by money held on entering
+and by both, skips and tags per ante, packs (`packs`: opened by type and ante, bought per shop
+visit, Mega share, what was taken), vouchers (order and ante per run, how often one on the shelf
+was bought), Tarots, Planets and Spectrals (bought, used, sold, by card and ante, shelf buy rate),
+joker sales (by ante, rounds held, what replaced them) and hand types by ante and deck.
+
+White is 5 runs and 156 shop visits, 4 of them Perkeo-start naneinf speedruns on Ghost Deck; Gold
+is 15 runs and 540 visits over 8 decks. Read White as "what he does when the stake is easy and
+the run is aimed at endless", not as a normal White run. Highlights:
+- **Money.** Ante 1: he spends to $0-5 (two thirds of ante 1 exits are under $5, both stakes).
+  From ante 3-4 he leaves at about the interest cap, not far above: median exit $23-29 at Gold
+  antes 3 to 9+ (n 45-173 a bucket), at least $25 in 42-79% of visits; White $27-31 in antes 3 to
+  7, more in the naneinf endgame ($36 at ante 8, $62 in endless).
+- **Rerolls.** Rare early, then routine: share of shop visits with a reroll at Gold 0% (ante 1),
+  16% (2), 31% (3), about 50% (4 to 7), 67% (8), 72% (9+); 0.2 to 1.8 rerolls a visit through ante
+  8. White rerolls far more (60-95% of visits from ante 3, 3.3-4.8 rerolls a visit from ante 4). Both stop with about
+  $31-41 left (median, n 279 Gold, 105 White): above the cap. By money on entering at Gold: under
+  $30, 7-27% of visits reroll; $30-49, 56%; $50 or more, 83% (3.3 a visit).
+- **Skips.** Gold: 3 of 352 skippable blinds. White: 5 of 98, four of them the ante 1 Small Blind
+  for a Charm Tag in the Perkeo runs. Red Stake (Small Blind pays nothing): 9 of 16.
+- **Packs.** About one and a half packs a shop visit at Gold from ante 3 (one at antes 1-2), 0.5 to
+  1.4 at White. Arcana 37% and Celestial 29% of packs at Gold, Standard 15%, Buffoon 12%, Spectral
+  7%; ante 1's packs are mostly Buffoon (18 of 28). He took a joker from 47 of 89
+  Buffoon packs at Gold (10 of 18 at White).
+- **Vouchers.** He buys 16% of the vouchers he sees at Gold (57 of 366 shelf appearances), 12% at
+  White (13 of 105). Gold's most bought: Reroll Surplus 7, Wasteful 6, Blank 4, Director's Cut 4,
+  Grabber 4; never Magic Trick (0 of 29 shelf visits). Seed Money 2 of 18.
+- **Consumables.** Planets on the shop shelf almost never (3 of 394 at Gold, 0 of 196 at White);
+  Tarots 19% at Gold and 4% at White, Spectrals 29% and 6%. Tarots used most at Gold: Strength,
+  The Hanged Man, The Fool, The Devil, The Empress.
+- **Joker sales.** About 13 a run at Gold (192), 17 at White (85), 92-96% with a joker bought or
+  picked within 90 s; held 2-3 rounds (median). Most sold: Chaos the Clown, Mail-In Rebate and
+  Business Card at Gold, Reserved Parking, Mail-In Rebate and Gros Michel at White: early money
+  and utility jokers.
+- **Hands.** At Gold (657 plays read in full): Flush leads ante 1 (Checkered Deck), then Pair and
+  Two Pair; from ante 4 Pair 24-33%, Flush 17-37%, High Card 8-18%; Flush Five 17% in endless.
+  Almost every play has five cards (4.7-4.9 on average).
+
+Gaps: tags taken are read for 9 of 17 skips; consumable `picked` counts are cards that reached the
+slots during a pack (pack cards themselves are used at once and not seen); money is OCR.
 
 ## Known gaps and error modes
 
@@ -195,8 +299,16 @@ passes (`played.py`, `rerolls.py`).
 - **Mouse.** The cursor is found in about a third of the seconds (it vanishes over white card art),
   and sampled once a second, so `hovered` seconds are a floor, and short hovers are missed.
 - **Skips.** Inferred from the blind order, with the tag read on the blind select screen. He
-  rarely skips at Gold Stake: the ten Gold Stake runs show every blind played except one skip in
-  ante 13. A video that starts after its first blind gets a `low` skip that may not be one.
+  rarely skips at Gold Stake: 3 skips in 352 skippable blinds. A video that starts after its first
+  blind gets a `low` skip that may not be one. Two skipped antes in a row gave the first pass two
+  copies of the first ante's skip decisions; `antes.py` moves the copy and drops its tag.
+- **Pack picks.** Tarots, Planets and Spectrals taken from a pack are used at once and never reach
+  the slots, so they are not seen, except when a Mega pack's first pick leaves the display. Jokers
+  from Buffoon packs are seen. A consumable "picked" during a pack was made by something else.
+- **Ante right after an ante voucher.** Hieroglyph and Petroglyph lower the ante at once; the count
+  lowers it at the next blind, so the rest of that shop visit keeps the old ante.
+- **Launch day.** Game 1.0.0 (other blind targets at antes 3 and 4) and his first week with the
+  game: weigh its choices below the later videos'.
 - **HUD OCR.** Money and the OCR ante slip digits on the pixel font; ante and round come from the
   blind order instead.
 - **Reasons are keyword rules.** Treat `reason` and `pivot` as hints with their evidence.

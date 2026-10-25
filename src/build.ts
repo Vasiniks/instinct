@@ -5,8 +5,11 @@
 
 import { FACE_RANKS, SUITS, SUIT_NAME, cardWorth, rankValue, type PCard } from "./cards.ts";
 import type { Snapshot } from "./extract.ts";
+import { FEATURES } from "./features.ts";
 import { ARCHETYPES, DECKS, ROLE_TAGS, SUIT_TAG, TAG_HANDS, blindBase, conditions, jokerTags, stakeAtLeast, type Conditions } from "./knowledge.ts";
-import { estimateScore, suitsOf, type Joker, type ScoreContext } from "./poker.ts";
+import { countsDeck, deckCounts, estimateScore, suitsOf, type Joker, type ScoreContext } from "./poker.ts";
+import { synergyOf } from "./synergy.ts";
+import { TUNING } from "./tuning.ts";
 
 export interface JokerRole {
   index: number;
@@ -206,7 +209,18 @@ function scoreContextFor(s: Snapshot, jokers: Joker[], hands: number): ScoreCont
   const keys = new Set(jokers.map((j) => j.key));
   const heldish = cards.filter((c) => c.enhancement === "STEEL" || (keys.has("j_baron") && c.rank === "K") || (keys.has("j_shoot_the_moon") && c.rank === "Q"));
   const expected = Math.min(3, Math.round((heldish.length * Math.max(1, s.handSize - 5)) / Math.max(1, cards.length) + (heldish.length ? 0.5 : 0)));
-  return { levels: s.levels, jokers, held: heldish.slice(0, expected), rules: s.rules, handsLeft: Math.max(1, Math.ceil(hands / 2)), discardsLeft: Math.max(0, s.discardsLeft), balanced: s.deck === "PLASMA" };
+  return {
+    levels: s.levels,
+    jokers,
+    held: heldish.slice(0, expected),
+    rules: s.rules,
+    handsLeft: Math.max(1, Math.ceil(hands / 2)),
+    discardsLeft: Math.max(0, s.discardsLeft),
+    balanced: s.deck === "PLASMA",
+    // Mid-round the pile is part of the deck; the typical hand comes with about half of it left.
+    deck: countsDeck(jokers) ? deckCounts(cards, Math.round(cards.length / 2), s.deck === "ABANDONED" ? 40 : 52) : undefined,
+    money: s.money,
+  };
 }
 
 function powerOf(s: Snapshot, name: string, jokers: Joker[], hands: number, suit: string) {
@@ -217,6 +231,11 @@ function powerOf(s: Snapshot, name: string, jokers: Joker[], hands: number, suit
 /** Score of the build's typical hand with these jokers, in this order (for reordering). */
 export function powerWith(s: Snapshot, p: BuildProfile, jokers: Joker[]): number {
   return powerOf(s, p.primary.name, jokers, p.hands, p.deckFix.suit ?? p.deckFix.commonSuit ?? "S").score;
+}
+
+/** The same for another hand type (reordering checks the hands the run plays, not only the build's). */
+export function powerOnHand(s: Snapshot, p: BuildProfile, hand: string, jokers: Joker[]): number {
+  return powerOf(s, hand, jokers, p.hands, p.deckFix.suit ?? p.deckFix.commonSuit ?? "S").score;
 }
 
 /** How much a joker's tags back a build (hand tags), counting its role (xMult backs harder). */
@@ -292,6 +311,16 @@ export function bossTargets(s: Snapshot, count = 3): number[] {
 
 const title = (w: string) => w[0] + w.slice(1).toLowerCase();
 
+/** Jokers a whole run is built around, worth taking before their payoff shows (the user's call). */
+const BUILD_AROUNDS = new Set(["j_baron", "j_mime", "j_blueprint", "j_brainstorm", "j_hologram", "j_vampire", "j_campfire", "j_lucky_cat", "j_glass", "j_steel_joker"]);
+
+/** Scaling jokers that grow only on certain cards in the deck. */
+const SCALING_FEED: Record<string, (c: PCard) => boolean> = {
+  j_lucky_cat: (c) => c.enhancement === "LUCKY",
+  j_glass: (c) => c.enhancement === "GLASS",
+  j_vampire: (c) => Boolean(c.enhancement),
+};
+
 const ECON_INCOME: Record<string, number> = { j_golden: 4, j_cloud_9: 3, j_rocket: 3, j_egg: 3, j_delayed_grat: 4, j_business: 2, j_to_the_moon: 2, j_faceless: 2, j_mail: 5, j_reserved_parking: 2, j_satellite: 2, j_todo_list: 2, j_rough_gem: 2, j_trading: 2, j_matador: 2, j_ticket: 2, j_gift: 1 };
 
 /** `build` pins the build the plan has committed to; without it the strongest-looking build leads. */
@@ -324,8 +353,11 @@ export function profileBuild(s: Snapshot, build?: string, opts: { shallow?: bool
       }
     }
     const lvl = s.levels[hand];
+    // A hand the run has never managed to play, many hands in, isn't a build however high its level
+    // (Planets for it would only feed the loop: level it, call it the build, level it again).
+    const unplayed = totalPlayed >= 8 && (lvl?.played ?? 0) === 0 && hand !== "Pair" && hand !== "High Card";
     if (lvl && lvl.level > 1) {
-      score += (lvl.level - 1) * 1.2;
+      score += (lvl.level - 1) * 1.2 * (unplayed ? 0.25 : 1);
       reasons.push(`${hand} is level ${lvl.level}`);
     }
     if (lvl && totalPlayed > 0) score += (lvl.played / totalPlayed) * 2;
@@ -337,7 +369,7 @@ export function profileBuild(s: Snapshot, build?: string, opts: { shallow?: bool
     score += s.ante <= 2 ? (deck.earlyFavor?.[name] ?? 0) : 0;
     score += deck.favor?.[name] ?? 0;
     const est = powerOf(s, name, s.jokers, hands, flushSuit);
-    return { name, score, power: est.score, reasons };
+    return { name, score, power: est.score * (unplayed ? 0.3 : 1), reasons };
   });
   const maxPower = Math.max(1, ...archetypes.map((a) => a.power));
   for (const a of archetypes) a.score += 2 * (a.power / maxPower);
@@ -369,9 +401,14 @@ export function profileBuild(s: Snapshot, build?: string, opts: { shallow?: bool
     if (tags.has("expires")) keep -= 0.05;
     if (tags.has("sell_value")) keep += 0.08;
     if (fits) keep += 0.1;
+    // A joker whose partner is held carries the combo: selling it breaks both (src/synergy.ts).
+    const syn = synergyOf(j.key, s.jokers.filter((x) => x !== j && !x.debuff).map((x) => x.key));
+    keep += TUNING.comboBonus * syn.lift - TUNING.conflictCut * syn.drag;
     if (deck.dead?.some((d) => tags.has(d))) keep -= 0.3;
     if (j.debuff) keep -= 0.05;
     keep -= stickerPenalty(j, tags, keep).penalty;
+    // A copy joker is never the one to sell for room.
+    if (tags.has("copy") && !j.debuff) keep = Math.max(keep, TUNING.copyFloor);
     const roles = ROLE_TAGS.filter((r) => tags.has(r));
     const note = contribution > 0.02
       ? `${Math.round(contribution * 100)}% of the ${primary.name} score`
@@ -417,10 +454,13 @@ export function profileBuild(s: Snapshot, build?: string, opts: { shallow?: bool
   // leave every shop with $25 or more) the switch to saving is set by the ante, unless the build is
   // in danger of losing the next blind. Below that, saving starts once the slots are mostly full.
   else if (cond.econPressure >= 0.5) mode = s.ante <= 2 || margin < 1 ? "build" : "save";
+  // The $25 floor at any stake from a set round (Balatro University: by about round 5; Roffle at
+  // Gold: from ante 3, round 7), unless the next blind is in danger.
+  else if (FEATURES.bankFloor) mode = s.round >= TUNING.bankFromRound && margin >= 1 ? "save" : "build";
   else if (s.ante <= 1 || slotsOpen >= 2 || (margin < 1 && s.ante <= 3)) mode = "build";
   else mode = "save";
   const rent = rentDue(s);
-  const reserve = mode === "save" ? (cond.econPressure >= 0.5 ? 5 * cap + rent : Math.min(5 * cap, Math.max(0, s.money))) : 0;
+  const reserve = mode === "save" ? (cond.econPressure >= 0.5 || FEATURES.bankFloor ? 5 * cap + rent : Math.min(5 * cap, Math.max(0, s.money))) : 0;
   // Facts only: what the money earns. How much to keep is the candidates' utilities, not advice to the model.
   const econNote = cap === 0
     ? "This deck pays no interest."
@@ -564,11 +604,33 @@ export function jokerFit(
   }
   if (tags.has("econ")) {
     const banked = bankBuilt(s);
-    value += (s.ante <= 2 ? 0.3 : s.ante <= 4 ? 0.18 : 0.08) * (1 + 0.5 * p.cond.econPressure) * (banked ? 0.5 : 1);
+    const income = ECON_INCOME[item.key];
+    // Priced as money: its dollars a round over the rounds it is likely kept (to ante 8 at most),
+    // at the dollar's utility. Off, a flat amount that falls with the ante.
+    const left = Math.max(1, 3 * (8 - s.ante) + s.blinds.filter((b) => b.status !== "DEFEATED" && b.status !== "SKIPPED").length);
+    const worth = FEATURES.econIncome && income !== undefined ? income * Math.min(TUNING.econRounds, left) * TUNING.dollar : s.ante <= 2 ? 0.3 : s.ante <= 4 ? 0.18 : 0.08;
+    value += worth * (1 + 0.5 * p.cond.econPressure) * (banked ? 0.5 : 1);
     notes.push(banked ? "economy, but interest is already maxed" : "economy");
   }
-  if (tags.has("copy")) value += 0.35;
-  if (tags.has("scaling")) value += (tags.has("xmult") ? 2 : 1) * (s.ante <= 3 ? 0.15 : s.ante <= 5 ? 0.1 : 0.04);
+  // Jokers that multiply each other: owning one lifts the other well past what the typical hand
+  // shows today (Baron with Mime retriggers every held King's X1.5); some work against each other
+  // (Pareidolia makes every card a face card, so Ride the Bus never grows). src/synergy.ts.
+  const syn = synergyOf(item.key, s.jokers.filter((j) => !j.debuff).map((j) => j.key));
+  const labelOf = (k: string) => s.jokers.find((j) => j.key === k)!.label;
+  if (syn.lift > 0) {
+    value += TUNING.comboBonus * syn.lift;
+    notes.push(`works with ${syn.partners.map(labelOf).join(", ")}`);
+  }
+  if (syn.drag > 0) {
+    value -= TUNING.conflictCut * syn.drag;
+    notes.push(`works against ${syn.against.map(labelOf).join(", ")}`);
+  }
+  if (BUILD_AROUNDS.has(item.key)) value += TUNING.buildAroundBonus;
+  // Blueprint and Brainstorm copy whatever the build becomes: taken whenever offered.
+  if (tags.has("copy")) value = Math.max(value + 0.35, TUNING.copyFloor);
+  // Lucky Cat, Glass Joker and Vampire grow only on cards the deck holds: no scaling bonus until it does.
+  const fed = !SCALING_FEED[item.key] || [...s.deckLeft, ...s.hand].some(SCALING_FEED[item.key]);
+  if (tags.has("scaling") && fed) value += (tags.has("xmult") ? 2 : 1) * (s.ante <= 3 ? 0.15 : s.ante <= 5 ? 0.1 : 0.04);
   if (fall > 0) {
     value -= fall;
     notes.push("flat bonus that falls behind later");
@@ -577,6 +639,9 @@ export function jokerFit(
   if (p.needs.includes("mult") && tags.has("mult")) value += 0.1;
   if (p.needs.includes("chips") && tags.has("chips")) value += 0.1;
   if (deck?.balanced && tags.has("chips")) value += 0.1;
+  // Plasma averages chips and mult, so a flat +Mult joker adds no more than the same number of
+  // chips, and those come in far bigger numbers: its fit and theme bonuses are mostly not real.
+  if (deck?.balanced && tags.has("mult") && !tags.has("xmult") && !tags.has("chips")) value -= TUNING.plasmaMultCut;
   if (deck?.dead?.some((d) => tags.has(d))) {
     value -= 0.5;
     notes.push("useless with this deck");
@@ -592,7 +657,9 @@ export function jokerFit(
   const sticker = stickerPenalty(item, tags, value);
   value -= sticker.penalty;
   if (sticker.note) notes.push(sticker.note);
-  return { value: Math.max(0, Math.min(1.3, value)), note: notes.join(", ") || "no clear fit", pivot: pivot?.to };
+  // The usual ceiling, lifted for copy jokers and for a joker whose partner is held.
+  const cap = tags.has("copy") ? TUNING.copyFloor + 0.3 : 1.3 + TUNING.comboBonus * Math.min(1, syn.lift);
+  return { value: Math.max(0, Math.min(cap, value)), note: notes.join(", ") || "no clear fit", pivot: pivot?.to };
 }
 
 /** Face cards for Ride the Bus and Abandoned-deck checks. */

@@ -2,6 +2,8 @@
  "source": {
   "videos": [
    "-GUBw5pfwWY",
+   "0YQg7HqqF40",
+   "8cuq_dW2V_g",
    "IK2QVkr5fzE",
    "LXou4GPdMYY",
    "OTn6yl2jxGg",
@@ -10,126 +12,132 @@
    "bb3UmQWsofM",
    "brRkg1_VFAU",
    "e-xjK3zeAVM",
+   "hj_BuRY6uRc",
    "nLdGlAmcWAM",
+   "o0Dv57c9UhY",
    "oqiWiv4ygWU",
-   "yefo5lyt6wU"
+   "s2qZNADhAY4",
+   "vA_acBOHMb4",
+   "yefo5lyt6wU",
+   "ylLAEKHkm00",
+   "ywRtrJktO5M"
   ],
-  "visits": 496,
+  "visits": 799,
   "built": "2026-10-23"
  },
- "base": 0.09507346585998272,
- "baseEarly": 0.221875,
+ "base": 0.0988861722358055,
+ "baseEarly": 0.24399260628465805,
  "jokers": {
   "j_clever": {
-   "offered": 34,
+   "offered": 50,
    "taken": 0,
-   "offeredEarly": 7,
+   "offeredEarly": 11,
    "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+   "sold": 1,
+   "acquired": 1,
    "passed": 1
   },
   "j_midas_mask": {
-   "offered": 12,
+   "offered": 19,
    "taken": 2,
-   "offeredEarly": 3,
+   "offeredEarly": 4,
    "takenEarly": 1,
    "sold": 3,
    "acquired": 4,
    "passed": 0
   },
   "j_supernova": {
-   "offered": 31,
-   "taken": 3,
-   "offeredEarly": 5,
-   "takenEarly": 3,
+   "offered": 44,
+   "taken": 5,
+   "offeredEarly": 8,
+   "takenEarly": 4,
    "sold": 2,
-   "acquired": 3,
+   "acquired": 5,
    "passed": 1
   },
   "j_delayed_grat": {
-   "offered": 25,
+   "offered": 39,
    "taken": 1,
-   "offeredEarly": 4,
+   "offeredEarly": 5,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 1,
    "passed": 0
   },
   "j_perkeo": {
-   "offered": 5,
-   "taken": 5,
-   "offeredEarly": 2,
-   "takenEarly": 2,
-   "sold": 2,
-   "acquired": 6,
+   "offered": 7,
+   "taken": 7,
+   "offeredEarly": 3,
+   "takenEarly": 3,
+   "sold": 4,
+   "acquired": 10,
    "passed": 0
   },
   "j_smiley": {
-   "offered": 9,
+   "offered": 20,
    "taken": 1,
-   "offeredEarly": 2,
+   "offeredEarly": 4,
    "takenEarly": 1,
+   "sold": 1,
+   "acquired": 2,
+   "passed": 2
+  },
+  "j_blue_joker": {
+   "offered": 47,
+   "taken": 2,
+   "offeredEarly": 9,
+   "takenEarly": 2,
    "sold": 1,
    "acquired": 2,
    "passed": 1
   },
-  "j_blue_joker": {
-   "offered": 28,
-   "taken": 1,
-   "offeredEarly": 4,
-   "takenEarly": 1,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 1
-  },
   "j_jolly": {
-   "offered": 26,
-   "taken": 1,
-   "offeredEarly": 3,
-   "takenEarly": 1,
-   "sold": 3,
-   "acquired": 3,
+   "offered": 39,
+   "taken": 3,
+   "offeredEarly": 5,
+   "takenEarly": 2,
+   "sold": 5,
+   "acquired": 5,
    "passed": 1
   },
   "j_red_card": {
-   "offered": 25,
+   "offered": 41,
    "taken": 0,
-   "offeredEarly": 3,
+   "offeredEarly": 5,
    "takenEarly": 0,
-   "sold": 3,
-   "acquired": 4,
-   "passed": 0
-  },
-  "j_business": {
-   "offered": 29,
-   "taken": 6,
-   "offeredEarly": 9,
-   "takenEarly": 3,
-   "sold": 7,
-   "acquired": 8,
+   "sold": 4,
+   "acquired": 7,
    "passed": 0
   },
   "j_hallucination": {
-   "offered": 21,
-   "taken": 6,
-   "offeredEarly": 6,
-   "takenEarly": 2,
-   "sold": 3,
-   "acquired": 6,
+   "offered": 34,
+   "taken": 8,
+   "offeredEarly": 8,
+   "takenEarly": 3,
+   "sold": 5,
+   "acquired": 8,
+   "passed": 1
+  },
+  "j_business": {
+   "offered": 33,
+   "taken": 7,
+   "offeredEarly": 11,
+   "takenEarly": 3,
+   "sold": 8,
+   "acquired": 10,
    "passed": 0
   },
   "j_greedy_joker": {
-   "offered": 27,
-   "taken": 1,
-   "offeredEarly": 4,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
+   "offered": 42,
+   "taken": 2,
+   "offeredEarly": 9,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 2,
    "passed": 1
   },
   "j_burglar": {
-   "offered": 14,
+   "offered": 19,
    "taken": 0,
    "offeredEarly": 2,
    "takenEarly": 0,
@@ -138,243 +146,243 @@
    "passed": 1
   },
   "j_crafty": {
-   "offered": 36,
-   "taken": 0,
-   "offeredEarly": 4,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 1
-  },
-  "j_brainstorm": {
-   "offered": 7,
-   "taken": 6,
-   "offeredEarly": 3,
-   "takenEarly": 2,
+   "offered": 58,
+   "taken": 2,
+   "offeredEarly": 11,
+   "takenEarly": 1,
    "sold": 1,
-   "acquired": 10,
-   "passed": 0
-  },
-  "j_mime": {
-   "offered": 25,
-   "taken": 5,
-   "offeredEarly": 4,
-   "takenEarly": 0,
-   "sold": 2,
-   "acquired": 6,
-   "passed": 0
-  },
-  "j_reserved_parking": {
-   "offered": 29,
-   "taken": 8,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 9,
-   "acquired": 10,
+   "acquired": 2,
    "passed": 2
   },
-  "j_even_steven": {
-   "offered": 30,
-   "taken": 3,
+  "j_brainstorm": {
+   "offered": 12,
+   "taken": 9,
    "offeredEarly": 4,
-   "takenEarly": 0,
+   "takenEarly": 2,
    "sold": 1,
-   "acquired": 4,
+   "acquired": 13,
    "passed": 1
   },
-  "j_acrobat": {
-   "offered": 8,
-   "taken": 2,
-   "offeredEarly": 2,
+  "j_mime": {
+   "offered": 41,
+   "taken": 8,
+   "offeredEarly": 6,
+   "takenEarly": 0,
+   "sold": 3,
+   "acquired": 9,
+   "passed": 1
+  },
+  "j_reserved_parking": {
+   "offered": 44,
+   "taken": 11,
+   "offeredEarly": 6,
    "takenEarly": 1,
+   "sold": 11,
+   "acquired": 13,
+   "passed": 3
+  },
+  "j_even_steven": {
+   "offered": 45,
+   "taken": 3,
+   "offeredEarly": 7,
+   "takenEarly": 0,
    "sold": 2,
-   "acquired": 2,
-   "passed": 0
+   "acquired": 5,
+   "passed": 2
+  },
+  "j_acrobat": {
+   "offered": 12,
+   "taken": 3,
+   "offeredEarly": 3,
+   "takenEarly": 2,
+   "sold": 3,
+   "acquired": 3,
+   "passed": 1
   },
   "j_matador": {
-   "offered": 12,
+   "offered": 22,
    "taken": 1,
-   "offeredEarly": 3,
+   "offeredEarly": 4,
    "takenEarly": 1,
    "sold": 1,
    "acquired": 1,
-   "passed": 0
+   "passed": 1
   },
   "j_ice_cream": {
-   "offered": 33,
+   "offered": 43,
    "taken": 1,
-   "offeredEarly": 5,
+   "offeredEarly": 6,
    "takenEarly": 1,
    "sold": 2,
    "acquired": 2,
    "passed": 0
   },
   "j_hologram": {
-   "offered": 9,
-   "taken": 1,
-   "offeredEarly": 3,
+   "offered": 17,
+   "taken": 3,
+   "offeredEarly": 4,
    "takenEarly": 1,
    "sold": 0,
-   "acquired": 1,
+   "acquired": 4,
    "passed": 0
   },
   "j_scary_face": {
-   "offered": 33,
+   "offered": 52,
    "taken": 5,
-   "offeredEarly": 8,
+   "offeredEarly": 9,
    "takenEarly": 4,
    "sold": 3,
-   "acquired": 5,
+   "acquired": 6,
    "passed": 0
   },
   "j_sly": {
-   "offered": 21,
-   "taken": 0,
-   "offeredEarly": 3,
+   "offered": 39,
+   "taken": 1,
+   "offeredEarly": 5,
    "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
+   "sold": 2,
+   "acquired": 2,
    "passed": 1
   },
   "j_shoot_the_moon": {
-   "offered": 26,
-   "taken": 1,
-   "offeredEarly": 6,
+   "offered": 37,
+   "taken": 2,
+   "offeredEarly": 7,
    "takenEarly": 1,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 1
+   "sold": 2,
+   "acquired": 2,
+   "passed": 2
   },
   "j_golden": {
-   "offered": 22,
-   "taken": 2,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 3,
-   "acquired": 3,
-   "passed": 0
+   "offered": 33,
+   "taken": 3,
+   "offeredEarly": 6,
+   "takenEarly": 1,
+   "sold": 4,
+   "acquired": 4,
+   "passed": 1
   },
   "j_sock_and_buskin": {
-   "offered": 15,
+   "offered": 24,
    "taken": 4,
-   "offeredEarly": 3,
+   "offeredEarly": 2,
    "takenEarly": 0,
    "sold": 2,
    "acquired": 5,
-   "passed": 0
+   "passed": 2
   },
   "j_splash": {
-   "offered": 31,
-   "taken": 0,
-   "offeredEarly": 6,
+   "offered": 45,
+   "taken": 1,
+   "offeredEarly": 8,
    "takenEarly": 0,
    "sold": 0,
-   "acquired": 1,
+   "acquired": 2,
    "passed": 3
   },
   "j_ticket": {
-   "offered": 19,
+   "offered": 29,
    "taken": 4,
    "offeredEarly": 1,
    "takenEarly": 1,
    "sold": 4,
-   "acquired": 4,
+   "acquired": 6,
    "passed": 0
   },
   "j_hanging_chad": {
-   "offered": 22,
-   "taken": 7,
+   "offered": 30,
+   "taken": 9,
    "offeredEarly": 11,
    "takenEarly": 5,
-   "sold": 4,
-   "acquired": 8,
+   "sold": 6,
+   "acquired": 11,
    "passed": 0
   },
   "j_juggler": {
-   "offered": 27,
+   "offered": 40,
    "taken": 2,
-   "offeredEarly": 4,
+   "offeredEarly": 5,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 2,
    "passed": 1
   },
   "j_riff_raff": {
-   "offered": 25,
-   "taken": 2,
-   "offeredEarly": 5,
-   "takenEarly": 2,
-   "sold": 2,
-   "acquired": 2,
+   "offered": 42,
+   "taken": 4,
+   "offeredEarly": 10,
+   "takenEarly": 4,
+   "sold": 4,
+   "acquired": 4,
    "passed": 0
   },
   "j_vagabond": {
-   "offered": 15,
+   "offered": 20,
    "taken": 1,
-   "offeredEarly": 2,
+   "offeredEarly": 3,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 1,
    "passed": 0
   },
   "j_vampire": {
-   "offered": 16,
-   "taken": 1,
-   "offeredEarly": 2,
-   "takenEarly": 1,
+   "offered": 24,
+   "taken": 2,
+   "offeredEarly": 3,
+   "takenEarly": 2,
    "sold": 0,
-   "acquired": 1,
+   "acquired": 3,
    "passed": 1
   },
   "j_8_ball": {
-   "offered": 24,
+   "offered": 41,
    "taken": 0,
-   "offeredEarly": 4,
+   "offeredEarly": 7,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 2
   },
   "j_dusk": {
-   "offered": 14,
+   "offered": 20,
    "taken": 2,
-   "offeredEarly": 1,
+   "offeredEarly": 2,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 2,
    "passed": 0
   },
   "j_raised_fist": {
-   "offered": 29,
-   "taken": 1,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 1,
+   "offered": 42,
+   "taken": 3,
+   "offeredEarly": 5,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 3,
    "passed": 0
   },
   "j_mail": {
-   "offered": 27,
-   "taken": 7,
-   "offeredEarly": 8,
-   "takenEarly": 5,
-   "sold": 6,
-   "acquired": 9,
+   "offered": 48,
+   "taken": 13,
+   "offeredEarly": 13,
+   "takenEarly": 7,
+   "sold": 12,
+   "acquired": 19,
    "passed": 0
   },
   "j_mad": {
-   "offered": 23,
+   "offered": 43,
    "taken": 0,
-   "offeredEarly": 3,
+   "offeredEarly": 4,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 1,
    "passed": 0
   },
   "j_drunkard": {
-   "offered": 28,
+   "offered": 46,
    "taken": 0,
-   "offeredEarly": 1,
+   "offeredEarly": 5,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
@@ -382,78 +390,78 @@
   },
   "j_stone": {
    "offered": 7,
-   "taken": 0,
+   "taken": 1,
    "offeredEarly": 1,
    "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_square": {
-   "offered": 21,
-   "taken": 1,
-   "offeredEarly": 3,
-   "takenEarly": 1,
    "sold": 0,
    "acquired": 1,
    "passed": 0
   },
-  "j_chaos": {
+  "j_square": {
    "offered": 33,
-   "taken": 11,
-   "offeredEarly": 3,
-   "takenEarly": 2,
-   "sold": 11,
-   "acquired": 13,
-   "passed": 0
-  },
-  "j_credit_card": {
-   "offered": 23,
    "taken": 2,
-   "offeredEarly": 1,
-   "takenEarly": 1,
-   "sold": 1,
+   "offeredEarly": 5,
+   "takenEarly": 2,
+   "sold": 0,
    "acquired": 2,
    "passed": 0
   },
+  "j_chaos": {
+   "offered": 47,
+   "taken": 11,
+   "offeredEarly": 5,
+   "takenEarly": 2,
+   "sold": 13,
+   "acquired": 15,
+   "passed": 0
+  },
+  "j_credit_card": {
+   "offered": 37,
+   "taken": 3,
+   "offeredEarly": 1,
+   "takenEarly": 1,
+   "sold": 1,
+   "acquired": 3,
+   "passed": 0
+  },
   "j_flash": {
-   "offered": 9,
+   "offered": 11,
    "taken": 1,
-   "offeredEarly": 2,
+   "offeredEarly": 3,
    "takenEarly": 0,
    "sold": 2,
    "acquired": 2,
    "passed": 1
   },
   "j_bootstraps": {
-   "offered": 13,
+   "offered": 20,
    "taken": 0,
    "offeredEarly": 2,
    "takenEarly": 0,
    "sold": 0,
-   "acquired": 0,
+   "acquired": 1,
    "passed": 1
   },
   "j_tribe": {
-   "offered": 8,
+   "offered": 11,
    "taken": 2,
    "offeredEarly": 4,
    "takenEarly": 1,
    "sold": 2,
    "acquired": 2,
-   "passed": 0
+   "passed": 1
   },
   "j_blueprint": {
-   "offered": 8,
-   "taken": 6,
-   "offeredEarly": 2,
-   "takenEarly": 1,
-   "sold": 1,
-   "acquired": 7,
+   "offered": 15,
+   "taken": 12,
+   "offeredEarly": 6,
+   "takenEarly": 5,
+   "sold": 6,
+   "acquired": 25,
    "passed": 0
   },
   "j_turtle_bean": {
-   "offered": 14,
+   "offered": 15,
    "taken": 2,
    "offeredEarly": 3,
    "takenEarly": 1,
@@ -462,97 +470,97 @@
    "passed": 0
   },
   "j_rough_gem": {
-   "offered": 13,
-   "taken": 0,
+   "offered": 16,
+   "taken": 1,
    "offeredEarly": 0,
    "takenEarly": 0,
    "sold": 0,
-   "acquired": 0,
-   "passed": 0
+   "acquired": 1,
+   "passed": 1
   },
   "j_green_joker": {
-   "offered": 22,
+   "offered": 43,
    "taken": 2,
-   "offeredEarly": 5,
+   "offeredEarly": 9,
    "takenEarly": 2,
    "sold": 2,
    "acquired": 2,
    "passed": 0
   },
   "j_baron": {
-   "offered": 6,
-   "taken": 2,
-   "offeredEarly": 1,
-   "takenEarly": 0,
+   "offered": 14,
+   "taken": 5,
+   "offeredEarly": 3,
+   "takenEarly": 1,
    "sold": 0,
-   "acquired": 2,
+   "acquired": 5,
    "passed": 0
   },
   "j_ride_the_bus": {
-   "offered": 21,
+   "offered": 35,
    "taken": 1,
-   "offeredEarly": 4,
+   "offeredEarly": 5,
    "takenEarly": 1,
    "sold": 1,
    "acquired": 1,
    "passed": 1
   },
   "j_lusty_joker": {
-   "offered": 23,
+   "offered": 34,
    "taken": 0,
-   "offeredEarly": 3,
+   "offeredEarly": 5,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 2,
    "passed": 1
   },
   "j_seance": {
-   "offered": 12,
+   "offered": 19,
    "taken": 0,
-   "offeredEarly": 3,
+   "offeredEarly": 4,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_fortune_teller": {
-   "offered": 35,
-   "taken": 1,
-   "offeredEarly": 2,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 2,
+   "offered": 53,
+   "taken": 2,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 3,
    "passed": 2
   },
   "j_cartomancer": {
-   "offered": 11,
+   "offered": 20,
+   "taken": 4,
+   "offeredEarly": 3,
+   "takenEarly": 2,
+   "sold": 4,
+   "acquired": 4,
+   "passed": 1
+  },
+  "j_bull": {
+   "offered": 14,
    "taken": 1,
-   "offeredEarly": 1,
+   "offeredEarly": 2,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 1,
    "passed": 0
   },
-  "j_bull": {
-   "offered": 10,
-   "taken": 0,
-   "offeredEarly": 2,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
   "j_stencil": {
-   "offered": 11,
-   "taken": 1,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 1,
+   "offered": 16,
+   "taken": 2,
+   "offeredEarly": 2,
+   "takenEarly": 1,
+   "sold": 1,
+   "acquired": 2,
    "passed": 0
   },
   "j_rocket": {
-   "offered": 9,
+   "offered": 20,
    "taken": 0,
    "offeredEarly": 1,
    "takenEarly": 0,
@@ -561,7 +569,7 @@
    "passed": 0
   },
   "j_space": {
-   "offered": 15,
+   "offered": 19,
    "taken": 2,
    "offeredEarly": 1,
    "takenEarly": 1,
@@ -570,115 +578,115 @@
    "passed": 0
   },
   "j_swashbuckler": {
-   "offered": 32,
-   "taken": 1,
+   "offered": 53,
+   "taken": 4,
+   "offeredEarly": 7,
+   "takenEarly": 3,
+   "sold": 4,
+   "acquired": 5,
+   "passed": 1
+  },
+  "j_half": {
+   "offered": 47,
+   "taken": 3,
+   "offeredEarly": 7,
+   "takenEarly": 2,
+   "sold": 2,
+   "acquired": 4,
+   "passed": 0
+  },
+  "j_runner": {
+   "offered": 42,
+   "taken": 2,
    "offeredEarly": 4,
    "takenEarly": 1,
    "sold": 2,
    "acquired": 2,
    "passed": 1
   },
-  "j_half": {
-   "offered": 34,
-   "taken": 0,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 0
-  },
-  "j_runner": {
-   "offered": 29,
-   "taken": 1,
-   "offeredEarly": 2,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 1
-  },
   "j_luchador": {
-   "offered": 6,
+   "offered": 15,
    "taken": 1,
-   "offeredEarly": 1,
+   "offeredEarly": 3,
    "takenEarly": 0,
    "sold": 3,
    "acquired": 5,
    "passed": 1
   },
   "j_crazy": {
-   "offered": 25,
+   "offered": 44,
    "taken": 0,
-   "offeredEarly": 1,
+   "offeredEarly": 7,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_odd_todd": {
-   "offered": 25,
+   "offered": 40,
    "taken": 0,
-   "offeredEarly": 4,
+   "offeredEarly": 5,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
-   "passed": 0
-  },
-  "j_superposition": {
-   "offered": 31,
-   "taken": 1,
-   "offeredEarly": 4,
-   "takenEarly": 1,
-   "sold": 1,
-   "acquired": 2,
-   "passed": 0
-  },
-  "j_wily": {
-   "offered": 24,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 2
-  },
-  "j_card_sharp": {
-   "offered": 9,
-   "taken": 2,
-   "offeredEarly": 2,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 3,
    "passed": 1
   },
-  "j_constellation": {
-   "offered": 12,
-   "taken": 5,
-   "offeredEarly": 1,
+  "j_superposition": {
+   "offered": 44,
+   "taken": 2,
+   "offeredEarly": 8,
    "takenEarly": 1,
    "sold": 2,
    "acquired": 5,
    "passed": 0
   },
-  "j_mr_bones": {
-   "offered": 17,
+  "j_wily": {
+   "offered": 44,
    "taken": 1,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 3,
+   "passed": 2
+  },
+  "j_card_sharp": {
+   "offered": 17,
+   "taken": 5,
+   "offeredEarly": 2,
+   "takenEarly": 1,
+   "sold": 3,
+   "acquired": 7,
+   "passed": 1
+  },
+  "j_constellation": {
+   "offered": 17,
+   "taken": 5,
+   "offeredEarly": 1,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 5,
+   "passed": 1
+  },
+  "j_mr_bones": {
+   "offered": 23,
+   "taken": 2,
    "offeredEarly": 0,
    "takenEarly": 0,
    "sold": 1,
-   "acquired": 1,
+   "acquired": 2,
    "passed": 0
   },
   "j_devious": {
-   "offered": 26,
+   "offered": 33,
    "taken": 0,
-   "offeredEarly": 2,
+   "offeredEarly": 4,
    "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+   "sold": 1,
+   "acquired": 1,
    "passed": 3
   },
   "j_shortcut": {
-   "offered": 10,
+   "offered": 16,
    "taken": 0,
    "offeredEarly": 1,
    "takenEarly": 0,
@@ -687,88 +695,88 @@
    "passed": 0
   },
   "j_faceless": {
-   "offered": 22,
-   "taken": 0,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+   "offered": 42,
+   "taken": 1,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 1,
+   "acquired": 1,
    "passed": 0
   },
   "j_order": {
-   "offered": 3,
+   "offered": 8,
    "taken": 0,
-   "offeredEarly": 0,
+   "offeredEarly": 2,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_loyalty_card": {
-   "offered": 12,
-   "taken": 2,
-   "offeredEarly": 2,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 2,
-   "passed": 0
-  },
-  "j_abstract": {
-   "offered": 26,
-   "taken": 2,
+   "offered": 18,
+   "taken": 3,
    "offeredEarly": 5,
-   "takenEarly": 2,
-   "sold": 3,
+   "takenEarly": 1,
+   "sold": 2,
    "acquired": 3,
    "passed": 0
   },
+  "j_abstract": {
+   "offered": 39,
+   "taken": 3,
+   "offeredEarly": 5,
+   "takenEarly": 2,
+   "sold": 5,
+   "acquired": 5,
+   "passed": 0
+  },
   "j_wee": {
-   "offered": 20,
+   "offered": 38,
    "taken": 0,
-   "offeredEarly": 2,
+   "offeredEarly": 3,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_dna": {
-   "offered": 8,
-   "taken": 2,
+   "offered": 11,
+   "taken": 4,
    "offeredEarly": 1,
    "takenEarly": 0,
-   "sold": 3,
-   "acquired": 3,
+   "sold": 4,
+   "acquired": 6,
    "passed": 1
   },
   "j_droll": {
-   "offered": 35,
-   "taken": 1,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
+   "offered": 52,
+   "taken": 3,
+   "offeredEarly": 5,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 3,
    "passed": 0
   },
   "j_seeing_double": {
-   "offered": 6,
+   "offered": 12,
    "taken": 0,
-   "offeredEarly": 0,
+   "offeredEarly": 2,
    "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+   "sold": 2,
+   "acquired": 2,
    "passed": 0
   },
   "j_egg": {
-   "offered": 25,
-   "taken": 2,
-   "offeredEarly": 3,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 2,
-   "passed": 1
+   "offered": 38,
+   "taken": 5,
+   "offeredEarly": 7,
+   "takenEarly": 3,
+   "sold": 4,
+   "acquired": 5,
+   "passed": 2
   },
   "j_family": {
-   "offered": 7,
+   "offered": 10,
    "taken": 0,
    "offeredEarly": 1,
    "takenEarly": 0,
@@ -777,61 +785,61 @@
    "passed": 0
   },
   "j_mystic_summit": {
-   "offered": 22,
+   "offered": 39,
    "taken": 0,
-   "offeredEarly": 2,
+   "offeredEarly": 3,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 1,
    "passed": 1
   },
   "j_zany": {
-   "offered": 29,
-   "taken": 3,
-   "offeredEarly": 5,
-   "takenEarly": 2,
-   "sold": 3,
-   "acquired": 3,
+   "offered": 46,
+   "taken": 4,
+   "offeredEarly": 6,
+   "takenEarly": 3,
+   "sold": 4,
+   "acquired": 4,
    "passed": 1
   },
   "j_gros_michel": {
-   "offered": 16,
-   "taken": 6,
-   "offeredEarly": 4,
-   "takenEarly": 3,
-   "sold": 5,
-   "acquired": 6,
+   "offered": 25,
+   "taken": 12,
+   "offeredEarly": 8,
+   "takenEarly": 7,
+   "sold": 10,
+   "acquired": 12,
    "passed": 0
   },
   "j_bloodstone": {
-   "offered": 8,
-   "taken": 2,
+   "offered": 13,
+   "taken": 3,
    "offeredEarly": 0,
    "takenEarly": 0,
    "sold": 1,
-   "acquired": 2,
+   "acquired": 4,
    "passed": 0
   },
   "j_burnt": {
-   "offered": 8,
-   "taken": 2,
-   "offeredEarly": 2,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 3,
-   "passed": 0
+   "offered": 13,
+   "taken": 5,
+   "offeredEarly": 4,
+   "takenEarly": 3,
+   "sold": 4,
+   "acquired": 6,
+   "passed": 1
   },
   "j_idol": {
-   "offered": 6,
-   "taken": 2,
+   "offered": 13,
+   "taken": 4,
    "offeredEarly": 0,
    "takenEarly": 0,
-   "sold": 0,
-   "acquired": 2,
+   "sold": 1,
+   "acquired": 4,
    "passed": 0
   },
   "j_ancient": {
-   "offered": 7,
+   "offered": 10,
    "taken": 0,
    "offeredEarly": 0,
    "takenEarly": 0,
@@ -840,16 +848,16 @@
    "passed": 0
   },
   "j_scholar": {
-   "offered": 10,
-   "taken": 4,
-   "offeredEarly": 0,
+   "offered": 18,
+   "taken": 6,
+   "offeredEarly": 2,
    "takenEarly": 0,
-   "sold": 5,
-   "acquired": 5,
+   "sold": 7,
+   "acquired": 7,
    "passed": 0
   },
   "j_madness": {
-   "offered": 15,
+   "offered": 19,
    "taken": 0,
    "offeredEarly": 1,
    "takenEarly": 0,
@@ -858,21 +866,21 @@
    "passed": 0
   },
   "j_erosion": {
-   "offered": 10,
+   "offered": 17,
    "taken": 0,
-   "offeredEarly": 2,
+   "offeredEarly": 3,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_wrathful_joker": {
-   "offered": 24,
-   "taken": 0,
-   "offeredEarly": 4,
+   "offered": 43,
+   "taken": 2,
+   "offeredEarly": 7,
    "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+   "sold": 1,
+   "acquired": 2,
    "passed": 3
   },
   "j_arrowhead": {
@@ -885,16 +893,16 @@
    "passed": 0
   },
   "j_drivers_license": {
-   "offered": 7,
-   "taken": 2,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 2,
-   "acquired": 4,
+   "offered": 14,
+   "taken": 3,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 3,
+   "acquired": 5,
    "passed": 0
   },
   "j_onyx_agate": {
-   "offered": 5,
+   "offered": 8,
    "taken": 0,
    "offeredEarly": 0,
    "takenEarly": 0,
@@ -903,106 +911,313 @@
    "passed": 0
   },
   "j_cloud_9": {
-   "offered": 7,
+   "offered": 18,
    "taken": 1,
-   "offeredEarly": 0,
+   "offeredEarly": 1,
    "takenEarly": 0,
    "sold": 1,
    "acquired": 1,
-   "passed": 0
+   "passed": 1
   },
   "j_ceremonial": {
-   "offered": 9,
+   "offered": 18,
    "taken": 0,
-   "offeredEarly": 1,
+   "offeredEarly": 4,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_walkie_talkie": {
-   "offered": 16,
-   "taken": 0,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+   "offered": 30,
+   "taken": 3,
+   "offeredEarly": 4,
+   "takenEarly": 2,
+   "sold": 2,
+   "acquired": 3,
    "passed": 1
   },
-  "j_troubadour": {
-   "offered": 13,
-   "taken": 0,
+  "j_banner": {
+   "offered": 33,
+   "taken": 1,
+   "offeredEarly": 4,
+   "takenEarly": 0,
+   "sold": 1,
+   "acquired": 2,
+   "passed": 1
+  },
+  "j_misprint": {
+   "offered": 32,
+   "taken": 2,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 1,
+   "acquired": 2,
+   "passed": 1
+  },
+  "j_sixth_sense": {
+   "offered": 24,
+   "taken": 8,
    "offeredEarly": 3,
+   "takenEarly": 2,
+   "sold": 7,
+   "acquired": 9,
+   "passed": 0
+  },
+  "j_trousers": {
+   "offered": 14,
+   "taken": 1,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 0,
+   "acquired": 1,
+   "passed": 0
+  },
+  "j_gift": {
+   "offered": 14,
+   "taken": 5,
+   "offeredEarly": 3,
+   "takenEarly": 3,
+   "sold": 4,
+   "acquired": 5,
+   "passed": 0
+  },
+  "j_blackboard": {
+   "offered": 25,
+   "taken": 4,
+   "offeredEarly": 5,
+   "takenEarly": 2,
+   "sold": 2,
+   "acquired": 5,
+   "passed": 1
+  },
+  "j_merry_andy": {
+   "offered": 12,
+   "taken": 0,
+   "offeredEarly": 0,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
-  "j_satellite": {
+  "j_glass": {
    "offered": 7,
+   "taken": 3,
+   "offeredEarly": 1,
+   "takenEarly": 0,
+   "sold": 3,
+   "acquired": 6,
+   "passed": 0
+  },
+  "j_certificate": {
+   "offered": 15,
+   "taken": 4,
+   "offeredEarly": 1,
+   "takenEarly": 1,
+   "sold": 3,
+   "acquired": 5,
+   "passed": 0
+  },
+  "j_flower_pot": {
+   "offered": 17,
+   "taken": 0,
+   "offeredEarly": 3,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 0,
+   "passed": 1
+  },
+  "j_oops": {
+   "offered": 15,
+   "taken": 1,
+   "offeredEarly": 0,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 1,
+   "passed": 0
+  },
+  "j_four_fingers": {
+   "offered": 15,
    "taken": 1,
    "offeredEarly": 1,
    "takenEarly": 0,
+   "sold": 0,
+   "acquired": 1,
+   "passed": 0
+  },
+  "j_trading": {
+   "offered": 15,
+   "taken": 3,
+   "offeredEarly": 1,
+   "takenEarly": 0,
+   "sold": 5,
+   "acquired": 6,
+   "passed": 0
+  },
+  "j_obelisk": {
+   "offered": 7,
+   "taken": 0,
+   "offeredEarly": 2,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 0,
+   "passed": 0
+  },
+  "j_photograph": {
+   "offered": 39,
+   "taken": 9,
+   "offeredEarly": 9,
+   "takenEarly": 3,
+   "sold": 5,
+   "acquired": 11,
+   "passed": 1
+  },
+  "j_satellite": {
+   "offered": 21,
+   "taken": 2,
+   "offeredEarly": 3,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 2,
+   "passed": 1
+  },
+  "j_marble": {
+   "offered": 14,
+   "taken": 1,
+   "offeredEarly": 3,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 1,
+   "passed": 0
+  },
+  "j_hiker": {
+   "offered": 25,
+   "taken": 2,
+   "offeredEarly": 3,
+   "takenEarly": 1,
+   "sold": 2,
+   "acquired": 2,
+   "passed": 0
+  },
+  "j_pareidolia": {
+   "offered": 14,
+   "taken": 0,
+   "offeredEarly": 2,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 0,
+   "passed": 0
+  },
+  "j_gluttenous_joker": {
+   "offered": 41,
+   "taken": 1,
+   "offeredEarly": 7,
+   "takenEarly": 1,
+   "sold": 1,
+   "acquired": 1,
+   "passed": 1
+  },
+  "j_lucky_cat": {
+   "offered": 14,
+   "taken": 6,
+   "offeredEarly": 1,
+   "takenEarly": 0,
+   "sold": 2,
+   "acquired": 10,
+   "passed": 1
+  },
+  "j_todo_list": {
+   "offered": 31,
+   "taken": 2,
+   "offeredEarly": 3,
+   "takenEarly": 1,
+   "sold": 3,
+   "acquired": 5,
+   "passed": 0
+  },
+  "j_popcorn": {
+   "offered": 37,
+   "taken": 2,
+   "offeredEarly": 4,
+   "takenEarly": 0,
+   "sold": 1,
+   "acquired": 2,
+   "passed": 0
+  },
+  "j_troubadour": {
+   "offered": 17,
+   "taken": 1,
+   "offeredEarly": 4,
+   "takenEarly": 1,
    "sold": 1,
    "acquired": 1,
    "passed": 0
   },
-  "j_gluttenous_joker": {
-   "offered": 27,
+  "j_steel_joker": {
+   "offered": 15,
    "taken": 0,
+   "offeredEarly": 0,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 0,
+   "passed": 1
+  },
+  "j_trio": {
+   "offered": 19,
+   "taken": 1,
    "offeredEarly": 5,
+   "takenEarly": 0,
+   "sold": 1,
+   "acquired": 1,
+   "passed": 1
+  },
+  "j_castle": {
+   "offered": 11,
+   "taken": 0,
+   "offeredEarly": 0,
+   "takenEarly": 0,
+   "sold": 0,
+   "acquired": 0,
+   "passed": 1
+  },
+  "j_selzer": {
+   "offered": 17,
+   "taken": 0,
+   "offeredEarly": 1,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
-  "j_marble": {
-   "offered": 11,
+  "j_throwback": {
+   "offered": 15,
    "taken": 1,
-   "offeredEarly": 2,
-   "takenEarly": 0,
+   "offeredEarly": 5,
+   "takenEarly": 1,
    "sold": 0,
    "acquired": 1,
    "passed": 0
   },
-  "j_trio": {
-   "offered": 14,
-   "taken": 0,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 1
-  },
-  "j_fibonacci": {
-   "offered": 10,
-   "taken": 0,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
+  "j_invisible": {
+   "offered": 12,
+   "taken": 8,
+   "offeredEarly": 1,
+   "takenEarly": 1,
+   "sold": 7,
+   "acquired": 8,
    "passed": 0
   },
-  "j_lucky_cat": {
-   "offered": 9,
-   "taken": 3,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 4,
-   "passed": 1
-  },
-  "j_trousers": {
-   "offered": 9,
+  "j_diet_cola": {
+   "offered": 12,
    "taken": 0,
-   "offeredEarly": 2,
+   "offeredEarly": 1,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
    "passed": 0
   },
   "j_hack": {
-   "offered": 14,
+   "offered": 17,
    "taken": 0,
    "offeredEarly": 2,
    "takenEarly": 0,
@@ -1011,43 +1226,16 @@
    "passed": 1
   },
   "j_astronomer": {
-   "offered": 14,
-   "taken": 3,
+   "offered": 19,
+   "taken": 4,
    "offeredEarly": 0,
    "takenEarly": 0,
-   "sold": 3,
-   "acquired": 4,
+   "sold": 4,
+   "acquired": 5,
    "passed": 1
   },
-  "j_blackboard": {
-   "offered": 14,
-   "taken": 2,
-   "offeredEarly": 2,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 3,
-   "passed": 1
-  },
-  "j_invisible": {
-   "offered": 8,
-   "taken": 6,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 5,
-   "acquired": 6,
-   "passed": 0
-  },
-  "j_gift": {
-   "offered": 8,
-   "taken": 2,
-   "offeredEarly": 1,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 2,
-   "passed": 0
-  },
-  "j_merry_andy": {
-   "offered": 9,
+  "j_ramen": {
+   "offered": 12,
    "taken": 0,
    "offeredEarly": 0,
    "takenEarly": 0,
@@ -1055,10 +1243,28 @@
    "acquired": 0,
    "passed": 0
   },
+  "j_baseball": {
+   "offered": 11,
+   "taken": 3,
+   "offeredEarly": 2,
+   "takenEarly": 1,
+   "sold": 0,
+   "acquired": 3,
+   "passed": 0
+  },
+  "j_fibonacci": {
+   "offered": 16,
+   "taken": 2,
+   "offeredEarly": 4,
+   "takenEarly": 1,
+   "sold": 0,
+   "acquired": 2,
+   "passed": 0
+  },
   "j_duo": {
-   "offered": 1,
+   "offered": 2,
    "taken": 0,
-   "offeredEarly": 0,
+   "offeredEarly": 1,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
@@ -1073,17 +1279,8 @@
    "acquired": 0,
    "passed": 0
   },
-  "j_sixth_sense": {
-   "offered": 12,
-   "taken": 5,
-   "offeredEarly": 1,
-   "takenEarly": 1,
-   "sold": 3,
-   "acquired": 5,
-   "passed": 0
-  },
   "j_stuntman": {
-   "offered": 9,
+   "offered": 12,
    "taken": 0,
    "offeredEarly": 1,
    "takenEarly": 0,
@@ -1092,16 +1289,16 @@
    "passed": 0
   },
   "j_to_the_moon": {
-   "offered": 7,
-   "taken": 0,
+   "offered": 11,
+   "taken": 2,
    "offeredEarly": 0,
    "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
+   "sold": 2,
+   "acquired": 3,
    "passed": 0
   },
   "j_campfire": {
-   "offered": 9,
+   "offered": 14,
    "taken": 0,
    "offeredEarly": 0,
    "takenEarly": 0,
@@ -1110,219 +1307,30 @@
    "passed": 0
   },
   "j_smeared": {
-   "offered": 7,
+   "offered": 13,
    "taken": 0,
-   "offeredEarly": 1,
+   "offeredEarly": 2,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
-   "passed": 0
-  },
-  "j_selzer": {
-   "offered": 10,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_throwback": {
-   "offered": 7,
-   "taken": 0,
-   "offeredEarly": 3,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
+   "passed": 1
   },
   "j_hit_the_road": {
-   "offered": 4,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 1
-  },
-  "j_certificate": {
-   "offered": 9,
-   "taken": 2,
-   "offeredEarly": 1,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 3,
-   "passed": 0
-  },
-  "j_banner": {
-   "offered": 20,
-   "taken": 0,
-   "offeredEarly": 2,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 1
-  },
-  "j_misprint": {
-   "offered": 19,
-   "taken": 1,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 1
-  },
-  "j_popcorn": {
-   "offered": 19,
-   "taken": 1,
-   "offeredEarly": 4,
-   "takenEarly": 0,
-   "sold": 1,
-   "acquired": 1,
-   "passed": 0
-  },
-  "j_todo_list": {
-   "offered": 17,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 2,
-   "acquired": 2,
-   "passed": 0
-  },
-  "j_photograph": {
-   "offered": 25,
-   "taken": 6,
-   "offeredEarly": 5,
-   "takenEarly": 2,
-   "sold": 3,
-   "acquired": 7,
-   "passed": 0
-  },
-  "j_hiker": {
-   "offered": 17,
-   "taken": 2,
-   "offeredEarly": 2,
-   "takenEarly": 1,
-   "sold": 2,
-   "acquired": 2,
-   "passed": 0
-  },
-  "j_ramen": {
-   "offered": 8,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_baseball": {
-   "offered": 8,
-   "taken": 2,
-   "offeredEarly": 2,
-   "takenEarly": 1,
-   "sold": 0,
-   "acquired": 2,
-   "passed": 0
-  },
-  "j_diet_cola": {
    "offered": 6,
    "taken": 0,
    "offeredEarly": 0,
    "takenEarly": 0,
    "sold": 0,
    "acquired": 0,
-   "passed": 0
-  },
-  "j_steel_joker": {
-   "offered": 9,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_four_fingers": {
-   "offered": 9,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_trading": {
-   "offered": 9,
-   "taken": 3,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 2,
-   "acquired": 3,
-   "passed": 0
-  },
-  "j_oops": {
-   "offered": 7,
-   "taken": 1,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 1,
-   "passed": 0
-  },
-  "j_pareidolia": {
-   "offered": 5,
-   "taken": 0,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
+   "passed": 1
   },
   "j_cavendish": {
-   "offered": 4,
-   "taken": 4,
+   "offered": 8,
+   "taken": 7,
    "offeredEarly": 0,
    "takenEarly": 0,
-   "sold": 2,
-   "acquired": 4,
-   "passed": 0
-  },
-  "j_castle": {
-   "offered": 6,
-   "taken": 0,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_flower_pot": {
-   "offered": 5,
-   "taken": 0,
-   "offeredEarly": 1,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 1
-  },
-  "j_obelisk": {
-   "offered": 5,
-   "taken": 0,
-   "offeredEarly": 2,
-   "takenEarly": 0,
-   "sold": 0,
-   "acquired": 0,
-   "passed": 0
-  },
-  "j_glass": {
-   "offered": 3,
-   "taken": 3,
-   "offeredEarly": 0,
-   "takenEarly": 0,
-   "sold": 2,
-   "acquired": 5,
+   "sold": 3,
+   "acquired": 7,
    "passed": 0
   }
  }

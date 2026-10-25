@@ -1,0 +1,1736 @@
+{
+ "videos": [
+  {
+   "id": "q4PPUfrs8jI",
+   "title": "Balatro Daily ep1: Beginners Start Here (Red Deck)",
+   "why": "A beginner run at White stake on Red Deck. It covers saving for the $25 interest cap once scoring is covered, playing every blind rather than skipping, valuing jokers by the % they add, pack order, voucher timing and the draw maths for discards.",
+   "talk_share": "high"
+  }
+ ],
+ "claims": [
+  {
+   "id": "economy.hold-25-interest-cap",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "Interest is $1 per $5 held and caps at $5 at $25, so hold $25 at the end of each shop. Money above $25 is surplus he spends freely (rerolls, cheap consumables, packs). In this run he held max interest for about 10 rounds in a row, starting from ante 1-2, which unlocked Seed Money.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1190.679,
+     "text": "reminding folks the interest that you get is maxed out when you reach $25 at $25 you get $5 of Interest per round and so I don't need to go any higher than this",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1190s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1755.36,
+     "text": "that's the main way that you're going to earn money in the game is by Saving interest",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1755s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6799.36,
+     "text": "I'm not looking for Value necessarily I just have extra money so I might as well spend the money that I have",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6799s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.spend-early-then-hold-cap",
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "money_floor = 25 at the end of every shop once scoring is covered; spend only money above 25 on optional items",
+   "notes": "He starts holding the cap in ante 1-2 once one joker covers scoring, earlier than Roffle's 'from ante 3'."
+  },
+  {
+   "id": "economy.save-when-scoring-covers-boss",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "If his current best one hand already beats every blind up to and including the next boss, he buys nothing that adds score: no rerolls, no more scoring jokers, no Celestial packs. He saves for interest instead. He did this from ante 1 once Lusty Joker gave him about 1,800 per Hearts flush.",
+   "conditions": {
+    "deck": "Red",
+    "stake": "White",
+    "antes": [
+     1,
+     3
+    ],
+    "build_state": "projected one-hand score >= next boss requirement"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 894.6,
+     "text": "which means with a Hearts flush not only do I know I can beat this round I can beat all of the next three round rounds I can beat all the way through the next boss",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=894s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 972.959,
+     "text": "I know that I don't need to spend money to score so I'm going to save my money and then that's going to give me you know more money to buy more later",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=972s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1277.159,
+     "text": "so we're good on scoring which means uh I don't need to reroll I don't need to buy more Jokers I don't need to buy a Celestial pack",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1277s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "stake.gold-buys-early-scoring",
+     "econ.spend-early-then-hold-cap"
+    ]
+   },
+   "knob": "if est_best_hand_score >= max(req of remaining blinds through next boss): scoring_buy_budget = 0, rerolls = 0, celestial packs = 0; only money jokers, vouchers and cheap utility above $25",
+   "notes": "Same as Roffle's note that at White you bank the money instead of buying early scoring."
+  },
+  {
+   "id": "economy.short-of-boss-buy-scoring",
+   "topic": "economy",
+   "decision": "shop joker buy",
+   "statement": "Before the shop, compare the projected score with the next boss's requirement. If it falls short (4,000 projected against 5,600), spend this shop on scoring and accept dropping below $25. He counts a +50% scoring item as income too, because it saves a hand ($1). He regretted not rolling for scoring before The Flint.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     2,
+     8
+    ],
+    "build_state": "projected score < upcoming boss requirement"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4631.04,
+     "text": "but we should note that that 4,000 is less than this 5600 here so I am looking for some additional scoring in this shop",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4631s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4707.52,
+     "text": "an extra 50% that would take me over the top so if I get this that is the same as income right that's one less hand used",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4707s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6153.8,
+     "text": "this one's going to be tough because the shop did not present us with some scoring options we could have rolled we could have spent some money",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6153s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.buy-an-answer-before-the-boss",
+     "jokers.dont-greed-past-scoring"
+    ]
+   },
+   "knob": "if est_score(after this shop) < next_boss_req: drop money floor to 0 for scoring items and allow rerolls until a scoring item is found"
+  },
+  {
+   "id": "hands.fewest-hands-for-money",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Each unused hand pays $1 at cash-out, so pick the discard plan that wins in the fewest hands, ideally one: one big Hearts flush rather than two small hands. One-shotting is not required, but it pays more.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 313.4,
+     "text": "the end of the round you get money for however many unused hands you have and so if we use less hands we get more money",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=313s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 910.04,
+     "text": "let's go for the hearts flush just the one hand and then that way we'll get the most possible money",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=910s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3998.76,
+     "text": "not that you have to oneshot it you know you just get more value if you do",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3998s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "hands.throwaway-hands-to-scale"
+    ],
+    "note": "BU defaults to fewest hands for $1 each; Roffle spends spare hands on scaling. BU does the same with Obelisk, so a hand-count scaler is what decides it."
+   },
+   "knob": "hand planner objective: maximise P(win) first, then minimise hands used (+$1 each) unless a joker scales per hand played",
+   "notes": "Exception in the same video: with Obelisk he deliberately plays extra non-main hands to grow it (t~2826, t~9318)."
+  },
+  {
+   "id": "jokers.value-as-percent-change",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Compare scoring jokers by the % they add to your current main hand, not by face value. +Mult: added mult / current mult. +Chips: added chips / current chips (hand base + card chips). Example: +10 Mult on 24 Mult is about +40%, and +50 Chips on 75 chips is about +65%, so the chips joker wins. Don't make every joker +Mult; mix in chips.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4094.52,
+     "text": "so if this + 10 is giving me plus 40% and this plus 50 chips is giving me something like plus 65% then this 50 chips is better than plus 10 mold",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4094s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2473.52,
+     "text": "if you have all your Jokers give you Plus Mt then you are not scoring as much if you had you know potentially some amount of chips",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2473s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 860.44,
+     "text": "don't forget forget about what all the other Jokers are doing what is the change focus on that",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=860s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.value-in-context"
+    ]
+   },
+   "knob": "joker_score_value = ((C+dC)*(M+dM)*X) / (C*M) - 1 on the current main hand's chips C and mult M; rank shop/replace candidates by it",
+   "notes": "He estimates Blue Joker at about +50 chips on average (104 at 52 cards, minus about 25 cards drawn and discarded per round) and judged it worth $5 short-term."
+  },
+  {
+   "id": "jokers.xmult-over-plus-mult",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Once mult is about 30+, a +10 Mult joker adds under 30% while x1.5 adds 50%. An uncommon xMult joker is worth taking even if it means selling a strong +Mult joker (Lusty Joker at +20).",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     4,
+     8
+    ],
+    "build_state": "mult already ~30+ from +Mult jokers"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7714.159,
+     "text": "16 plus another 20 is this is 36 Mt after this one then an extra + 10 is less than 30% whereas this times 1.5 that's 50%",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7714s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7735.199,
+     "text": "if we get an uncommon Joker that gives you X Mt that's going to be huge it's going to be worth potentially getting rid of a Lusty Joker",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7735s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.need-multiplicative"
+    ]
+   },
+   "knob": "same percent-change valuation; xMult joker replaces the weakest +Mult joker when (X-1) > dM/M",
+   "notes": "He did not buy the uncommon Joker tag to fish for one; he said normal rerolls find uncommons."
+  },
+  {
+   "id": "jokers.money-joker-early",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "In ante 1 he buys a money joker that fits the deck (Mail-In Rebate on Red Deck, which has extra discards: 'slam dunk') while otherwise saving. He keeps money jokers while scoring is fine.",
+   "conditions": {
+    "deck": "Red",
+    "stake": "White",
+    "antes": [
+     1,
+     3
+    ],
+    "build_state": "scoring covered or close"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1253.72,
+     "text": "it gives us money for discarding and with the red deck we got the extra discards okay this is a slam dunk",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1253s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3067.2,
+     "text": "a value generating Joker money generating Joker investing in our future",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3067s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4856.679,
+     "text": "I think we're fine with the scoring so I'm going to keep as much uh value generating as I can",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4856s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.money-jokers-first"
+    ]
+   },
+   "knob": "antes 1-3: money-joker priority bonus (Mail-In Rebate x deck discards, Gift Card, Business Card...) even when it takes money below $25; when choosing what to sell, sell a scoring joker before a money joker while est_score >= next boss req"
+  },
+  {
+   "id": "jokers.drop-income-when-scoring-bottlenecks",
+   "topic": "jokers",
+   "decision": "joker sell",
+   "statement": "When scoring becomes the bottleneck (ante 4 here, the next boss not safely beaten), sell the income joker (Gift Card) to fit a scoring joker. By ante 7 a new money joker (Reserved Parking) is 'probably too late'.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     4,
+     8
+    ],
+    "build_state": "joker slots full, scoring short"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5577.719,
+     "text": "these Jokers are not necessarily the highest scoring and so that's kind of a bottleneck that we're running into and so maybe what we need to do is we need to give up on our income here give up on our gift card",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5577s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5618.719,
+     "text": "so here in anti four we're halfway through fine we'll give up on the gift card",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5618s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8291.96,
+     "text": "do I want reserved parking for money maybe it's too late for money",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8291s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "econ.late-money-engines"
+    ],
+    "note": "Roffle keeps valuing money after ante 8 in long runs; BU calls money jokers too late at ante 7 because his run ends at ante 8."
+   },
+   "knob": "money-joker value multiplier decays with rounds left: ~1.0 in antes 1-3, 0.5 by ante 4-5 when scoring is short, ~0 from ante 7 (implied scale)",
+   "notes": "The decay values are implied; he gave only the ante-4 sell and the ante-7 'too late'."
+  },
+  {
+   "id": "jokers.gift-card-over-mail-in",
+   "topic": "jokers",
+   "decision": "joker sell",
+   "statement": "Gift Card (+$1 sell value to every joker and consumable each round, about +$5 a round with five jokers) is more consistent than Mail-In Rebate, which pays only when the rank shows up and can be discarded. Held consumables also gain value.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     2,
+     4
+    ],
+    "build_state": "two money jokers competing for a slot"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3658.68,
+     "text": "of my Jokers that's plus $5 every round compared to this mail and rebate",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3658s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5110.8,
+     "text": "on average this gift card is better than the mail and rebate that we had before",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5110s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "money-joker EV table: Gift Card = $1 x (jokers + consumables held) per round; Mail-In Rebate = $5 x expected discarded cards of the rank per round"
+  },
+  {
+   "id": "skips_tags.skip-costs-reward-and-shop",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "A skip gives up the blind reward, the unused-hand dollars and that round's interest (about $10 in early antes), plus the shop's free first roll and its packs. Take a tag only if it is worth more than all of that. Verdicts: D6 almost never; Ethereal (a Spectral pack) not worth $10 early; Coupon is worth about $15-25, but he still played for the shop and packs. He played every Small and Big Blind in antes 1-7 at White.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     7
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1031.799,
+     "text": "we're skipping not only are we skipping the opportunity to shop we're also missing out on the reward money so the base reward money plus the hands plus you know whatever interest money",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1031s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1146.0,
+     "text": "in general the D6 tag for the uh discounted rerolls not going to be worth it most of the time",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1146s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8357.16,
+     "text": "I'd rather have access to the shop you know access to all kinds of uh you know you can roll for Jokers but you can't roll for booster packs",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8357s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ],
+    "note": "BU plays every blind at White too, which goes further than Roffle's Gold-only rule."
+   },
+   "knob": "skip only if tag_value > blind_reward + hands_left*$1 + interest + shop_value (shop_value >= ~$5-10); default: play every Small/Big Blind antes 1-7",
+   "notes": "He picked up the Double Tag point that it copies the best next tag, but still passed it in ante 1."
+  },
+  {
+   "id": "skips_tags.skip-puts-you-a-round-behind",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "A skip makes every later round come one round earlier relative to your build, which he calls 'an extra 50%' harder from then on. So a tag paying $15 after the boss (Big Blind, ante 2) is not worth it, even when this blind is easily beaten.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     7
+    ],
+    "build_state": "scoring covers the skipped blind"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2870.599,
+     "text": "all future rounds occur one round earlier which means means you know that the game gets harder for all of the time forever",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2870s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2892.68,
+     "text": "is that worth enough more that it is worth an extra 50% to my scoring cuz all future rounds are now going to be 50% harder earlier if I'm one round ahead",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2892s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "skip penalty = one lost shop + one round of build growth; require tag_value well above the round's cash (he refused $15 vs ~$10-12 cash)",
+   "notes": "Blind requirements don't change; his '50%' is the Big-to-Boss step (1.5x to 2x base), used as a heuristic for one round of build growth lost. The $15-after-boss tag is likely the Investment Tag (check the 1.0.1 value). Version 1.0.0j."
+  },
+  {
+   "id": "skips_tags.skip-big-faces-boss-req",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Skipping the Big Blind means the next round you play is the boss (2x base, against 1.5x for the Big Blind), so skip only when the build already beats the boss requirement. With D6, the money saved on rerolls is about what playing the blind pays anyway.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     7
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2195.119,
+     "text": "I also have to take on this higher score threshold right so instead of this 2800 points I said we can definitely onot that 4,200 points that one we definitely cannot onot",
+     "gloss": "one-shot",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2195s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2220.24,
+     "text": "whatever money that you would spend on rolls that's the same amount of money that I would get from just playing this blind anyway",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2220s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "precondition for skipping the Big Blind: est_best_hand_score * hands >= boss_req (boss = 2x ante base); for the Small Blind: >= big_req"
+  },
+  {
+   "id": "skips_tags.endgame-skip-to-final-boss",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "In ante 8, once the build clearly beats the final boss (about 100,000 needed, his hands score more), he skips both the Small and Big Blind (Juggle and Standard tags) and goes straight to the boss.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     8
+    ],
+    "build_state": "one hand clearly beats ante 8 boss"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 9159.359,
+     "text": "what you can do is you can actually skip both of these and we would also get here a standard pack",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=9159s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 9168.92,
+     "text": "I'm going to say this run is probably done we're probably good uh we can probably beat this final boss this 100,000 is completely doable",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=9168s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "ante 8: if est_best_hand_score >= boss_req * margin (e.g. 1.5), skip Small and Big",
+   "notes": "Done to save time. Neutral for average ante, and a risk if the boss counters the build."
+  },
+  {
+   "id": "vouchers.buy-keeping-interest-before-boss",
+   "topic": "vouchers",
+   "decision": "voucher",
+   "statement": "He buys run-long vouchers (Overstock '100% worth it', even though dropping to $23 costs $1 of interest). If buying now breaks the $25 floor, he waits for the next shop in the same ante. But the voucher is lost after the boss, or if you skip the Big Blind, so the shop before the boss is the last chance.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "voucher affordable"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3836.72,
+     "text": "the only problem is if I spend this $10 I lose my interest so I'm not going to take this now but I'll take it uh in the next shop",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3836s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4913.12,
+     "text": "the voucher is 100% worth it I lose a dollar here so the voucher is worth or cost me $11 instead of costing me $10",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4913s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4434.28,
+     "text": "notably here if you skip this blind that voucher will not show up again will go to the boss and then after the boss you'll get a whole new ra new ante with a new set of vouchers",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4434s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "shop.vouchers-early"
+    ]
+   },
+   "knob": "voucher buy: if money-10 >= 25 buy now; else defer, but buy in the last shop before the boss even if it breaks the floor by a few dollars",
+   "notes": "When Overstock is bought it fills the new slot at once, which he calls a free reroll."
+  },
+  {
+   "id": "vouchers.hieroglyph-when-needed",
+   "topic": "vouchers",
+   "decision": "voucher",
+   "statement": "Hieroglyph (-1 ante, -1 hand a round) costs about $1 x rounds left (about $36 from ante 3), and he judges it 'probably' worth it. Take it only when the next threshold is no longer beaten, so the lost hand starts as late as possible.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     2,
+     4
+    ],
+    "build_state": "hands to spare (one-shotting)"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2104.96,
+     "text": "so is this extra ante worth $1 times however many rounds that are left",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2104s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2116.079,
+     "text": "is this extra anti worth $36 probably probably it's worth it but I'm not going to take it now",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2116s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2768.8,
+     "text": "so now maybe I don't know if I can beat this 4200 so maybe I'll take this now",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2768s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "buy Hieroglyph when est_score < next blind req and hands_per_round >= 4 (one-shotting); value = extra ante of shops vs $1 x rounds_left",
+   "notes": "Later (t~5507) he lists Hieroglyph among the risks that left him short of hands. Effect unchanged in 1.0.1."
+  },
+  {
+   "id": "vouchers.directors-cut-yes-magic-trick-no",
+   "topic": "vouchers",
+   "decision": "voucher",
+   "statement": "Take Director's Cut (boss reroll) on sight, without needing to see the next boss. Magic Trick (plain playing cards in shop slots) is normally not worth it: those cards take shop slots from jokers and are never enhanced.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7113.88,
+     "text": "without even looking at what the boss is I am going to take the voucher",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7113s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8198.8,
+     "text": "this is not something that I want you know to replace jokers in the slot in the shop with playing cards instead",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8198s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8214.24,
+     "text": "it is not optimal this is not something that you normally want to be taking",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8214s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "shop.vouchers-early",
+     "bosses.reroll-needle-and-flint"
+    ]
+   },
+   "knob": "voucher priority table: Director's Cut high, Overstock high, Magic Trick ~0",
+   "notes": "He bought Magic Trick only for the collection unlock."
+  },
+  {
+   "id": "bosses.reroll-when-boss-hits-the-plan",
+   "topic": "bosses",
+   "decision": "boss reroll",
+   "statement": "Use the boss reroll when the boss attacks what the build relies on (The Water, no discards, for a deck that must discard to find its hand and can't afford a fallback hand). Leave a boss alone when you one-shot it anyway (The Hook, beaten in one hand with Red Deck's discards).",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     4,
+     8
+    ],
+    "build_state": "Director's Cut owned"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7991.48,
+     "text": "can we beat this boss with no discards meaning I'm using my hand hands in place of my discards",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7991s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8024.0,
+     "text": "so what I'm going to do is I'll use the roll there are are worse things that we can get but I think we can get something better than this",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8024s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3468.4,
+     "text": "we should be able to just beat this boss this 1,600 in one shot so I don't actually have to to interact with this ability",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3468s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.reroll-needle-and-flint"
+    ]
+   },
+   "knob": "reroll boss if P(beat boss) under its effect < threshold (The Water for discard-dependent builds, debuff of main suit)"
+  },
+  {
+   "id": "deck_fixing.avoid-face-cards",
+   "topic": "deck_fixing",
+   "decision": "deck fixing",
+   "statement": "Several bosses punish face cards, so in many runs he gets rid of them (Strength turns Kings into Aces) and avoids converting face cards to the build suit with Sun-type tarots. With suit tarots, prefer higher-ranked non-face cards.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "build not face-card based"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2739.76,
+     "text": "bosses that uh you know mess with your face cards and so what I like to do in a lot of runs is get rid of face cards and so turn those kings into aces",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2739s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 2531.359,
+     "text": "there are some bosses that care about face cards and so I don't want to accidentally make my face cards in the hearts",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=2531s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.plant-insurance"
+    ]
+   },
+   "knob": "Strength target priority: King->Ace first; suit-converting tarots skip face cards unless the build needs faces"
+  },
+  {
+   "id": "packs.open-info-packs-first",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "Open Buffoon and Standard packs before Arcana packs: the jokers or cards you get tell you which tarot to pick. Buy shop tarots or planets before opening a pack, so you can use them after seeing it.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "several packs affordable"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1686.279,
+     "text": "so I'm going to pick up the buffoon pack first because the buffoon pack you know whatever Jokers I get will give me information about how I should be building",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1686s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3177.96,
+     "text": "the standard pack you know whatever cards I get that will give me information about what type of tarot I want",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3177s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7599.0,
+     "text": "before I open the Arana pack I am going to pick up this strength card cuz I might want to use it after opening the Arcana pack",
+     "gloss": "Arcana",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7599s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "shop.open-packs-before-deciding"
+    ]
+   },
+   "knob": "pack open order within a shop: Buffoon > Standard > Celestial > Arcana/Spectral; buy single consumables in shop before opening packs"
+  },
+  {
+   "id": "packs.hold-to-block-duplicates",
+   "topic": "packs",
+   "decision": "pack pick",
+   "statement": "The game doesn't repeat jokers or consumables you hold, in the shop or in packs. Before rerolling or opening a Celestial or Arcana pack, holding (or buying) the unwanted planet or tarot raises the odds of the one you want.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "consumable slot free"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5124.0,
+     "text": "the game prevents you from getting repeats so if I have a joker here it's not going to show up in the shop if I open up a Celestial pack it's going to be all different planets",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5124s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7582.36,
+     "text": "this Celestial pack there's going to be no duplicates so it improves my chances of getting the one that I want",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7582s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "when opening a Celestial pack for planet P, keep non-P planets held in consumable slots (don't use them first)",
+   "notes": "Marginal; he calls the effect 'very small'. Showman changes this."
+  },
+  {
+   "id": "packs.spectral-pack-worth-5",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "A Spectral pack ($4) is generally worth it even if it costs $1 of interest ($5 total). Skipping a blind for one (Ethereal Tag, about $10 of round money) is not, unless you want a specific Spectral.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     3
+    ],
+    "build_state": "no specific Spectral target"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1314.76,
+     "text": "the question is is this spectral pack worth5 $5 I think generally yes so we're going to go ahead and open it even though we don't max out our interest",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1314s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1045.36,
+     "text": "so the question is you know is this spectral pack worth $10 and I think for now maybe not",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1045s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "Spectral pack shop value ~= $5 (buy even if it drops money from 25 to 21); Ethereal Tag value < $10 early",
+   "notes": "Later in ante 3 he passed a Spectral pack, so this is not a fixed rule."
+  },
+  {
+   "id": "packs.standard-pack-plain-cards",
+   "topic": "packs",
+   "decision": "pack pick",
+   "statement": "From Standard packs, usually skip plain unenhanced cards: they dilute the deck, so you see your key cards less often and Hiker-type upgrades spread out. Take enhanced cards or a specific rank and suit the build needs. Stop buying Standard packs once you want to thin the deck.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3263.48,
+     "text": "but in most cases with it just being a plain six having no upgrades at all you know it's not one of these glass cards uh I think you don't take it",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3263s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3235.96,
+     "text": "if I add more cards to my deck then I see the same cards less often the more sixes I have the less Aces I'll draw",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3235s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4653.44,
+     "text": "I'm not going to take the standard pack anymore I'm no longer interested in adding too many cards to the deck now I want to start removing cards",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4653s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "fix.thin-hard-but-not-too-far"
+    ]
+   },
+   "knob": "standard pack pick: skip if no card is enhanced/sealed/editioned or exactly a needed rank+suit; Standard pack value -> 0 once thinning has started"
+  },
+  {
+   "id": "consumables.hermit-vs-hanged-man",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Early on a 52-card deck with no other income, The Hermit (money, up to $20) beats The Hanged Man. Prefer Hanged Man card removal once you have other money sources or a smaller deck (2 cards out of 30 matters far more than 2 out of 52). Hanged Man and Death are the tarots he wants most. Temperance for $18 is 'a great deal'.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1897.44,
+     "text": "if we had some other kind of money generators we would prefer uh the card selection instead",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1897s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1904.279,
+     "text": "if your deck is smaller then removing two cards from a 30 card deck is way more impact than REM removing two cards from a 52 card deck",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1904s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4325.84,
+     "text": "but of all of the tarot cards that I want hangman and death are probably the ones that I want the most",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4325s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "consumables.hermit-at-20",
+     "fix.trading-card-thins"
+    ]
+   },
+   "knob": "Arcana pick table: Hermit/Temperance value = $ gained; Hanged Man value grows with 52/deck_size and with existing income; Death and Hanged Man top for deck fixing",
+   "notes": "In ante 3 he took Hanged Man over Temperance and Devil because his money was fine (t~4286)."
+  },
+  {
+   "id": "consumables.seals-and-enhance-on-held-cards",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Put Blue Seals and Gold on cards you keep in hand and never discard (key cards of your target hand, or spare copies of them). Steel belongs on held cards and Polychrome or Glass on played cards. Stack enhancements on one card so Death copies carry more.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6040.119,
+     "text": "you want to put this on a card that's held in your hand you want to put this on a card that you don't play",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6040s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6598.08,
+     "text": "put the blue seal on the queen put the uh gold on the 10 because in going for my straight flush these are the cards that I want to hold on to",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6598s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8140.48,
+     "text": "polych Chrome you want to play steel you want to hold in hand so there is some tension there",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8140s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "target selection for Trance/Devil/Chariot: a card of the build's key rank that is kept (not discarded) while chasing; for Glass/Polychrome: a card that is played"
+  },
+  {
+   "id": "consumables.minus-hand-size-crippling",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Don't use Ouija or Ectoplasm (-1 hand size): fewer cards per draw means you see much less (3 x 5 discards against 4 x 5). An extra joker slot only matters when your jokers aren't replaceable commons. Conversely, +1 hand size works like an extra discard.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "jokers are replaceable commons"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5853.159,
+     "text": "the minus one hand size is crippling so something to note about this",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5853s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5944.679,
+     "text": "if I had more powerful Jokers if I had Joker slots that I actually cared about using then I would care about this but any of these Jokers are disposable",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5944s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7180.76,
+     "text": "so extra hand size makes your discards more powerful um you know making it more consistent to draw your good hand",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7180s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "never use Ouija/Ectoplasm unless the joker row holds a non-replaceable rare/xMult; value +hand size ~ +1 discard"
+  },
+  {
+   "id": "consumables.ankh-hex-sell-to-choose",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Ankh and Hex pick a random joker and destroy the rest, but selling the others first lets you choose the target. Do it only if the run still scores without the destroyed jokers, or a replacement can be bought in the same shop.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "a build-around joker worth copying or Polychroming"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1362.159,
+     "text": "instead of these destroying you can actually you can just sell these and then choose which one you want to copy",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1362s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1388.559,
+     "text": "right now this Lusty Joker is the difference between scoring 300 points or scoring the 1,600 points to one shot the boss",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1388s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1409.36,
+     "text": "if there were another good enough Joker in the shop then I would be able to do this and then buy The Joker after",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1409s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "consumables.ankh-the-key-joker"
+    ]
+   },
+   "knob": "Ankh/Hex: sell all but target first; allow only if est_score_without_others >= next blind req or a scoring joker is buyable after"
+  },
+  {
+   "id": "reroll.spread-across-shops",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "The reroll price rises with each reroll in the same shop, so he spreads rerolls out (one or two per shop) instead of many in one shop.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     3,
+     8
+    ],
+    "build_state": "money above $25"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6529.96,
+     "text": "every every time you reroll it costs more and more money so it is better to spread out your rolls as much as possible rather than rrolling a bunch in one shop",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6529s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7231.76,
+     "text": "same kind of idea of spreading out our rerolling money I'm going to save my money for the next shop",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7231s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "max_rerolls_per_shop = 1-2 when not desperate; carry the surplus to the next shop",
+   "notes": "The cap of 1-2 comes from what he did (one roll, then two rolls); he gave no number. Roffle's surplus-only rerolling is in the next claim."
+  },
+  {
+   "id": "reroll.only-with-need-and-surplus",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "Don't reroll when nothing is needed, when slots are full with nothing worth replacing, or when a roll would take you below $25. With interest as the only income, save money for future rolls instead of buying marginal packs.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "scoring adequate"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3376.119,
+     "text": "question do we want to roll here if I roll it's going to take me down to $28 if I buy buy something then it'll take me below $25",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3376s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3396.48,
+     "text": "and I want to take something I have to sell something I have to replace something so there isn't anything that I necessarily need to have now",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3396s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6124.0,
+     "text": "I am only getting money from my interest and so if I buy this I might not have enough money for rolls in the future I'm just going to save my money",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6124s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "reroll only if money - reroll_cost >= 25 and (a joker slot is open or the weakest joker's value < expected find value); else 0 rerolls"
+  },
+  {
+   "id": "economy.credit-card-go-negative",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "With Credit Card, going into debt early to buy income or scoring jokers can be worth more than the interest lost, because more scoring means fewer hands used and more money.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     2
+    ],
+    "build_state": "Credit Card owned"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1759.76,
+     "text": "it's also not the worst thing to go negative because like I said if you have more scoring and you're using less hands and you're buying more value generating Jokers",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1759s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.credit-card-debt"
+    ]
+   },
+   "knob": "with Credit Card in antes 1-2: allow money down to -20 for money jokers or scoring jokers",
+   "notes": "He took Gros Michel instead, so it was stated but not acted on."
+  },
+  {
+   "id": "jokers.consistency-over-extra-score",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "When already scoring far above the requirements (he scored 50,000), prefer consistency (+hand size from Juggler, +discard from Drunkard) over about +30% score. A missed hand costs more than the extra score gains, for example an Obelisk reset.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     5,
+     8
+    ],
+    "build_state": "score >> next requirements"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7215.239,
+     "text": "it is better to be more consistent we just scored 50,000 points I don't need this extra 30% what I need is the consistency",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7215s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6561.88,
+     "text": "I think the extra discard has been helping us make our hands",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6561s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "if est_score >= 2x next boss req: value hand-size/discard jokers above +Mult/+Chips jokers giving < ~30%"
+  },
+  {
+   "id": "jokers.scalers-need-rounds",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Value scaling jokers by the rounds left. Hiker and Castle are strong early but weak bought late (Castle at ante 6), unless the deck is nearly all one suit. Supernova grows only with hands played (about 20 hands in a run), so don't take it early; it can be fine late if you've played one hand a lot. Hiker-type jokers can be sold once something stronger turns up.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7477.96,
+     "text": "this can stack up very high very fast early on if you get it um but since it's kind of late now it's ant6 probably not going to get up that fast",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7477s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8683.76,
+     "text": "you're limited in how many poker hands you can actually play so maybe this doesn't get as big as you might think it does",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8683s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 3127.04,
+     "text": "but it does add up over time if you get it early enough and you can always sell it later",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=3127s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.square-over-early-constellation"
+    ]
+   },
+   "knob": "scaling joker value = per-round gain x rounds_left (rounds_left = 3*(8-ante)+remaining); Supernova value = times main hand already played"
+  },
+  {
+   "id": "jokers.decaying-sell-before-death",
+   "topic": "jokers",
+   "decision": "joker sell",
+   "statement": "Decaying jokers (Popcorn) give a lot of Mult up front and weaken each round. Sell before it dies, or let it die only if you need the score. Losing Gros Michel is fine, since it opens Cavendish.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4013.52,
+     "text": "you can sell it before it dies or you can let it die on you if you're really desperate and you need the score",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4013s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.decaying-only-when-needed"
+    ]
+   },
+   "knob": "decaying jokers: sell when remaining value < its sell value or when a better joker needs the slot"
+  },
+  {
+   "id": "jokers.stay-flexible-early",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Early on, don't lock into one build. A suit +Mult joker can be sold and replaced, so he still bought a Mars (Four of a Kind) and set up cards for a later hand. With Obelisk, play one hand type early and switch later.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     3
+    ],
+    "build_state": "no levelled main hand yet"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1971.2,
+     "text": "you don't want to pigeon hole yourself too narrowly into one build uh at least at the beginning you want to keep your options open",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1971s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1990.559,
+     "text": "the only thing that's uh pulling me towards flushes is this Lusty Joker which I can always sell and replace with something else",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1990s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "pivots.follow-the-resources"
+    ]
+   },
+   "knob": "antes 1-3: don't heavily down-weight jokers or planets that don't fit the current hand; commitment weight grows with levels on the main hand"
+  },
+  {
+   "id": "hands.flush-easiest-with-discards",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "In ante 1 with no scoring jokers, one hand reaches the 300-chip Small Blind only as a high Straight (8+), a Flush with card chips >= 40, or a Full House with cards averaging about 7. Otherwise plan on 2 hands. With Red Deck's 4 discards, Flush is the easiest and safest hand to force.",
+   "conditions": {
+    "deck": "Red",
+    "stake": "White",
+    "antes": [
+     1,
+     2
+    ],
+    "build_state": "no scoring jokers"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 587.12,
+     "text": "the easier safer hands to make uh are going to be flushes",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=587s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 627.64,
+     "text": "I think you know flushes are relatively easy especially on you know with the power the extra discard of the red deck",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=627s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 567.44,
+     "text": "so here this obisk is not going to give me any scoring so I need two hands to win and knowing that I need two hands to win I have a lot of options",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=567s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "deck.checkered-flushes-early-pairs-later"
+    ]
+   },
+   "knob": "ante 1 hand planner: with >= 4 discards prefer Flush draws; accept a 2-hand win when no single hand can reach 300",
+   "notes": "Draw maths: keeping 3 suited cards and drawing 2 of 10 outs is easier than 1 of 4 outs for a Full House."
+  },
+  {
+   "id": "hands.draw-by-outs-in-deck",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Choose what to draw for by outs left in the deck and the number of cards you get to draw, not by cards in hand: a clubs flush needing 2 of 8 with 5 draws beat a spade flush needing 1 of 4. Two outs beat one out. When chasing any pair, keep the highest single card (same odds, bigger pair).",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 756.639,
+     "text": "I think we have a better chance going for the club flush though it is close even though we have less clubs in hand right now we have more clubs in the deck",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=756s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 406.52,
+     "text": "probability is the same whether I throw this king or whether I keep this King except the difference is I know this king is bigger than a six",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=406s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4563.44,
+     "text": "four cards for one out nine of Hearts three cards for two outs nine of hearts or five of Hearts I think the two outs is going to be better",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4563s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "discard chooser: maximise P(target hand) computed from remaining deck composition and the number of cards drawn; tie-break by keeping higher ranks"
+  },
+  {
+   "id": "hands.chase-only-when-miss-is-cheap",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Chase a bigger hand (Straight Flush) only when missing costs about $1 (one extra hand) and a fallback still wins. When a miss could fail the round (The Flint halving chips, or score barely enough), play the sure hand.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "a winning hand already in hand"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 4539.92,
+     "text": "I am going to risk it and the risk here is if I miss if I don't draw my flush then we just play a hand and we lose a dollar so it's worth it",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=4539s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6239.719,
+     "text": "a straight flush is not going to do it right because it was barely 12,000 before and now we've got the debuff from the Flint boss so if I do this and I risk it I might not get there",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6239s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5401.32,
+     "text": "I am doubtful we'll get it so I'm going to go ahead and burn the flush",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5401s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "play-vs-discard: if a hand in hand wins the blind, discard toward a better hand only if P(still win after miss) ~ 1 and hands_left >= 2",
+   "notes": "He admits this run was greedy several times and was nearly punished (t~5385-5466)."
+  },
+  {
+   "id": "hands.discard-deeper-with-discard-jokers",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "With Mail-In Rebate and spare discards, discard extra cards (even an on-suit card) to see more of the deck, as long as about 3 discards remain to finish the hand. With spare hands, playing 4 junk cards to dig for the paying rank is a gamble he would usually take.",
+   "conditions": {
+    "deck": "Red",
+    "stake": "White",
+    "antes": [
+     1,
+     3
+    ],
+    "build_state": "discard-payoff joker, scoring covered"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1486.84,
+     "text": "in order to get more value from my mail and rebate I want to discard more cards I want to see more cards and so I'm going to discard this four of Hearts",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1486s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1544.36,
+     "text": "I think with three discards we can find two more hearts out of these possible eight",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1544s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 1596.24,
+     "text": "and I would do that most of the time in most situations I would gamble on that to try to get the extra value from my mail and rebate",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=1596s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "with Mail-In Rebate: discard max cards per discard while P(complete hand with remaining discards) stays high"
+  },
+  {
+   "id": "planets.main-hand-plus-backup",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "Take your main hand's planet every time (Jupiter for Flush). With spare money, also level a backup hand (his Neptune and Mars hedges both paid off later). Stop leveling a hand once you have moved off it.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6418.36,
+     "text": "telescope will give us the flush Planet card uh what is it uh Jupiter Jupiter every time I open a Celestial pack",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6418s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8604.56,
+     "text": "I said we were hedging when we picked up those Neptune cards and it paid off that investment same thing with this Mars here",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8604s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7098.0,
+     "text": "I think we have the extra money we can for to have a backup hand",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7098s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "hands.spam-one-cheap-hand"
+    ]
+   },
+   "knob": "planet value = 1.0 for main hand, ~0.4 for a second/backup hand when money > 25, ~0 for abandoned hands",
+   "notes": "He bought Telescope; the backup value numbers are implied."
+  },
+  {
+   "id": "planets.dont-dilute-with-secret-hands",
+   "topic": "planets",
+   "decision": "Planet",
+   "statement": "Each new hand type you play adds its planet to the pool and makes the main hand's planet rarer. If you are already on Flush House, stay on it rather than also playing Flush Five, or go straight to Flush Five without ever playing Flush House.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     4,
+     8
+    ],
+    "build_state": "secret-hand build"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7373.56,
+     "text": "all of the different planet cards they occur less frequently if there's more of them",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7373s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 7384.4,
+     "text": "there is some consideration for if you've already done flush houses stay on flush houses don't go flush fives",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=7384s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "hand planner: penalise first-time plays of a secret hand (Five of a Kind, Flush House, Flush Five) when the main hand is a different secret hand",
+   "notes": "He broke this rule himself for Obelisk variety."
+  },
+  {
+   "id": "ordering.xmult-rightmost",
+   "topic": "ordering",
+   "decision": "joker order",
+   "statement": "Put xMult sources (Obelisk, Polychrome) to the right, so they multiply after the +Mult jokers.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "has xMult joker"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 9255.0,
+     "text": "whatever my mol is whatever my obisk is I want to get the obisk on the right side",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=9255s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 6945.719,
+     "text": "notably here with the polychrome effect that happens after the Joker effect so this will be+ 10 and then times 1.5",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=6945s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "joker order: +Chips, +Mult left; xMult right"
+  },
+  {
+   "id": "decks.red-deck-use-discards",
+   "topic": "decks",
+   "decision": "deck choice",
+   "statement": "Red Deck (+1 discard): use the extra discard to force hands that need sculpting (Flush, Full House) and to fuel discard-payoff jokers (Mail-In Rebate). Burglar (discards become hands) is worse on Red, since it gives up four discards.",
+   "conditions": {
+    "deck": "Red",
+    "stake": "White",
+    "antes": [
+     1,
+     8
+    ],
+    "build_state": "any"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 96.24,
+     "text": "if I have extra discards it is easier for me to sculpt my hands it is easier for me to find better hands",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=96s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 346.72,
+     "text": "with four discards it will be easier than on some other decks to get the Full House",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=346s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 9002.2,
+     "text": "deck here we have four discards instead of a baseline three discards and so we're giving up more um I think I'm I don't think it's optimal to take the burglar",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=9002s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "deck-specific weights on Red: discard-payoff jokers x1.2, Burglar x0.5; hand planner uses 4 discards",
+   "notes": "He took Burglar anyway, for the collection unlock."
+  },
+  {
+   "id": "consumables.save-glass-for-boss",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Late in the run, keep a Glass card for the boss as emergency scoring (breakage matters little with two bosses left). Hold a Devil and use it just before the last hand, so the Gold card's payout comes that round.",
+   "conditions": {
+    "deck": "any",
+    "stake": "White",
+    "antes": [
+     7,
+     8
+    ],
+    "build_state": "scoring roughly adequate"
+   },
+   "quotes": [
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 8328.96,
+     "text": "we're in anti s now so we've got the two bosses left anti s boss anti eight boss and so I don't needed to survive for very long necessarily this glass card",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=8328s"
+    },
+    {
+     "video": "q4PPUfrs8jI",
+     "t_seconds": 5835.639,
+     "text": "I can just use this when I get to the end of the round and I'm about to play my last hand I can play this and get the money right away",
+     "url": "https://www.youtube.com/watch?v=q4PPUfrs8jI&t=5835s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "ante >= 7: Glass enhancement value up (break risk discounted by rounds left); Devil: apply to a held card before the final hand"
+  }
+ ],
+ "tables": {
+  "tag_verdicts_white_red": {
+   "Double": "as good as the best next tag (copies it); still passed in ante 1 Small Blind (t~145)",
+   "D6": "almost never worth a skip: early you have no money to roll, later the money spent on rolls equals what playing the blind pays (t~1139, t~2201)",
+   "Ethereal": "not worth ~$10 of round money in ante 1-2 without a specific Spectral target (t~1031)",
+   "Investment-like ($15 after boss)": "not worth it at ante 2 Big Blind: the skip puts every later round 'one round earlier' (t~2806-2908)",
+   "Coupon": "worth about $15-25, but he played instead to get the shop and Arcana packs (t~5636, t~6567)",
+   "Speed-like ($5)": "'we'll definitely get more than five bucks if we play' (t~5233)",
+   "Polychrome/Uncommon joker tag": "random joker, usually common; not taken (t~7245)",
+   "Juggle + Standard": "skipped both in ante 8 because the final boss was clearly beaten (t~9128-9169)"
+  },
+  "valuation_examples": {
+   "ante1_small_blind_one_hand": "300 chips: high Straight (8+), Flush with card chips >= 40 (75x4), Full House with cards averaging ~7 (t~208-249)",
+   "blind_ratios": "Small 1x, Big 1.5x, Boss 2x of the ante base (t~2012-2032)",
+   "Lusty Joker on Hearts Flush": "+20 Mult on base 4 = 6x, about 1,600-1,800 (t~865-886)",
+   "Gros Michel +15 on 24 Mult": "about +50%, about 2,700-3,000 (t~1804-1825)",
+   "Blue Joker": "about +50 chips on average (104 at 52 cards); +50 on 75 chips = +65% (t~2410-2431, t~4080-4100)",
+   "+10 Mult on 24 Mult": "about +40% (t~4080)",
+   "+10 Mult on 36 Mult": "under 30%; x1.5 = +50% (t~7702)",
+   "Steel + Polychrome card together": "about x2 (t~8146)",
+   "Supernova": "+Mult = times played; about 20 hands per run, so about +20 at best (t~8654)",
+   "Gift Card": "+$1 per joker/consumable per round, about $5/round with five jokers (t~3658)",
+   "Hieroglyph": "cost about $1 x rounds left, about $36 from ante 3 (t~2095-2115)",
+   "Overstock": "$10 plus $1 lost interest = $11, '100% worth it' (t~4897)",
+   "Spectral pack": "$4 plus $1 lost interest = $5, 'generally yes' (t~1303)",
+   "Temperance": "$18 'a great deal'; $28 later with Gift Card-inflated sell values (t~4202, t~6760)"
+  },
+  "white_vs_higher_stakes": "He says nothing in this video about White versus higher stakes. Everything here is White stake, Red Deck, version 1.0.0j."
+ }
+}

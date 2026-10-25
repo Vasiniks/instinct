@@ -13,6 +13,7 @@ import { extname, join, normalize, resolve } from "node:path";
 import { blindDeck } from "./blinddeck.ts";
 import { loadConfig } from "./config.ts";
 import { Agent, type AgentEvent } from "./loop.ts";
+import { enableParallel } from "./parallel.ts";
 import type { ReviewMode } from "./policy.ts";
 import { listRuns, loadRun } from "./runs.ts";
 import { simGame } from "./sim.ts";
@@ -20,10 +21,13 @@ import { type Engine, httpEngine, mockEngine } from "./systemone.ts";
 import type { GameState } from "./types.ts";
 
 const cfg = loadConfig();
+// The round simulations on worker threads: same numbers, a few times faster.
+enableParallel();
 const uiDir = resolve(import.meta.dirname, "..", "ui");
 const game = cfg.sim ? simGame() : blindDeck(cfg.balatroUrl);
+// The mock model answers at once: it is code, and waiting out a made-up network delay only slows play.
 const engines: Record<string, Engine> = cfg.mockModel
-  ? { mock: mockEngine() }
+  ? { mock: mockEngine(7, false) }
   : { cloud: httpEngine(cfg.backends.cloud), local: httpEngine(cfg.backends.local) };
 const agent = new Agent(game, engines, cfg);
 agent.startScreenLoop();
@@ -94,6 +98,7 @@ async function control(body: Record<string, unknown>) {
         tickDelayMs: typeof body.tickDelayMs === "number" ? body.tickDelayMs : undefined,
         screenshots: typeof body.screenshots === "boolean" ? body.screenshots : undefined,
         backend: body.backend === "cloud" || body.backend === "local" ? body.backend : undefined,
+        preset: body.preset === "basic" || body.preset === "standard" || body.preset === "advanced" ? body.preset : undefined,
       });
       break;
     case "override":

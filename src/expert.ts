@@ -81,3 +81,95 @@ export function expertSellNote(priors: ExpertPriors | undefined, key: string): s
   if (!j || j.acquired < 2) return undefined;
   return `in recorded expert runs he sold it ${j.sold} of ${j.acquired} times he had it`;
 }
+
+/**
+ * Balatro University's tier lists (data/bu/tiers.json, built by tools/bu from his tier-list
+ * videos): a 0-1 prior per joker, read from his verdicts within each rarity. `tierDelta` is the
+ * joker's prior less the mean of its rarity, so it ranks within what the shop can offer together;
+ * TUNING.buWeight sets how much it moves a joker's value (0 until measured).
+ */
+interface TierRow {
+  key: string;
+  rarity?: string;
+  prior?: number | null;
+}
+
+const TIERS_PATH = resolve(import.meta.dirname, "..", "data", "bu", "tiers.json");
+let tierDeltas: Map<string, number> | undefined;
+
+export function tierDelta(key: string): number {
+  if (!tierDeltas) {
+    tierDeltas = new Map();
+    try {
+      const rows = (JSON.parse(readFileSync(TIERS_PATH, "utf8")) as { jokers?: TierRow[] }).jokers ?? [];
+      const byRarity = new Map<string, number[]>();
+      for (const r of rows) if (typeof r.prior === "number") byRarity.set(r.rarity ?? "", [...(byRarity.get(r.rarity ?? "") ?? []), r.prior]);
+      const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+      for (const r of rows) if (typeof r.prior === "number") tierDeltas.set(r.key, r.prior - mean(byRarity.get(r.rarity ?? "")!));
+    } catch {
+      // No tier data: every joker reads 0.
+    }
+  }
+  return tierDeltas.get(key) ?? 0;
+}
+
+/**
+ * Roffle's voucher buys (data/roffle/policy.json, his Gold runs): the share of shop visits with a
+ * voucher on the shelf where he bought it, smoothed toward his overall rate, less that rate.
+ * TUNING.voucherExpertWeight sets how much it moves a voucher's value (0 until measured).
+ */
+const POLICY_PATH = resolve(import.meta.dirname, "..", "data", "roffle", "policy.json");
+const CONSUMABLES_PATH = resolve(import.meta.dirname, "..", "data", "roffle", "catalog", "consumables.json");
+let voucherDeltas: Map<string, number> | undefined;
+
+export function voucherDelta(key: string): number {
+  if (!voucherDeltas) {
+    voucherDeltas = new Map();
+    try {
+      const names = JSON.parse(readFileSync(CONSUMABLES_PATH, "utf8")) as Record<string, { name: string }>;
+      const keyOf = new Map(Object.entries(names).map(([k, v]) => [v.name, k]));
+      const v = (JSON.parse(readFileSync(POLICY_PATH, "utf8")) as { GOLD?: { vouchers?: { shelf?: { offered: number; bought: number }; byVoucher?: Record<string, { bought: number; shelfVisits: number }> } } }).GOLD?.vouchers;
+      const base = v?.shelf ? v.shelf.bought / Math.max(1, v.shelf.offered) : 0.16;
+      for (const [name, r] of Object.entries(v?.byVoucher ?? {})) {
+        const k = keyOf.get(name);
+        if (k) voucherDeltas.set(k, (r.bought + SMOOTHING * base) / (r.shelfVisits + SMOOTHING) - base);
+      }
+    } catch {
+      // No policy data: every voucher reads 0.
+    }
+  }
+  return voucherDeltas.get(key) ?? 0;
+}
+
+/** Balatro University's tier priors for skip tags and consumables, less the mean of their list. */
+let tagDeltas: Map<string, number> | undefined;
+let consumableDeltas: Map<string, number> | undefined;
+
+function loadListDeltas(): void {
+  tagDeltas = new Map();
+  consumableDeltas = new Map();
+  try {
+    const t = JSON.parse(readFileSync(TIERS_PATH, "utf8")) as { tags?: (TierRow & { list?: string })[]; consumables?: TierRow[] };
+    // The tag list was redone for patch 1.0.1; where a tag is in both, the update counts.
+    const tags = new Map<string, number>();
+    for (const r of t.tags ?? []) if (typeof r.prior === "number" && (r.list !== "original" || !tags.has(r.key))) tags.set(r.key, r.prior);
+    const fill = (into: Map<string, number>, rows: [string, number][]) => {
+      const mean = rows.reduce((a, [, p]) => a + p, 0) / Math.max(1, rows.length);
+      for (const [k, p] of rows) into.set(k, p - mean);
+    };
+    fill(tagDeltas, [...tags]);
+    fill(consumableDeltas, (t.consumables ?? []).filter((r) => typeof r.prior === "number").map((r) => [r.key, r.prior as number]));
+  } catch {
+    // No tier data.
+  }
+}
+
+export function buTagDelta(key: string): number {
+  if (!tagDeltas) loadListDeltas();
+  return tagDeltas!.get(key) ?? 0;
+}
+
+export function buConsumableDelta(key: string): number {
+  if (!consumableDeltas) loadListDeltas();
+  return consumableDeltas!.get(key) ?? 0;
+}

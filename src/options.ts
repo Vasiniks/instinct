@@ -6,7 +6,7 @@
 import { RANKS, SUITS, SUIT_NAME, cardWorth, pAtLeast, rankValue, type PCard } from "./cards.ts";
 import type { Snapshot } from "./extract.ts";
 import { FEATURES } from "./features.ts";
-import { estimateScore, evaluateHand, suitsOf, type Estimate, type HandName, type ScoreContext } from "./poker.ts";
+import { countsDeck, deckCounts, estimateScore, evaluateHand, suitsOf, type Estimate, type Evaluation, type HandName, type ScoreContext } from "./poker.ts";
 
 export interface PlayOption {
   cards: PCard[];
@@ -39,20 +39,34 @@ export function scoreContext(s: Snapshot, played: PCard[]): ScoreContext {
     handsLeft: s.handsLeft,
     discardsLeft: s.discardsLeft,
     balanced: s.deck === "PLASMA",
+    deck: countsDeck(s.jokers) ? deckCounts([...s.deckLeft, ...s.hand], s.deckLeft.length, s.startDeckSize ?? (s.deck === "ABANDONED" ? 40 : 52), s.deckSize) : undefined,
+    money: s.money,
+    roundCards: s.roundCards,
+    armDown: s.blind?.type === "BOSS" && s.blind.name === "The Arm" && !s.jokers.some((j) => j.key === "j_chicot" && !j.debuff),
+    halveBase: s.blind?.type === "BOSS" && s.blind.name === "The Flint" && !s.jokers.some((j) => j.key === "j_chicot" && !j.debuff),
   };
 }
 
 function groupByRank(cards: PCard[]): Map<string, PCard[]> {
   const m = new Map<string, PCard[]>();
-  for (const c of cards) if (c.rank) m.set(c.rank, [...(m.get(c.rank) ?? []), c]);
+  for (const c of cards) {
+    if (!c.rank) continue;
+    const g = m.get(c.rank);
+    if (g) g.push(c);
+    else m.set(c.rank, [c]);
+  }
   for (const g of m.values()) g.sort(byWorthDesc);
   return m;
 }
 
 /** Rank windows for straights, low to high; values use 1 for a low ace. */
+const WINDOWS = new Map<number, number[][]>();
 function straightWindows(len: number): number[][] {
-  const out: number[][] = [];
+  let out = WINDOWS.get(len);
+  if (out) return out;
+  out = [];
   for (let lo = 1; lo + len - 1 <= 14; lo++) out.push(Array.from({ length: len }, (_, i) => lo + i));
+  WINDOWS.set(len, out);
   return out;
 }
 
@@ -79,29 +93,84 @@ export function padWithJunk(s: Snapshot, set: PCard[], prefer?: ReadonlySet<stri
   if (set.length >= limit) return set;
   const hand = evaluateHand(set, s.rules).hand;
   if (!PADDABLE.has(hand)) return set;
-  const keys = new Set(s.jokers.map((j) => j.key));
-  if (keys.has("j_half") || keys.has("j_square")) return set;
-  if (/the tooth/i.test(s.blind?.name ?? "") || /lose \$1 per card/i.test(s.blind?.effect ?? "")) return set;
-  const visible = s.hand.filter((c) => !c.hidden);
-  const rankCount = groupByRank(visible);
-  let flushSuit: string | undefined;
-  if (prefer?.has("Flush")) {
-    const bySuit = SUITS.map((x) => ({ x, n: visible.filter((c) => suitsOf(c, s.rules).includes(x)).length })).sort((a, b) => b.n - a.n)[0];
-    if (bySuit && bySuit.n >= 3) flushSuit = bySuit.x;
-  }
-  const junk = visible
-    .filter((c) => !set.includes(c) && !c.forced && c.rank)
-    .filter((c) => !c.enhancement && !c.edition && !c.seal)
-    .filter((c) => (rankCount.get(c.rank!)?.length ?? 0) < 2)
-    .filter((c) => !(keys.has("j_baron") && c.rank === "K") && !(keys.has("j_shoot_the_moon") && c.rank === "Q"))
-    .filter((c) => !flushSuit || !suitsOf(c, s.rules).includes(flushSuit))
-    .sort(byWorthAsc);
+  const pool = junkPool(s, prefer);
+  if (!pool) return set;
   const out = [...set];
-  for (const c of junk) {
+  // A junk card's rank is alone in the hand, so below a Flush's or Straight's length it can't
+  // change the hand: only the cards that bring the play to that length are checked.
+  const need = s.rules.fourFingers ? 4 : 5;
+  for (const c of pool) {
     if (out.length >= limit) break;
-    if (evaluateHand([...out, c], s.rules).hand !== hand) continue;
+    if (set.includes(c)) continue;
+    if (out.length + 1 >= need && evaluateHand([...out, c], s.rules).hand !== hand) continue;
     out.push(c);
   }
+  return out;
+}
+
+/**
+ * The cards padding may use, cheapest first, before taking out the play's own cards; undefined
+ * when padding is off. Kept per state: one state's plays all pad from the same hand.
+ */
+const junkPools = new WeakMap<Snapshot, Map<ReadonlySet<string> | undefined, PCard[] | undefined>>();
+function junkPool(s: Snapshot, prefer?: ReadonlySet<string>): PCard[] | undefined {
+  let byPrefer = junkPools.get(s);
+  if (!byPrefer) junkPools.set(s, (byPrefer = new Map()));
+  if (byPrefer.has(prefer)) return byPrefer.get(prefer);
+  let pool: PCard[] | undefined;
+  const keys = new Set(s.jokers.map((j) => j.key));
+  if (!(keys.has("j_half") || keys.has("j_square")) && !(/the tooth/i.test(s.blind?.name ?? "") || /lose \$1 per card/i.test(s.blind?.effect ?? ""))) {
+    const visible = s.hand.filter((c) => !c.hidden);
+    const rankCount = groupByRank(visible);
+    let flushSuit: string | undefined;
+    if (prefer?.has("Flush")) {
+      const bySuit = SUITS.map((x) => ({ x, n: visible.filter((c) => suitsOf(c, s.rules).includes(x)).length })).sort((a, b) => b.n - a.n)[0];
+      if (bySuit && bySuit.n >= 3) flushSuit = bySuit.x;
+    }
+    pool = visible
+      .filter((c) => !c.forced && c.rank)
+      .filter((c) => !c.enhancement && !c.edition && !c.seal)
+      .filter((c) => (rankCount.get(c.rank!)?.length ?? 0) < 2)
+      .filter((c) => !(keys.has("j_baron") && c.rank === "K") && !(keys.has("j_shoot_the_moon") && c.rank === "Q"))
+      .filter((c) => !flushSuit || !suitsOf(c, s.rules).includes(flushSuit))
+      .sort(byWorthAsc);
+  }
+  byPrefer.set(prefer, pool);
+  return pool;
+}
+
+/**
+ * playSets for a hand seen before. The round simulations deal every setup the same cards, so the
+ * same hand comes up once per setup; what playSets reads is all in the key (the cards in order,
+ * the rules, the play limit, the jokers and boss that change padding), and the cards it returns
+ * match the new hand's field for field.
+ */
+interface PlaySets {
+  /** The distinct card sets, in playSets' order. */
+  sets: PCard[][];
+  /** Each set's poker hand under the state's rules (it depends on nothing else). */
+  evals: Evaluation[];
+}
+const setsCache = new Map<string, PlaySets>();
+const PAD_JOKERS = ["j_half", "j_square", "j_baron", "j_shoot_the_moon"];
+function cachedPlaySets(s: Snapshot, prefer?: ReadonlySet<string>): PlaySets {
+  let key = `${s.playLimit}|${+s.rules.fourFingers}${+s.rules.shortcut}${+s.rules.smeared}${+s.rules.splash}${+s.rules.pareidolia}|${+FEATURES.padding}|${s.blind?.name ?? ""}|${s.blind?.effect ?? ""}|${prefer ? [...prefer].join(",") : "-"}|`;
+  for (const k of PAD_JOKERS) if (s.jokers.some((j) => j.key === k)) key += k;
+  for (const c of s.hand) key += `|${c.index}:${c.id}:${c.rank ?? ""}${c.suit ?? ""}:${c.enhancement ?? ""}:${c.edition ?? ""}:${c.seal ?? ""}:${+c.debuff}${+c.hidden}${+c.forced}`;
+  const hit = setsCache.get(key);
+  if (hit) return hit;
+  let all = playSets(s, prefer);
+  if (!all.length && s.hand.length) all = [inHandOrder(s.hand.slice(0, Math.max(1, s.playLimit)))];
+  const seen = new Set<string>();
+  const sets = all.filter((cards) => {
+    const k = keyOf(cards);
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+  const out = { sets, evals: sets.map((cards) => evaluateHand(cards, s.rules)) };
+  if (setsCache.size >= 50000) setsCache.clear();
+  setsCache.set(key, out);
   return out;
 }
 
@@ -175,18 +244,24 @@ function playSets(s: Snapshot, prefer?: ReadonlySet<string>): PCard[][] {
   });
 }
 
+/**
+ * playOptions(s, 1)[0], without building and sorting the whole list: the round simulations ask
+ * for it at every step. Ties go as the stable sort leaves them: the shorter play, then the earlier.
+ */
+export function bestPlay(s: Snapshot): PlayOption | undefined {
+  const { sets, evals } = cachedPlaySets(s);
+  let best: PlayOption | undefined;
+  for (let i = 0; i < sets.length; i++) {
+    const estimate = estimateScore(sets[i], scoreContext(s, sets[i]), evals[i]);
+    if (!best || estimate.score > best.estimate.score || (estimate.score === best.estimate.score && sets[i].length < best.cards.length)) best = { cards: sets[i], estimate };
+  }
+  return best;
+}
+
 /** The best plays by estimated score, at most two per hand type, always including the best play of each `prefer` hand. */
 export function playOptions(s: Snapshot, max = 5, prefer?: ReadonlySet<string>): PlayOption[] {
-  let sets = playSets(s, prefer);
-  if (!sets.length && s.hand.length) sets = [inHandOrder(s.hand.slice(0, Math.max(1, s.playLimit)))];
-  const seen = new Set<string>();
-  const scored: PlayOption[] = [];
-  for (const cards of sets) {
-    const k = keyOf(cards);
-    if (seen.has(k)) continue;
-    seen.add(k);
-    scored.push({ cards, estimate: estimateScore(cards, scoreContext(s, cards)) });
-  }
+  const { sets, evals } = cachedPlaySets(s, prefer);
+  const scored: PlayOption[] = sets.map((cards, i) => ({ cards, estimate: estimateScore(cards, scoreContext(s, cards), evals[i]) }));
   scored.sort((a, b) => b.estimate.score - a.estimate.score || a.cards.length - b.cards.length);
   const perHand = new Map<string, number>();
   const out: PlayOption[] = [];

@@ -1,5 +1,5 @@
-// Switches for the decision stages, all on in play. The simulator harness turns them off one at a
-// time to measure what each stage adds; nothing else should change them.
+// Switches for the decision stages. Play uses a preset (below), picked in the dashboard's settings
+// for testing; the simulator harness also turns single switches off to measure what each adds.
 
 export const FEATURES = {
   /** Hand: judge plays and discards by simulated finishes of the round (round.ts). */
@@ -34,4 +34,62 @@ export const FEATURES = {
    * noise but not a gain; the synergy reading and the plan's dead-weight list still use the losses.
    */
   simSynergy: false,
+  /** Forecasts: growing and decaying jokers play at the value they will most likely have by the boss (growth.ts). */
+  growth: true,
+  /** Shop and packs: an economy joker is priced as its income over `TUNING.econRounds` rounds, at the dollar's utility. */
+  econIncome: false,
+  /** Shop: from round `TUNING.bankFromRound` the run saves to the interest cap at any stake, as at Gold. */
+  bankFloor: false,
 };
+
+/** The switches as play starts: the "advanced" preset. */
+const DEFAULTS = { ...FEATURES };
+
+export type PresetId = "basic" | "standard" | "advanced";
+
+export interface Preset {
+  id: PresetId;
+  label: string;
+  describe: string;
+  features: typeof FEATURES;
+  /** Whether the Roffle priors nudge joker values. */
+  expert: boolean;
+}
+
+const OFF = Object.fromEntries(Object.keys(DEFAULTS).map((k) => [k, false])) as typeof FEATURES;
+
+/** The only loop settings the dashboard offers: whole configurations, not single switches. */
+export const PRESETS: Preset[] = [
+  {
+    id: "basic",
+    label: "Basic",
+    describe: "Code heuristics and the model only: no simulation, no assessment, no expert data, small hands played bare.",
+    features: { ...OFF },
+    expert: false,
+  },
+  {
+    id: "standard",
+    label: "Standard",
+    describe: "Adds the round tree for plays and discards, kickers on small hands and the expert data; no shop or pack simulation and no assessment.",
+    features: { ...OFF, roundSim: true, padding: true },
+    expert: true,
+  },
+  {
+    id: "advanced",
+    label: "Advanced",
+    describe: "Everything: round tree, simulated shop and pack offers, deck fixing, boss pool, assessment and expert data.",
+    features: { ...DEFAULTS },
+    expert: true,
+  },
+];
+
+let current: PresetId = "advanced";
+export const currentPreset = () => current;
+
+/** Applies a preset's switches; the caller handles `expert`. */
+export function applyPreset(id: PresetId): Preset {
+  const preset = PRESETS.find((p) => p.id === id) ?? PRESETS[PRESETS.length - 1];
+  Object.assign(FEATURES, preset.features);
+  current = preset.id;
+  return preset;
+}

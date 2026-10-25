@@ -35,6 +35,13 @@ export interface Config {
   /** After a run ends, start the next one instead of pausing (needs autoStart). */
   continuous?: boolean;
   logDir: string;
+  /**
+   * Simulator recordings kept in logDir: older ones are deleted when a new one starts (0 keeps
+   * all). Real-game recordings are never deleted.
+   */
+  keepRuns?: number;
+  /** Write no tick log (the simulator benchmarks, which only want each game's result). */
+  noLog?: boolean;
 }
 
 function flag(argv: string[], name: string): string | undefined {
@@ -92,5 +99,6 @@ export function loadConfig(argv = process.argv.slice(2), env = process.env): Con
     expert: flag(argv, "no-expert") === undefined,
     continuous: flag(argv, "continuous") !== undefined,
     logDir: resolve(root, "runs"),
+    keepRuns: Number(flag(argv, "keep-runs") ?? env.KEEP_RUNS ?? 3),
   };
 }

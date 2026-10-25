@@ -1,10 +1,10 @@
 // The run as a trace: one column per tick and one lane per signal (confidence, none of the above,
-// ask time, run strength), with the gates drawn across their lanes and the game phase on top.
-// Click a column to pin that tick everywhere else.
+// ask time, the run's prospect), with the gates drawn across their lanes and the game phase on top,
+// each phase in its own hue. Click a column to pin that tick everywhere else.
 
 import type { Config } from "../src/config.ts";
 import type { TickRecord } from "../src/loop.ts";
-import type { ChoiceAnswer, ScoreAnswer } from "../src/systemone.ts";
+import type { ChoiceAnswer } from "../src/systemone.ts";
 import { h, mount, ms, pct, withTip } from "./dom.ts";
 
 const LANE_H = 40;
@@ -13,7 +13,7 @@ const COL = 14;
 const GAP = 3;
 const SHOWN = 240;
 
-const PHASE_NAME: Record<string, string> = {
+export const PHASE_NAME: Record<string, string> = {
   MENU: "Menu",
   BLIND_SELECT: "Blind",
   SELECTING_HAND: "Hands",
@@ -21,6 +21,16 @@ const PHASE_NAME: Record<string, string> = {
   SHOP: "Shop",
   SMODS_BOOSTER_OPENED: "Pack",
   GAME_OVER: "Game over",
+};
+/** Each phase's hue (style.css .ph-*), shared with the decision's phase tag and the loop's lanes. */
+export const PHASE_CLASS: Record<string, string> = {
+  MENU: "ph-menu",
+  BLIND_SELECT: "ph-blind",
+  SELECTING_HAND: "ph-hand",
+  ROUND_EVAL: "ph-cashout",
+  SHOP: "ph-shop",
+  SMODS_BOOSTER_OPENED: "ph-pack",
+  GAME_OVER: "ph-over",
 };
 
 interface Lane {
@@ -37,8 +47,10 @@ const action = (t: TickRecord) => t.response?.answers.action as ChoiceAnswer | u
 export function renderTrace(
   root: HTMLElement,
   all: TickRecord[],
-  opts: { selected?: number; following: boolean; gates?: Config["gates"]; onPick: (n: number) => void; describe: (t: TickRecord) => string },
+  opts: { selected?: number; following: boolean; gates?: Config["gates"]; onPick: (n: number) => void; describe: (t: TickRecord) => string; laneH?: number },
 ) {
+  // The rail layout shows the trace as a thin strip: shorter lanes, same time axis.
+  const laneH = opts.laneH ?? LANE_H;
   const ticks = all.slice(-SHOWN);
   if (!ticks.length) {
     mount(root, h("p", { class: "trace-empty" }, "Each decision adds a column here."));
@@ -50,7 +62,8 @@ export function renderTrace(
     { name: "Confidence", scale: g ? `gate ${pct(g.minConfidence)}` : "0 to 100%", value: (t) => action(t)?.confidence, max: 1, gate: g?.minConfidence, fill: (t) => `fill-${t.verdict.status.toLowerCase()}` },
     { name: "None fits", scale: g ? `0 to 25%, gate ${pct(g.noneThreshold)}` : "0 to 25%", value: (t) => action(t)?.none_probability, max: 0.25, gate: g?.noneThreshold, fill: () => "fill-none" },
     { name: "Ask time", scale: `0 to ${ms(maxAsk)}`, value: (t) => (t.request ? t.timings.ask : undefined), max: maxAsk, fill: () => "fill-ask" },
-    { name: "Run strength", scale: "Losing to Dominant", value: (t) => (t.response?.answers.position as ScoreAnswer | undefined)?.score, max: 3, fill: () => "fill-strength" },
+    // The long view: it moves at shops and holds between them.
+    { name: "Prospect", scale: "0 to 100%, per shop", value: (t) => t.prospect?.value, max: 1, fill: () => "fill-strength" },
   ];
 
   // Columns, with a small gap where a new round starts.
@@ -71,7 +84,7 @@ export function renderTrace(
     let k = 1;
     while (i + k < items.length && items[i + k] !== "gap" && (items[i + k] as TickRecord).phase === it.phase) k++;
     const name = PHASE_NAME[it.phase] ?? it.phase.replace(/_/g, " ").toLowerCase();
-    phases.push(h("span", { class: "phase", title: `${name}, ante ${it.snapshot.ante}`, style: { width: `${k * COL + (k - 1) * GAP}px` } }, k >= 3 ? name : ""));
+    phases.push(h("span", { class: `phase ${PHASE_CLASS[it.phase] ?? "ph-menu"}`, title: `${name}, ante ${it.snapshot.ante}`, style: { width: `${k * COL + (k - 1) * GAP}px` } }, k >= 3 ? name : ""));
     i += k;
   }
 
@@ -90,8 +103,8 @@ export function renderTrace(
           const v = lane.value(it);
           return h(
             "span",
-            { class: "cell" },
-            v === undefined ? null : h("span", { class: `cell-fill ${lane.fill(it)}`, style: { height: `${Math.max(2, Math.round((Math.min(v, lane.max) / lane.max) * (LANE_H - 1)))}px` } }),
+            { class: "cell", style: { height: `${laneH}px` } },
+            v === undefined ? null : h("span", { class: `cell-fill ${lane.fill(it)}`, style: { height: `${Math.max(2, Math.round((Math.min(v, lane.max) / lane.max) * (laneH - 1)))}px` } }),
           );
         }),
         h("span", { class: `chip fill-${it.verdict.status.toLowerCase()}` }),
@@ -101,7 +114,7 @@ export function renderTrace(
   });
 
   const gates = lanes.flatMap((lane, i) =>
-    lane.gate === undefined ? [] : [h("span", { class: "gate-line", style: { top: `${PHASE_H + i * LANE_H + Math.round((1 - lane.gate / lane.max) * (LANE_H - 1))}px` } })],
+    lane.gate === undefined ? [] : [h("span", { class: "gate-line", style: { top: `${PHASE_H + i * laneH + Math.round((1 - lane.gate / lane.max) * (laneH - 1))}px` } })],
   );
 
   let scroll = root.querySelector<HTMLElement>(".trace-scroll");
@@ -116,7 +129,7 @@ export function renderTrace(
         "div",
         { class: "trace-labels", "aria-hidden": "true" },
         h("span", { style: { height: `${PHASE_H}px` } }),
-        lanes.map((l) => h("div", { class: "lane-label" }, h("span", { class: "lane-name" }, l.name), h("span", { class: "lane-scale" }, l.scale))),
+        lanes.map((l) => h("div", { class: "lane-label", style: { height: `${laneH}px` } }, h("span", { class: "lane-name" }, l.name), laneH >= 32 ? h("span", { class: "lane-scale" }, l.scale) : null)),
       ),
       scroll,
     ),

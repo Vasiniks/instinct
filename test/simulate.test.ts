@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { buildCandidates } from "../src/candidates.ts";
 import { extract } from "../src/extract.ts";
-import { estimateScore, NO_RULES } from "../src/poker.ts";
-import { roundOdds, roundOutcomes } from "../src/round.ts";
+import { estimateScore, NO_RULES, type Joker } from "../src/poker.ts";
+import { bossEffects, roundOdds, roundOutcomes } from "../src/round.ts";
 import type { GameState, RawCard } from "../src/types.ts";
 import { handState, joker, pcs, raw } from "./helpers.ts";
 
@@ -96,4 +96,42 @@ test("between rounds the whole deck is the pile, even when part of it sits in th
   const h = handState(["AS"], { deck: ["KH", "2C"] });
   h.full_deck = g.full_deck;
   assert.equal(extract(h).deckLeft.length, 2);
+});
+
+test("boss rules: The Arm costs levels, Crimson Heart a joker, The Wall double the chips; Chicot lifts them", () => {
+  const deck = [..."23456789TJQKA"].flatMap((r) => [..."SHDC"].map((su) => `${r}${su}`));
+  const g = handState([], { deck });
+  g.state = "SHOP";
+  const s = extract(g);
+  // Pairs at level 4: The Arm takes a level a hand, so the round scores less.
+  const levels = { ...s.levels, Pair: { level: 4, chips: 40, mult: 5, played: 0, played_this_round: 0 } };
+  const pairJoker: Joker = { index: 0, key: "j_duo", label: "The Duo", effect: "", stats: { x_mult: 2 }, debuff: false, eternal: false, sell: 4 };
+  const setup = [{ jokers: [pairJoker], levels }];
+  const odds = (boss?: string, jokers = setup[0].jokers, target = 1200) => roundOdds(s, [{ jokers, levels }], target, 4, 3, 80, boss ? bossEffects(boss, s.handSize) : undefined)[0];
+  const plain = odds();
+  assert.ok(odds("The Arm") < plain, `The Arm ${odds("The Arm")} vs ${plain}`);
+  assert.ok(odds("The Wall") < plain);
+  const two = [pairJoker, { ...pairJoker, index: 1 }];
+  assert.ok(odds("Crimson Heart", two, 2500) < odds(undefined, two, 2500));
+  const chicot = { ...pairJoker, index: 1, key: "j_chicot", label: "Chicot", stats: {} };
+  assert.equal(odds("The Wall", [pairJoker, chicot]), odds(undefined, [pairJoker, chicot]));
+  // Live: a level-4 Pair under The Arm scores at level 3.
+  const ctx = { levels, jokers: [], held: [], rules: NO_RULES, handsLeft: 4, discardsLeft: 3 };
+  assert.equal(estimateScore(pcs("KS KH"), { ...ctx, armDown: true }).chips, 40 - 15 + 20);
+});
+
+test("the round simulations give the same numbers on worker threads", async () => {
+  const { enableParallel } = await import("../src/parallel.ts");
+  const deck = [..."23456789TJQKA"].flatMap((r) => [..."SHDC"].map((su) => `${r}${su}`));
+  const g = handState(["AS", "KS", "QH", "9D", "9C", "4S", "3H", "2D"], { deck, remaining: 900, jokers: [named("j_duo", "The Duo"), named("j_jolly", "Jolly Joker")] });
+  const s = extract(g);
+  const setups = [{ jokers: s.jokers, levels: s.levels }, { jokers: s.jokers.slice(0, 1), levels: s.levels }, { jokers: [], levels: s.levels }];
+  const moves = [0, 1, 2, 3, 4].map((i) => ({ kind: (i % 2 ? "discard" : "play") as "play" | "discard", cards: [i, i + 1] }));
+  const serial = [roundOdds(s, setups, 900, 4, 3, 60, bossEffects("The Manacle", s.handSize), 2), roundOutcomes(s, moves, 60)];
+  enableParallel(3);
+  try {
+    assert.deepEqual([roundOdds(s, setups, 900, 4, 3, 60, bossEffects("The Manacle", s.handSize), 2), roundOutcomes(s, moves, 60)], serial);
+  } finally {
+    enableParallel(0);
+  }
 });

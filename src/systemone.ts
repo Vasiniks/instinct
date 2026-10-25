@@ -114,7 +114,8 @@ export function mulberry32(seed: number): () => number {
   };
 }
 
-export function mockEngine(seed = 7, simulateLatency = true): Engine {
+/** `noise`: the spread added to each option's log prior before the pick (0 takes the code's top option). */
+export function mockEngine(seed = 7, simulateLatency = true, noise = 0.55): Engine {
   const rand = mulberry32(seed);
   const gauss = () => Math.sqrt(-2 * Math.log(rand() || 1e-9)) * Math.cos(2 * Math.PI * rand());
   const softmax = (xs: number[]) => {
@@ -135,7 +136,7 @@ export function mockEngine(seed = 7, simulateLatency = true): Engine {
         if (q.type === "choice") {
           const keys = Array.isArray(q.criteria) ? q.criteria : Object.keys(q.criteria ?? {});
           const priors = typeof hint === "object" ? hint : {};
-          const probs = softmax(keys.map((k) => Math.log((priors[k] ?? 1 / keys.length) + 1e-4) * 1.3 + gauss() * 0.55));
+          const probs = softmax(keys.map((k) => Math.log((priors[k] ?? 1 / keys.length) + 1e-4) * 1.3 + gauss() * noise));
           const top = probs.indexOf(Math.max(...probs));
           const n = keys.length;
           answers[id] = {

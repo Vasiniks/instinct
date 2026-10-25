@@ -29,7 +29,8 @@ const T: Record<string, string> = {
   j_stencil: "xmult empty_slots",
   j_four_fingers: "flush straight rule",
   j_mime: "retrigger held steel",
-  j_credit_card: "econ",
+  // Lends up to $20 and pays nothing: no economy (the debt delays interest), so no tags.
+  j_credit_card: "",
   j_ceremonial: "mult scaling destroys",
   j_banner: "chips no_discard",
   j_mystic_summit: "mult discards",
@@ -196,7 +197,7 @@ export function tagsFromEffect(effect: string): Set<string> {
 
 export function jokerTags(key: string, effect = ""): Set<string> {
   const known = T[key];
-  return known ? new Set(known.split(" ")) : tagsFromEffect(effect);
+  return known !== undefined ? new Set(known.split(" ").filter(Boolean)) : tagsFromEffect(effect);
 }
 
 /** Which poker hands each hand tag supports, strongest first. Pair jokers also fire on two pair, full house, ... */

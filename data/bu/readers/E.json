@@ -1,0 +1,1441 @@
+{
+ "videos": [
+  {
+   "id": "QkHANP2e9i8",
+   "title": "Gold Stake Money Management (Going for Gold ep4)",
+   "why": "Green Deck at Gold stake (1.0.1f): why Green is worse than interest, saving for packs/vouchers without interest, packs before rerolls, one scoring joker per ante.",
+   "talk_share": "medium"
+  },
+  {
+   "id": "TJEsOAc_bmE",
+   "title": "Balatro Daily ep4: Money management for Beginners (Yellow Deck)",
+   "why": "Yellow Deck at White stake (1.0.0k): reaching the $25 cap, saving when the next blind is safe, spreading rerolls, no skips by default, scoring-joker counts per ante.",
+   "talk_share": "medium"
+  }
+ ],
+ "claims": [
+  {
+   "id": "economy.reach-cap-by-round-5",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "Getting to the $25 interest cap is easy: aim to have $25 banked partway through ante 2 (within the first 5 rounds); after that interest is a flat +$5 a round. On Yellow Deck ($10 start + $2 first interest) you reach it almost at once.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "any deck that earns interest (not Green)",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 125.159,
+     "text": "it's not that hard to save up $25 in the bank it's not that hard to get your interest online um you can do that partway through anti2 you know within five rounds you can get $25 in the bank",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=125s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 417.36,
+     "text": "you can very quickly reach that income cap $25 held earn an extra $5 per round",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=417s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.spend-early-then-hold-cap"
+    ],
+    "note": "Same cap rule; Spectred reaches it earlier (by round 5 / mid ante 2) than Roffle's 'from ante 3'."
+   },
+   "knob": "money target: leave the shop after round 5 (ante 2 Big Blind) with >= $25, and hold the $25 floor from then on; on Yellow Deck start enforcing the floor from ante 2 Small Blind",
+   "notes": "Round 5 = ante 2 Big Blind is implied from 'within five rounds' and 'partway through ante 2'."
+  },
+  {
+   "id": "economy.first-shops-spend",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "In rounds 1-2 you earn little or no interest anyway, so it is normal to buy at least one thing (usually one joker) in the first shop; the few dollars of the first ~5 rounds snowball through a 24-round run, so spend them on value, not waste.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "first shop of the run"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 189.2,
+     "text": "in the first couple rounds you're not really earning interest anyway like in the first round you're definitely not earning interest in the second round maybe you earn some interest but typically what you're doing is you buy at least one thing",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=189s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 240.68,
+     "text": "those first five rounds out of 24 are still really impactful and like a few extra dollars matters a lot",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=240s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.spend-early-then-hold-cap",
+     "econ.money-jokers-first"
+    ]
+   },
+   "knob": "no interest floor in shops 1-2 (ante 1); allow buying one joker in shop 1 even if it takes money to $0-4",
+   "notes": "Tension with economy.bank-if-next-blind-safe (same creator, Yellow Deck/White), where he skips the first-shop jokers because the next blind is already winnable."
+  },
+  {
+   "id": "economy.bank-if-next-blind-safe",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "At White stake, if the current deck already beats the next blind in two hands, pass the scoring jokers and save for interest; buy a scoring joker when a coming blind needs it (e.g. a one-hand win against The Hook), then save the rest for interest.",
+   "conditions": {
+    "antes": [
+     1,
+     2
+    ],
+    "deck": "Yellow (shown); any",
+    "stake": "White",
+    "build_state": "next blind beatable in <= 2 hands with current scoring"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 755.04,
+     "text": "let's pretend we didn't get these Jokers we can still win the next round perfectly fine uh with two hands and then we can save our money for interest",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=755s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 988.24,
+     "text": "we'll pick up even Steven to allow us to do that and then I'm going to save the rest of my money for interest",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=988s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "econ.spend-early-then-hold-cap",
+     "stake.gold-buys-early-scoring"
+    ],
+    "note": "Roffle spends ante 1-2 money on jokers that score now; Spectred banks when the next blind is already safe (matches Roffle's White-stake note in stake.gold-buys-early-scoring)."
+   },
+   "knob": "in antes 1-2 at White: skip a scoring-joker buy when projected score of best 2 hands >= next blind target; buy when it is not, or when the boss blocks multi-hand play (The Hook, The Eye, The Mouth)",
+   "notes": "Demonstrated as a teaching choice ('let's pretend we didn't see these'). Conflicts in emphasis with economy.first-shops-spend."
+  },
+  {
+   "id": "economy.surplus-above-cap-free",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "Money above the $25 cap is free to spend: even when scoring is already enough, at $40 he buys useful things (Grabber, Constellation, packs) and experiments with other builds. Below the cap, spend only on what the run needs.",
+   "conditions": {
+    "antes": [
+     2,
+     8
+    ],
+    "deck": "any (shown on Yellow)",
+    "stake": "White"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1058.64,
+     "text": "which means I don't need to buy anything but I do have $40 so we might as well buy stuff",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1058s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1270.679,
+     "text": "with all of this extra money you have the freedom to experiment",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1270s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.reroll-only-from-surplus",
+     "econ.spend-early-then-hold-cap"
+    ]
+   },
+   "knob": "spendable = money - 25 (from ante 2); buy any positive-value item that fits in spendable even when the scoring check already passes"
+  },
+  {
+   "id": "economy.breakpoint-free-spend",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "A purchase that keeps you in the same $5 interest bracket costs no interest: below the cap, spending only the change above the last multiple of $5 (e.g. $24 -> $20 for a $4 pack) does not change next round's interest.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1128.36,
+     "text": "since the $4 you know I'm already below 25 it's not going to affect my interest if I buy this",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1128s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.breakpoints-and-rent"
+    ]
+   },
+   "knob": "interest_cost(price) = min(5, floor(m/5)) - min(5, floor((m-price)/5)); a purchase with interest_cost 0 is not blocked by the interest floor",
+   "notes": "Implied: the exact bank is not read out; from context (~$40, then Grabber $10 and Constellation) he was at about $24 when he bought the $4 Celestial pack."
+  },
+  {
+   "id": "economy.carry-budget-to-next-shop",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "Even when money earns no interest (Green Deck, or above the cap), keep a carry-over budget: money spent now cannot buy the next shop's packs or the voucher after the boss. He passes a $4-6 Standard pack so he can buy two packs (e.g. Arcana + Celestial) next shop.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any (shown on Green Deck)",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 543.92,
+     "text": "any money that I spend here I don't get to spend in the next shop right and so if I spend all of my money here then there may be some booster packs in the future that I'm not able to afford",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=543s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1030.4,
+     "text": "I don't need to save my money for interest but I do need to save money for future Joker purchases if the next shop has two Arcana packs or maybe an Arcana pack and a Celestial pack I want to buy both of those",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1030s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1434.84,
+     "text": "if we had bought the standard pack in the previous shop we wouldn't have been able to do anything here",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1434s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "low-priority buys (Standard pack, marginal joker) only if money after purchase >= floor + next_shop_reserve, next_shop_reserve ~ $8-12 (two packs; implied)",
+   "notes": "Reserve size is implied from 'two Arcana packs' at $4-8 each."
+  },
+  {
+   "id": "economy.vagabond-forgoes-interest",
+   "topic": "economy",
+   "decision": "money/interest",
+   "statement": "Vagabond only pays while you are nearly broke, so running it means giving up all interest; he judged the Tarot stream worth that in an earlier run.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "holding Vagabond"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 329.96,
+     "text": "the requirement is that we have less than $3 so this sort of prevents us from having interest and so we're losing all that interest money in exchange for all of these tarot cards",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=329s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "when Vagabond is held, allow money floor $4 (no interest target); value Vagabond only if Tarots are worth > ~$5/round",
+   "notes": "Recap of a previous episode. In 1.0.1 Vagabond triggers at $4 or less, not 'less than $3'."
+  },
+  {
+   "id": "reroll.packs-before-rerolls",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "Rerolls are poor expected value: buy the booster packs you want first, and reroll only with what is left. He says this holds on every deck. With $17 and no scoring need he skips rerolling to keep buying packs; when two packs cost $12 he stops rerolling.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1969.08,
+     "text": "I think rerolls are still not great expected value as far as like you know spending your money you want to buy booster packs first before rerolling",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1969s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1991.88,
+     "text": "I think that's like just generally true all the time whether you're on the green deck or a different deck",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1991s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 2938.599,
+     "text": "Celestial pack Arcana pack that's going to be $12 so I'm not going to reroll anymore",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=2938s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "shop order of spend: wanted packs > reroll; reroll budget = money - interest floor - cost(wanted packs this shop) - next_shop_reserve"
+  },
+  {
+   "id": "reroll.spread-one-per-shop",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "Spread rerolls over shops instead of chaining them: about 1 reroll per shop by default (cost resets to $5 each shop), 2 per shop only when money is plentiful (he went to 2 at roughly $40+ on Yellow; at $42 on Green he capped himself at 1).",
+   "conditions": {
+    "antes": [
+     2,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "money above floor"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1365.039,
+     "text": "if I want to roll it is most cost effective to spread out the rerolls",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1365s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1682.2,
+     "text": "I do have money to do more rrolling so instead of doing one roll per each shop Let's do two rolls",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1682s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2174.48,
+     "text": "$42 now I think I want to do one roll and I'm not going to roll more than that",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2174s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "max_rerolls_per_shop = 1 by default, 2 when money - floor >= ~$15 (implied); never chain rerolls unless a must-have piece is missing before a lethal blind",
+   "notes": "The $40 threshold for 2 rolls is implied from context, not stated."
+  },
+  {
+   "id": "reroll.keep-buffer-above-cap",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "Don't reroll down to the cap: at $33 he declines a $5 reroll that would leave $28, to keep interest and money for the next shop's booster packs.",
+   "conditions": {
+    "antes": [
+     3,
+     8
+    ],
+    "deck": "any (Yellow shown)",
+    "stake": "White",
+    "build_state": "interest capped"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 3420.96,
+     "text": "now we're down to just $33 um I'm going to save my money for the interest if I roll I go down to 28 and you know I might want to save my money for buying the booster packs in the next shop",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=3420s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.reroll-only-from-surplus"
+    ]
+   },
+   "knob": "reroll only if money - reroll_cost >= 25 + next_shop_reserve (~$8); i.e. no reroll below ~$33-38",
+   "notes": "Single instance; the buffer size is implied."
+  },
+  {
+   "id": "reroll.spend-more-when-threatened",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "Spend extra on rerolls only when the next blind looks hard or the build lacks a scoring joker; otherwise keep saving. Facing a 25,000 Small Blind (Gold, ante 5) he rerolls once more than usual; without a scoring joker he holds money to reroll for one next shop.",
+   "conditions": {
+    "antes": [
+     3,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "next blind not safely beaten or no scoring joker"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2656.92,
+     "text": "25,000 is a little bit on the tough side so knowing that acknowledging that it's going to be kind of tough here we're going to spend a little bit more than we might otherwise so roll once",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2656s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1284.0,
+     "text": "if I don't get you know some kind of scoring Joker maybe in the next round here next shop I might be willing to roll for it",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1284s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.reroll-only-from-surplus",
+     "bosses.buy-an-answer-before-the-boss"
+    ]
+   },
+   "knob": "raise max_rerolls_per_shop by 1 (and allow dipping below the floor) when projected score < next blind target or scoring_jokers < required(ante)"
+  },
+  {
+   "id": "reroll.reroll-before-opening-packs",
+   "topic": "reroll",
+   "decision": "reroll",
+   "statement": "If you will reroll this shop anyway, reroll before opening packs: new joker offers tell you which cards to take from a Standard pack, and a Tarot/Planet bought or seen in the shop can be used inside the Arcana pack or blocks its duplicate.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "shop has packs and money for a reroll"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1898.159,
+     "text": "before I open these standard packs let's reroll for Jokers because the Jokers that I get that could give me information that could decide what kinds of cards I'm looking for",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1898s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 3964.039,
+     "text": "before I open the Arcana pack I do have the extra money I'm going to roll if there's an AR a tarot card in here I can buy it and then in the Arcana pack use it",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=3964s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2299.04,
+     "text": "I do want to roll four tarot cards before opening the Arcana pack",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2299s",
+     "gloss": "roll for tarot cards"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "shop.open-packs-before-deciding"
+    ]
+   },
+   "knob": "action order within a shop: buy jokers/vouchers decided -> reroll(s) -> open packs; hold a Planet/Tarot to block it from packs when you don't want a duplicate",
+   "notes": "Ordering, not budget: rerolls still come out of money left after the packs are budgeted (reroll.packs-before-rerolls)."
+  },
+  {
+   "id": "consumables.money-cards-when-scoring-ok",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "Take The Hermit (doubles money, max +$20) whenever offered with money to double; in Arcana packs take money cards (Hermit, Temperance) over scoring or deck-fixing cards when scoring is already sufficient, and take the scoring/fixing card instead when you need it (late, a Planet that helps more beats raw money).",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "scoring check for next blinds passes"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1223.679,
+     "text": "hermit we got to take it doubling our money here",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1223s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1327.039,
+     "text": "I'm just going to take the money uh I'm good on scoring I don't need any help with scoring so it's fine for me to take the money now",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1327s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 4261.6,
+     "text": "between these two options I think the planet cards are going to help us more than the just raw money",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=4261s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "consumables.hermit-at-20"
+    ]
+   },
+   "knob": "pack pick: if projected score >= next 2 blinds, rank Hermit/Temperance above Death/Strength/Planets; otherwise rank them below the card that fixes the score"
+  },
+  {
+   "id": "consumables.take-the-card-you-would-reroll-for",
+   "topic": "consumables",
+   "decision": "pack pick",
+   "statement": "Don't take The Hermit's $20 if the other card in the pack is exactly what you would spend that $20 rerolling for (e.g. The Hanged Man for deck thinning); take that card.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2111.359,
+     "text": "you're going to take that 20 bucks and you're going to reroll in the shop what are you hoping to get when you rerolling the shop you're hoping to get hung man so just take the hung man",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2111s",
+     "gloss": "Hanged Man"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "fix.trading-card-thins"
+    ]
+   },
+   "knob": "pack pick: a card on the build's shopping list beats a money card of value <= $20"
+  },
+  {
+   "id": "consumables.hold-death-over-4-dollars",
+   "topic": "consumables",
+   "decision": "Tarot/Spectral use",
+   "statement": "A Death card is worth more than ~$4 of saved hands: hold it to copy an enhanced or sealed card rather than burning it to make a hand early (on Green Deck each saved hand is $2).",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any (Green shown)",
+    "stake": "any",
+    "build_state": "no enhanced/sealed card to copy yet"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 865.839,
+     "text": "is a $7 death card you know is it worth the four bucks for the death card to copy something more important and I think the answer is yes",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=865s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "fix.death-on-seals-early"
+    ]
+   },
+   "knob": "keep Death unless the round would be lost without it; consumable value of Death >= $4"
+  },
+  {
+   "id": "packs.cheap-pack-when-poor",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "With little money early (about $9 in the first shop), take the $4 normal pack over the $6 Jumbo, even if the Jumbo Celestial is a better shot at the next round; a Buffoon pack is preferred when the coming boss needs more than one Planet.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "money <= ~$10"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 581.2,
+     "text": "because it is a jumbo cost six bucks I'm going to take the buffoon pack instead",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=581s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "packs.checkered-no-early-buffoon"
+    ]
+   },
+   "knob": "ante 1 with money <= $10: rank normal ($4) packs above Jumbo ($6)/Mega ($8); Buffoon over Celestial when no scoring joker yet",
+   "notes": "Agrees with Roffle's 'open Buffoon packs on decks without early scoring' half of packs.checkered-no-early-buffoon."
+  },
+  {
+   "id": "packs.priority-arcana-celestial-standard",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "Pack priority for a Flush / deck-manipulation build: Arcana first, Celestial second, Standard last. A Standard pack is worth buying mainly when you hold Death (to copy a seal or enhancement) or have spare money; skip it to save for the next shop otherwise.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "Flush or deck-manipulation build"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1297.24,
+     "text": "if I'm going for flushes I want to prioritize Arcana packs for the deck manipulation secondarily I want the uh Celestial packs and then standard packs are kind of lowest on that list of priorities",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1297s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1064.28,
+     "text": "the standard pack becomes more valuable when I have a death card and so if I didn't have the death card I wouldn't take the standard pack",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1064s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "pack value order (flush build): Arcana > Celestial > Standard; Standard pack value x2 when holding Death, else buy only from surplus above floor + reserve"
+  },
+  {
+   "id": "packs.voucher-over-pack",
+   "topic": "packs",
+   "decision": "pack open",
+   "statement": "Skip a pack if buying it leaves too little money for the voucher in the shop after the boss.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "voucher not yet bought this ante"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 752.04,
+     "text": "if I buy this Celestial pack then after the boss I'm not going to have enough money for a voucher so maybe we don't take the celestial pack here",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=752s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "shop.vouchers-early"
+    ]
+   },
+   "knob": "before the boss, keep money >= $10 (voucher price) after optional pack buys"
+  },
+  {
+   "id": "vouchers.buy-when-affordable",
+   "topic": "vouchers",
+   "decision": "voucher",
+   "statement": "Buy vouchers whenever money allows: 'we definitely buy the voucher'; Director's Cut with plenty of money (reroll bad bosses); Clearance Sale first since it discounts everything after; Blank is worth it if affordable because its upgrade (Antimatter) gives a joker slot.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "money above floor"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2647.24,
+     "text": "we definitely buy the voucher we definitely buy these Arcana packs",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2647s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 3782.319,
+     "text": "the clearance sale voucher makes things cheaper so we might as well pick that up first",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=3782s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 4639.159,
+     "text": "in general the upgraded version of the blank voucher gives you an extra Joker slot and so if you can afford it it's worth to invest",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=4639s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "shop.vouchers-early"
+    ]
+   },
+   "knob": "buy the shop voucher when money - $10 >= floor (or before packs if it is Clearance Sale); Blank counts as half of Antimatter's value"
+  },
+  {
+   "id": "vouchers.grabber-is-a-dollar-a-round",
+   "topic": "vouchers",
+   "decision": "voucher",
+   "statement": "Grabber (+1 hand) is mostly worth $1 per round (one more unused hand) for its $10 price, with occasional use as an extra dig; buy it from surplus.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "money above cap"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1076.88,
+     "text": "most of the time I don't need the extra hand most of the time this is just plus $1 spend $10 get $1 every round",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1076s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "voucher value of Grabber = $1 x rounds remaining (+ dig value); buy only when money - 10 >= 25"
+  },
+  {
+   "id": "vouchers.skip-tarot-merchant-weak-jokers",
+   "topic": "vouchers",
+   "decision": "voucher",
+   "statement": "Skip Tarot Merchant while your jokers are weak: it fills shop slots with Tarots that should be showing jokers.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "joker row still needs upgrades"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2286.96,
+     "text": "I probably don't want the tarot Merchant cuz my Jokers kind of suck and again here I want to make sure that I have enough jokers in the shop I don't want to replace Jokers with tarot cards",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2286s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1957.96,
+     "text": "I don't want the tarot Merchant I'd like to get better Jokers so let's just save our money",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1957s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "do not buy Tarot Merchant / Planet Merchant while scoring_jokers < required(ante) or the joker row has a weak slot"
+  },
+  {
+   "id": "jokers.one-scoring-joker-per-ante",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Heuristic for when to spend on scoring: have on average one scoring joker per ante - 1 for rounds 1-3, 2 for rounds 4-6, at least 3 by ante 3 (to play safe). Planet levels can stand in for part of a joker. Small buffs (+4 Mult flat, +20% xMult) don't count.",
+   "conditions": {
+    "antes": [
+     1,
+     3
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 925.759,
+     "text": "you want to get at least one scoring Joker per anti so for the first three rounds you just need one scoring Joker for the next three rounds two scoring Jokers and then by anti3 you want to have at least three scoring Jokers",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=925s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1862.2,
+     "text": "I want definitely three solid scoring jokers in order to get 2,800 or you know if you have some Planet cards that can make up for it you don't necessarily need three scoring Jokers",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1862s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1635.84,
+     "text": "I want to have you know kind of on average one scoring Joker per anti",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1635s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "jokers.dont-greed-past-scoring"
+    ]
+   },
+   "knob": "required_scoring_jokers(ante) = min(ante, 3) by the ante's first shop; while below it, scoring-joker buys override the interest floor",
+   "notes": "Repeated in both videos (White and Gold)."
+  },
+  {
+   "id": "jokers.mult-first-chips-later-xmult-end",
+   "topic": "jokers",
+   "decision": "joker order",
+   "statement": "Build order: first scoring jokers should be +Mult (not +Chips); then a balance of +Chips and +Mult; endgame needs 2-3 xMult jokers, and by then planet levels give the chips, so sell +Chips jokers for xMult.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 2605.92,
+     "text": "the thing to note about the chips Jokers it's not good as the first Joker that you get the chips Jokers you want to go for the Plus Mt ones first then you want kind of a balance of plus chips and Plus Mt",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=2605s",
+     "gloss": "Plus Mult"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 2624.76,
+     "text": "most of your chips coming from your planet cards you can get rid of the plus chips jokers in the end game",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=2624s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 2547.359,
+     "text": "end game you're looking for maybe two or three of these in order to finish it out",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=2547s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "jokers.need-multiplicative"
+    ]
+   },
+   "knob": "joker value multipliers by slot count: first scoring joker +Mult x1.3, +Chips x0.8; from ante 5 xMult x1.5 and +Chips x0.6; sell +Chips joker to fit an xMult joker",
+   "notes": "Multipliers are illustrative, not stated."
+  },
+  {
+   "id": "jokers.constellation-dont-pass-early",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Constellation (permanent scaling xMult) is one you don't pass, especially early (seen around ante 2).",
+   "conditions": {
+    "antes": [
+     1,
+     3
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1114.559,
+     "text": "constellation is one that probably you don't pass and definitely this early in the game you don't pass",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1114s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "jokers.square-over-early-constellation"
+    ],
+    "note": "Roffle prefers Square Joker over an early Constellation; Spectred never passes Constellation early."
+   },
+   "knob": "Constellation early (antes 1-3): buy at any price that keeps money >= $0; value it as an xMult joker"
+  },
+  {
+   "id": "jokers.econ-and-scaling-cutoffs",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Money and slow-scaling jokers need rounds left to pay off: Golden Joker 'pays for itself right away' early; by ante 4 at Gold it is too late for Ceremonial Dagger, by ante 5 a bit late for Gift Card, and by ante 7 too late for Ride the Bus.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "Gold (Gift Card, Dagger); White (Ride the Bus)"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 1386.919,
+     "text": "you could roll into some value generating Joker like the golden Joker and then you know it pays for itself right away",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=1386s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2644.079,
+     "text": "gift card is cool but maybe a little bit late for gift card",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2644s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 2315.48,
+     "text": "we could pick up the dagger I think it's too late for the dagger",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=2315s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.money-jokers-first"
+    ]
+   },
+   "knob": "economy/scaling joker value x rounds_remaining; stop buying Gift Card from ante 5, Ceremonial Dagger from ante 4, Ride the Bus from ante 7; Golden Joker always a buy in antes 1-3",
+   "notes": "Antes for Dagger/Gift Card are derived from blind sizes on screen (13,000 = ante 4 Big, 25,000 = ante 5 Small at Gold). Ride the Bus: he says 'ante 7' himself. Roffle's econ.late-money-engines is about runs going past ante 8."
+  },
+  {
+   "id": "jokers.matador-sell-for-reliable",
+   "topic": "jokers",
+   "decision": "joker sell",
+   "statement": "Matador pays on only about a third of bosses; when you need a reliable scoring piece, sell Matador for it.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "Matador held, next boss unknown"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 2000.639,
+     "text": "about 13 of the bosses you can get value from Matador so if you wanted to play safe I would sell the Matador",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=2000s",
+     "gloss": "about 1/3 of the bosses"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "bosses.matador-only-if-it-triggers"
+    ]
+   },
+   "knob": "Matador value = $8 x P(next boss triggers) with P ~ 1/3; first to sell when a scoring joker is offered"
+  },
+  {
+   "id": "jokers.net-cost-is-price-minus-sell",
+   "topic": "jokers",
+   "decision": "shop joker buy",
+   "statement": "Count a joker's real cost as price minus its sell value: a $2 joker that sells for $1 costs $1; Midas Mask is a safe buy because it always sells back for $3.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 3857.88,
+     "text": "even though it cost $2 and I can sell it for one dollar it only cost me a net $1",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=3857s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1910.88,
+     "text": "we definitely pick up the Midas mask because we can always sell it for three bucks",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1910s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "econ.breakpoints-and-rent"
+    ]
+   },
+   "knob": "effective_cost(joker) = price - floor(price/2) when an empty slot is free; empty slots should be filled by any joker whose net cost fits surplus"
+  },
+  {
+   "id": "shop.gold-stickers-rental-eternal",
+   "topic": "shop",
+   "decision": "shop joker buy",
+   "statement": "At Gold stake: don't pay rent for a short-term joker like Popcorn; an Eternal Golden Joker is acceptable when the build (Flush House) needs little joker support.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "Gold"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1766.159,
+     "text": "popcorn as a rental I don't think we want to be paying for in the next round",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1766s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1747.96,
+     "text": "generally generally I like the golden Joker but maybe as an eternal I don't feel great about",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1747s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "econ.rentals-are-short-hires"
+    ]
+   },
+   "knob": "Rental joker value -= $3 x rounds kept; Eternal money joker allowed when joker slots are not the bottleneck"
+  },
+  {
+   "id": "skips_tags.no-skips-by-default",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Default: don't skip blinds. A skip gives up the blind reward, $1 per unused hand, interest, joker payouts, and a shop (its free first offering and its booster packs). Skips are right only in rare cases; for learners, never skip.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any (Yellow shown)",
+    "stake": "White"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 501.56,
+     "text": "most of the time it's not worth it to do the skips there are rare circumstances where it is going to be worth it but most of the time it's not going to be worth it",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=501s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 490.44,
+     "text": "if we skip around we skip all of that opportunity to get booster packs and opportunity to get sort of a free roll at the shop",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=490s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 513.12,
+     "text": "for now no skips never skip you will never be punished for not skipping",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=513s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "agrees",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "skip only when tag in an allowlist (see skips_tags.edition-tag-ante1, skips_tags.rare-tag-for-xmult); otherwise play every Small/Big Blind",
+   "notes": "Partly contradicted by skips_tags.edition-tag-ante1 (Gold video), where he leans toward skipping ante 1 for edition tags."
+  },
+  {
+   "id": "skips_tags.edition-tag-ante1",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Ante 1 Small Blind: the edition tags (Foil, Holographic, Polychrome) are usually worth skipping for, because they give a free joker that is guaranteed to score in the first shop. Weigh the lost round income (about $2 interest plus hand money on Yellow, more on Green). On Green Deck at Gold he decided it was economically safer to play the round.",
+   "conditions": {
+    "antes": [
+     1
+    ],
+    "deck": "any",
+    "stake": "Gold (shown)",
+    "build_state": "no jokers yet"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 313.84,
+     "text": "I think most of the time we want the addition tags uh foil holographic and you know potentially polychrome also cuz one they give us free Jokers",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=313s",
+     "gloss": "edition tags"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 341.84,
+     "text": "having it be foiled turns it into a guaranteed scoring Joker in the first shop like this is powerful this is worth it",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=341s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 401.68,
+     "text": "maybe I think it's safer economically to just play out the first round",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=401s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ],
+    "note": "Roffle plays every blind at Gold; Spectred says ante 1 edition tags are usually worth a skip even at Gold (though on Green he played)."
+   },
+   "knob": "ante 1 Small Blind: skip if tag in {Foil, Holographic, Polychrome} and deck is not Green; play otherwise",
+   "notes": "Self-contradiction with skips_tags.no-skips-by-default (beginner advice). His final choice in this video was to play the round."
+  },
+  {
+   "id": "skips_tags.rare-tag-for-xmult",
+   "topic": "skips_tags",
+   "decision": "blind skip and tags",
+   "statement": "Skip for a Rare tag when the build lacks xMult (about 2/3 of rare jokers give xMult), e.g. you have one xMult and need two; with a Double tag (Diet Cola) the skip is worth more. A guaranteed rare can beat the same money spent on random rerolls.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "White",
+    "build_state": "fewer xMult jokers than needed (< 2)"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 4461.76,
+     "text": "the rare Jokers um I think about 2/3 of them give you X mol and so if you're like very desperate for X mol that could be a situation in which you want to go for the rare tag",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=4461s",
+     "gloss": "xMult"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 4484.96,
+     "text": "if you only have one and you need two then that could be a possible skip worth going for you know this guaranteed rare might be more valuable than just random rerolls",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=4484s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 3536.079,
+     "text": "diet cola I can get a double tag for you know if I want to take a skip now the skip is more valuable",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=3536s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "skips.play-every-blind-at-gold"
+    ]
+   },
+   "knob": "skip Small/Big Blind when tag == Rare and xmult_jokers < 2 and the build beats the blind after next with margin; Double tag held doubles tag value"
+  },
+  {
+   "id": "hands.fewest-hands-pays",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Each unused hand pays $1 at cash-out ($2 on Green Deck), so plan each round to win in as few hands as possible. A joker that turns a 2-hand win into a 1-hand win earns back $1+ a round, which offsets the interest lost buying it.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 45.0,
+     "text": "we have these incentives in the game to play fewer but then higher quality hands",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=45s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 892.399,
+     "text": "if I have an extra Joker and it you know I spend money so I lose interest but then the the scoring allows me to win with less hands then I'm gaining money from the extra hand so trade-offs there",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=892s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 294.56,
+     "text": "how do I get to a point where I can win with just one hand as quickly as possible how do I get there then I'm earning a lot of extra money per round",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=294s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "joker buy value += $1 x (hands saved per round) x rounds remaining; in play, prefer the line that wins with fewest hands when the chance of winning is equal"
+  },
+  {
+   "id": "hands.extra-hands-cost-a-dollar",
+   "topic": "hands",
+   "decision": "hand choice/discard",
+   "statement": "Spending extra hands on purpose (to grow Square Joker, Ride the Bus, or to reach Dusk's last-hand retrigger) costs $1 per hand; do it only when the economy is already built (money to spare), otherwise let scaling jokers grow from hands you would play anyway, and win without Dusk if you can.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "any",
+    "build_state": "economy below cap"
+   },
+   "quotes": [
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 269.4,
+     "text": "the thing to keep in mind is this is not free every hand costs you a dollar so you're exchanging $1 for four chips",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=269s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 311.56,
+     "text": "don't go too crazy unless you already have the uh economy built up you already have the money you don't care about spending the money",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=311s"
+    },
+    {
+     "video": "TJEsOAc_bmE",
+     "t_seconds": 4988.199,
+     "text": "the dusk only works on your final hand so you have to use all your hands so I'm losing $4 in order to activate the dusk so if I can win without dusk I should try to win without dusk",
+     "url": "https://www.youtube.com/watch?v=TJEsOAc_bmE&t=4988s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "conflicts",
+    "principles": [
+     "hands.throwaway-hands-to-scale"
+    ],
+    "note": "Roffle plays extra non-winning hands to grow scaling jokers; Spectred says each one costs $1 and is worth it only once money is above the cap."
+   },
+   "knob": "allow deliberate extra hands for scaling only when money >= 25 + hands_spent; otherwise play the winning hand first"
+  },
+  {
+   "id": "stake.red-stake-costs-3-per-ante",
+   "topic": "stake",
+   "decision": "money/interest",
+   "statement": "Red stake (and every stake above it, including Gold) removes the Small Blind reward: $3 less per ante. Small, but it snowballs, so early dollars are worth more at higher stakes.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "any",
+    "stake": "Red and above (incl. Gold)"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 258.959,
+     "text": "the only difference is $3 per anti $3 less than the first anti $3 Less on the second anti and then so on that's it that's the only difference here but it is still impactful",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=258s"
+    }
+   ],
+   "confidence": "medium",
+   "roffle": {
+    "relation": "new",
+    "principles": [
+     "stake.gold-buys-early-scoring"
+    ]
+   },
+   "knob": "sim: Small Blind reward $0 at stake >= Red; at White, Small Blind pays $3, so skipping it costs $3 more than at Red+"
+  },
+  {
+   "id": "decks.green-worse-than-interest",
+   "topic": "decks",
+   "decision": "deck choice",
+   "statement": "Green Deck ($2 per unused hand, $1 per unused discard, no interest) is worse than normal interest most of the time: its best case equals capped interest (~$5 a round) and you usually get less; it only helps by a few dollars in the first 1-2 rounds. On Green, play as few hands as possible (avoid hand-spam builds like Ride the Bus or Telescope + High Card), and still save money for packs and vouchers.",
+   "conditions": {
+    "antes": [
+     1,
+     8
+    ],
+    "deck": "Green",
+    "stake": "any"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 106.84,
+     "text": "assuming the best case scenario you can get the equivalent equal to $5 worth of interest but that's the best case scenario that's not going to happen most of the time",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=106s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 148.959,
+     "text": "having interest is just better most of the time than this green deck nonsense here",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=148s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 954.44,
+     "text": "if the green deck is costing us money per hand we want to try to play as few few hands as possible",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=954s"
+    }
+   ],
+   "confidence": "high",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "deck choice: rank Green below Red/Blue/Yellow; on Green set hand-spend penalty to $2/hand and $1/discard, interest floor off, reserve for next-shop packs still on"
+  },
+  {
+   "id": "deck_fixing.money-enhancements-early",
+   "topic": "deck_fixing",
+   "decision": "deck fixing",
+   "statement": "Early (antes 1-3), prefer money-making card upgrades (Gold card, Lucky cards) over long-term ones (Polychrome, Glass): survive and build money now, the late game takes care of itself.",
+   "conditions": {
+    "antes": [
+     1,
+     3
+    ],
+    "deck": "any",
+    "stake": "Gold (shown)"
+   },
+   "quotes": [
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1115.64,
+     "text": "I'm actually going to invest I'm going to invest in the gold card here this is going to help us in the short term and if we just if we just survive the early game then the late game is fine",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1115s"
+    },
+    {
+     "video": "QkHANP2e9i8",
+     "t_seconds": 1267.4,
+     "text": "I think having the lucky cards early you know for the investment to get the money is worth it",
+     "url": "https://www.youtube.com/watch?v=QkHANP2e9i8&t=1267s"
+    }
+   ],
+   "confidence": "low",
+   "roffle": {
+    "relation": "new",
+    "principles": []
+   },
+   "knob": "antes 1-3: in Standard/Arcana picks rank Gold/Lucky enhancements above Glass/Polychrome playing cards",
+   "notes": "He calls the Gold-over-Polychrome pick 'a little bit controversial'."
+  }
+ ],
+ "tables": {
+  "money_by_ante": [
+   {
+    "antes": [
+     1,
+     1
+    ],
+    "rule": "Shop 1: buy at least one joker (no interest floor); take $4 packs over $6 Jumbos when money <= ~$10; at White, bank if the next blind is already safe in 2 hands",
+    "claims": [
+     "economy.first-shops-spend",
+     "packs.cheap-pack-when-poor",
+     "economy.bank-if-next-blind-safe"
+    ]
+   },
+   {
+    "antes": [
+     2,
+     2
+    ],
+    "rule": "Reach $25 by about round 5 (ante 2 Big Blind shop)",
+    "claims": [
+     "economy.reach-cap-by-round-5"
+    ]
+   },
+   {
+    "antes": [
+     2,
+     8
+    ],
+    "rule": "Hold >= $25; spend surplus above $25 freely; keep ~$8-12 extra for the next shop's packs/voucher (implied)",
+    "claims": [
+     "economy.surplus-above-cap-free",
+     "economy.carry-budget-to-next-shop"
+    ]
+   }
+  ],
+  "reroll_rules": {
+   "order": "wanted packs first, then reroll from what is left",
+   "default_per_shop": 1,
+   "rich_per_shop": 2,
+   "declined_at": "$33 (would leave $28)",
+   "extra_when": "next blind hard or scoring_jokers < required(ante)",
+   "claims": [
+    "reroll.packs-before-rerolls",
+    "reroll.spread-one-per-shop",
+    "reroll.keep-buffer-above-cap",
+    "reroll.spend-more-when-threatened"
+   ]
+  },
+  "scoring_jokers_required": {
+   "rounds_1_3": 1,
+   "rounds_4_6": 2,
+   "by_ante_3": 3,
+   "claim": "jokers.one-scoring-joker-per-ante"
+  },
+  "economy_joker_cutoffs": {
+   "Golden Joker": "buy early, pays for itself right away",
+   "Ceremonial Dagger": "too late by ante 4 (Gold)",
+   "Gift Card": "a bit late by ante 5 (Gold)",
+   "Ride the Bus": "too late by ante 7 (White)",
+   "claim": "jokers.econ-and-scaling-cutoffs"
+  },
+  "voucher_values": {
+   "Grabber": "$10 for ~ +$1 per round",
+   "Clearance Sale": "buy first in the shop",
+   "Blank": "buy if affordable (Antimatter later)",
+   "Tarot Merchant": "skip while jokers are weak"
+  },
+  "not_covered": "Neither video gives rules for Seed Money / Money Tree, debt / Credit Card, or selling items to hit $5 breakpoints, and neither contrasts White vs Gold money rules beyond Red stake's -$3 per ante."
+ }
+}

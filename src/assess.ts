@@ -12,6 +12,7 @@ import { applyToDeck, dealtHand, pickTargets } from "./deckfix.ts";
 import type { Snapshot } from "./extract.ts";
 import { ARCHETYPES, PLANET_HAND, bossKeyOf, bossPool, jokerTags } from "./knowledge.ts";
 import { MODELLED_JOKERS, type HandName, type Joker } from "./poker.ts";
+import { roundsTo } from "./growth.ts";
 import { bossEffects, levelUp, mulberry32, roundOdds, type Setup } from "./round.ts";
 
 export type Outlook = "ahead" | "on pace" | "behind" | "losing";
@@ -132,7 +133,9 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
 
   // Outlook: simulated rounds at this ante's boss and the next two. Mid-round (simulate: false) the
   // build estimate stands in, since the round itself is what the hand stage simulates.
-  const odds = simulate ? targets.map((t) => roundOdds(s, [current], t, hands, discards, samples)[0]) : targets.map((t) => Math.min(1, (p.power * hands) / Math.max(1, t) / 1.5));
+  // Each boss is played with the jokers as they'll likely be by then (growth.ts).
+  const at = (k: number) => roundsTo(s, k);
+  const odds = simulate ? targets.map((t, k) => roundOdds(s, [current], t, hands, discards, samples, undefined, at(k))[0]) : targets.map((t) => Math.min(1, (p.power * hands) / Math.max(1, t) / 1.5));
   const status = outlookOf(odds);
   const outlook = {
     status,
@@ -152,9 +155,10 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
   let lift: Assessment["synergy"]["lift"];
   let liftAt = next;
   if (simulate && s.jokers.length) {
-    liftAt = targets[odds.reduce((best, o, i) => (Math.abs(o - 0.5) < Math.abs(odds[best] - 0.5) ? i : best), 0)];
+    const liftK = odds.reduce((best, o, i) => (Math.abs(o - 0.5) < Math.abs(odds[best] - 0.5) ? i : best), 0);
+    liftAt = targets[liftK];
     const setups = [current, { jokers: [], levels: s.levels }, ...s.jokers.map((j) => ({ jokers: s.jokers.filter((x) => x !== j), levels: s.levels }))];
-    const o = roundOdds(s, setups, liftAt, hands, discards, minor);
+    const o = roundOdds(s, setups, liftAt, hands, discards, minor, undefined, at(liftK));
     lift = { all: o[0], none: o[1], perJoker: s.jokers.map((j, i) => ({ label: j.label, loss: o[0] - o[i + 2] })).sort((a, b) => b.loss - a.loss) };
   }
   const role = (tags: string[]) => tags.some((t) => ["econ", "copy", "scaling", "sell_value", ...ENGINE_TAGS].includes(t));
@@ -189,9 +193,10 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
   let boss: Assessment["boss"];
   if (bossBlind && simulate) {
     const rule = bossEffects(bossBlind.name, s.handSize);
-    const target = bossBlind.target || targets[0];
-    const plain = rule ? roundOdds(s, [current], target, hands, discards, samples)[0] : odds[0];
-    const withRule = rule ? roundOdds(s, [current], target, hands, discards, samples, rule)[0] : plain;
+    // The game's target already holds The Wall's size; the plain round is a boss without it.
+    const target = bossBlind.target ? bossBlind.target / (rule?.targetScale ?? 1) : targets[0];
+    const plain = rule ? roundOdds(s, [current], target, hands, discards, samples, undefined, at(0))[0] : odds[0];
+    const withRule = rule ? roundOdds(s, [current], target, hands, discards, samples, rule, at(0))[0] : plain;
     const drop = plain - withRule;
     const threat = drop >= 0.4 ? "severe" : drop >= 0.2 ? "serious" : drop >= 0.05 ? "mild" : "none";
     boss = {
@@ -216,10 +221,10 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
       // The same deals and sample count for the plain round and every boss, so drops compare.
       const target = boss.target;
       const n = Math.min(24, minor);
-      const plain = roundOdds(s, [current], target, hands, discards, n)[0];
+      const plain = roundOdds(s, [current], target, hands, discards, n, undefined, at(0))[0];
       const scored = choices.slice(0, 8).map((b) => {
         const rule = bossEffects(b.name, s.handSize);
-        return { name: b.name, drop: rule ? plain - roundOdds(s, [current], target, hands, discards, n, rule)[0] : 0 };
+        return { name: b.name, drop: rule ? plain - roundOdds(s, [current], target, hands, discards, n, rule, at(0))[0] : 0 };
       });
       const expectedDrop = scored.reduce((a, b) => a + b.drop, 0) / scored.length;
       const currentDrop = boss.plain - boss.withRule;
@@ -265,7 +270,7 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
         setups.push({ ...current, deck: changed });
         used.push(t);
       }
-      const o = roundOdds(s, setups, next, hands, discards, minor);
+      const o = roundOdds(s, setups, next, hands, discards, minor, undefined, at(1));
       used.forEach((t, i) => fixes.push({ key: t.key, label: t.label, gain: o[i + 1] - o[0] }));
       fixes.sort((a, b) => b.gain - a.gain);
     }
@@ -286,7 +291,7 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
     const top = Object.entries(s.levels).sort((a, b) => (b[1]?.played ?? 0) - (a[1]?.played ?? 0))[0];
     const handsToTry = [...new Set([...(ARCHETYPES[p.primary.name]?.hands ?? []).slice(0, 2), ...(top && (top[1]?.played ?? 0) > 0 ? [top[0]] : [])])].filter((h) => PLANET_OF[h]) as HandName[];
     if (handsToTry.length) {
-      const o = roundOdds(s, [current, ...handsToTry.map((h) => ({ ...current, levels: levelUp(s.levels, h) }))], next, hands, discards, minor);
+      const o = roundOdds(s, [current, ...handsToTry.map((h) => ({ ...current, levels: levelUp(s.levels, h) }))], next, hands, discards, minor, undefined, at(1));
       handsToTry.forEach((h, i) => planets.push({ hand: h, planet: planetName(PLANET_OF[h]), gain: o[i + 1] - o[0] }));
       planets.sort((a, b) => b.gain - a.gain);
     }
@@ -305,7 +310,7 @@ export function assess(s: Snapshot, p: BuildProfile, opts: AssessOptions = {}): 
     const full = s.jokers.length >= s.jokerSlots;
     const without = full && p.weakest ? s.jokers.filter((j) => j.index !== p.weakest!.index) : s.jokers;
     const setups = ranked.map((r) => ({ jokers: [...without, asJoker(r.key)], levels: s.levels }));
-    const base = roundOdds(s, [{ jokers: without, levels: s.levels }, ...setups], next, hands, discards, minor);
+    const base = roundOdds(s, [{ jokers: without, levels: s.levels }, ...setups], next, hands, discards, minor, undefined, at(1));
     ranked.forEach((r, i) => targetPool.push({ key: r.key, gain: base[i + 1] - base[0] }));
     out.push(...targetPool.map((t) => ({ ...t, label: titled(t.key) })).sort((a, b) => b.gain - a.gain).slice(0, 3));
   }

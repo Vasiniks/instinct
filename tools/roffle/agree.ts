@@ -2,7 +2,7 @@
 // visits. Leave-one-video-out: each video is scored with priors built from the other videos, so
 // the expert nudge is never graded on the choices it was counted from.
 //
-// Usage: node tools/roffle/agree.ts [--weights 0,0.5,1] [--misses] [--takes] [--start-deck] [--videos id,id] [--debug VIDEO:SECOND]
+// Usage: node tools/roffle/agree.ts [--weights 0,0.5,1] [--misses] [--takes] [--start-deck] [--videos id,id] [--debug VIDEO:SECOND [--why]] [--off switch,list] [--set key=value,...]
 //
 // Measures the code's utilities (the fallback policy and the hints the model sees), not the model.
 // Decks are estimated from the hands he was dealt over the last three blinds (`--start-deck` uses
@@ -13,6 +13,8 @@
 import { profileBuild } from "../../src/build.ts";
 import { buildCandidates, offerValue, type Candidate } from "../../src/candidates.ts";
 import { EXPERT_WEIGHT } from "../../src/expert.ts";
+import { FEATURES } from "../../src/features.ts";
+import { applyOverrides } from "../../src/tuning.ts";
 import { extract, type Snapshot } from "../../src/extract.ts";
 import { cardLabel, normEdition, normRank, type PCard } from "../../src/cards.ts";
 import { blindBase } from "../../src/knowledge.ts";
@@ -25,8 +27,14 @@ const arg = (name: string) => {
   const i = argv.indexOf(`--${name}`);
   return i === -1 ? undefined : (argv[i + 1] ?? "true");
 };
+/** --off turns single stage switches off (features.ts); --set moves TUNING numbers or switches (tuning.ts). */
+for (const k of (arg("off") ?? "").split(",").filter(Boolean)) {
+  if (!(k in FEATURES)) throw new Error(`no switch named ${k}; switches: ${Object.keys(FEATURES).join(", ")}`);
+  (FEATURES as Record<string, boolean>)[k] = false;
+}
+applyOverrides(arg("set") ?? "", FEATURES as Record<string, boolean>);
 const weights = (arg("weights") ?? `0,0.25,${EXPERT_WEIGHT},1,1.5`).split(",").map(Number);
-/** --margin overrides SWAP_MARGIN, to sweep it. */
+/** --margin overrides TUNING.swapMargin, to sweep it. */
 const swapMargin = arg("margin") === undefined ? undefined : Number(arg("margin"));
 const showMisses = arg("misses") !== undefined;
 const showTakes = arg("takes") !== undefined;
@@ -377,5 +385,5 @@ if (debug) {
   console.log(`\n${vid} ${sec}s ante ${visit.ante ?? "?"} $${visit.money ?? "?"}: build ${p.primary.name}, power ${p.power}, needs ${p.needs.join(", ") || "-"}, he took ${visit.taken.map((j) => j.key).join(", ") || "nothing"}`);
   for (const r of p.jokers) console.log(`  held ${r.label.padEnd(18)} keep ${r.keep.toFixed(2)} worth ${r.worth.toFixed(2)} (${r.note})`);
   for (const i of visit.where === "shop" ? s.shop : s.pack) console.log(`  offer ${i.label.padEnd(17)} value ${offerValue(s, i, { profile: p, expert: priors }).toFixed(2)}`);
-  for (const c of buildCandidates(s, { endless: false, maxOptions: 24, expert: priors }).candidates.slice(0, 6)) console.log(`  move ${c.label.padEnd(40)} ${c.utility.toFixed(2)}`);
+  for (const c of buildCandidates(s, { endless: false, maxOptions: 24, expert: priors }).candidates.slice(0, 6)) console.log(`  move ${c.label.padEnd(40)} ${c.utility.toFixed(2)}${arg("why") ? `\n       ${c.description}` : ""}`);
 }

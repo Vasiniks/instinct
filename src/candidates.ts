@@ -5,18 +5,21 @@
 // better ones, uses Tarots and Planets when they help, fixes the deck, and minds the economy.
 // Lists stay well under StartLux's 26-options-per-pass ceiling no matter how large the hand is.
 
-import { ENGINE_TAGS, bossTargets, discardsPerRound, handsPerRound, interestOn, jokerFit, powerWith, profileBuild, rentDue, type BuildProfile } from "./build.ts";
+import { ENGINE_TAGS, bossTargets, discardsPerRound, handsPerRound, interestOn, jokerFit, powerOnHand, profileBuild, rentDue, type BuildProfile } from "./build.ts";
 import { FACE_RANKS, SUIT_NAME, cardWorth, type PCard } from "./cards.ts";
-import type { Item, Snapshot } from "./extract.ts";
+import type { Item, ShopItem, Snapshot } from "./extract.ts";
 import { ARCHETYPES, PLANET_HAND, SUIT_TAG, TAG_VALUE, TAROTS, VOUCHER_VALUE, bossRule, jokerTags, stakeAtLeast } from "./knowledge.ts";
-import { EXPERT_WEIGHT, expertTake, type ExpertPriors } from "./expert.ts";
+import { buConsumableDelta, buTagDelta, expertTake, tierDelta, voucherDelta, type ExpertPriors } from "./expert.ts";
 import { discardOptions, playOptions, type PlayOption } from "./options.ts";
 import { assess, jokerCatalog, type Assessment } from "./assess.ts";
 import { FEATURES } from "./features.ts";
+import { enablerLift } from "./synergy.ts";
+import { TUNING } from "./tuning.ts";
+import { roundsTo } from "./growth.ts";
 import type { Plan } from "./plan.ts";
 import { isModelledJoker, type Joker } from "./poker.ts";
 import { applyToDeck, changesDeck, dealtHand, pickTargets } from "./deckfix.ts";
-import { levelUp, mulberry32, roundOdds, roundOutcomes, type Setup } from "./round.ts";
+import { bossEffects, levelUp, mulberry32, roundOdds, roundOutcomes, type Setup } from "./round.ts";
 
 export { pickTargets };
 
@@ -87,9 +90,9 @@ export interface CandidateOptions {
   profile?: BuildProfile;
   /** How an expert treated each joker (data/roffle/priors.json); nudges joker values (never shown to the model). */
   expert?: ExpertPriors;
-  /** Defaults to EXPERT_WEIGHT; the benchmark sweeps it. */
+  /** Defaults to TUNING.expertWeight; the benchmark sweeps it. */
   expertWeight?: number;
-  /** Defaults to SWAP_MARGIN; the benchmark sweeps it. */
+  /** Defaults to TUNING.swapMargin; the benchmark sweeps it. */
   swapMargin?: number;
   /** Boss names seen this run, for the boss pool when the game doesn't report the bosses drawn. */
   bossesSeen?: string[];
@@ -98,12 +101,6 @@ export interface CandidateOptions {
 type Draft = Omit<Candidate, "prior">;
 
 const MAX_OPTIONS = 24;
-/**
- * A swap must beat the joker it replaces by this much; selling loses half the price, and experts
- * rarely churn. Set with `tools/roffle/agree.ts --margin` on 12 videos: at 0.3 the agent made 78
- * swaps he didn't, at 0.5 it proposes about as many full-row swaps as he makes (83 vs 89).
- */
-export const SWAP_MARGIN = 0.5;
 const PAIR_FAMILY = new Set(["Pair", "Two Pair", "Three of a Kind", "Full House", "Four of a Kind"]);
 const SPECTRAL_VALUE: Record<string, number> = {
   c_black_hole: 0.9,
@@ -176,9 +173,9 @@ function context(s: Snapshot, p: BuildProfile, opts: Pick<CandidateOptions, "exp
     tags: new Set(s.jokers.flatMap((j) => [...jokerTags(j.key, j.effect)])),
     mostPlayed: top && (top[1]?.played ?? 0) > 0 ? top[0] : undefined,
     expert: opts.expert,
-    expertWeight: opts.expertWeight ?? EXPERT_WEIGHT,
+    expertWeight: opts.expertWeight ?? TUNING.expertWeight,
     // Behind the next ante's boss, a smaller upgrade is worth the churn (the expert runs were rarely behind).
-    swapMargin: (opts.swapMargin ?? SWAP_MARGIN) * (p.econ.behind ? 0.6 : 1),
+    swapMargin: (opts.swapMargin ?? TUNING.swapMargin) * (p.econ.behind ? 0.6 : 1),
     trace: {},
     path: [],
     pendingVia: opts.plan?.pending?.via.key,
@@ -190,7 +187,8 @@ function fitWithExpert(c: Ctx, item: Item): { value: number; note: string; pivot
   const fit = jokerFit(item, c.s, c.p);
   const ex = expertTake(c.expert, item.key, c.s.ante);
   const pending = c.pendingVia === item.key;
-  const value = Math.max(0, fit.value + c.expertWeight * (ex?.delta ?? 0) + (pending ? 0.2 : 0));
+  const tier = TUNING.buWeight ? TUNING.buWeight * tierDelta(item.key) : 0;
+  const value = Math.max(0, fit.value + c.expertWeight * (ex?.delta ?? 0) + tier + (pending ? 0.2 : 0));
   // The expert record moves the value only; it is not quoted to the model.
   return { ...fit, value, note: pending ? `${fit.note}, the plan's pending pivot waits for it` : fit.note, expert: "" };
 }
@@ -219,7 +217,7 @@ function dollarValue(c: Ctx): number {
   const { s, p } = c;
   const underCap = p.econ.interestCap > 0 && s.money < 5 * p.econ.interestCap;
   const behind = p.econ.behind || c.a?.outlook.status === "behind" || c.a?.outlook.status === "losing";
-  return 0.03 * (underCap ? 1.3 : 1) * (behind ? 1.2 : 1) * (p.econ.surplus > 0 && !behind ? 0.7 : 1);
+  return TUNING.dollar * (underCap ? TUNING.dollarUnderCap : 1) * (behind ? 1.2 : 1) * (p.econ.surplus > 0 && !behind ? 0.7 : 1);
 }
 
 /**
@@ -229,6 +227,22 @@ function dollarValue(c: Ctx): number {
  * grows with waiting, like The Hermit (up to $20) or a Planet kept for Observatory.
  */
 function consumableValue(item: Item, c: Ctx): { value: number; why: string; use?: number; useWhy?: string } {
+  const v = consumableBase(item, c);
+  // Balatro University's consumables tier list, as a measured nudge (tuning.ts; 0 until measured).
+  // And what the card feeds in the jokers held (Strength and Death for Baron; src/synergy.ts).
+  const fed = enablerLift(item.key, c.owned);
+  const nudge = (TUNING.buConsumableWeight ? TUNING.buConsumableWeight * buConsumableDelta(item.key) : 0) + TUNING.enablerBonus * fed.lift;
+  return nudge ? { ...v, value: v.value + nudge, why: `${v.why}${fedText(c, fed)}`, ...(v.use !== undefined ? { use: v.use + nudge } : {}) } : v;
+}
+
+/** " (feeds Baron, Mime)" for a description, or nothing. */
+function fedText(c: Ctx, fed: { for: string[] }): string {
+  if (!fed.for.length) return "";
+  const label = (k: string) => c.s.jokers.find((j) => j.key === k)?.label ?? k;
+  return `; feeds ${fed.for.map(label).join(", ")}`;
+}
+
+function consumableBase(item: Item, c: Ctx): { value: number; why: string; use?: number; useWhy?: string } {
   const { s, p } = c;
   const flush = p.primary.name === "Flush";
   const dollar = dollarValue(c);
@@ -239,7 +253,10 @@ function consumableValue(item: Item, c: Ctx): { value: number; why: string; use?
     const hand = PLANET_HAND[item.key];
     const build = Boolean(hand && c.planHands.has(hand));
     const extras = (c.owned.has("j_constellation") ? 0.15 : 0) + (c.owned.has("j_satellite") ? 0.06 : 0);
-    const base = build ? 0.9 : hand && hand === c.mostPlayed ? 0.6 : 0.3;
+    // The build's hand counts only once the run plays it (a level alone is no reason).
+    const played = hand ? (s.levels[hand]?.played ?? 0) : 0;
+    const totalPlayed = Object.values(s.levels).reduce((a, l) => a + (l?.played ?? 0), 0);
+    const base = build && (played > 0 || totalPlayed < 6) ? 0.9 : hand && hand === c.mostPlayed ? 0.6 : 0.3;
     const value = base + extras + keeper;
     // Observatory: a Planet held gives X1.5 Mult to its hand, so the build's Planet is worth keeping.
     if (build && s.usedVouchers.some((v) => /observatory/i.test(v))) {
@@ -301,8 +318,10 @@ function consumableValue(item: Item, c: Ctx): { value: number; why: string; use?
         GOLD: 0.2 + 9 * dollar + goldUse,
         STONE: c.tags.has("stone") ? 0.65 : 0.15,
       };
-      const eaten = c.owned.has("j_vampire") ? 0.25 : 0;
-      return { value: (v[t.detail!] ?? 0.45) - eaten + tarotFan, why: `enhances cards to ${t.detail!.toLowerCase()}${eaten ? " (Vampire eats enhancements)" : ""}` };
+      // Vampire eats the enhancement for its XMult: the card's own value goes, Vampire's growth
+      // comes in through the enabler table (consumableValue).
+      const eaten = c.owned.has("j_vampire") ? 0.15 : 0;
+      return { value: (v[t.detail!] ?? 0.45) - eaten + tarotFan, why: `enhances cards to ${t.detail!.toLowerCase()}${eaten ? " (Vampire eats it for XMult)" : ""}` };
     }
     case "rank":
       return { value: (p.primary.name === "Straight" ? 0.6 : 0.5) + tarotFan, why: "raises card ranks" };
@@ -344,11 +363,23 @@ function consumableValue(item: Item, c: Ctx): { value: number; why: string; use?
 }
 
 /** In a hand, a helpful consumable goes before the play unless a play already clears the blind. */
+/** Cards that need cards in hand to act on (destroy, add or convert them). */
+const HAND_SPECTRALS = new Set(["c_familiar", "c_grim", "c_incantation", "c_immolate", "c_sigil", "c_ouija"]);
+
+/** Uses the game refuses right now (it would answer NOT_ALLOWED): no room for the joker made, no joker to change, nothing for The Fool to copy, no hand to act on. */
+function refusedUse(s: Snapshot, item: Item, where: "hand" | "shop"): boolean {
+  if ((item.key === "c_judgement" || item.key === "c_wraith" || item.key === "c_soul") && s.jokers.length >= s.jokerSlots) return true;
+  if ((item.key === "c_wheel_of_fortune" || item.key === "c_hex" || item.key === "c_ectoplasm") && !s.jokers.some((j) => !j.edition)) return true;
+  if (item.key === "c_fool" && item.copyKey !== undefined && (item.copyKey === "" || item.copyKey === "c_fool")) return true;
+  if (HAND_SPECTRALS.has(item.key) && (where === "shop" || s.hand.length < 2)) return true;
+  return false;
+}
+
 function useCandidates(c: Ctx, where: "hand" | "shop", bestClears = false): Draft[] {
   const { s, p } = c;
   const out: Draft[] = [];
   for (const item of s.consumables) {
-    if (item.requiresJokers > s.jokers.length) continue;
+    if (item.requiresJokers > s.jokers.length || refusedUse(s, item, where)) continue;
     const targets = pickTargets(item, s.hand, p.deckFix.suit);
     if (targets === null) continue;
     const v = consumableValue(item, c);
@@ -356,7 +387,9 @@ function useCandidates(c: Ctx, where: "hand" | "shop", bestClears = false): Draf
     // Using it now is worth its use-now value; when holding is worth more (The Hermit at low
     // money, a Planet kept for Observatory) and the slot isn't needed, using it now ranks low.
     const now = v.use ?? v.value;
-    const hold = v.use !== undefined && v.use < v.value - 0.1 && s.consumables.length < s.consumableSlots + 1;
+    // Holding waits for a better moment only while a slot is free: with the slots full, a card held
+    // for later blocks every new one, so it is used now.
+    const hold = v.use !== undefined && v.use < v.value - 0.1 && s.consumables.length < s.consumableSlots;
     const utility = hold ? 0.12 + now * 0.3 : where === "shop" ? 0.35 + now * 0.45 : bestClears ? 0.45 + now * 0.3 : 0.75 + now * 0.45;
     out.push({
       id: slug(`use_${item.label}`),
@@ -387,13 +420,32 @@ function handCandidates(c: Ctx, max: number): Draft[] {
   // Discards cost no hand and expire with the round, so while the best play is off pace they are free digging.
   const dig = !bestClears && bestScore < pace && s.discardsLeft > 0;
   const playedThisRound = Object.entries(s.levels).filter(([, l]) => (l?.played_this_round ?? 0) > 0).map(([h]) => h);
+  // What a reset would throw away: the Mult Ride the Bus holds, the XMult Obelisk holds.
+  const live = (key: string) => s.jokers.filter((j) => j.key === key && !j.debuff);
+  const streak = {
+    bus: live("j_ride_the_bus").reduce((a, j) => a + (Number.isFinite(j.stats.mult) ? j.stats.mult : 0), 0),
+    obelisk: Math.max(1, ...live("j_obelisk").map((j) => (Number.isFinite(j.stats.x_mult) ? j.stats.x_mult : 1))),
+  };
   const special: Draft[] = [];
   const out: Draft[] = [];
   /** The part of each move's utility that judges the round from one hand's score; the simulation replaces it. */
   const base = new Map<Draft, number>();
 
-  // Verdant Leaf debuffs every card until a joker is sold.
-  if (boss.sellToLift && p.weakest && !p.weakest.eternal) {
+  // Verdant Leaf debuffs every card until a joker is sold. While the hand is debuffed nothing it
+  // plays scores, and the round simulation can't see that (fresh draws aren't flagged), so the sale
+  // is the only move.
+  const leafOn = boss.sellToLift && s.hand.length > 0 && s.hand.filter((h) => h.debuff).length * 2 >= s.hand.length;
+  if (leafOn && p.weakest && !p.weakest.eternal) {
+    return [{
+      id: slug(`sell_${p.weakest.label}_leaf`),
+      kind: "sell",
+      label: `Sell ${p.weakest.label} to lift ${bossName}`,
+      description: `${bossName} debuffs every card until a joker is sold, and every card in hand is debuffed. Sell ${p.weakest.label} (+${money(p.weakest.sell)}; ${p.weakest.note}), the joker the build misses least.`,
+      call: { method: "sell", params: { joker: p.weakest.index } },
+      utility: 2,
+    }];
+  }
+  if (boss.sellToLift && p.weakest && !p.weakest.eternal && !s.hand.length) {
     special.push({
       id: slug(`sell_${p.weakest.label}_leaf`),
       kind: "sell",
@@ -423,11 +475,16 @@ function handCandidates(c: Ctx, max: number): Draft[] {
     const consequence = clears
       ? "Clears the blind now."
       : `Pace needed: about ${Math.round(pace)} per hand. ${after} chips still needed afterwards with ${s.handsLeft - 1} hand${s.handsLeft - 1 === 1 ? "" : "s"} left.`;
-    const b = Math.min(e.score / Math.max(pace, 1), 2) * 0.55 + (clears ? 0.6 : 0) - (dig && !clears ? 0.15 : 0);
+    // `b` is the part the round simulation replaces: the one-hand guess at the round, and the
+    // nudges that only guess at this round too (the build's hand, kickers cycling out). Left on top
+    // of the simulated odds they would outweigh several points of them. The rest (Ride the Bus,
+    // Obelisk, money, held Steel) reaches past the round and stays.
+    let b = Math.min(e.score / Math.max(pace, 1), 2) * 0.55 + (clears ? 0.6 : 0) - (dig && !clears ? 0.15 : 0);
     let u = b;
     const notes: string[] = [];
     if (c.planHands.has(e.hand)) {
       u += 0.08;
+      b += 0.07;
       notes.push(`${e.hand} is the build's hand`);
     }
     if (boss.noRepeat && playedThisRound.includes(e.hand)) {
@@ -451,23 +508,26 @@ function handCandidates(c: Ctx, max: number): Draft[] {
       notes.push(`costs ${money(o.cards.length * boss.costPerCard)} under ${bossName}`);
     }
     if (boss.halvesBase) notes.push(`${bossName} halves base chips and mult, so the real score is lower`);
-    if (c.tags.has("no_face") && o.cards.some(isFace) && !clears) {
-      u -= 0.12;
-      notes.push("face cards reset Ride the Bus");
+    // A reset costs what the streak holds: nothing on a fresh Ride the Bus, up to a hand's worth
+    // of odds once it carries the score. The round simulation already prices this round.
+    if (c.tags.has("no_face") && o.cards.some(isFace) && !clears && streak.bus > 0) {
+      u -= Math.min(0.12, 0.015 * streak.bus);
+      notes.push(`face cards reset Ride the Bus (+${streak.bus} Mult)`);
     }
     if (c.owned.has("j_square") && o.cards.length === 4) {
       u += 0.05;
       notes.push("exactly 4 cards grows Square Joker");
     }
-    if (c.tags.has("vary_hand") && e.hand === c.mostPlayed) {
-      u -= 0.1;
-      notes.push("the most played hand resets Obelisk");
+    if (c.tags.has("vary_hand") && e.hand === c.mostPlayed && streak.obelisk > 1) {
+      u -= Math.min(0.1, 0.1 * (streak.obelisk - 1));
+      notes.push(`the most played hand resets Obelisk (X${+streak.obelisk.toFixed(2)})`);
     }
     if (c.tags.has("repeat_hand") && playedThisRound.includes(e.hand)) u += 0.04;
     // Kickers that don't score still leave the hand: a free discard on top of the play.
     const kickers = o.cards.length - e.scoring.length;
     if (kickers > 0 && !clears && s.handsLeft > 1) {
       u += 0.03;
+      b += 0.03;
       notes.push(`the ${kickers} card${kickers === 1 ? "" : "s"} that don't score cycle out for fresh draws, like a free discard`);
     }
     const heldValue = o.cards.filter((x) => x.enhancement === "STEEL" || x.enhancement === "GOLD").length;
@@ -493,11 +553,12 @@ function handCandidates(c: Ctx, max: number): Draft[] {
   for (const d of discardOptions(s, best, 3)) {
     const chanceText = d.target && d.chance !== undefined ? ` ${Math.round(d.chance * 100)}% chance to draw into ${d.target}${d.targetScore ? ` (about ${d.targetScore} chips)` : ""}.` : " Cycles weak cards for fresh draws.";
     const expected = d.chance !== undefined && d.targetScore ? d.chance * d.targetScore + (1 - d.chance) * bestScore : bestScore * 1.05;
-    const b = Math.min(expected / Math.max(pace, 1), 2) * 0.5 * (bestClears ? 0.3 : 1) + (dig ? 0.2 : 0);
+    let b = Math.min(expected / Math.max(pace, 1), 2) * 0.5 * (bestClears ? 0.3 : 1) + (dig ? 0.2 : 0);
     let u = b;
     const notes: string[] = [];
     if (d.target && c.planHands.has(d.target)) {
       u += 0.1;
+      b += 0.09;
       notes.push("digs for the build's hand");
     }
     if (discardCost) {
@@ -573,14 +634,59 @@ function handCandidates(c: Ctx, max: number): Draft[] {
   } else c.path.push({ node: "Clear now?", branch: "No: one-hand values", why: "the round simulation is off or the hand is too large" });
 
   const uses = useCandidates(c, "hand", bestClears).slice(0, 4);
-  // A clearly useful Tarot or Planet costs no hand, so it goes before the move it would improve.
+  // Planets and deck-changing cards used now are judged by the round after them: the best moves
+  // they leave, simulated like every other move. The rest: a clearly useful card costs no hand,
+  // so it goes before the move it would improve.
+  const simulated = !bestClears && FEATURES.roundSim && s.hand.length <= 12 ? simulateUses(s, uses) : new Set<Draft>();
+  // Tarots that work on cards in hand are kept for the boss blind while a slot is free, unless the
+  // simulation says this round needs them now (the user's call: save Tarots for the boss).
+  if (s.blind?.type !== "BOSS" && s.consumables.length < s.consumableSlots) {
+    for (const u of uses) {
+      const item = s.consumables.find((x) => x.index === u.call.params?.consumable);
+      if (item?.set === "TAROT" && item.targetMax > 0 && !(simulated.has(u) && !bestClears)) u.utility = Math.min(u.utility, 0.3);
+    }
+  }
   if (!bestClears) {
     const top = Math.max(0, ...out.map((d) => d.utility));
-    for (const u of uses) if (u.utility >= 1.02) u.utility = Math.max(u.utility, top + 0.05);
+    for (const u of uses) if (!simulated.has(u) && u.utility >= 1.02) u.utility = Math.max(u.utility, top + 0.05);
   }
   const free = uses.find((u) => u.utility >= 1.02);
   c.path.unshift(free ? { node: "Free card first?", branch: `Yes: ${free.label}`, why: "using it costs no hand" } : { node: "Free card first?", branch: "No", why: s.consumables.length ? "no held card helps this hand" : "no consumables held" });
   return [...special, ...uses.filter((u) => u.utility >= 0.9), ...out, ...uses.filter((u) => u.utility < 0.9)].slice(0, max);
+}
+
+/**
+ * A Planet or a deck-changing Tarot or Spectral used before the next move: the hand and levels
+ * after it, then the best few plays and discards from there, each simulated to the end of the
+ * round. The use takes the best of those outcomes on the same scale as the moves themselves
+ * (a small edge for costing no hand), so it goes first only when the round goes better after it.
+ */
+function simulateUses(s: Snapshot, uses: Draft[]): Set<Draft> {
+  const done = new Set<Draft>();
+  const rand = mulberry32(s.round * 31337 + s.hand.length);
+  for (const u of uses) {
+    const index = u.call.params?.consumable;
+    const item = typeof index === "number" ? s.consumables.find((x) => x.index === index) : undefined;
+    if (!item) continue;
+    let after: Snapshot | undefined;
+    if (item.set === "PLANET" && PLANET_HAND[item.key]) after = { ...s, levels: levelUp(s.levels, PLANET_HAND[item.key]) };
+    else if (changesDeck(item.key)) {
+      const targets = (u.cards ?? []).map((i) => s.hand[i]).filter(Boolean);
+      const hand = applyToDeck(item, s.hand, targets, rand);
+      if (hand) after = { ...s, hand: hand.map((card, i) => ({ ...card, index: i })), consumables: s.consumables.filter((x) => x !== item) };
+    }
+    if (!after) continue;
+    const plays = playOptions(after, 3);
+    const discards = discardOptions(after, plays[0], 2);
+    const moves = [...plays.map((o) => ({ kind: "play" as const, cards: o.cards.map((x) => x.index) })), ...discards.map((d) => ({ kind: "discard" as const, cards: d.cards.map((x) => x.index) }))];
+    if (!moves.length) continue;
+    const best = roundOutcomes(after, moves, 40).sort((a, b) => b.clear - a.clear || b.reach - a.reach)[0];
+    u.utility = 0.22 + 1.2 * best.clear + 0.3 * best.reach + 0.02 * best.spare;
+    u.description += ` Simulated: after it, the best move beats the blind in ${Math.round(best.clear * 100)}% of ${best.samples} finishes.`;
+    u.chance = best.clear;
+    done.add(u);
+  }
+  return done;
 }
 
 /**
@@ -613,8 +719,16 @@ function simulateRound(s: Snapshot, base: Map<Draft, number>): SimTrace {
 // Shop
 // ---------------------------------------------------------------------------------------------
 
-/** Utility per unit of simulated boss odds a card adds (0.3 = from 40% to 70% of rounds beaten). */
-const SIM_WEIGHT = 1;
+/** Vouchers that change every round, as the simulation plays them. */
+const VOUCHER_ROUND: Record<string, { bonus: Setup["bonus"]; text: string }> = {
+  v_grabber: { bonus: { hands: 1 }, text: "one more hand a round" },
+  v_nacho_tong: { bonus: { hands: 1 }, text: "one more hand a round" },
+  v_wasteful: { bonus: { discards: 1 }, text: "one more discard a round" },
+  v_recyclomancy: { bonus: { discards: 1 }, text: "one more discard a round" },
+  v_paint_brush: { bonus: { handSize: 1 }, text: "one more card in hand" },
+  v_palette: { bonus: { handSize: 1 }, text: "one more card in hand" },
+};
+
 
 const asJoker = (item: Item, index: number): Joker => ({ index, key: item.key, label: item.label, effect: item.effect, stats: {}, edition: item.edition, rarity: item.rarity, debuff: false, eternal: Boolean(item.eternal), sell: item.sell });
 
@@ -646,12 +760,12 @@ function invisibleCopy(c: Ctx, inv: Joker): { utility: number; others: string[];
   const rest = others.map((j, i) => ({ ...j, index: i }));
   const setups: Setup[] = [{ jokers: s.jokers, levels: s.levels }, ...rest.map((j) => ({ jokers: [...rest, { ...j, index: rest.length, edition: j.edition === "NEGATIVE" ? undefined : j.edition }], levels: s.levels }))];
   const targets = bossTargets(s, 3);
-  const odds = targets.map((t) => roundOdds(s, setups, t, handsPerRound(s), discardsPerRound(s), 24));
+  const odds = targets.map((t, k) => roundOdds(s, setups, t, handsPerRound(s), discardsPerRound(s), 24, undefined, roundsTo(s, k)));
   const mean = (i: number) => odds.reduce((a, o) => a + o[i], 0) / odds.length;
   const gain = rest.reduce((a, _, i) => a + mean(i + 1), 0) / rest.length - mean(0);
   const worth = p.jokers.filter((r) => r.key !== "j_invisible").reduce((a, r) => a + r.worth, 0) / Math.max(1, others.length);
   return {
-    utility: Math.min(1.1, 0.55 + SIM_WEIGHT * Math.max(0, gain) + 0.25 * worth),
+    utility: Math.min(1.1, 0.55 + TUNING.simWeight * Math.max(0, gain) + 0.25 * worth),
     others: others.map((j) => j.label),
     text: `Simulated rounds at the bosses of antes ${s.ante}-${s.ante + 2}: beaten ${pcts(odds.map((o) => o[0]))} now, ${pcts(odds.map((o) => rest.reduce((a, _, i) => a + o[i + 1], 0) / rest.length))} on average with the copy.`,
   };
@@ -683,14 +797,17 @@ const NOTHING_TEXT = " In the simulated rounds it changed nothing at any of the 
  */
 function swapVictim(c: Ctx): (BuildProfile["jokers"][number] & { loss?: number }) | undefined {
   const { s, p } = c;
-  const sellable = p.jokers.filter((r) => !r.eternal && r.key !== "j_invisible");
-  if (!FEATURES.shopSim || s.jokers.length < s.jokerSlots || sellable.length < 2) return p.weakest && !p.weakest.eternal ? p.weakest : undefined;
+  // Selling a Negative joker takes its slot with it, so it never makes room.
+  const negative = (index: number) => s.jokers.find((j) => j.index === index)?.edition === "NEGATIVE";
+  const sellable = p.jokers.filter((r) => !r.eternal && r.key !== "j_invisible" && !negative(r.index));
+  const fallback = p.weakest && !p.weakest.eternal && !negative(p.weakest.index) ? p.weakest : sellable.sort((a, b) => a.worth - b.worth)[0];
+  if (!FEATURES.shopSim || s.jokers.length < s.jokerSlots || sellable.length < 2) return fallback;
   const t0 = performance.now();
   const targets = bossTargets(s, 3);
   const setups = [{ jokers: s.jokers, levels: s.levels }, ...sellable.map((r) => ({ jokers: s.jokers.filter((j) => j.index !== r.index), levels: s.levels }))];
-  const odds = targets.map((t) => roundOdds(s, setups, t, handsPerRound(s), discardsPerRound(s), 40));
+  const odds = targets.map((t, k) => roundOdds(s, setups, t, handsPerRound(s), discardsPerRound(s), 40, undefined, roundsTo(s, k)));
   const mean = (i: number) => odds.reduce((a, o) => a + o[i], 0) / odds.length;
-  const victim = sellable.map((r, i) => ({ ...r, loss: mean(0) - mean(i + 1) })).sort((a, b) => a.worth + SIM_WEIGHT * a.loss - (b.worth + SIM_WEIGHT * b.loss))[0];
+  const victim = sellable.map((r, i) => ({ ...r, loss: mean(0) - mean(i + 1) })).sort((a, b) => a.worth + TUNING.simWeight * a.loss - (b.worth + TUNING.simWeight * b.loss))[0];
   c.trace.sim = { kind: "bosses", ms: performance.now() - t0, compared: setups.length, samples: 40, summary: `Row full; ${victim.label} would be sold first` };
   return victim;
 }
@@ -707,7 +824,10 @@ function simulateOffers(c: Ctx, items: Item[], weak: ReturnType<typeof swapVicti
   const rand = mulberry32(s.round * 92821 + deck.length);
   const handFor = () => (s.phase === "SMODS_BOOSTER_OPENED" && s.hand.length ? s.hand : dealtHand(deck, s.handSize, rand));
   for (const item of FEATURES.shopSim ? items : []) {
-    if (item.set === "JOKER") {
+    const voucher = (item as Partial<ShopItem>).area === "voucher" ? VOUCHER_ROUND[item.key] : undefined;
+    if (voucher) {
+      setups.push({ item, setup: { jokers: s.jokers, levels: s.levels, bonus: voucher.bonus }, text: `with ${voucher.text}` });
+    } else if (item.set === "JOKER") {
       if (!full || item.edition === "NEGATIVE") setups.push({ item, setup: { jokers: [...s.jokers, asJoker(item, s.jokers.length)], levels: s.levels }, text: "with it" });
       else if (weak) setups.push({ item, setup: { jokers: [...s.jokers.filter((j) => j.index !== weak.index), asJoker(item, s.jokers.length)], levels: s.levels }, text: `with it in place of ${weak.label}` });
     } else if (item.set === "PLANET" && PLANET_HAND[item.key]) {
@@ -725,7 +845,7 @@ function simulateOffers(c: Ctx, items: Item[], weak: ReturnType<typeof swapVicti
   // This ante's boss and the next two: early on the row beats the coming boss either way, and what
   // a card is worth shows in the antes after.
   const all = [{ jokers: s.jokers, levels: s.levels }, ...setups.map((x) => x.setup)];
-  const perBoss = bossTargets(s, 3).map((target, k) => ({ ante: s.ante + k, target, odds: roundOdds(s, all, target, handsPerRound(s), discardsPerRound(s), 40) }));
+  const perBoss = bossTargets(s, 3).map((target, k) => ({ ante: s.ante + k, target, odds: roundOdds(s, all, target, handsPerRound(s), discardsPerRound(s), 40, undefined, roundsTo(s, k)) }));
   const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
   setups.forEach((x, i) =>
     out.set(x.item, {
@@ -815,9 +935,16 @@ function packOdds(c: Ctx, label: string): { gain: number; why: string } | undefi
 }
 
 function packValue(item: Item, c: Ctx, jokerFull: boolean): { value: number; why: string } | null {
-  const v = basePackValue(item, c, jokerFull);
+  const base = basePackValue(item, c, jokerFull);
+  // Measured shifts (tuning.ts): every pack, and Arcana packs on top (Roffle opens about 1.5 packs a
+  // shop from ante 3, Arcana most often; the agent opened 0.4-0.7, Buffoon first).
+  // What the pack's cards feed in the jokers held: Arcana for Vampire and Fortune Teller, Celestial
+  // for Constellation, Standard for Hologram (src/synergy.ts).
+  const kind = ["arcana", "celestial", "standard", "spectral", "buffoon"].find((k) => item.label.toLowerCase().includes(k));
+  const fed = kind ? enablerLift(`p_${kind}`, c.owned) : { lift: 0, for: [] };
+  const v = base && { ...base, value: base.value + TUNING.packBoost + (/arcana/i.test(item.label) ? TUNING.arcanaBoost - TUNING.tarotCut : 0) + (/spectral/i.test(item.label) ? TUNING.spectralBoost : 0) + TUNING.enablerBonus * fed.lift, why: `${base.why}${fedText(c, fed)}` };
   const odds = v && packOdds(c, item.label);
-  return v && odds ? { value: v.value + SIM_WEIGHT * 0.8 * odds.gain, why: `${v.why}; ${odds.why}` } : v;
+  return v && odds ? { value: v.value + TUNING.simWeight * 0.8 * odds.gain, why: `${v.why}; ${odds.why}` } : v;
 }
 
 function basePackValue(item: Item, c: Ctx, jokerFull: boolean): { value: number; why: string } | null {
@@ -876,20 +1003,37 @@ function bestOrder(c: Ctx): { order: number[]; gain: number } | null {
   const { s, p } = c;
   const n = s.jokers.length;
   if (n < 2 || n > 6) return null;
-  const current = powerWith(s, p, s.jokers);
+  // Scored over the hands the run plays, not only the build's: a conditional xMult (The Duo, Card
+  // Sharp, Photograph) may not fire in the build's typical hand but does in the others.
+  const played = Object.entries(s.levels).filter(([, l]) => (l?.played ?? 0) > 0).sort((a, b) => (b[1]?.played ?? 0) - (a[1]?.played ?? 0)).map(([h]) => h);
+  const hands = [...new Set([p.primary.name, ...played.slice(0, 2)])].filter((h) => ARCHETYPES[h]);
+  const scoreOf = (order: number[]) => {
+    const row = order.map((i, k) => ({ ...s.jokers[i], index: k }));
+    return hands.reduce((a, h) => a + powerOnHand(s, p, h, row), 0);
+  };
+  // Ties go to the order with every xMult joker after the +Mult and +Chips ones: the game applies
+  // jokers left to right, so an xMult that fires first multiplies less.
+  const kind = (i: number) => {
+    const tags = jokerTags(s.jokers[i].key, s.jokers[i].effect);
+    return tags.has("copy") ? 1 : tags.has("xmult") ? 2 : tags.has("mult") || tags.has("chips") ? 0 : 1;
+  };
+  const inversions = (order: number[]) => order.reduce((a, x, k) => a + order.slice(k + 1).filter((y) => kind(y) < kind(x) && kind(x) === 2).length, 0);
+  const now = s.jokers.map((_, i) => i);
+  const current = scoreOf(now);
   if (current <= 0) return null;
-  let best = { order: s.jokers.map((_, i) => i), score: current };
+  let best = { order: now, score: current, inv: inversions(now) };
   const permute = (rest: number[], acc: number[]) => {
     if (!rest.length) {
-      const score = powerWith(s, p, acc.map((i, k) => ({ ...s.jokers[i], index: k })));
-      if (score > best.score) best = { order: acc, score };
+      const score = scoreOf(acc);
+      const inv = inversions(acc);
+      if (score > best.score * 1.0001 || (score >= best.score * 0.9999 && inv < best.inv)) best = { order: acc, score, inv };
       return;
     }
     rest.forEach((x, i) => permute([...rest.slice(0, i), ...rest.slice(i + 1)], [...acc, x]));
   };
-  permute(s.jokers.map((_, i) => i), []);
+  permute(now, []);
   const gain = (best.score - current) / current;
-  return gain >= 0.03 ? { order: best.order, gain } : null;
+  return gain >= 0.01 || best.inv < inversions(now) ? { order: best.order, gain: Math.max(0, gain) } : null;
 }
 
 function shopCandidates(c: Ctx, max: number): Draft[] {
@@ -899,7 +1043,7 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
   const interestNow = interestOn(s, s.money);
   // Interest lost to a purchase weighs more at high stakes once the run is saving. While building
   // (antes 1-2 at Gold) it doesn't: experts buy the cheap early scoring there they'd skip at White.
-  const econWeight = p.econ.mode === "spend" ? 0 : p.econ.mode === "save" ? 0.07 * (1 + p.econ.pressure) : s.ante >= 2 ? 0.04 : 0.02;
+  const econWeight = p.econ.mode === "spend" ? 0 : p.econ.mode === "save" ? TUNING.interestLoss * (1 + p.econ.pressure) : s.ante >= 2 ? 0.04 : 0.02;
   const spend = (cost: number) => {
     const left = s.money - cost;
     const lost = interestNow - interestOn(s, left);
@@ -907,11 +1051,15 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
     // below the line (Roffle left 71-93% of shops from ante 3 with $25+), so only core buys clear it.
     const under = Math.max(0, p.econ.reserve - left);
     const underReserve = p.econ.mode === "save" && under > 0 ? Math.min(0.25, 0.05 + 0.015 * under * p.econ.pressure) : 0;
-    return { left, penalty: lost * econWeight + underReserve, note: lost > 0 ? ` Interest drops from ${money(interestNow)} to ${money(interestNow - lost)}.` : "" };
+    // Credit Card's debt costs no interest now, so it would look free: every new dollar under $0
+    // has to be paid back before interest starts again.
+    const debt = Math.max(0, -left) - Math.max(0, -s.money);
+    const notes = `${lost > 0 ? ` Interest drops from ${money(interestNow)} to ${money(interestNow - lost)}.` : ""}${debt > 0 ? ` Borrows ${money(debt)} on Credit Card.` : ""}`;
+    return { left, penalty: lost * econWeight + underReserve + debt * TUNING.debtDollar, note: notes };
   };
   const weak = swapVictim(c);
   const out: Draft[] = [];
-  const sims = simulateOffers(c, s.shop.filter((i) => i.area === "card" && i.cost <= s.buyingPower + (weak?.sell ?? 0)), weak);
+  const sims = simulateOffers(c, s.shop.filter((i) => (i.area === "card" || (i.area === "voucher" && VOUCHER_ROUND[i.key])) && i.cost <= s.buyingPower + (weak?.sell ?? 0)), weak);
   // Behind: the build estimate is under the next ante's boss, or the current row beats this ante's
   // boss in under half the simulated rounds.
   // Fork 1, the outlook: behind (or losing) the next bosses, money goes into power; else it banks.
@@ -934,7 +1082,7 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
   c.path.push(target && target.gain >= 0.05 ? { node: "Targets", branch: `Look for ${target.label}`, why: c.a!.targets.map((t) => `${t.label} +${Math.round(t.gain * 100)}`).join(", ") } : { node: "Targets", branch: "Nothing missing stands out", why: "no joker the code can score adds 5 points at the next ante's boss" });
   const simGain = (item: Item) => {
     const g = sims.get(item);
-    return g ? SIM_WEIGHT * (g.with - g.now) : 0;
+    return g ? TUNING.simWeight * (g.with - g.now) : 0;
   };
 
   for (const item of s.shop) {
@@ -951,7 +1099,25 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
       const nothing = changedNothing(item, sims.get(item));
       const dud = nothing ? 0.2 : 0;
       if (!jokerFull || item.edition === "NEGATIVE") {
-        if (item.cost > s.buyingPower) continue;
+        if (item.cost > s.buyingPower) {
+          // Short of money for a joker worth much more than the weakest one held: sell it to pay.
+          if (weak && item.cost <= s.buyingPower + weak.sell && fit.value + simGain(item) - weak.worth > Math.max(0.6, c.swapMargin)) {
+            const cost = spend(item.cost - weak.sell);
+            out.push({
+              id: slug(`swap_${weak.label}_for_${item.label}`),
+              kind: "swap",
+              label: `Sell ${weak.label}, buy ${item.label}`,
+              description: `Sell ${weak.label} (+${money(weak.sell)}; ${weakNote(c, weak)}) to afford ${what} for ${money(item.cost)}. For this run: ${fit.note}.${pivotText}${fit.expert}${simText(sims.get(item))} Leaves ${money(cost.left)}.${cost.note}`,
+              call: { method: "buy", params: { card: item.index } },
+              calls: [
+                { method: "sell", params: { joker: weak.index } },
+                { method: "buy", params: { card: item.index } },
+              ],
+              utility: 0.4 + (fit.value + simGain(item) - weak.worth) * 0.8 - cost.penalty - eternal,
+            });
+          }
+          continue;
+        }
         const cost = spend(item.cost);
         out.push({
           id: slug(`buy_${item.label}`),
@@ -991,14 +1157,16 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
       value = consumableValue(item, c);
       // A Planet or untargeted Tarot gets used right away; a targeted Tarot waits for a hand.
       // At high stakes experts lean on Planets, Tarots and Spectrals ("people overestimate the importance of jokers").
-      value = { ...value, value: 0.25 + value.value * (item.set === "PLANET" || item.targetMax <= 0 ? 0.5 : 0.4) + 0.06 * p.econ.pressure + simGain(item), why: `${value.why}${simText(sims.get(item)).replace(/\.$/, "")}` };
+      value = { ...value, value: 0.25 + value.value * (item.set === "PLANET" || item.targetMax <= 0 ? 0.5 : 0.4) + 0.06 * p.econ.pressure + simGain(item) - (item.set === "TAROT" ? TUNING.tarotCut : 0), why: `${value.why}${simText(sims.get(item)).replace(/\.$/, "")}` };
       kind = item.set.toLowerCase();
     } else if (item.area === "card" && isCard) {
       value = cardValue({ label: item.label, suit: item.key.split("_")[0], edition: item.edition }, c);
       kind = "playing card";
     } else if (item.area === "voucher") {
       const econ = (item.key === "v_seed_money" || item.key === "v_money_tree") && p.econ.mode !== "spend" && s.ante <= 3 + Math.round(p.econ.pressure) ? 0.1 * (1 + p.econ.pressure) : 0;
-      value = { value: (VOUCHER_VALUE[item.key] ?? 0.45) + econ, why: econ ? "raises the interest cap early" : "a permanent upgrade" };
+      // Vouchers that change every round are valued by the simulated bosses, like a joker.
+      const fed = enablerLift(item.key, c.owned);
+      value = { value: (VOUCHER_VALUE[item.key] ?? 0.45) * TUNING.voucherScale + TUNING.voucherExpertWeight * voucherDelta(item.key) + econ + simGain(item) + TUNING.enablerBonus * fed.lift, why: `${econ ? "raises the interest cap early" : "a permanent upgrade"}${fedText(c, fed)}${simText(sims.get(item)).replace(/\.$/, "")}` };
     } else if (item.area === "pack") {
       value = packValue(item, c, jokerFull);
       if (!value) continue;
@@ -1020,11 +1188,15 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
     // no rerolls before ante 5, a rich one rerolled at antes 2-3 with $45-95).
     const line = 5 * p.econ.interestCap + rentDue(s);
     const canAfford = p.econ.pressure >= 0.5 && p.econ.mode !== "spend" ? after >= line : p.econ.mode !== "save" || after >= p.econ.reserve;
-    let u = coreNeeded && canAfford ? 0.4 : p.econ.pressure >= 0.5 && !canAfford ? 0.08 : 0.18;
+    let u = coreNeeded && canAfford ? TUNING.rerollCore : p.econ.pressure >= 0.5 && !canAfford ? 0.08 : 0.18;
     if (c.owned.has("j_flash")) u += 0.08;
     if (p.econ.mode === "spend") u += 0.06;
     // Out of surplus, a reroll costs no interest; when the build is behind it is the way to find power.
     if (coreNeeded && after - rentDue(s) >= 5 * p.econ.interestCap) u += Math.min(0.1, 0.004 * p.econ.surplus) + (behind ? 0.05 : 0);
+    // Money past the cap earns nothing: spent on rerolls it looks for upgrades even when nothing is
+    // missing (Roffle at White, ante 4: rerolls in 86% of shops, $37 a visit, leaving with $31).
+    const spare = after - rentDue(s) - 5 * p.econ.interestCap - TUNING.rerollBuffer;
+    if (!coreNeeded && p.econ.interestCap > 0 && spare >= 0) u += Math.min(0.35, TUNING.rerollSurplus * (spare + s.rerollCost));
     if (FEATURES.targetReroll && canAfford && target && target.gain >= 0.05) u += Math.min(0.12, target.gain * 0.4);
     if (s.rerollCost === 0) u = Math.max(u, 0.5);
     const cost = spend(s.rerollCost);
@@ -1090,6 +1262,20 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
     });
   }
 
+  // A card the game won't let us use (Judgement or Wraith with every joker slot taken) only holds a
+  // slot: sold, it pays its price and makes room.
+  for (const item of s.consumables) {
+    if (!refusedUse(s, item, "hand") || s.jokers.length < s.jokerSlots) continue;
+    out.push({
+      id: slug(`sell_${item.label}_unusable`),
+      kind: "sell",
+      label: `Sell ${item.label} (+${money(item.sell)})`,
+      description: `Sell ${item.label} (+${money(item.sell)}): it can't be used while every joker slot is taken, and it holds a consumable slot.`,
+      call: { method: "sell", params: { consumable: item.index } },
+      utility: 0.46 + (s.consumables.length >= s.consumableSlots ? 0.08 : 0),
+    });
+  }
+
   // Money counts in $5 steps: when $1-2 short of the next interest step, a spare consumable can buy it.
   const rentNow = rentDue(s);
   const short = 5 - ((s.money - rentNow) % 5 + 5) % 5;
@@ -1116,7 +1302,7 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
       id: "rearrange_jokers",
       kind: "rearrange",
       label: `Reorder jokers: ${order.order.map((i) => s.jokers[i].label).join(", ")}`,
-      description: `Reorder the jokers to ${order.order.map((i) => s.jokers[i].label).join(", ")}: the build's hand scores about ${Math.round(order.gain * 100)}% more (xMult applies after +Mult; copy jokers copy their neighbour).`,
+      description: `Reorder the jokers to ${order.order.map((i) => s.jokers[i].label).join(", ")}: ${order.gain >= 0.01 ? `the hands the run plays score about ${Math.round(order.gain * 100)}% more` : "every xMult joker after the +Mult and +Chips ones"} (jokers apply left to right, so xMult goes last; copy jokers copy their neighbour).`,
       call: { method: "rearrange", params: { jokers: order.order } },
       utility: 0.5 + Math.min(0.3, order.gain),
     });
@@ -1127,7 +1313,7 @@ function shopCandidates(c: Ctx, max: number): Draft[] {
   // Money past the interest cap earns nothing, so leaving with it is only worth it when nothing on
   // the shelf helps; more so when the build is under the next ante's boss. The live runs that lost at
   // antes 4-7 left shops with $57-90 while Celestial packs and rerolls sat unbought.
-  let leave = 0.42;
+  let leave = TUNING.leave;
   const { surplus } = p.econ;
   if (p.econ.mode === "save" && s.money >= p.econ.reserve && surplus < 5) leave += 0.08 + 0.04 * p.econ.pressure;
   if (p.econ.mode === "spend" && s.money >= 10) leave -= 0.08;
@@ -1184,10 +1370,14 @@ function blindCandidates(c: Ctx): Draft[] {
     const next = s.blinds.find((x) => order.indexOf(x.type) === order.indexOf(b.type) + 1);
     const nextTarget = next?.target ?? b.target * 1.5;
     const ratio = (p.power * p.hands) / Math.max(1, nextTarget);
-    const tagValue = (b.tag && TAG_VALUE[b.tag.key]) ?? 0.35;
-    let u = tagValue - 0.15;
-    if (ratio < 1.6) u -= 0.3;
-    else if (ratio > 3) u += 0.1;
+    // A skip gives up this round's shop, so the next blind is played with the jokers held now.
+    const nextRule = next?.type === "BOSS" ? bossEffects(next.name, s.handSize) : undefined;
+    const odds = FEATURES.shopSim ? roundOdds(s, [{ jokers: s.jokers, levels: s.levels }], nextTarget / (nextRule?.targetScale ?? 1), handsPerRound(s), discardsPerRound(s), 40, nextRule)[0] : undefined;
+    const safe = odds !== undefined ? odds >= TUNING.skipSafeOdds : ratio >= TUNING.skipSafeRatio;
+    const tagValue = ((b.tag && TAG_VALUE[b.tag.key]) ?? 0.35) + (b.tag && TUNING.buTagWeight ? TUNING.buTagWeight * buTagDelta(b.tag.key) : 0);
+    let u = tagValue - TUNING.skipCost;
+    if (!safe) u -= 0.3;
+    else if (ratio > 3 && (odds === undefined || odds >= 0.99)) u += 0.1;
     if (stakeAtLeast(s.stake, "RED") && b.type === "SMALL") u += 0.08;
     // A skipped blind has no cash out, so its interest is lost too; at high stakes that decides it
     // (Roffle skipped no blinds in 26 logged Gold antes).
@@ -1205,7 +1395,7 @@ function blindCandidates(c: Ctx): Draft[] {
       id: slug(`skip_${b.name}`),
       kind: "skip",
       label: `Skip for ${b.tag?.name ?? "tag"}`,
-      description: `Skip the ${b.name} and take the ${b.tag?.name ?? "tag"}${b.tag?.effect ? `: ${b.tag.effect}` : ""}. Gives up ${reward} and this round's shop. The build makes about ${ratio.toFixed(1)}x the next blind (${nextTarget}).`,
+      description: `Skip the ${b.name} and take the ${b.tag?.name ?? "tag"}${b.tag?.effect ? `: ${b.tag.effect}` : ""}. Gives up ${reward} and this round's shop. ${odds !== undefined ? `With the jokers held now, simulated rounds beat the next blind (${nextTarget}) ${Math.round(odds * 100)}% of the time.` : `The build makes about ${ratio.toFixed(1)}x the next blind (${nextTarget}).`}`,
       call: { method: "skip" },
       utility: u,
     });
@@ -1263,7 +1453,7 @@ function packCandidates(c: Ctx): Draft[] {
   });
   const simGain = (item: Item) => {
     const g = sims.get(item);
-    return g ? SIM_WEIGHT * (g.with - g.now) : 0;
+    return g ? TUNING.simWeight * (g.with - g.now) : 0;
   };
   for (const item of s.pack) {
     if (item.requiresJokers > s.jokers.length) continue;

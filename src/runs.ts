@@ -33,7 +33,8 @@ export interface RecordedRun {
 type LogLine = TickRecord & { raw?: unknown; game?: string };
 
 const FILE = /^run-[\w-]+\.jsonl$/;
-const cache = new Map<string, { mtime: number; runs: RecordedRun[] }>();
+// The list keeps only each file's run summaries; a run's ticks are read again when it is opened.
+const cache = new Map<string, { mtime: number; metas: RunMeta[] }>();
 
 /** The ticks of a recorded run that sent a call to the game, minus starting it. */
 export function replaySteps(run: RecordedRun): TickRecord[] {
@@ -72,8 +73,10 @@ function parse(path: string): RecordedRun[] {
     groups[groups.length - 1].push(l);
   }
   const stem = basename(path, ".jsonl");
+  // A continuous session starts a new file per run, so a file can open on the menu ticks after the
+  // last run ended; a run needs at least one in-game tick.
   return groups
-    .filter((g) => g.some((l) => l.snapshot?.seed))
+    .filter((g) => g.some((l) => l.snapshot?.seed && l.snapshot.phase !== "MENU"))
     .map((g, index) => {
       const ticks = g.map(({ raw: _raw, game: _game, ...t }) => t as TickRecord);
       const first = g.find((l) => l.snapshot?.seed)!;
@@ -102,14 +105,19 @@ function parse(path: string): RecordedRun[] {
     });
 }
 
-function runsIn(logDir: string, file: string): RecordedRun[] {
+function metasIn(logDir: string, file: string): RunMeta[] {
   const path = join(logDir, file);
-  const mtime = statSync(path).mtimeMs;
-  const hit = cache.get(path);
-  if (hit && hit.mtime === mtime) return hit.runs;
-  const runs = parse(path);
-  cache.set(path, { mtime, runs });
-  return runs;
+  try {
+    const mtime = statSync(path).mtimeMs;
+    const hit = cache.get(path);
+    if (hit && hit.mtime === mtime) return hit.metas;
+    const metas = parse(path).map((r) => r.meta);
+    cache.set(path, { mtime, metas });
+    return metas;
+  } catch {
+    // A file too big to read whole (over 512 MB) stays out of the list rather than breaking it.
+    return [];
+  }
 }
 
 /** Every recorded run, newest first. */
@@ -121,7 +129,7 @@ export function listRuns(logDir: string): RunMeta[] {
     return [];
   }
   return files
-    .flatMap((f) => runsIn(logDir, f).map((r) => r.meta))
+    .flatMap((f) => metasIn(logDir, f))
     .sort((a, b) => b.startedAt - a.startedAt);
 }
 
@@ -129,7 +137,7 @@ export function loadRun(logDir: string, id: string): RecordedRun {
   const [stem, index] = id.split("~");
   const file = `${stem}.jsonl`;
   if (!FILE.test(file)) throw new Error(`no recorded run ${id}`);
-  const run = runsIn(logDir, file)[Number(index)];
+  const run = parse(join(logDir, file))[Number(index)];
   if (!run) throw new Error(`no recorded run ${id}`);
   return run;
 }
