@@ -11,9 +11,6 @@
 
 <sub>The dashboard viewing a recorded White-stake run played with cloud Jev. At tick 194 (a shop) the model's top pick, a Jumbo Arcana Pack at 42%, fell under the 55% confidence gate. The code's values outweighed it, and the agent left the shop. The game picture is the live window.</sub>
 
-<!-- Recording placeholder: docs/media/run.gif, a full White-stake run with the dashboard and the game side by side. -->
-> Recording coming: a full run at White stake (`docs/media/run.gif`).
-
 ## Contents
 
 - [How it decides](#how-it-decides)
@@ -119,11 +116,14 @@ flowchart TD
 
 | Where | Setup | Games | Outcome |
 | - | - | - | - |
-| Built-in simulator | White stake, code values only | 30 | Mean ante reached 6.0; 2 wins |
-| Built-in simulator | Gold stake, code values only | 30 | Mean ante reached 3.3 |
+| Built-in simulator | White stake, six decks, the shipped values | 300 | Mean ante reached 6.9, playing on past a win up to ante 16; 83 wins (28%) |
+| Built-in simulator | Red to Gold stake, six decks, the values during per-stake tuning | 360 per stake | Mean ante reached: Red 6.0, Green 4.9, Black 4.7, Blue 4.3, Purple 3.7, Orange 3.5, Gold 3.3. Wins fall from 18% at Red to none at Orange and Gold |
+| Real game | White stake, six decks, mock model, tuned values (`simWeight` 1.69) | 40 | 14 wins (35%); the values before tuning won 11 on the same seeds |
 | Real game | White stake, cloud Jev, first batch | 8 | 2 wins (Red and Blue decks); the other six ended at antes 3 to 6 |
 
-The simulator has no packs, Tarots or boss rerolls, so its numbers measure hand play and joker buying only. Don't compare them directly with real-game results.
+The six decks are Red, Blue, Yellow, Green, Black and Plasma. Simulator games use the mock model, so they measure the code's values, not Jev.
+
+The values in `src/tuning.ts` were measured, not picked. `tools/autotune.ts` moved one number at a time over about 19,000 simulator games. On 300 fixed seeds the values it found beat the old ones by +0.40 ± 0.13 average ante, and its later steps changed little. Raising `simWeight` from 1.69 to 2.2 then gained +0.18 ± 0.12 more on 300 fixed seeds. A night of per-deck and per-stake tuning (73 tests, 120 games per arm) kept 8 changes, about what chance alone gives at its bar, so none of them are shipped and `PROFILES` is empty. Telling per-deck differences this small apart would take several times more games per arm.
 
 ## Quickstart
 
@@ -307,22 +307,35 @@ instinct/
 │   ├── plan.ts          the committed build and the pivot rules
 │   ├── assess.ts        synergy, boss, boss pool, deck, Planets, targets, economy, outlook
 │   ├── round.ts         round simulation: per-move finishes and whole-round odds
+│   ├── parallel.ts      round simulations spread over worker threads (simworker.ts), same results
+│   ├── growth.ts        jokers that grow or run down from round to round
+│   ├── synergy.ts       what jokers do for each other, and what feeds them
+│   ├── direction.ts     the run's direction: the cards worth looking for
 │   ├── deckfix.ts       Tarot/Spectral effects applied to a copy of the deck
 │   ├── candidates.ts    legal moves per phase, the tree's forks, utilities, RPC calls
 │   ├── expert.ts        Roffle priors -> per-joker nudges
 │   ├── features.ts      switches for the decision stages
+│   ├── tuning.ts        the measured numbers the stages weigh, and per-deck/per-stake PROFILES
 │   ├── strategy.ts      the System One request: rules as facts, questions per phase
 │   ├── systemone.ts     HTTP engine (Jev or StartLux) + offline mock
 │   ├── policy.ts        gates and review modes
 │   ├── runs.ts          recorded runs: list, view, replay from seed
-│   └── sim.ts           in-process Balatro stand-in
+│   ├── sim.ts           in-process Balatro stand-in that speaks BlindDeck's methods
+│   └── sim/             the simulated vanilla game: run state, game loop, jokers, consumables, data
 ├── ui/                  dashboard: app.ts, flow.ts (loop), trace.ts, charts.ts, dom.ts
 ├── test/                node:test suites
 ├── tools/
 │   ├── batch.ts         fixed-seed batches on one or more instances
 │   ├── instances.sh     extra Balatro instances on their own ports
+│   ├── simbench.ts      seeded simulator games, one JSON line per game
+│   ├── tune.ts          paired arms on the same seeds: the difference and its standard error
+│   ├── autotune.ts      one-number-at-a-time search of src/tuning.ts, resumable
+│   ├── fidelity.py      how close the simulator is to the real game, from run logs
+│   ├── textures.py      the game's sprites for the dashboard, from your Balatro.love (kept local)
+│   ├── bu/              Balatro University claims pipeline (Python)
 │   └── roffle/          dataset pipeline (Python) and priors/agree/style tools (TS)
 ├── data/roffle/         Roffle Lite dataset, priors.json, style.json, joker catalog
+├── data/bu/             Balatro University claims, tier lists and caption words
 ├── scripts/play.sh      launch Balatro via Balala with watch-friendly settings
 ├── docs/media/          README images
 ├── balatro_controller.py   the first prototype: one Python tick, dry run
@@ -332,7 +345,7 @@ instinct/
 ## Testing
 
 ```bash
-npm test             # node:test over test/*.test.ts: 75 tests, no game or model needed
+npm test             # node:test over test/*.test.ts: 128 tests, no game or model needed
 npm install          # dev only: typescript + @types/node
 npm run typecheck    # tsc --noEmit over src, ui, test, tools
 ```
@@ -350,18 +363,20 @@ The suites cover hand detection and scoring, candidate lists, consumables, the d
 | `catalog/*.json` (jokers, consumables, blinds, tags from the game files) | Sprite crops (`catalog/sprites/`) |
 | | Third-party detector and Python packages (`tools/roffle/vendor/`, `.vendor/`) |
 
+`data/bu/` holds what Balatro University says to do in 19 of his videos: 176 claims with timestamped caption quotes, and his tier lists for all 150 jokers, 52 consumables and the tags (`tiers.json`, whose priors the agent reads). It was read without any model API, and every quote is checked by script against the captions; see `data/bu/README.md`.
+
 Run logs (`runs/`), local model weights (`models/`, `StartLux-Decision/`) and instance state (`.instances/`) are also kept out of git.
 
 ## Limitations and next steps
 
-- **The simulator is small.** It has 12 jokers, 8 Planets, 7 bosses and 2 tags. It has no packs, Tarots, Spectrals, vouchers or boss rerolls. Simulator numbers cover hand play and joker buying only.
+- **The simulator is close, not exact.** It deals the vanilla game (144 jokers, every pack, Tarot, Planet, Spectral, voucher, boss, tag, sticker and deck), but it lacks Hiker's card chips, and Lucky Cards and Bloodstone score at their expected value. Its games use the mock model, so the real game (`tools/batch.ts`) stays the judge.
 - **Unmodelled jokers count as their live stats only.** Jokers outside the 55 modelled by key (most vanilla jokers, and modded ones such as Cryptid's) apply their live `value.stats` unconditionally, and the estimate is flagged approximate. Inside a simulation, jokers keep their current values for the whole round.
 - **Boss rules are partly modelled.** Suit and face debuffs, The Flint, The Needle, The Water, The Manacle, The Eye, The Mouth, The Hook, The Psychic and The Serpent change the simulated rounds. Other bosses play as plain blinds.
 - **The greedy continuation ranks moves; it doesn't predict scores.** Hands larger than 12 cards skip the round tree and fall back to one-hand values.
 - **Jev latency is now the main speed limit.** Every decision that isn't forced waits for an answer, which takes a few hundred milliseconds (339 ms and 380 ms on the two ticks in the loop screenshots above).
 - **Shop confidence is low.** Jev's shop answers often fall below the 55% gate, so the blend of model and code values decides there.
 
-Next: more jokers modelled by key; packs and Tarots in the simulator; a committed harness for the feature-switch measurements; scoring runs on [evalatro](https://github.com/alesha-pro/evalatro); and the recordings marked above.
+Open directions, if the project is picked up again: a study of where runs are lost (which antes and bosses); scoring runs on [evalatro](https://github.com/alesha-pro/evalatro); and per-deck tuning with enough games per arm to resolve small differences.
 
 ## Acknowledgments
 

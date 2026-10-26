@@ -150,7 +150,8 @@ interface Arm {
 function run(arm: Arm, start: number, count: number): Promise<GameResult[]> {
   const args = ["--disable-warning=ExperimentalWarning", simbench, "--json", "--stakes", arm.stake, "--decks", arm.decks, "--from", String(start), "--games", String(count), ...(arm.set ? ["--set", arm.set] : []), ...(arm.profiles ? ["--profiles", arm.profiles] : []), ...(endless ? ["--endless", "--endless-to", endlessTo] : [])];
   return new Promise((resolve, reject) => {
-    const p = spawn(process.execPath, args, { stdio: ["ignore", "pipe", "inherit"] });
+    // Games run with the tuner's own node flags, so `node --single-threaded tools/autotune.ts` holds each to one core.
+    const p = spawn(process.execPath, [...process.execArgv, ...args], { stdio: ["ignore", "pipe", "inherit"] });
     let out = "";
     p.stdout.on("data", (d) => (out += d));
     p.on("error", reject);

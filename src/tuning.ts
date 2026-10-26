@@ -12,7 +12,10 @@ export const TUNING = {
   interestLoss: 0.07,
   /** Shop: leaving's base utility; buys and rerolls are measured against it. */
   leave: 0.42,
-  /** Shop: a reroll's utility when the build needs a piece and the money is there (0.34 from tools/autotune.ts). */
+  /**
+   * Shop: a reroll's utility when the build needs a piece and the money is there (0.34 from
+   * tools/autotune.ts; across 22 decks and stakes, 0.40 lost 0.07 ± 0.02 antes and 0.28 changed nothing).
+   */
   rerollCore: 0.34,
   /** Shop: utility per dollar past the interest cap (plus `rerollBuffer`) that a reroll gains when nothing is missing. */
   rerollSurplus: 0.012,
@@ -22,9 +25,11 @@ export const TUNING = {
    * Shop and packs: utility per unit of simulated boss odds a card adds (0.3 = from 40% to 70% of
    * rounds beaten). 1.69 from tools/autotune.ts: with the rerollCore, rerollSurplus, packBoost and
    * tarotCut values it found, +0.40 ± 0.13 average ante over the old values on 300 fresh simulator
-   * seeds, and +0.23 ± 0.42 on 40 real-game seeds (14 wins against 11).
+   * seeds, and +0.23 ± 0.42 on 40 real-game seeds (14 wins against 11). Then 2.197: `--profiles`
+   * kept it on the Black and Orange stakes and the Yellow deck, and on seeds 30000-30299 (six decks,
+   * White, endless to 16) it beat 1.69 by +0.18 ± 0.12 average ante (83 wins against 80).
    */
-  simWeight: 1.69,
+  simWeight: 2.197,
   /**
    * Shop and packs: a swap must beat the joker it replaces by this much; selling loses half the
    * price, and experts rarely churn. From `tools/roffle/agree.ts --margin` on 12 videos: at 0.3 the
